@@ -38,28 +38,34 @@
 
 ;; load layers
 (setq layers
-      '(
-	evil
-	helm
-	which-key
-	window
-	smartparens
-	git
-	linum
-	motion
-	multiedit
-	theme
+      (list
+       "layers/evil.el"
+       "layers/helm.el"
+       "layers/which-key.el"
+       "layers/window.el"
+       "layers/smartparens.el"
+       "layers/git.el"
+       "layers/linum.el"
+       "layers/motion.el"
+       "layers/multiedit.el"
+       "layers/theme.el"
+       "layers/email.el"
+	;;TODO
+	;; general
+	;; ess python latex
+	;; yasnippet flycheck
 	))
 
-(defun load-layer (layer-symbol)
-  (let ((layer-name (symbol-name layer-symbol)))
+(defun load-layer (layer-name)
     (condition-case err
-	(load (concat
-		user-emacs-directory "layers/"
-		layer-name ".el"))
-      (error (display-warning :error
-	      (concat "Error loading "
-		      layer-name ": "
-		      (error-message-string err)))))))
+	(load (concat user-emacs-directory
+			layer-name))
+	(error (display-warning :error
+		(concat "Error loading "
+			layer-name ": "
+			(error-message-string err))))))
 
 (mapcar 'load-layer layers)
+
+;; TODO: move into layer
+(defalias 'yes-or-no-p 'y-or-n-p)

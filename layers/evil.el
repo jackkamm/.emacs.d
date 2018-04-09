@@ -4,26 +4,28 @@
   ;; use emacs bindings in insert state
   (setq evil-insert-state-map
 	(make-sparse-keymap))
-  (define-key evil-insert-state-map
+  (evil-global-set-key 'insert
     (kbd "<escape>") 'evil-normal-state)
   ;; leader prefix
-  (define-key evil-motion-state-map
-    (kbd "SPC") leader-map)
+  (evil-global-set-key 'motion (kbd "SPC") leader-map)
+  (evil-global-set-key 'normal (kbd "SPC") leader-map)
+  ;; needed because of evil-integration.el
+  (with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "SPC") nil))
   ;; rebind universal-argument
-  (define-key evil-motion-state-map
-    (kbd "C-u") 'evil-scroll-up)
+  (evil-global-set-key 'motion (kbd "C-u") 'evil-scroll-up)
   (define-key leader-map
     (kbd "u") 'universal-argument)
-  ;; i in motion state executes in emacs state
-  (define-key evil-motion-state-map
-    (kbd "i") 'evil-execute-in-emacs-state)
+  ;; motion-state adjustments
+  (evil-global-set-key
+   'motion (kbd "i") 'evil-execute-in-emacs-state)
+  (evil-global-set-key 'motion (kbd "+") nil)
+  (evil-global-set-key 'motion (kbd "-") nil)
   ;; cursor colors
   (setq evil-normal-state-cursor "yellow"
 	evil-motion-state-cursor "purple"
 	evil-insert-state-cursor '(bar "cyan")
 	evil-emacs-state-cursor "cyan")
-  ;; start dired-mode in motion state
-  (evil-set-initial-state 'dired-mode 'motion)
   )
 
 (use-package evil-surround
