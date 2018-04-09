@@ -18,6 +18,9 @@
     (kbd "C-u") 'evil-scroll-up)
   (define-key leader-map
     (kbd "u") 'universal-argument)
+  ;; i in motion state executes in emacs state
+  (define-key evil-motion-state-map
+    (kbd "i") 'evil-execute-in-emacs-state)
   ;; cursor colors
   (setq evil-normal-state-cursor "yellow"
 	evil-motion-state-cursor "purple"

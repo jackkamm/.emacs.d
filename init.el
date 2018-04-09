@@ -24,19 +24,21 @@
 (setq leader-map (make-sparse-keymap))
 
 ;; load layers
-(mapcar
- 'load (mapcar
-	'(lambda
-	   (layer)
-	   (concat "~/.emacs.d/lisp/"
-		   (symbol-name layer)
-		   ".el"))
-	'(
-	  theme
-	  evil
-	  helm
-	  which-key
-	  window
-	  smartparens
-	  git
-	  )))
+(setq layers
+      '(
+	evil
+	helm
+	which-key
+	window
+	smartparens
+	git
+	theme
+	linum
+	))
+
+(defun load-layer (layer-symbol)
+  (load (concat
+	 user-emacs-directory "layers/"
+	 (symbol-name layer-symbol) ".el")))
+
+(mapcar 'load-layer layers)
