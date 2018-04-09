@@ -9,10 +9,6 @@
   ;; leader prefix
   (define-key evil-motion-state-map
     (kbd "SPC") leader-map)
-  (define-key evil-insert-state-map
-    (kbd "M-m") leader-map)
-  (define-key evil-emacs-state-map
-    (kbd "M-m") leader-map)
   ;; rebind universal-argument
   (define-key evil-motion-state-map
     (kbd "C-u") 'evil-scroll-up)

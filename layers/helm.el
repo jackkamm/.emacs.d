@@ -12,3 +12,11 @@
   (define-key helm-map (kbd "C-z")  'helm-select-action)
   (define-key helm-map (kbd "M-x")  'helm-select-action)
   )
+
+(use-package helm-projectile
+  :bind (:map leader-map
+	      ("/" . helm-projectile-ag)))
+
+(use-package helm-swoop
+  :bind (:map leader-map
+	      ("s s" . helm-swoop)))
