@@ -1,0 +1,3 @@
+[submodule "snippets/latex-mode"]
+	path = snippets/latex-mode
+	url = https://github.com/jackkamm/yasnippets-latex

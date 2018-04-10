@@ -61,7 +61,7 @@
 ;; load layers
 (setq layers
       (list
-       ;; completion framework
+       ;; completion
        "layers/helm.el"
 
        ;; editing
@@ -69,7 +69,8 @@
        "layers/motion.el" ;avy, evil-easymotion
        "layers/multiedit.el" ;iedit, multicursor
        "layers/smartparens.el"
-       ;; TODO: yasnippet flycheck undo-tree
+       "layers/snippet.el"
+       ;; TODO: flycheck undo-tree
 
        ;; applications
        "layers/git.el"
