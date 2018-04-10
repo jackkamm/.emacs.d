@@ -1,23 +1,17 @@
 (setq window-map (make-sparse-keymap))
 (define-key leader-map (kbd "w") window-map)
 
-(define-key window-map (kbd "m") 'delete-other-windows)
-(define-key window-map (kbd "d") 'delete-window)
-
 (winner-mode)
-(define-key window-map (kbd "u") 'winner-undo)
-(define-key window-map (kbd "U") 'winner-redo)
+(bind-keys :map window-map
+	   ("m" . delete-other-windows)
+	   ("d" . delete-window)
+	   ("u" . winner-undo)
+	   ("U" . winner-redo)
+	   ("l" . evil-window-right)
+	   ("h" . evil-window-left)
+	   ("j" . evil-window-down)
+	   ("k" . evil-window-up))
 
-(with-eval-after-load 'evil
-  (define-key window-map
-    (kbd "l") 'evil-window-right)
-  (define-key window-map
-    (kbd "h") 'evil-window-left)
-  (define-key window-map
-    (kbd "j") 'evil-window-down)
-  (define-key window-map
-    (kbd "k") 'evil-window-up)
-  )
 
 (use-package ace-window
   :bind (:map window-map

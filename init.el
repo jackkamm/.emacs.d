@@ -61,7 +61,7 @@
        "layers/motion.el" ;avy, evil-easymotion
        "layers/multiedit.el" ;iedit, multicursor
        "layers/smartparens.el"
-       ;; TODO: yasnippet flycheck
+       ;; TODO: yasnippet flycheck undo-tree
 
        ;; applications
        "layers/git.el"
@@ -73,7 +73,7 @@
        "layers/which-key.el"
        "layers/linum.el"
 
-       ;; major-modes and languages
+       ;; major-modes, languages
        ;; TODO: ess python latex org
 
        ;; initialization
