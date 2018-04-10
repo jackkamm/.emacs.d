@@ -6,9 +6,7 @@
 
 ;; needed because of evil-integration.el
 (with-eval-after-load 'dired
-(define-key dired-mode-map (kbd "SPC") nil))
-
-;; rebind universal-argument
+  (define-key dired-mode-map (kbd "SPC") nil))
 
 ;; motion-state adjustments
 (evil-global-set-key 'motion (kbd "C-u") 'evil-scroll-up)
@@ -23,3 +21,9 @@
 (use-package evil-surround
   :config
   (global-evil-surround-mode 1))
+
+;; override `comint-delchar-or-maybe-eof'
+(with-eval-after-load 'comint
+  (bind-keys :map comint-mode-map
+	     ("C-d" . nil)
+	     ("C-c C-d" . comint-delchar-or-maybe-eof)))

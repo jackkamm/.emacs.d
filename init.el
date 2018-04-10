@@ -44,7 +44,9 @@
     "q q" 'save-buffers-kill-terminal
     "q f" 'delete-frame
     "b d" 'kill-buffer
-    "b x" 'kill-buffer-and-window)
+    "b x" 'kill-buffer-and-window
+    "z" 'evil-execute-in-emacs-state
+    "!" 'shell-command)
   (general-create-definer leader-bind-local
     :states '(motion visual insert emacs)
     :prefix "SPC m"
@@ -75,7 +77,8 @@
        "layers/hidpi.el"
 
        ;; major-modes, languages
-       ;; TODO: ess python latex org
+       "layers/ess.el"
+       ;; TODO: python latex org
 
        ;; initialization
        "layers/start-server.el"
