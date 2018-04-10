@@ -2,10 +2,11 @@
   :config
   (require 'helm-config)
   (helm-mode 1)
-  (define-key leader-map (kbd "SPC") 'helm-M-x)
-  (define-key leader-map (kbd "f f") 'helm-find-files)
-  (define-key leader-map (kbd "f r") 'helm-recentf)
-  (define-key leader-map (kbd "b b") 'helm-buffers-list)
+  (bind-keys :map leader-map
+	     ("SPC" . helm-M-x)
+	     ("f f" . helm-find-files)
+	     ("f r" . helm-recentf)
+	     ("b b" . helm-buffers-list))
   ;; rebind tab
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)

@@ -7,6 +7,7 @@
   (evil-set-initial-state 'notmuch-hello-mode 'motion)
   (evil-set-initial-state 'notmuch-search-mode 'motion)
   (evil-set-initial-state 'notmuch-tree-mode 'motion)
+  (evil-set-initial-state 'notmuch-show-mode 'motion)
   ;; send from multiple accounts with msmtp
   ;; https://notmuchmail.org/emacstips/#index11h2
   (setq mail-specify-envelope-from t

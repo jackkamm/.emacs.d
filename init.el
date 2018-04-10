@@ -1,5 +1,5 @@
 ;; bootstrap use-package
-;; from https://github.com/jwiegley/use-package/issues/313
+;; (https://github.com/jwiegley/use-package/issues/313)
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
@@ -17,44 +17,69 @@
 ;; always install missing packages
 (setq use-package-always-ensure t)
 
-;; external custom-file
-(setq custom-file "~/.emacs.d/custom.el")
-(if (file-exists-p custom-file)
-    (load-file custom-file))
-
-;; start server
-(require 'server)
-(unless (server-running-p) (server-start))
-
-;; leader key
+;; bind-key
 (use-package bind-key)
-(setq leader-map (make-sparse-keymap))
-(bind-key* "M-m" leader-map)
-(bind-keys :map leader-map
-	   ("q q" . save-buffers-kill-terminal)
-	   ("q f" . delete-frame)
-	   ("b d" . kill-buffer)
-	   ("b x" . kill-buffer-and-window))
+
+;; evil
+(use-package evil
+  :config
+  (evil-mode)
+  (evil-global-set-key 'motion (kbd "SPC") nil))
+
+;; general
+(use-package general
+  :config
+  (general-override-mode)
+  (general-create-definer leader-bind
+    :states '(motion
+	      normal ;override normal bindings
+	      visual insert emacs)
+    :prefix "SPC"
+    :keymaps 'override
+    :global-prefix "M-m"
+    :prefix-map 'leader-map)
+  ;; create leader-map
+  (leader-bind
+    "u" 'universal-argument
+    "q q" 'save-buffers-kill-terminal
+    "q f" 'delete-frame
+    "b d" 'kill-buffer
+    "b x" 'kill-buffer-and-window)
+  (general-create-definer leader-bind-local
+    :states '(motion visual insert emacs)
+    :prefix "SPC m"
+    :global-prefix "M-m m"))
 
 ;; load layers
 (setq layers
       (list
-       "layers/evil.el"
+       ;; completion framework
        "layers/helm.el"
-       "layers/which-key.el"
-       "layers/window.el"
+
+       ;; editing
+       "layers/evil.el"
+       "layers/motion.el" ;avy, evil-easymotion
+       "layers/multiedit.el" ;iedit, multicursor
        "layers/smartparens.el"
+       ;; TODO: yasnippet flycheck
+
+       ;; applications
        "layers/git.el"
-       "layers/linum.el"
-       "layers/motion.el"
-       "layers/multiedit.el"
-       "layers/theme.el"
        "layers/email.el"
-	;;TODO
-	;; general
-	;; ess python latex
-	;; yasnippet flycheck
-	))
+
+       ;; theming
+       "layers/theme.el"
+       "layers/window-layout.el"
+       "layers/which-key.el"
+       "layers/linum.el"
+
+       ;; major-modes and languages
+       ;; TODO: ess python latex org
+
+       ;; initialization
+       "layers/start-server.el"
+       "layers/set-custom-file.el"
+       ))
 
 (defun load-layer (layer-name)
     (condition-case err
@@ -67,5 +92,3 @@
 
 (mapcar 'load-layer layers)
 
-;; TODO: move into layer
-(defalias 'yes-or-no-p 'y-or-n-p)
