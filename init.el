@@ -70,7 +70,7 @@
        "layers/multiedit.el" ;iedit, multicursor
        "layers/smartparens.el"
        "layers/snippet.el"
-       ;; TODO: flycheck undo-tree
+       ;; TODO: flycheck
 
        ;; applications
        "layers/git.el"
@@ -94,6 +94,7 @@
        ;; initialization
        "layers/start-server.el"
        "layers/set-custom-file.el"
+       "layers/tramp.el"
        ))
 
 (defun load-layer (layer-name)
