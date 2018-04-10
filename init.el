@@ -72,6 +72,7 @@
        "layers/window-layout.el"
        "layers/which-key.el"
        "layers/linum.el"
+       "layers/hidpi.el"
 
        ;; major-modes, languages
        ;; TODO: ess python latex org
