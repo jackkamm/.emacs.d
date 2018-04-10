@@ -82,6 +82,7 @@
        "layers/which-key.el"
        "layers/linum.el"
        "layers/hidpi.el"
+       "layers/y-or-n-p.el"
 
        ;; languages
        "layers/python.el"
