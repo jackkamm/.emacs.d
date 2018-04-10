@@ -89,7 +89,7 @@
        "layers/org.el"
        "layers/org-babel.el"
        "layers/tex.el"
-       ;; TODO: c-c++
+       ;; TODO: c-c++ ein
 
        ;; initialization
        "layers/start-server.el"
