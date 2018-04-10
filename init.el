@@ -82,11 +82,12 @@
        "layers/linum.el"
        "layers/hidpi.el"
 
-       ;; major-modes, languages
+       ;; languages
+       "layers/python.el"
        "layers/ess.el"
        "layers/org.el"
        "layers/org-babel.el"
-       ;; TODO: python latex
+       ;; TODO: latex
 
        ;; initialization
        "layers/start-server.el"
