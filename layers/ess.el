@@ -30,6 +30,10 @@
 	 ("\\.[Jj][Mm][Dd]\\'" . ess-jags-mode))
   :commands (R stata julia SAS)
   :config
+  (evil-set-initial-state 'ess-help-mode 'motion)
+  ;; fix annoying ESS indentation
+  ;; http://r.789695.n4.nabble.com/Commenting-conventions-td3216584.html
+  (setq ess-indent-with-fancy-comments nil)
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil)
   ;; Follow Hadley Wickham's R style guide

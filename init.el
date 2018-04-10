@@ -52,6 +52,12 @@
     :prefix "SPC m"
     :global-prefix "M-m m"))
 
+;; org-plus-contrib
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/"))
+(use-package org
+  :defer t :ensure org-plus-contrib)
+
 ;; load layers
 (setq layers
       (list
@@ -78,7 +84,9 @@
 
        ;; major-modes, languages
        "layers/ess.el"
-       ;; TODO: python latex org
+       "layers/org.el"
+       "layers/org-babel.el"
+       ;; TODO: python latex
 
        ;; initialization
        "layers/start-server.el"
