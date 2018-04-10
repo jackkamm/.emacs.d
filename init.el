@@ -87,7 +87,8 @@
        "layers/ess.el"
        "layers/org.el"
        "layers/org-babel.el"
-       ;; TODO: latex
+       "layers/tex.el"
+       ;; TODO: c-c++
 
        ;; initialization
        "layers/start-server.el"
