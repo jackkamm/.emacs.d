@@ -40,6 +40,7 @@
     :prefix-map 'leader-map)
   ;; create leader-map
   (leader-bind
+    ;; TODO: bind help commands
     "u" 'universal-argument
     "q q" 'save-buffers-kill-terminal
     "q f" 'delete-frame
@@ -50,7 +51,10 @@
   (general-create-definer leader-bind-local
     :states '(motion visual insert emacs)
     :prefix "SPC m"
-    :global-prefix "M-m m"))
+    :global-prefix "M-m m")
+  ;; TODO: make "SPC e" another local-prefix, for "eval"
+  ;; (use for emacs-lisp, ess, python-shell-send, latex-master-command)
+  )
 
 ;; org-plus-contrib
 (add-to-list 'package-archives
@@ -62,6 +66,7 @@
 (setq layers
       (list
        ;; completion
+       ;; TODO: bind helm-apropos
        "layers/helm.el"
 
        ;; editing
@@ -83,6 +88,7 @@
        "layers/linum.el"
        "layers/hidpi.el"
        "layers/y-or-n-p.el"
+       "layers/highlight.el" ;TODO: SPC s h, SPC s c
 
        ;; languages
        "layers/python.el"
@@ -90,9 +96,9 @@
        "layers/org.el"
        "layers/org-babel.el"
        "layers/tex.el"
-       ;; TODO: c-c++ ein
+       ;; TODO: emacs-lisp c-c++ ein
 
-       ;; initialization
+       ;; miscellaneous
        "layers/start-server.el"
        "layers/set-custom-file.el"
        "layers/tramp.el"
