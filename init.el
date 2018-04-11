@@ -55,8 +55,10 @@
     "q" '(:ignore t :which-key "quit")
     "q q" 'save-buffers-kill-terminal
     "q f" 'delete-frame
-    ;; other prefixes
+    ;; files
     "f" '(:ignore t :which-key "file")
+    "fs" 'save-buffer
+    ;; other prefixes
     "e" '(:ignore t :which-key "eval")
     "m" '(:ignore t :which-key "major")
     "j" '(:ignore t :which-key "jump")
