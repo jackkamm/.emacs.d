@@ -92,7 +92,7 @@
        "layers/smartparens.el"
        "layers/snippet.el"
        "layers/flycheck.el"
-       ;; TODO company
+       "layers/company.el"
 
        ;; applications
        "layers/git.el"
