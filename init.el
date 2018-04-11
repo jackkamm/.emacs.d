@@ -66,7 +66,7 @@
     "q f" 'delete-frame
     ;; files
     "f" '(:ignore t :which-key "file")
-    "fs" 'save-buffer
+    "fs" 'save-some-buffers
     ;; other prefixes
     "e" '(:ignore t :which-key "eval")
     "m" '(:ignore t :which-key "major")
@@ -109,6 +109,7 @@
        "layers/snippet.el"
        "layers/flycheck.el"
        "layers/company.el"
+       "layers/xref.el"
 
        ;; applications
        "layers/git.el"
@@ -121,9 +122,8 @@
        "layers/hidpi.el"
        "layers/prompts.el"
        "layers/pos-tip.el"
-       "layers/highlight.el" ;TODO SPC s h, SPC s c
+       "layers/highlight.el"
        "layers/popwin.el"
-       ;; TODO nicer cursor colors
 
        ;; languages
        "layers/python.el"
@@ -133,7 +133,7 @@
        "layers/tex.el"
        "layers/emacs-lisp.el"
        "layers/ein.el"
-       ;; TODO c-c++ ein
+       "layers/cquery.el"
 
        ;; miscellaneous
        "layers/start-server.el"
