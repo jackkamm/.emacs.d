@@ -8,6 +8,20 @@
   (evil-set-initial-state 'notmuch-search-mode 'motion)
   (evil-set-initial-state 'notmuch-tree-mode 'motion)
   (evil-set-initial-state 'notmuch-show-mode 'motion)
+  (evil-define-key 'motion notmuch-common-keymap
+    "J" 'notmuch-jump-search)
+  (evil-define-key '(visual motion) notmuch-search-mode-map
+    "*" 'notmuch-search-tag-all
+    "+" 'notmuch-search-add-tag
+    "-" 'notmuch-search-remove-tag)
+  (evil-define-key '(visual motion) notmuch-show-mode-map
+    "*" 'notmuch-show-tag-all
+    "+" 'notmuch-show-add-tag
+    "-" 'notmuch-show-remove-tag)
+  (evil-define-key '(visual motion) notmuch-tree-mode-map
+    "*" 'notmuch-tree-tag-thread
+    "+" 'notmuch-tree-add-tag
+    "-" 'notmuch-tree-remove-tag)
   ;; send from multiple accounts with msmtp
   ;; https://notmuchmail.org/emacstips/#index11h2
   (setq mail-specify-envelope-from t
