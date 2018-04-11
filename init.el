@@ -22,6 +22,8 @@
 
 ;; evil
 (use-package evil
+  :init
+  (setq evil-want-integration nil) ;evil-collection
   :config
   (evil-mode)
   (evil-global-set-key 'motion (kbd "SPC") nil))
@@ -79,7 +81,8 @@
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/"))
 (use-package org
-  :defer t :ensure org-plus-contrib)
+  ;;:defer t
+  :ensure org-plus-contrib)
 
 ;; load layers
 (setq layers
@@ -88,7 +91,7 @@
        "layers/helm.el"
 
        ;; editing
-       "layers/evil.el"
+       "layers/evil.el" ;TODO evil-collection
        "layers/motion.el" ;avy, evil-easymotion
        "layers/multiedit.el" ;iedit, multicursor
        "layers/smartparens.el"
