@@ -15,3 +15,9 @@
     "tt" 'load-theme
     "tl" 'load-solarized-light
     "td" 'load-solarized-dark))
+
+;; evil cursor colors
+(setq evil-normal-state-cursor "orange"
+    evil-motion-state-cursor "violet"
+    evil-insert-state-cursor '(bar "gray")
+    evil-emacs-state-cursor "gray")

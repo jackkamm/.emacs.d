@@ -23,10 +23,17 @@
 ;; evil
 (use-package evil
   :init
-  (setq evil-want-integration nil) ;evil-collection
+  (setq evil-want-integration nil)
+  (setq evil-want-C-u-scroll t)
   :config
   (evil-mode)
-  (evil-global-set-key 'motion (kbd "SPC") nil))
+  (evil-global-set-key 'motion (kbd "SPC") nil)
+  (evil-global-set-key 'motion (kbd "RET") nil))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 ;; which-key
 (use-package which-key :config (which-key-mode))
@@ -91,10 +98,10 @@
        "layers/helm.el"
 
        ;; editing
-       "layers/evil.el" ;TODO evil-collection
+       "layers/evil-insert-hybrid.el"
        "layers/motion.el" ;avy, evil-easymotion
        "layers/multiedit.el" ;iedit, multicursor
-       "layers/smartparens.el"
+       "layers/parens.el" ;smartparens, evil-surround
        "layers/snippet.el"
        "layers/flycheck.el"
        "layers/company.el"
