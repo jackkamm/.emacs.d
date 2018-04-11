@@ -62,7 +62,7 @@
     "b x" 'kill-buffer-and-window
     ;; quitting
     "q" '(:ignore t :which-key "quit")
-    "q q" 'save-buffers-kill-terminal
+    "q q" 'save-buffers-kill-emacs
     "q f" 'delete-frame
     ;; files
     "f" '(:ignore t :which-key "file")
