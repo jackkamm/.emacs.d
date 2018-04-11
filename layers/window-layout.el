@@ -13,7 +13,11 @@
 	   ("l" . evil-window-right)
 	   ("h" . evil-window-left)
 	   ("j" . evil-window-down)
-	   ("k" . evil-window-up))
+	   ("k" . evil-window-up)
+	   ("L" . evil-window-move-far-right)
+	   ("H" . evil-window-move-far-left)
+	   ("K" . evil-window-move-very-top)
+	   ("J" . evil-window-move-very-bottom))
 
 
 (use-package ace-window
