@@ -8,6 +8,9 @@
   (evil-set-initial-state 'notmuch-search-mode 'motion)
   (evil-set-initial-state 'notmuch-tree-mode 'motion)
   (evil-set-initial-state 'notmuch-show-mode 'motion)
+  (my-major-leader
+    :keymaps 'notmuch-common-keymap
+    "h" 'notmuch-help)
   (evil-define-key 'motion notmuch-common-keymap
     "J" 'notmuch-jump-search)
   (evil-define-key '(visual motion) notmuch-search-mode-map
