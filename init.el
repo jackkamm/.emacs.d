@@ -78,7 +78,8 @@
   (general-create-definer my-major-leader
     :states '(motion visual insert emacs)
     :prefix "SPC m"
-    :global-prefix "M-m m")
+    :global-prefix "M-m m"
+    :prefix-map 'my-major-leader-map)
   (general-create-definer my-eval-leader
     :states '(motion visual insert emacs)
     :prefix "SPC e"
@@ -90,6 +91,9 @@
 (use-package org
   ;;:defer t
   :ensure org-plus-contrib)
+
+;; hydra
+(use-package hydra)
 
 ;; load layers
 (setq layers
