@@ -19,5 +19,5 @@
 ;; evil cursor colors
 (setq evil-normal-state-cursor "orange"
     evil-motion-state-cursor "violet"
-    evil-insert-state-cursor '(bar "gray")
-    evil-emacs-state-cursor "gray")
+    evil-insert-state-cursor '(bar "turquoise")
+    evil-emacs-state-cursor "turquoise")
