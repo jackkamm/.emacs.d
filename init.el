@@ -116,6 +116,7 @@
        "layers/org-babel.el"
        "layers/tex.el"
        "layers/emacs-lisp.el"
+       "layers/ein.el"
        ;; TODO c-c++ ein
 
        ;; miscellaneous
