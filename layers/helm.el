@@ -6,7 +6,7 @@
 	     ("SPC" . helm-M-x)
 	     ("f f" . helm-find-files)
 	     ("f r" . helm-recentf)
-	     ("b b" . helm-buffers-list))
+	     ("b b" . helm-mini))
   (bind-keys :map help-map
 	     ("a" . helm-apropos))
   (bind-keys :map helm-map

@@ -58,6 +58,7 @@
     ;; other prefixes
     "f" '(:ignore t :which-key "file")
     "e" '(:ignore t :which-key "eval")
+    "m" '(:ignore t :which-key "major")
     "j" '(:ignore t :which-key "jump")
     "i" '(:ignore t :which-key "insert")
     "g" '(:ignore t :which-key "git")
