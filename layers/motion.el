@@ -7,3 +7,12 @@
 (use-package evil-easymotion
   :config
   (evilem-default-keybindings "SPC j e"))
+
+(with-eval-after-load 'hydra
+    (defhydra my-scroll-hydra (my-leader-map "n")
+      "scroll"
+      ("d" evil-scroll-down)
+      ("u" evil-scroll-up)
+      ("f" evil-scroll-page-down)
+      ("b" evil-scroll-page-up)
+      ("q" nil "quit")))

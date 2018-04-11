@@ -103,7 +103,7 @@
 
        ;; editing
        "layers/evil-insert-hybrid.el"
-       "layers/motion.el" ;avy, evil-easymotion
+       "layers/motion.el" ;avy, evil-easymotion, scroll hydra
        "layers/multiedit.el" ;iedit, multicursor
        "layers/parens.el" ;smartparens, evil-surround
        "layers/snippet.el"
