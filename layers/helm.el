@@ -7,8 +7,9 @@
 	     ("f f" . helm-find-files)
 	     ("f r" . helm-recentf)
 	     ("b b" . helm-mini))
+  (bind-keys :map help-map
+	     ("a" . helm-apropos))
   (bind-keys :map helm-map
-	     ("a" . helm-apropos)
 	     ("<tab>" . helm-execute-persistent-action)
 	     ("C-i" . helm-execute-persistent-action)
 	     ("C-z" . helm-select-action)
