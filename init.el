@@ -91,7 +91,8 @@
        "layers/multiedit.el" ;iedit, multicursor
        "layers/smartparens.el"
        "layers/snippet.el"
-       ;; TODO flycheck
+       "layers/flycheck.el"
+       ;; TODO company
 
        ;; applications
        "layers/git.el"
@@ -103,7 +104,9 @@
        "layers/linum.el"
        "layers/hidpi.el"
        "layers/prompts.el"
+       "layers/pos-tip.el"
        "layers/highlight.el" ;TODO SPC s h, SPC s c
+       "layers/popwin.el"
        ;; TODO nicer cursor colors
 
        ;; languages

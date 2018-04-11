@@ -1,7 +1,9 @@
 (setq python-shell-interpreter "ipython")
 (setq python-shell-interpreter-args "--simple-prompt -i")
+
 (with-eval-after-load 'python
-  (add-to-list 'python-shell-completion-native-disabled-interpreters "jupyter"))
+  (add-to-list 'python-shell-completion-native-disabled-interpreters
+	       "jupyter"))
 
 (use-package anaconda-mode
   :defer t
