@@ -2,10 +2,12 @@
   :defer t
   :ensure auctex
   :general
-  (leader-bind-local
+  (my-major-leader
     :keymaps 'LaTeX-mode-map
-    "m" 'TeX-command-master
-    "e" 'LaTeX-environment))
+    "e" 'LaTeX-environment)
+  (my-eval-leader
+    :keymaps 'LaTeX-mode-map
+    "e" 'TeX-command-master))
 
 ;; helm \includegraphics looks in local directory,
 ;; instead of TeX search path

@@ -1,5 +1,5 @@
 (use-package avy
-  :bind (:map leader-map
+  :bind (:map my-leader-map
 	      ("j j" . avy-goto-char-timer)
 	      ("j w" . avy-goto-word-1)
 	      ("j l" . avy-goto-line)))

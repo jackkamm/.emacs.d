@@ -1,5 +1,5 @@
 (use-package iedit
-  :bind (:map leader-map
+  :bind (:map my-leader-map
 	      ("s e" . iedit-mode)))
 
 (use-package evil-iedit-state

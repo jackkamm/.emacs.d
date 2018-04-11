@@ -26,35 +26,51 @@
   (evil-mode)
   (evil-global-set-key 'motion (kbd "SPC") nil))
 
+;; which-key
+(use-package which-key :config (which-key-mode))
+
 ;; general
 (use-package general
   :config
   (general-override-mode)
-  (general-create-definer leader-bind
+  (general-create-definer my-leader
     :states '(motion
 	      normal ;override normal bindings
 	      visual insert emacs)
     :prefix "SPC"
     :keymaps 'override
     :global-prefix "M-m"
-    :prefix-map 'leader-map)
-  ;; create leader-map
-  (leader-bind
-    ;; TODO: bind help commands
+    :prefix-map 'my-leader-map)
+  ;; create my-leader-map
+  (my-leader
     "u" 'universal-argument
-    "q q" 'save-buffers-kill-terminal
-    "q f" 'delete-frame
+    "z" 'evil-execute-in-emacs-state
+    "!" 'shell-command
+    "h" '(:keymap help-map :which-key "help")
+    ;; buffers
+    "b" '(:ignore t :which-key "buffer")
     "b d" 'kill-buffer
     "b x" 'kill-buffer-and-window
-    "z" 'evil-execute-in-emacs-state
-    "!" 'shell-command)
-  (general-create-definer leader-bind-local
+    ;; quitting
+    "q" '(:ignore t :which-key "quit")
+    "q q" 'save-buffers-kill-terminal
+    "q f" 'delete-frame
+    ;; other prefixes
+    "f" '(:ignore t :which-key "file")
+    "e" '(:ignore t :which-key "eval")
+    "j" '(:ignore t :which-key "jump")
+    "i" '(:ignore t :which-key "insert")
+    "g" '(:ignore t :which-key "git")
+    "s" '(:ignore t :which-key "search"))
+  (define-key key-translation-map (kbd "SPC c") (kbd "C-c"))
+  (general-create-definer my-major-leader
     :states '(motion visual insert emacs)
     :prefix "SPC m"
     :global-prefix "M-m m")
-  ;; TODO: make "SPC e" another local-prefix, for "eval"
-  ;; (use for emacs-lisp, ess, python-shell-send, latex-master-command)
-  )
+  (general-create-definer my-eval-leader
+    :states '(motion visual insert emacs)
+    :prefix "SPC e"
+    :global-prefix "M-m e"))
 
 ;; org-plus-contrib
 (add-to-list 'package-archives
@@ -66,7 +82,6 @@
 (setq layers
       (list
        ;; completion
-       ;; TODO: bind helm-apropos
        "layers/helm.el"
 
        ;; editing
@@ -75,7 +90,7 @@
        "layers/multiedit.el" ;iedit, multicursor
        "layers/smartparens.el"
        "layers/snippet.el"
-       ;; TODO: flycheck
+       ;; TODO flycheck
 
        ;; applications
        "layers/git.el"
@@ -84,11 +99,11 @@
        ;; theming
        "layers/theme.el"
        "layers/window-layout.el"
-       "layers/which-key.el"
        "layers/linum.el"
        "layers/hidpi.el"
-       "layers/y-or-n-p.el"
-       "layers/highlight.el" ;TODO: SPC s h, SPC s c
+       "layers/prompts.el"
+       "layers/highlight.el" ;TODO SPC s h, SPC s c
+       ;; TODO nicer cursor colors
 
        ;; languages
        "layers/python.el"
@@ -96,7 +111,8 @@
        "layers/org.el"
        "layers/org-babel.el"
        "layers/tex.el"
-       ;; TODO: emacs-lisp c-c++ ein
+       "layers/emacs-lisp.el"
+       ;; TODO c-c++ ein
 
        ;; miscellaneous
        "layers/start-server.el"
@@ -114,4 +130,3 @@
 			(error-message-string err))))))
 
 (mapcar 'load-layer layers)
-
