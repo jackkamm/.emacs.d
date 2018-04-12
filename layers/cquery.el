@@ -13,7 +13,14 @@
 (use-package cquery
   :commands lsp-cquery-enable
   :init
-  (add-hook 'c-mode-common-hook 'lsp-cquery-enable))
+  (add-hook 'c-mode-common-hook 'lsp-cquery-enable)
+  :config
+  (my-major-leader
+    :keymaps 'c-mode-base-map
+    "d" 'xref-find-definitions
+    "r" 'xref-find-references
+    "R" 'lsp-rename))
 
-;; FIXME: flycheck not working, e.g. flycheck-list-errors empty
-;; however lsp-ui-flycheck-list works
+;; FIXME: flycheck not working
+;; workaround: use lsp-ui-flycheck-list
+;; https://github.com/cquery-project/emacs-cquery/issues/35

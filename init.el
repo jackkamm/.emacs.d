@@ -109,7 +109,6 @@
        "layers/snippet.el"
        "layers/flycheck.el"
        "layers/company.el"
-       "layers/xref.el"
 
        ;; applications
        "layers/git.el"
@@ -134,6 +133,7 @@
        "layers/emacs-lisp.el"
        "layers/ein.el"
        "layers/cquery.el"
+       ;;"layers/rtags.el"
 
        ;; miscellaneous
        "layers/start-server.el"
