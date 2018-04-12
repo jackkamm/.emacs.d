@@ -21,6 +21,5 @@
     "r" 'xref-find-references
     "R" 'lsp-rename))
 
-;; FIXME: flycheck not working
-;; workaround: use lsp-ui-flycheck-list
-;; https://github.com/cquery-project/emacs-cquery/issues/35
+;; TODO: improve performance, add useful keybindings
+;; https://github.com/cquery-project/cquery/wiki/Emacs

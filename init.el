@@ -132,6 +132,7 @@
        "layers/tex.el"
        "layers/emacs-lisp.el"
        "layers/ein.el"
+       ;; c-c++: only enable 1 of cquery, rtags
        "layers/cquery.el"
        ;;"layers/rtags.el"
 
