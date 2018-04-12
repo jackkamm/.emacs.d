@@ -2,9 +2,9 @@
   :config
   (global-flycheck-mode)
   (setq flycheck-global-modes
-	(list 'not 'emacs-lisp-mode))
+  	(list 'not 'emacs-lisp-mode))
   (setq flycheck-check-syntax-automatically
-	'(save idle-change mode-enabled))
+  	'(save idle-change mode-enabled))
   (setq flycheck-idle-change-delay 4)
   (with-eval-after-load 'popwin
     (push '("^\\*Flycheck.+\\*$"
