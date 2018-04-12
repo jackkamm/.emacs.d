@@ -123,6 +123,7 @@
        "layers/pos-tip.el"
        "layers/highlight.el"
        "layers/popwin.el"
+       "layers/minimap.el"
 
        ;; languages
        "layers/python.el"

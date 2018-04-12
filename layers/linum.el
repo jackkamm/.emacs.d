@@ -1,5 +1,6 @@
 (use-package linum-relative
   :config
+  (setq linum-relative-current-symbol "")
   ;;(linum-relative-global-mode 1)
   (define-globalized-minor-mode
     my-global-linum-relative-mode
