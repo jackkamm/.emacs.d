@@ -123,6 +123,7 @@
        "layers/pos-tip.el"
        "layers/highlight.el"
        "layers/popwin.el"
+       "layers/saving.el"
        "layers/minimap.el"
 
        ;; languages
