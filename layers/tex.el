@@ -4,6 +4,7 @@
   :general
   (my-major-leader
     :keymaps 'LaTeX-mode-map
+    "m" 'TeX-command-master
     "e" 'LaTeX-environment)
   (my-eval-leader
     :keymaps 'LaTeX-mode-map

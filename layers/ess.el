@@ -46,7 +46,7 @@
     "f" 'ess-eval-function))
 
 (use-package ess-smart-equals
-  :defer t
+  :commands ess-smart-equals-mode
   :init
   (progn
     (add-hook 'ess-mode-hook 'ess-smart-equals-mode)
