@@ -9,10 +9,13 @@
   (evilem-default-keybindings "SPC j e"))
 
 (with-eval-after-load 'hydra
-    (defhydra my-scroll-hydra (my-leader-map "n")
+    (defhydra my-nav-hydra ()
       "scroll"
-      ("d" evil-scroll-down)
-      ("u" evil-scroll-up)
-      ("f" evil-scroll-page-down)
-      ("b" evil-scroll-page-up)
-      ("q" nil "quit")))
+      ("d" evil-scroll-down "down")
+      ("u" evil-scroll-up "up")
+      ("f" evil-scroll-page-down "page-down")
+      ("b" evil-scroll-page-up "page-up")
+      ("m" minimap-mode "minimap")
+      ("q" nil "quit"))
+    (my-leader
+      "n" '(my-nav-hydra/body :which-key "navigate")))
