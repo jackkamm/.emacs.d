@@ -128,12 +128,13 @@
 
        ;; languages
        "layers/python.el"
+       "layers/ein.el"
        "layers/ess.el"
+       "layers/emacs-lisp.el"
        "layers/org.el"
        "layers/org-babel.el"
        "layers/tex.el"
-       "layers/emacs-lisp.el"
-       "layers/ein.el"
+       "layers/web.el"
        ;; c-c++: only enable 1 of cquery, rtags
        "layers/cquery.el"
        ;;"layers/rtags.el"
