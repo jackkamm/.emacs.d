@@ -15,7 +15,8 @@
 	     ("C-z" . helm-select-action)
 	     ("M-x" . helm-select-action)
 	     ("C-j" . helm-next-line)
-	     ("C-k" . helm-previous-line))
+	     ("C-k" . helm-previous-line)
+	     ("C-<backspace>" . helm-delete-minibuffer-contents))
   (bind-keys :map helm-find-files-map
 	     ("C-<backspace>" . helm-find-files-up-one-level)
 	     ("<left>" . backward-char)
