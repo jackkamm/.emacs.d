@@ -109,6 +109,7 @@
        "layers/snippet.el"
        "layers/flycheck.el"
        "layers/company.el"
+       "layers/expand-region.el"
 
        ;; applications
        "layers/git.el"
