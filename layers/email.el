@@ -7,6 +7,11 @@
   (my-major-leader
     :keymaps 'notmuch-common-keymap
     "h" 'notmuch-help)
+  (my-major-leader
+    :keymaps 'notmuch-show-mode-map
+    "f" 'notmuch-show-forward-message
+    "r" 'notmuch-show-reply-sender
+    "R" 'notmuch-show-reply)
   ;; TODO: PR evil-collection
   (evil-define-key 'visual notmuch-search-mode-map
     "+" 'notmuch-search-add-tag
