@@ -114,6 +114,7 @@
        ;; applications
        "layers/git.el"
        "layers/email.el"
+       "layers/erc.el"
 
        ;; theming
        "layers/theme.el"
