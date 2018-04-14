@@ -22,63 +22,62 @@
 				      layer-name ": "
 				      (error-message-string err)))))))
 
-;; TODO: rename all config files to my- to prevent load-path conflicts
 (let ((init-start-time (float-time)))
   (setq layers
 	(list
 	 ;;;; MUST be loaded first!
-	 "layers/bootstrap-use-package.el"
-	 "layers/core-keymaps.el"
+	 "layers/my-bootstrap-use-package.el"
+	 "layers/my-core-keymaps.el"
 	 ;; other core packages
-	 "layers/helm.el"
-	 "layers/hydra.el"
+	 "layers/my-helm.el"
+	 "layers/my-hydra.el"
 
 	 ;; load early to ensure org-plus-contrib
-	 "layers/org.el"
+	 "layers/my-org.el"
 
 	 ;; editing
-	 "layers/evil-insert-hybrid.el"
-	 "layers/motion.el" ;avy, evil-easymotion, scroll hydra
-	 "layers/multiedit.el" ;iedit, multicursor
-	 "layers/parens.el" ;smartparens, evil-surround
-	 "layers/snippet.el"
-	 "layers/flycheck.el"
-	 "layers/company.el"
-	 "layers/expand-region.el"
+	 "layers/my-evil-insert-hybrid.el"
+	 "layers/my-motion.el" ;avy, evil-easymotion, scroll hydra
+	 "layers/my-multiedit.el" ;iedit, multicursor
+	 "layers/my-parens.el" ;smartparens, evil-surround
+	 "layers/my-snippet.el"
+	 "layers/my-flycheck.el"
+	 "layers/my-company.el"
+	 "layers/my-expand-region.el"
 
 	 ;; applications
-	 "layers/git.el"
-	 "layers/email.el"
-	 "layers/erc.el"
+	 "layers/my-git.el"
+	 "layers/my-email.el"
+	 "layers/my-erc.el"
 
 	 ;; theming
-	 "layers/theme.el"
-	 "layers/window-layout.el"
-	 "layers/linum.el"
-	 "layers/hidpi.el"
-	 "layers/prompts.el"
-	 "layers/pos-tip.el"
-	 "layers/highlight.el"
-	 "layers/popwin.el"
-	 "layers/saving.el"
-	 "layers/minimap.el"
+	 "layers/my-theme.el"
+	 "layers/my-window-layout.el"
+	 "layers/my-linum.el"
+	 "layers/my-hidpi.el"
+	 "layers/my-prompts.el"
+	 "layers/my-pos-tip.el"
+	 "layers/my-highlight.el"
+	 "layers/my-popwin.el"
+	 "layers/my-saving.el"
+	 "layers/my-minimap.el"
 
 	 ;; languages
-	 "layers/python.el"
-	 "layers/ein.el"
-	 "layers/ess.el"
-	 "layers/emacs-lisp.el"
-	 "layers/org-babel.el"
-	 "layers/tex.el"
-	 "layers/web.el"
+	 "layers/my-python.el"
+	 "layers/my-ein.el"
+	 "layers/my-ess.el"
+	 "layers/my-emacs-lisp.el"
+	 "layers/my-org-babel.el"
+	 "layers/my-tex.el"
+	 "layers/my-web.el"
 	 ;; c-c++: only enable 1 of cquery, rtags
-	 "layers/cquery.el"
-	 ;;"layers/rtags.el"
+	 "layers/my-cquery.el"
+	 ;;"layers/my-rtags.el"
 
 	 ;; miscellaneous
-	 "layers/start-server.el"
-	 "layers/set-custom-file.el"
-	 "layers/tramp.el"
+	 "layers/my-start-server.el"
+	 "layers/my-set-custom-file.el"
+	 "layers/my-tramp.el"
 	 ))
 
   (mapcar 'load-layer layers)
