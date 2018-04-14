@@ -26,58 +26,56 @@
   (setq layers
 	(list
 	 ;;;; MUST be loaded first!
-	 "layers/my-use-package.el"
-	 "layers/my-keys.el"
+	 "my-elisp/my-use-package.el"
+	 "my-elisp/my-keys.el"
+	 "my-elisp/my-org.el" ;ensure org-plus-contrib
 	 ;; other core packages
-	 "layers/my-helm.el"
-	 "layers/my-hydra.el"
-
-	 ;; load early to ensure org-plus-contrib
-	 "layers/my-org.el"
+	 "my-elisp/my-helm.el"
+	 "my-elisp/my-hydra.el"
 
 	 ;; editing
-	 "layers/my-hybrid-state.el"
-	 "layers/my-motions.el" ;avy, evil-easymotion, scroll hydra
-	 "layers/my-multiedit.el" ;iedit, multicursor
-	 "layers/my-parens.el" ;smartparens, evil-surround
-	 "layers/my-snippets.el"
-	 "layers/my-flycheck.el"
-	 "layers/my-company.el"
-	 "layers/my-expand-region.el"
+	 "my-elisp/my-hybrid-state.el"
+	 "my-elisp/my-motions.el" ;avy, evil-easymotion, scroll hydra
+	 "my-elisp/my-multiedit.el" ;iedit, multicursor
+	 "my-elisp/my-parens.el" ;smartparens, evil-surround
+	 "my-elisp/my-snippets.el"
+	 "my-elisp/my-flycheck.el"
+	 "my-elisp/my-company.el"
+	 "my-elisp/my-expand-region.el"
 
 	 ;; applications
-	 "layers/my-git.el"
-	 "layers/my-email.el"
-	 "layers/my-erc.el"
+	 "my-elisp/my-git.el"
+	 "my-elisp/my-email.el"
+	 "my-elisp/my-erc.el"
 
 	 ;; theming
-	 "layers/my-theme.el"
-	 "layers/my-window-layout.el"
-	 "layers/my-linum.el"
-	 "layers/my-hidpi.el"
-	 "layers/my-prompts.el"
-	 "layers/my-pos-tip.el"
-	 "layers/my-highlight.el"
-	 "layers/my-popwin.el"
-	 "layers/my-saving.el"
-	 "layers/my-minimap.el"
+	 "my-elisp/my-theme.el"
+	 "my-elisp/my-window-layout.el"
+	 "my-elisp/my-linum.el"
+	 "my-elisp/my-hidpi.el"
+	 "my-elisp/my-prompts.el"
+	 "my-elisp/my-pos-tip.el"
+	 "my-elisp/my-highlight.el"
+	 "my-elisp/my-popwin.el"
+	 "my-elisp/my-saving.el"
+	 "my-elisp/my-minimap.el"
 
 	 ;; languages
-	 "layers/my-python.el"
-	 "layers/my-ein.el"
-	 "layers/my-ess.el"
-	 "layers/my-emacs-lisp.el"
-	 "layers/my-org-babel.el"
-	 "layers/my-tex.el"
-	 "layers/my-web.el"
+	 "my-elisp/my-python.el"
+	 "my-elisp/my-ein.el"
+	 "my-elisp/my-ess.el"
+	 "my-elisp/my-emacs-lisp.el"
+	 "my-elisp/my-org-babel.el"
+	 "my-elisp/my-tex.el"
+	 "my-elisp/my-web.el"
 	 ;; c-c++: only enable 1 of cquery, rtags
-	 "layers/my-cquery.el"
-	 ;;"layers/my-rtags.el"
+	 "my-elisp/my-cquery.el"
+	 ;;"my-elisp/my-rtags.el"
 
 	 ;; miscellaneous
-	 "layers/my-start-server.el"
-	 "layers/my-set-custom-file.el"
-	 "layers/my-tramp.el"
+	 "my-elisp/my-start-server.el"
+	 "my-elisp/my-set-custom-file.el"
+	 "my-elisp/my-tramp.el"
 	 ))
 
   (mapcar 'load-layer layers)
