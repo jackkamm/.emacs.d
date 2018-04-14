@@ -1,0 +1,67 @@
+;; bind-key
+(use-package bind-key)
+
+;; evil
+(use-package evil
+  :init
+  (setq evil-want-integration nil)
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode)
+  (evil-global-set-key 'motion (kbd "SPC") nil)
+  (evil-global-set-key 'motion (kbd "RET") nil))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+;; which-key
+(use-package which-key :config (which-key-mode))
+
+;; general
+(use-package general
+  :config
+  (general-override-mode)
+  (general-create-definer my-leader
+    :states '(motion
+	      normal ;override normal bindings
+	      visual insert emacs)
+    :prefix "SPC"
+    :keymaps 'override
+    :global-prefix "M-m"
+    :prefix-map 'my-leader-map)
+  ;; create my-leader-map
+  (my-leader
+    "u" 'universal-argument
+    "z" 'evil-execute-in-emacs-state
+    "!" 'shell-command
+    "h" '(:keymap help-map :which-key "help")
+    ;; buffers
+    "b" '(:ignore t :which-key "buffer")
+    "b d" 'kill-buffer
+    "b x" 'kill-buffer-and-window
+    ;; quitting
+    "q" '(:ignore t :which-key "quit")
+    "q q" 'save-buffers-kill-emacs
+    "q f" 'delete-frame
+    ;; files
+    "f" '(:ignore t :which-key "file")
+    "fs" 'save-some-buffers
+    ;; other prefixes
+    "e" '(:ignore t :which-key "eval")
+    "m" '(:ignore t :which-key "major")
+    "j" '(:ignore t :which-key "jump")
+    "i" '(:ignore t :which-key "insert")
+    "g" '(:ignore t :which-key "git")
+    "s" '(:ignore t :which-key "search"))
+  (define-key key-translation-map (kbd "SPC c") (kbd "C-c"))
+  (general-create-definer my-major-leader
+    :states '(motion visual insert emacs)
+    :prefix "SPC m"
+    :global-prefix "M-m m"
+    :prefix-map 'my-major-leader-map)
+  (general-create-definer my-eval-leader
+    :states '(motion visual insert emacs)
+    :prefix "SPC e"
+    :global-prefix "M-m e"))

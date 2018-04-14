@@ -1,159 +1,91 @@
-;; bootstrap use-package
-;; (https://github.com/jwiegley/use-package/issues/313)
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
 
-(package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
-
-;; always install missing packages
-(setq use-package-always-ensure t)
-
-;; bind-key
-(use-package bind-key)
-
-;; evil
-(use-package evil
-  :init
-  (setq evil-want-integration nil)
-  (setq evil-want-C-u-scroll t)
-  :config
-  (evil-mode)
-  (evil-global-set-key 'motion (kbd "SPC") nil)
-  (evil-global-set-key 'motion (kbd "RET") nil))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-;; which-key
-(use-package which-key :config (which-key-mode))
-
-;; general
-(use-package general
-  :config
-  (general-override-mode)
-  (general-create-definer my-leader
-    :states '(motion
-	      normal ;override normal bindings
-	      visual insert emacs)
-    :prefix "SPC"
-    :keymaps 'override
-    :global-prefix "M-m"
-    :prefix-map 'my-leader-map)
-  ;; create my-leader-map
-  (my-leader
-    "u" 'universal-argument
-    "z" 'evil-execute-in-emacs-state
-    "!" 'shell-command
-    "h" '(:keymap help-map :which-key "help")
-    ;; buffers
-    "b" '(:ignore t :which-key "buffer")
-    "b d" 'kill-buffer
-    "b x" 'kill-buffer-and-window
-    ;; quitting
-    "q" '(:ignore t :which-key "quit")
-    "q q" 'save-buffers-kill-emacs
-    "q f" 'delete-frame
-    ;; files
-    "f" '(:ignore t :which-key "file")
-    "fs" 'save-some-buffers
-    ;; other prefixes
-    "e" '(:ignore t :which-key "eval")
-    "m" '(:ignore t :which-key "major")
-    "j" '(:ignore t :which-key "jump")
-    "i" '(:ignore t :which-key "insert")
-    "g" '(:ignore t :which-key "git")
-    "s" '(:ignore t :which-key "search"))
-  (define-key key-translation-map (kbd "SPC c") (kbd "C-c"))
-  (general-create-definer my-major-leader
-    :states '(motion visual insert emacs)
-    :prefix "SPC m"
-    :global-prefix "M-m m"
-    :prefix-map 'my-major-leader-map)
-  (general-create-definer my-eval-leader
-    :states '(motion visual insert emacs)
-    :prefix "SPC e"
-    :global-prefix "M-m e"))
-
-;; org-plus-contrib
-(add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/"))
-(use-package org
-  ;;:defer t
-  :ensure org-plus-contrib)
-
-;; hydra
-(use-package hydra)
-
-;; load layers
-(setq layers
-      (list
-       ;; completion
-       "layers/helm.el"
-
-       ;; editing
-       "layers/evil-insert-hybrid.el"
-       "layers/motion.el" ;avy, evil-easymotion, scroll hydra
-       "layers/multiedit.el" ;iedit, multicursor
-       "layers/parens.el" ;smartparens, evil-surround
-       "layers/snippet.el"
-       "layers/flycheck.el"
-       "layers/company.el"
-       "layers/expand-region.el"
-
-       ;; applications
-       "layers/git.el"
-       "layers/email.el"
-       "layers/erc.el"
-
-       ;; theming
-       "layers/theme.el"
-       "layers/window-layout.el"
-       "layers/linum.el"
-       "layers/hidpi.el"
-       "layers/prompts.el"
-       "layers/pos-tip.el"
-       "layers/highlight.el"
-       "layers/popwin.el"
-       "layers/saving.el"
-       "layers/minimap.el"
-
-       ;; languages
-       "layers/python.el"
-       "layers/ein.el"
-       "layers/ess.el"
-       "layers/emacs-lisp.el"
-       "layers/org.el"
-       "layers/org-babel.el"
-       "layers/tex.el"
-       "layers/web.el"
-       ;; c-c++: only enable 1 of cquery, rtags
-       "layers/cquery.el"
-       ;;"layers/rtags.el"
-
-       ;; miscellaneous
-       "layers/start-server.el"
-       "layers/set-custom-file.el"
-       "layers/tramp.el"
-       ))
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+;(package-initialize)
 
 (defun load-layer (layer-name)
+  (let ((layer-start-time (float-time)))
     (condition-case err
-	(load (concat user-emacs-directory
-			layer-name))
-	(error (display-warning :error
-		(concat "Error loading "
-			layer-name ": "
-			(error-message-string err))))))
+	(progn
+	  (load (concat user-emacs-directory
+			layer-name)
+		nil t)
+	  (message
+	   (concat "Loaded " layer-name " in "
+		   (format "%.2f" (- (float-time)
+				     layer-start-time))
+		   " seconds.")))
+      (error (display-warning :error
+			      (concat "Error loading "
+				      layer-name ": "
+				      (error-message-string err)))))))
 
-(mapcar 'load-layer layers)
+;; TODO: rename all config files to my- to prevent load-path conflicts
+(let ((init-start-time (float-time)))
+  (setq layers
+	(list
+	 ;;;; MUST be loaded first!
+	 "layers/bootstrap-use-package.el"
+	 "layers/core-keymaps.el"
+	 ;; other core packages
+	 "layers/helm.el"
+	 "layers/hydra.el"
+
+	 ;; load early to ensure org-plus-contrib
+	 "layers/org.el"
+
+	 ;; editing
+	 "layers/evil-insert-hybrid.el"
+	 "layers/motion.el" ;avy, evil-easymotion, scroll hydra
+	 "layers/multiedit.el" ;iedit, multicursor
+	 "layers/parens.el" ;smartparens, evil-surround
+	 "layers/snippet.el"
+	 "layers/flycheck.el"
+	 "layers/company.el"
+	 "layers/expand-region.el"
+
+	 ;; applications
+	 "layers/git.el"
+	 "layers/email.el"
+	 "layers/erc.el"
+
+	 ;; theming
+	 "layers/theme.el"
+	 "layers/window-layout.el"
+	 "layers/linum.el"
+	 "layers/hidpi.el"
+	 "layers/prompts.el"
+	 "layers/pos-tip.el"
+	 "layers/highlight.el"
+	 "layers/popwin.el"
+	 "layers/saving.el"
+	 "layers/minimap.el"
+
+	 ;; languages
+	 "layers/python.el"
+	 "layers/ein.el"
+	 "layers/ess.el"
+	 "layers/emacs-lisp.el"
+	 "layers/org-babel.el"
+	 "layers/tex.el"
+	 "layers/web.el"
+	 ;; c-c++: only enable 1 of cquery, rtags
+	 "layers/cquery.el"
+	 ;;"layers/rtags.el"
+
+	 ;; miscellaneous
+	 "layers/start-server.el"
+	 "layers/set-custom-file.el"
+	 "layers/tramp.el"
+	 ))
+
+  (mapcar 'load-layer layers)
+
+  (message
+   (concat "Startup took "
+	   (format "%.2f" (- (float-time)
+			     init-start-time))
+	   " seconds.")))
+

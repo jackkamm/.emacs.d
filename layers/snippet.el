@@ -1,10 +1,15 @@
 (use-package yasnippet
-  :config
-  (yas-global-mode 1))
+  :init
+  (add-hook 'prog-mode-hook 'yas-minor-mode-on)
+  :commands yas-minor-mode-on)
 
 (use-package helm-c-yasnippet
-  :bind (:map my-leader-map
-	      ("i s" . helm-yas-complete)))
+  :commands (helm-yas-complete
+	     helm-yas-visit-snippet-file)
+  :general
+  (my-leader
+    :keymaps 'prog-mode-map
+    "is" 'helm-yas-complete))
 
 (use-package yasnippet-snippets
   :defer t)

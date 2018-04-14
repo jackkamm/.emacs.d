@@ -3,9 +3,6 @@
 				    vc-ignore-dir-regexp
 				    tramp-file-name-regexp))
 
-;; make helm work better with tramp
-(setq helm-buffer-skip-remote-checking t)
-
 ;; use correct path when executing code block in remote :dir
 ;; or using eshell
 (with-eval-after-load 'tramp-sh

@@ -22,6 +22,9 @@
 	     ("<left>" . backward-char)
 	     ("<right>" . forward-char)))
 
+;; make helm work better with tramp
+(setq helm-buffer-skip-remote-checking t)
+
 (use-package helm-projectile
   :bind (:map my-leader-map
 	      ("/" . helm-projectile-ag)))

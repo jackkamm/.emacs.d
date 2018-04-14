@@ -27,7 +27,8 @@
     (setq rtags-completions-enabled t)
     (push 'company-rtags company-backends))
 
-  (setq rtags-display-result-backend 'helm)
+  (use-package helm-rtags :config
+    (setq rtags-display-result-backend 'helm))
 
   ;; FIXME: flycheck-rtags not working...
   (require 'flycheck-rtags)
@@ -39,4 +40,4 @@
   (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup))
 
 (use-package flycheck-rtags :defer t)
-(use-package helm-rtags :defer t)
+

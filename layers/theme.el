@@ -12,18 +12,16 @@
        (disable-theme my-dark-theme)
        (load-theme my-light-theme t)
        (evil-refresh-cursor))
+
 (defun load-dark-theme () (interactive)
        (disable-theme my-light-theme)
        (load-theme my-dark-theme t)
        (evil-refresh-cursor))
 
-;;(load-light-theme)
-;;(load-material)
-(load-dark-theme)
-
 (my-leader
   "t" '(:ignore t :which-key "theme")
   "tt" 'load-theme
+  "tT" 'disable-theme
   "tl" 'load-light-theme
   "td" 'load-dark-theme)
 
@@ -32,3 +30,5 @@
     evil-motion-state-cursor "violet"
     evil-insert-state-cursor '(bar "turquoise")
     evil-emacs-state-cursor "turquoise")
+
+(load-dark-theme)
