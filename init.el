@@ -5,25 +5,26 @@
 ;; You may delete these explanatory comments.
 ;(package-initialize)
 
-(defun load-layer (layer-name)
-  (let ((layer-start-time (float-time)))
-    (condition-case err
-	(progn
-	  (load (concat user-emacs-directory
-			layer-name)
-		nil t)
-	  (message
-	   (concat "Loaded " layer-name " in "
-		   (format "%.2f" (- (float-time)
-				     layer-start-time))
-		   " seconds.")))
-      (error (display-warning :error
-			      (concat "Error loading "
-				      layer-name ": "
-				      (error-message-string err)))))))
-
 (let ((init-start-time (float-time)))
-  (setq layers
+  (defun my-load-elisp (module-path)
+    (let ((module-init-start (float-time)))
+      (condition-case err
+	  (progn
+	    (load (concat user-emacs-directory
+			  module-path)
+		  nil t)
+	    (message
+	     (concat "Loaded " module-path " in "
+		     (format "%.2f" (- (float-time)
+				       module-init-start))
+		     " seconds.")))
+	(error
+	 (display-warning :error
+			  (concat "Error loading "
+				  module-path ": "
+				  (error-message-string err)))))))
+
+  (setq my-elisp-modules
 	(list
 	 ;;;; MUST be loaded first!
 	 "my-elisp/my-use-package.el"
@@ -78,7 +79,7 @@
 	 "my-elisp/my-tramp.el"
 	 ))
 
-  (mapcar 'load-layer layers)
+  (mapcar 'my-load-elisp my-elisp-modules)
 
   (message
    (concat "Startup took "
