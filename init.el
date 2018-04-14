@@ -40,7 +40,7 @@
 	 "layers/my-motions.el" ;avy, evil-easymotion, scroll hydra
 	 "layers/my-multiedit.el" ;iedit, multicursor
 	 "layers/my-parens.el" ;smartparens, evil-surround
-	 "layers/my-snippet.el"
+	 "layers/my-snippets.el"
 	 "layers/my-flycheck.el"
 	 "layers/my-company.el"
 	 "layers/my-expand-region.el"
