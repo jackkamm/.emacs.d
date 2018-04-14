@@ -26,8 +26,8 @@
   (setq layers
 	(list
 	 ;;;; MUST be loaded first!
-	 "layers/my-bootstrap-use-package.el"
-	 "layers/my-core-keymaps.el"
+	 "layers/my-use-package.el"
+	 "layers/my-keys.el"
 	 ;; other core packages
 	 "layers/my-helm.el"
 	 "layers/my-hydra.el"
@@ -36,8 +36,8 @@
 	 "layers/my-org.el"
 
 	 ;; editing
-	 "layers/my-evil-insert-hybrid.el"
-	 "layers/my-motion.el" ;avy, evil-easymotion, scroll hydra
+	 "layers/my-hybrid-state.el"
+	 "layers/my-motions.el" ;avy, evil-easymotion, scroll hydra
 	 "layers/my-multiedit.el" ;iedit, multicursor
 	 "layers/my-parens.el" ;smartparens, evil-surround
 	 "layers/my-snippet.el"
