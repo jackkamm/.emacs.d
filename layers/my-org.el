@@ -4,7 +4,7 @@
 
 (use-package org
   :ensure org-plus-contrib
-  :mode "\\.org\\'"
+  :mode ("\\.org\\'" . org-mode)
   :commands (org-agenda org-capture)
   :config
   (setq org-agenda-files (list "~/Dropbox/org/agenda.org"))
