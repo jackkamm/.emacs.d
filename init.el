@@ -35,7 +35,7 @@
 	 "my-elisp/my-hydra.el"
 
 	 ;; editing
-	 "my-elisp/my-hybrid-state.el"
+	 ;;"my-elisp/my-hybrid-state.el"
 	 "my-elisp/my-motions.el" ;avy, evil-easymotion, scroll hydra
 	 "my-elisp/my-multiedit.el" ;iedit, multicursor
 	 "my-elisp/my-parens.el" ;smartparens, evil-surround

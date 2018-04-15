@@ -16,6 +16,12 @@
   :config
   (evil-collection-init))
 
+;; evil cursor colors
+(setq evil-normal-state-cursor "orange"
+    evil-motion-state-cursor "violet"
+    evil-insert-state-cursor '(bar "green")
+    evil-emacs-state-cursor "turquoise")
+
 ;; which-key
 (use-package which-key :config (which-key-mode))
 
@@ -37,6 +43,7 @@
     "z" 'evil-execute-in-emacs-state
     "!" 'shell-command
     "h" '(:keymap help-map :which-key "help")
+    "<tab>" 'indent-region
     ;; buffers
     "b" '(:ignore t :which-key "buffer")
     "b d" 'kill-buffer
@@ -48,6 +55,7 @@
     ;; files
     "f" '(:ignore t :which-key "file")
     "fs" 'save-some-buffers
+    "fc" 'write-file
     ;; other prefixes
     "e" '(:ignore t :which-key "eval")
     "m" '(:ignore t :which-key "major")

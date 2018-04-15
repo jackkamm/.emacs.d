@@ -1,16 +1,27 @@
-(use-package iedit
+(use-package evil-multiedit
+  :commands evil-multiedit-ex-match
   :bind (:map my-leader-map
-	      ("s e" . iedit-mode)))
-
-(use-package evil-iedit-state
-  :config
-  (with-eval-after-load 'iedit
-    (add-hook 'iedit-mode-hook 'evil-iedit-state)))
+	      ("s e" . evil-multiedit-match-all)
+	      ("s E" . evil-multiedit-match-symbol-and-next))
+  :init
+  (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
+  (setq evil-multiedit-follow-matches t)
   
-
-(global-unset-key (kbd "S-<down-mouse-1>"))
-(use-package multiple-cursors
-  :bind ("S-<down-mouse-1>" . 'mc/add-cursor-on-click)
   :config
-  (define-key mc/keymap (kbd "<return>") nil)
-  (setq mc/always-run-for-all t))
+  (define-key evil-multiedit-state-map (kbd "C-j")
+    'evil-multiedit-match-symbol-and-next)
+  (define-key evil-multiedit-state-map (kbd "C-k")
+    'evil-multiedit-match-symbol-and-prev)
+  (define-key evil-multiedit-state-map "n" 'evil-multiedit-next)
+  (define-key evil-multiedit-state-map "N" 'evil-multiedit-prev)
+  (define-key evil-multiedit-state-map (kbd "C-;")
+    'evil-multiedit-toggle-or-restrict-region))
+
+;;(global-unset-key (kbd "S-<down-mouse-1>"))
+(use-package evil-mc
+  :commands turn-on-evil-mc-mode
+  :bind ("S-<down-mouse-1>" . 'evil-mc-toggle-cursor-on-click)
+  :init
+  (add-hook 'prog-mode-hook 'turn-on-evil-mc-mode)
+  (add-hook 'text-mode-hook 'turn-on-evil-mc-mode))
+
