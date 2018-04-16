@@ -61,6 +61,7 @@
 	 "my-elisp/my-popwin.el"
 	 "my-elisp/my-saving.el"
 	 "my-elisp/my-minimap.el"
+	 "my-elisp/my-default-browser.el"
 
 	 ;; languages
 	 "my-elisp/my-python.el"

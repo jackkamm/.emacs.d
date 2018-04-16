@@ -4,14 +4,25 @@
 (use-package notmuch
   :commands notmuch
   :config
+  ;; bind notmuch-help to leader
   (my-major-leader
     :keymaps 'notmuch-common-keymap
     "h" 'notmuch-help)
+
+  ;; leader keys for notmuch-show
+  (defun my-notmuch-open-part ()
+    "Display attachment using xdg-open"
+    (interactive)
+    ;; TODO use "open" on macOS
+    (notmuch-show-apply-to-current-part-handle
+     (lambda (handle) (mm-display-external handle "xdg-open %s"))))
   (my-major-leader
     :keymaps 'notmuch-show-mode-map
     "f" 'notmuch-show-forward-message
     "r" 'notmuch-show-reply-sender
-    "R" 'notmuch-show-reply)
+    "R" 'notmuch-show-reply
+    "o" 'my-notmuch-open-part)
+
   ;; TODO: PR evil-collection
   (evil-define-key 'visual notmuch-search-mode-map
     "+" 'notmuch-search-add-tag
@@ -22,6 +33,7 @@
   (evil-define-key 'visual notmuch-tree-mode-map
     "+" 'notmuch-tree-add-tag
     "-" 'notmuch-tree-remove-tag)
+
   ;; send from multiple accounts with msmtp
   ;; https://notmuchmail.org/emacstips/#index11h2
   (setq mail-specify-envelope-from t
@@ -32,5 +44,4 @@
 
   (add-hook
    'notmuch-message-mode-hook
-   'turn-off-auto-fill)
-  )
+   'turn-off-auto-fill))
