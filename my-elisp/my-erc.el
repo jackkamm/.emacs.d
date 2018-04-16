@@ -4,9 +4,9 @@
 	      ("a e" . my-erc-freenode))
   :init
   (defun my-erc-freenode () (interactive)
-	 (erc :server "irc.freenode.net"
-	      :port "6667"
-	      :nick "snackattack"
+	 (erc :server "localhost"
+	      :port "55555"
+	      :nick "freenode"
 	      :password nil))
   :config
   (add-to-list 'erc-modules 'notifications))
