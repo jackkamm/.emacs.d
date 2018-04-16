@@ -36,13 +36,14 @@
 
 	 ;; editing
 	 ;;"my-elisp/my-hybrid-state.el"
-	 "my-elisp/my-motions.el" ;avy, evil-easymotion, scroll hydra
+	 "my-elisp/my-jump.el" ;SPC-j: avy, easymotion, xref, etc
 	 "my-elisp/my-multiedit.el" ;iedit, multicursor
 	 "my-elisp/my-parens.el" ;smartparens, evil-surround
 	 "my-elisp/my-snippets.el"
 	 "my-elisp/my-flycheck.el"
 	 "my-elisp/my-company.el"
 	 "my-elisp/my-expand-region.el"
+	 "my-elisp/my-scroll-hydra.el"
 
 	 ;; applications
 	 "my-elisp/my-git.el"

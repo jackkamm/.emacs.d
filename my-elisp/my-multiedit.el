@@ -8,9 +8,9 @@
   (setq evil-multiedit-follow-matches t)
   
   :config
-  (define-key evil-multiedit-state-map (kbd "C-j")
+  (define-key evil-multiedit-state-map (kbd "M-n")
     'evil-multiedit-match-symbol-and-next)
-  (define-key evil-multiedit-state-map (kbd "C-k")
+  (define-key evil-multiedit-state-map (kbd "M-p")
     'evil-multiedit-match-symbol-and-prev)
   (define-key evil-multiedit-state-map "n" 'evil-multiedit-next)
   (define-key evil-multiedit-state-map "N" 'evil-multiedit-prev)
