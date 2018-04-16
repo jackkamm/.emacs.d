@@ -4,4 +4,5 @@
   (push '("*Async Shell Command*"
 	  :noselect t)
 	popwin:special-display-config)
-  )
+  (push '("*Help*" :noselect t)
+	popwin:special-display-config))

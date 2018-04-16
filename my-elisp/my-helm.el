@@ -1,4 +1,6 @@
 (use-package helm
+  :init
+  (setq helm-ff-lynx-style-map nil)
   :config
   (require 'helm-config)
   (helm-mode 1)
@@ -12,17 +14,12 @@
   (bind-keys :map helm-map
 	     ("<tab>" . helm-execute-persistent-action)
 	     ("C-i" . helm-execute-persistent-action)
-	     ("C-z" . helm-select-action)
-	     ("M-x" . helm-select-action)
-	     ("C-j" . helm-next-line)
-	     ("C-k" . helm-previous-line)
-	     ("C-<backspace>" . helm-delete-minibuffer-contents)
-	     ("C-u" . helm-delete-minibuffer-contents))
-  (bind-keys :map helm-find-files-map
-	     ("C-<backspace>" . helm-find-files-up-one-level)
-	     ("C-u" . helm-find-files-up-one-level)
-	     ("<left>" . backward-char)
-	     ("<right>" . forward-char)))
+	     ("C-z" . helm-select-action))
+  (dolist (m (list helm-find-files-map
+		     helm-read-file-map))
+    (bind-keys :map m
+	       ("<left>" . backward-char)
+	       ("<right>" . forward-char))))
 
 ;; make helm work better with tramp
 (setq helm-buffer-skip-remote-checking t)
