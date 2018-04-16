@@ -10,8 +10,8 @@
     (let ((module-init-start (float-time)))
       (condition-case err
 	  (progn
-	    (load (concat user-emacs-directory
-			  module-path)
+	    (load (expand-file-name module-path
+				    user-emacs-directory)
 		  nil t)
 	    (message
 	     (concat "Loaded " module-path " in "
