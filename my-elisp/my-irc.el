@@ -10,7 +10,7 @@
 	      :nick "freenode"
 	      :password nil))
   (defun my-znc-freenode () (interactive)
-	 (async-shell-command "ssh -fNT znc")
+	 (async-shell-command "ssh -f znc sleep 60")
 	 (sleep-for 1)
 	 (my-freenode))
   :config
