@@ -49,6 +49,7 @@
 	 "my-elisp/my-git.el"
 	 "my-elisp/my-email.el"
 	 "my-elisp/my-irc.el"
+	 "my-elisp/my-ediff.el"
 
 	 ;; theming
 	 "my-elisp/my-theme.el"
