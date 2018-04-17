@@ -26,4 +26,6 @@
     ("q" nil "quit"))
   (my-major-leader
     :keymaps 'org-mode-map
-    "b" 'my-babel-hydra/body))
+    "b" 'my-babel-hydra/body
+    "s" 'my-babel-async-eval-session
+    "x" 'org-babel-execute-maybe))
