@@ -44,6 +44,7 @@
 	 "my-elisp/my-company.el"
 	 "my-elisp/my-expand-region.el"
 	 "my-elisp/my-scroll-hydra.el"
+	 "my-elisp/my-undo-tree.el"
 
 	 ;; applications
 	 "my-elisp/my-git.el"
