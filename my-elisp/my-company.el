@@ -1,6 +1,9 @@
 (use-package company
+  :commands (company-mode company-mode-on)
+  :init
+  (dolist (h (list 'prog-mode-hook
+		   'text-mode-hook))
+    (add-hook h 'company-mode-on))
   :config
-  (global-company-mode)
   (bind-keys :map company-active-map
-	     ("<return>" . nil)
-	     ("S-<return>" . company-complete-selection)))
+	     ("<return>" . nil)))

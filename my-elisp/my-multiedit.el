@@ -22,6 +22,7 @@
   :commands turn-on-evil-mc-mode
   :bind ("S-<down-mouse-1>" . 'evil-mc-toggle-cursor-on-click)
   :init
-  (add-hook 'prog-mode-hook 'turn-on-evil-mc-mode)
-  (add-hook 'text-mode-hook 'turn-on-evil-mc-mode))
+  (dolist (h (list 'prog-mode-hook
+		   'text-mode-hook))
+    (add-hook h 'turn-on-evil-mc-mode)))
 

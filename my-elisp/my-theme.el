@@ -8,15 +8,16 @@
 (setq my-light-theme 'leuven)
 (setq my-dark-theme 'material)
 
-(defun load-light-theme () (interactive)
-       (disable-theme my-dark-theme)
-       (load-theme my-light-theme t)
+(defun my-load-theme (th)
+       (mapcar 'disable-theme custom-enabled-themes)
+       (load-theme th t)
        (evil-refresh-cursor))
 
+(defun load-light-theme () (interactive)
+       (my-load-theme my-light-theme))
+
 (defun load-dark-theme () (interactive)
-       (disable-theme my-light-theme)
-       (load-theme my-dark-theme t)
-       (evil-refresh-cursor))
+       (my-load-theme my-dark-theme))
 
 (my-leader
   "t" '(:ignore t :which-key "theme")
