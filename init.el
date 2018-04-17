@@ -48,7 +48,7 @@
 	 ;; applications
 	 "my-elisp/my-git.el"
 	 "my-elisp/my-email.el"
-	 "my-elisp/my-erc.el"
+	 "my-elisp/my-irc.el"
 
 	 ;; theming
 	 "my-elisp/my-theme.el"
