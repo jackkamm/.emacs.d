@@ -5,7 +5,7 @@
   (require 'helm-config)
   (helm-mode 1)
   (my-leader
-    ":" 'helm-M-x
+    "SPC" 'helm-M-x
     "f f" 'helm-find-files
     "f r" 'helm-recentf
     "b b" 'helm-mini)

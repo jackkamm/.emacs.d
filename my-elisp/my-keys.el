@@ -30,9 +30,7 @@
   :config
   (general-override-mode)
   (general-create-definer my-leader
-    :states '(motion
-	      normal ;override normal bindings
-	      visual insert emacs)
+    :states '(motion normal visual insert emacs)
     :prefix "SPC"
     :keymaps 'override
     :global-prefix "M-m")
@@ -63,10 +61,11 @@
     "g" '(:ignore t :which-key "git")
     "s" '(:ignore t :which-key "search"))
   (define-key key-translation-map (kbd "SPC c") (kbd "C-c"))
+  (define-key key-translation-map (kbd "M-m c") (kbd "C-c"))
   (general-create-definer my-major-leader
     :states '(motion visual insert emacs)
-    :prefix "SPC SPC"
-    :global-prefix "M-m SPC")
+    :prefix "SPC m"
+    :global-prefix "M-m m")
   (general-create-definer my-eval-leader
     :states '(motion visual insert emacs)
     :prefix "SPC e"
