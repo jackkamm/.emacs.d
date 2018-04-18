@@ -6,6 +6,8 @@
   (:map my-leader-map
 	("a e" . notmuch))
   :config
+  (require 'org-notmuch)
+
   ;; bind notmuch-help to leader
   (my-major-leader
     :keymaps 'notmuch-common-keymap

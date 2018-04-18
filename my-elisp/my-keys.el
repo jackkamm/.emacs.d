@@ -57,6 +57,7 @@
     "fs" 'save-some-buffers
     "fc" 'write-file
     ;; other prefixes
+    "a" '(:ignore t :which-key "app")
     "e" '(:ignore t :which-key "eval")
     "m" '(:ignore t :which-key "major")
     "j" '(:ignore t :which-key "jump")
