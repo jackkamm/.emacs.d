@@ -1,8 +1,9 @@
 (use-package erc
   :commands erc
-  :bind (:map my-leader-map
-	      ("a i" . my-freenode)
-	      ("a I" . my-freenode-znc))
+  :general
+  (my-leader
+    "a i" 'my-freenode
+    "a I" 'my-freenode-znc)
   :init
   (defun my-freenode () (interactive)
 	 (erc :server "localhost"

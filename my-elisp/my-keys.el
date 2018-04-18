@@ -35,9 +35,7 @@
 	      visual insert emacs)
     :prefix "SPC"
     :keymaps 'override
-    :global-prefix "M-m"
-    :prefix-map 'my-leader-map)
-  ;; create my-leader-map
+    :global-prefix "M-m")
   (my-leader
     "u" 'universal-argument
     "z" 'evil-execute-in-emacs-state
@@ -68,8 +66,7 @@
   (general-create-definer my-major-leader
     :states '(motion visual insert emacs)
     :prefix "SPC SPC"
-    :global-prefix "M-m SPC"
-    :prefix-map 'my-major-leader-map)
+    :global-prefix "M-m SPC")
   (general-create-definer my-eval-leader
     :states '(motion visual insert emacs)
     :prefix "SPC e"

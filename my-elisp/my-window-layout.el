@@ -1,6 +1,5 @@
 (setq window-map (make-sparse-keymap))
 
-;;(define-key my-leader-map (kbd "w") window-map)
 (my-leader
   "w" '(:keymap window-map :which-key "window"))
 

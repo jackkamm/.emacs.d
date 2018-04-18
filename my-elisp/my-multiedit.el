@@ -1,8 +1,8 @@
 (use-package evil-multiedit
   :commands evil-multiedit-ex-match
-  :bind (:map my-leader-map
-	      ("s e" . evil-multiedit-match-all)
-	      ("s E" . evil-multiedit-match-symbol-and-next))
+  :general (my-leader
+	      "se" 'evil-multiedit-match-all
+	      "sE" 'evil-multiedit-match-symbol-and-next)
   :init
   (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
   (setq evil-multiedit-follow-matches t)

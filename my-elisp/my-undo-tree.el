@@ -1,3 +1,4 @@
 (use-package undo-tree
-  :bind (:map my-leader-map
-	      ("_" . undo-tree-visualize)))
+  :general
+  (my-leader
+    "_" 'undo-tree-visualize))

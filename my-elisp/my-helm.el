@@ -4,11 +4,11 @@
   :config
   (require 'helm-config)
   (helm-mode 1)
-  (bind-keys :map my-leader-map
-	     (":" . helm-M-x)
-	     ("f f" . helm-find-files)
-	     ("f r" . helm-recentf)
-	     ("b b" . helm-mini))
+  (my-leader
+    ":" 'helm-M-x
+    "f f" 'helm-find-files
+    "f r" 'helm-recentf
+    "b b" 'helm-mini)
   (bind-keys :map help-map
 	     ("a" . helm-apropos))
   (bind-keys :map helm-map
@@ -27,9 +27,9 @@
 (setq helm-buffer-skip-remote-checking t)
 
 (use-package helm-projectile
-  :bind (:map my-leader-map
-	      ("/" . helm-projectile-ag)))
+  :general (my-leader
+	      "/" 'helm-projectile-ag))
 
 (use-package helm-swoop
-  :bind (:map my-leader-map
-	      ("s s" . helm-swoop)))
+  :general (my-leader
+	      "ss" 'helm-swoop))

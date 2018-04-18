@@ -2,9 +2,9 @@
 (setq sendmail-program "/bin/msmtp")
 
 (use-package notmuch
-  :bind
-  (:map my-leader-map
-	("a e" . notmuch))
+  :general
+  (my-leader
+    "ae" 'notmuch)
   :config
   (require 'org-notmuch)
 

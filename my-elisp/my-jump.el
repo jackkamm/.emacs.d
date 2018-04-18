@@ -1,8 +1,9 @@
 (use-package avy
-  :bind (:map my-leader-map
-	      ("jj" . avy-goto-char-timer)
-	      ("jw" . avy-goto-word-1)
-	      ("jl" . avy-goto-line)))
+  :general
+  (my-leader
+    "jj"  'avy-goto-char-timer
+    "jw"  'avy-goto-word-1
+    "jl"  'avy-goto-line))
 
 (use-package evil-easymotion
   :config
