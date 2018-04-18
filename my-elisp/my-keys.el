@@ -67,8 +67,8 @@
   (define-key key-translation-map (kbd "SPC c") (kbd "C-c"))
   (general-create-definer my-major-leader
     :states '(motion visual insert emacs)
-    :prefix "SPC m"
-    :global-prefix "M-m m"
+    :prefix "SPC SPC"
+    :global-prefix "M-m SPC"
     :prefix-map 'my-major-leader-map)
   (general-create-definer my-eval-leader
     :states '(motion visual insert emacs)

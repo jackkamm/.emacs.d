@@ -5,7 +5,7 @@
   (require 'helm-config)
   (helm-mode 1)
   (bind-keys :map my-leader-map
-	     ("SPC" . helm-M-x)
+	     (":" . helm-M-x)
 	     ("f f" . helm-find-files)
 	     ("f r" . helm-recentf)
 	     ("b b" . helm-mini))
