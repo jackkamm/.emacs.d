@@ -3,15 +3,22 @@
 (tool-bar-mode -1) 
 (blink-cursor-mode -1)
 
-(use-package material-theme :defer t)
-
 (setq my-light-theme 'leuven)
-(setq my-dark-theme 'material)
+
+;;(use-package material-theme :defer t)
+;;(setq my-dark-theme 'material)
+(use-package spacemacs-theme :defer t)
+(setq my-dark-theme 'spacemacs-dark)
 
 (defun my-load-theme (th)
-       (mapcar 'disable-theme custom-enabled-themes)
-       (load-theme th t)
-       (evil-refresh-cursor))
+  (interactive
+   (list
+    (intern (completing-read "Load custom theme: "
+			     (mapcar 'symbol-name
+				     (custom-available-themes))))))
+  (mapcar 'disable-theme custom-enabled-themes)
+  (load-theme th t)
+  (evil-refresh-cursor))
 
 (defun load-light-theme () (interactive)
        (my-load-theme my-light-theme))

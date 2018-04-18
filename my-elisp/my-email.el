@@ -24,6 +24,7 @@
     "o" 'my-notmuch-open-part)
 
   ;; TODO: PR evil-collection
+  (evil-set-initial-state 'notmuch-tree-mode 'normal)
   (evil-define-key 'visual notmuch-search-mode-map
     "+" 'notmuch-search-add-tag
     "-" 'notmuch-search-remove-tag)

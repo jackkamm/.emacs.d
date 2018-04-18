@@ -28,7 +28,7 @@
 	(list
 	 ;;;; MUST be loaded first!
 	 "my-elisp/my-use-package.el"
-	 "my-elisp/my-keys.el"
+	 "my-elisp/my-keys.el" ;evil, general, which-key, bind-key
 	 "my-elisp/my-org.el" ;ensure org-plus-contrib
 	 ;; other core packages
 	 "my-elisp/my-helm.el"
