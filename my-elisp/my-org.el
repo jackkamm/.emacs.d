@@ -5,8 +5,18 @@
 (use-package org
   :ensure org-plus-contrib
   :mode ("\\.org\\'" . org-mode)
-  :commands (org-agenda org-capture)
+  :general
+  (my-leader
+    "o" '(:ignore t :which-key "org")
+    "ol" 'org-store-link
+    "oc" 'org-capture
+    "oa" 'org-agenda)
+  :init
+  (setq org-return-follows-link t)
   :config
+  (my-major-leader
+    :keymaps 'org-mode-map
+    "l" 'org-insert-link)
   (setq org-agenda-files (list "~/Dropbox/org/agenda.org"))
   (setq org-capture-templates
 	'(("t" "todo" entry (file "~/Dropbox/org/agenda.org")
