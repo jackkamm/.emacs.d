@@ -2,7 +2,9 @@
 (setq sendmail-program "/bin/msmtp")
 
 (use-package notmuch
-  :commands notmuch
+  :bind
+  (:map my-leader-map
+	("a e" . notmuch))
   :config
   ;; bind notmuch-help to leader
   (my-major-leader
