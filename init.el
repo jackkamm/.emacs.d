@@ -38,60 +38,60 @@
   (setq my-layers
 	(list
 	 ;;;; MUST be loaded first!
-	 "my-layers/my-use-package.el"
-	 "my-layers/my-keys.el" ;evil, general, which-key, bind-key
-	 "my-layers/my-org.el" ;ensure org-plus-contrib
+	 "my-config-layers/my-use-package.el"
+	 "my-config-layers/my-keys.el" ;evil, general, which-key, bind-key
+	 "my-config-layers/my-org.el" ;ensure org-plus-contrib
 	 ;; other core packages
-	 "my-layers/my-helm.el"
-	 "my-layers/my-hydra.el"
+	 "my-config-layers/my-helm.el"
+	 "my-config-layers/my-hydra.el"
 
 	 ;; editing
-	 ;;"my-layers/my-hybrid-state.el"
-	 "my-layers/my-jump.el" ;SPC-j: avy, easymotion, xref, etc
-	 "my-layers/my-multiedit.el" ;iedit, multicursor
-	 "my-layers/my-parens.el" ;smartparens, evil-surround
-	 "my-layers/my-snippets.el"
-	 "my-layers/my-flycheck.el"
-	 "my-layers/my-company.el"
-	 "my-layers/my-expand-region.el"
-	 "my-layers/my-scroll-hydra.el"
-	 "my-layers/my-undo-tree.el"
+	 ;;"my-config-layers/my-hybrid-state.el"
+	 "my-config-layers/my-jump.el" ;SPC-j, avy, easymotion, xref
+	 "my-config-layers/my-multiedit.el" ;iedit, multicursor
+	 "my-config-layers/my-parens.el" ;smartparens, evil-surround
+	 "my-config-layers/my-snippets.el"
+	 "my-config-layers/my-flycheck.el"
+	 "my-config-layers/my-company.el"
+	 "my-config-layers/my-expand-region.el"
+	 "my-config-layers/my-scroll-hydra.el"
+	 "my-config-layers/my-undo-tree.el"
 
 	 ;; applications
-	 "my-layers/my-git.el"
-	 "my-layers/my-email.el"
-	 "my-layers/my-irc.el"
-	 "my-layers/my-ediff.el"
+	 "my-config-layers/my-git.el"
+	 "my-config-layers/my-email.el"
+	 "my-config-layers/my-irc.el"
+	 "my-config-layers/my-ediff.el"
 
 	 ;; theming
-	 "my-layers/my-theme.el"
-	 "my-layers/my-window-layout.el"
-	 "my-layers/my-linum.el"
-	 "my-layers/my-hidpi.el"
-	 "my-layers/my-prompts.el"
-	 "my-layers/my-pos-tip.el"
-	 "my-layers/my-highlight.el"
-	 "my-layers/my-popwin.el"
-	 "my-layers/my-saving.el"
-	 "my-layers/my-minimap.el"
-	 "my-layers/my-default-browser.el"
+	 "my-config-layers/my-theme.el"
+	 "my-config-layers/my-window-layout.el"
+	 "my-config-layers/my-linum.el"
+	 "my-config-layers/my-hidpi.el"
+	 "my-config-layers/my-prompts.el"
+	 "my-config-layers/my-pos-tip.el"
+	 "my-config-layers/my-highlight.el"
+	 "my-config-layers/my-popwin.el"
+	 "my-config-layers/my-saving.el"
+	 "my-config-layers/my-minimap.el"
+	 "my-config-layers/my-default-browser.el"
 
 	 ;; languages
-	 "my-layers/my-python.el"
-	 "my-layers/my-ein.el"
-	 "my-layers/my-ess.el"
-	 "my-layers/my-emacs-lisp.el"
-	 "my-layers/my-org-babel.el"
-	 "my-layers/my-tex.el"
-	 "my-layers/my-web.el"
+	 "my-config-layers/my-python.el"
+	 "my-config-layers/my-ein.el"
+	 "my-config-layers/my-ess.el"
+	 "my-config-layers/my-emacs-lisp.el"
+	 "my-config-layers/my-org-babel.el"
+	 "my-config-layers/my-tex.el"
+	 "my-config-layers/my-web.el"
 	 ;; c-c++: only enable 1 of cquery, rtags
-	 "my-layers/my-cquery.el"
-	 ;;"my-layers/my-rtags.el"
+	 "my-config-layers/my-cquery.el"
+	 ;;"my-config-layers/my-rtags.el"
 
 	 ;; miscellaneous
-	 "my-layers/my-start-server.el"
-	 "my-layers/my-set-custom-file.el"
-	 "my-layers/my-tramp.el"
+	 "my-config-layers/my-start-server.el"
+	 "my-config-layers/my-set-custom-file.el"
+	 "my-config-layers/my-tramp.el"
 	 ))
 
   (mapcar 'my-load-layer my-layers)
