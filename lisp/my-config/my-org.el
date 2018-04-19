@@ -16,7 +16,9 @@
   :config
   (my-major-leader
     :keymaps 'org-mode-map
-    "l" 'org-insert-link)
+    "r" 'org-redisplay-inline-images
+    "l" 'org-insert-link
+    "m" 'org-ctrl-c-ctrl-c)
   (setq org-agenda-files (list "~/Dropbox/org/agenda.org"))
   (setq org-capture-templates
 	'(("t" "todo" entry (file "~/Dropbox/org/agenda.org")

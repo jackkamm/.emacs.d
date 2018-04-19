@@ -1,6 +1,12 @@
 (setq org-confirm-babel-evaluate nil)
 
-(use-package ob-ipython :defer t)
+(use-package ob-ipython :defer t
+  :config
+  (with-eval-after-load 'popwin
+    (push '("^\*ob-ipython-.+\*.+$"
+	    :regexp t
+	    :noselect t)
+	  popwin:special-display-config)))
 
 (with-eval-after-load 'org
   (org-babel-do-load-languages

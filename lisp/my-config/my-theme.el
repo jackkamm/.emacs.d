@@ -1,6 +1,6 @@
-(menu-bar-mode -1) 
-(scroll-bar-mode -1) 
-(tool-bar-mode -1) 
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
 (blink-cursor-mode -1)
 
 (setq my-light-theme 'leuven)
@@ -31,6 +31,7 @@
   "tt" 'load-theme
   "tT" 'disable-theme
   "tl" 'load-light-theme
-  "td" 'load-dark-theme)
+  "td" 'load-dark-theme
+  "tL" 'toggle-truncate-lines)
 
 (load-dark-theme)
