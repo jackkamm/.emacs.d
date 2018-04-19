@@ -24,85 +24,83 @@
      (format "Initialized packages, load-path in %.2f seconds."
 	     (- (float-time) package-init-start))))
 
-  ;; function to load layer, time it, catch any errors
-  (defun my-load-layer (layer-path)
-    (let ((layer-init-start (float-time)))
+  ;; function to load module, time it, catch any errors
+  (defun my-load-module (module)
+    (let ((module-init-start (float-time)))
       (condition-case err
 	  (progn
-	    (load (expand-file-name layer-path
-				    user-emacs-directory)
-		  nil t)
+	    (load module nil t)
 	    (message
-	     (concat "Loaded " layer-path " in "
+	     (concat "Loaded " module " in "
 		     (format "%.2f" (- (float-time)
-				       layer-init-start))
+				       module-init-start))
 		     " seconds.")))
 	(error
 	 (display-warning :error
 			  (concat "Error loading "
-				  layer-path ": "
+				  module ": "
 				  (error-message-string err)))))))
 
-  (setq my-layers
+  (setq my-modules
 	(list
 	 ;;;; MUST be loaded first!
-	 "my-config-layers/my-use-package.el"
-	 "my-config-layers/my-keys.el" ;evil, general, which-key, bind-key
-	 "my-config-layers/my-org.el" ;ensure org-plus-contrib
+	 "my-use-package"
+	 "my-keys" ;evil, general, which-key, bind-key
+	 "my-org" ;ensure org-plus-contrib
 	 ;; other core packages
-	 "my-config-layers/my-helm.el"
-	 "my-config-layers/my-hydra.el"
+	 "my-helm"
+	 "my-hydra"
 
 	 ;; editing
-	 ;;"my-config-layers/my-hybrid-state.el"
-	 "my-config-layers/my-jump.el" ;SPC-j, avy, easymotion, xref
-	 "my-config-layers/my-multiedit.el" ;iedit, multicursor
-	 "my-config-layers/my-parens.el" ;smartparens, evil-surround
-	 "my-config-layers/my-snippets.el"
-	 "my-config-layers/my-flycheck.el"
-	 "my-config-layers/my-company.el"
-	 "my-config-layers/my-expand-region.el"
-	 "my-config-layers/my-scroll-hydra.el"
-	 "my-config-layers/my-undo-tree.el"
+	 ;my-hybrid-state"
+	 "my-jump" ;SPC-j, avy, easymotion, xref
+	 "my-multiedit" ;iedit, multicursor
+	 "my-parens" ;smartparens, evil-surround
+	 "my-snippets"
+	 "my-flycheck"
+	 "my-company"
+	 "my-expand-region"
+	 "my-scroll-hydra"
+	 "my-undo-tree"
 
 	 ;; applications
-	 "my-config-layers/my-git.el"
-	 "my-config-layers/my-email.el"
-	 "my-config-layers/my-irc.el"
-	 "my-config-layers/my-ediff.el"
+	 "my-git"
+	 "my-email"
+	 "my-irc"
+	 "my-ediff"
 
 	 ;; theming
-	 "my-config-layers/my-theme.el"
-	 "my-config-layers/my-window-layout.el"
-	 "my-config-layers/my-linum.el"
-	 "my-config-layers/my-hidpi.el"
-	 "my-config-layers/my-prompts.el"
-	 "my-config-layers/my-pos-tip.el"
-	 "my-config-layers/my-highlight.el"
-	 "my-config-layers/my-popwin.el"
-	 "my-config-layers/my-saving.el"
-	 "my-config-layers/my-minimap.el"
-	 "my-config-layers/my-default-browser.el"
+	 "my-theme"
+	 "my-window-layout"
+	 "my-linum"
+	 "my-hidpi"
+	 "my-prompts"
+	 "my-pos-tip"
+	 "my-highlight"
+	 "my-popwin"
+	 "my-saving"
+	 "my-minimap"
+	 "my-default-browser"
 
 	 ;; languages
-	 "my-config-layers/my-python.el"
-	 "my-config-layers/my-ein.el"
-	 "my-config-layers/my-ess.el"
-	 "my-config-layers/my-emacs-lisp.el"
-	 "my-config-layers/my-org-babel.el"
-	 "my-config-layers/my-tex.el"
-	 "my-config-layers/my-web.el"
+	 "my-python"
+	 "my-ein"
+	 "my-ess"
+	 "my-emacs-lisp"
+	 "my-org-babel"
+	 "my-tex"
+	 "my-web"
 	 ;; c-c++: only enable 1 of cquery, rtags
-	 "my-config-layers/my-cquery.el"
-	 ;;"my-config-layers/my-rtags.el"
+	 "my-cquery"
+	 ;my-rtags"
 
 	 ;; miscellaneous
-	 "my-config-layers/my-start-server.el"
-	 "my-config-layers/my-set-custom-file.el"
-	 "my-config-layers/my-tramp.el"
+	 "my-start-server"
+	 "my-set-custom-file"
+	 "my-tramp"
 	 ))
 
-  (mapcar 'my-load-layer my-layers)
+  (mapcar 'my-load-module my-modules)
 
   (message
    (format "Startup took %.2f seconds."
