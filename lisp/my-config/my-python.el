@@ -6,13 +6,14 @@
    'python-shell-completion-native-disabled-interpreters
    "jupyter"))
 
-(defun my-run-jupyter-existing (cmd)
+(defun my-run-jupyter-existing (cmd dedicated)
   (interactive
    (list
     (read-shell-command
      "Run Python: "
-     "jupyter console --simple-prompt --existing")))
-  (run-python cmd t t))
+     "jupyter console --simple-prompt --existing")
+    (y-or-n-p "Make dedicated process? ")))
+  (run-python cmd dedicated t))
 
 (my-major-leader
   :keymaps 'python-mode-map
