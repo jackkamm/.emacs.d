@@ -81,6 +81,7 @@
 	 "my-saving"
 	 "my-minimap"
 	 "my-default-browser"
+	 "my-whitespace"
 
 	 ;; languages
 	 "my-python"
