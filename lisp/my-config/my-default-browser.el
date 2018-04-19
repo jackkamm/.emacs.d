@@ -1,4 +1,2 @@
-(if (eq system-type 'gnu/linux)
-    (setq browse-url-browser-function 'browse-url-generic
-	  browse-url-generic-program "xdg-open"))
-;; TODO: use "open" on macOS
+;; https://lists.gnu.org/archive/html/emacs-devel/2014-11/msg00328.html
+(setq browse-url-browser-function 'browse-url-xdg-open)
