@@ -1,3 +1,6 @@
+lisp/private/*
+!lisp/private/Readme.org
+
 *~
 custom.el
 auto-save-list
