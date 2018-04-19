@@ -51,6 +51,9 @@
 	 "my-helm"
 	 "my-hydra"
 
+	 ;; miscellaneous useful functions
+	 "my-functions"
+
 	 ;; editing
 	 ;"my-hybrid-state"
 	 "my-jump" ;SPC-j, avy, easymotion, xref
