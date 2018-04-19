@@ -8,9 +8,17 @@
 
     (package-initialize)
 
-    (let ((default-directory  (concat user-emacs-directory "lisp/")))
-      (normal-top-level-add-to-load-path '("."))
-      (normal-top-level-add-subdirs-to-load-path))
+    ;; recursively add ~/.emacs.d/lisp to beginning of load-path
+    ;; add ".nosearch" file to exclude a directory
+    (let ((default-directory (concat user-emacs-directory "lisp/")))
+      (setq load-path
+	    (append
+	     (let ((load-path (copy-sequence load-path))) ;; Shadow
+	       (append
+		(copy-sequence
+		 (normal-top-level-add-to-load-path '(".")))
+		(normal-top-level-add-subdirs-to-load-path)))
+	     load-path)))
 
     (message
      (format "Initialized packages, load-path in %.2f seconds."
