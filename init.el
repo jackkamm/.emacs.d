@@ -52,7 +52,7 @@
 	 "my-hydra"
 
 	 ;; editing
-	 ;my-hybrid-state"
+	 ;"my-hybrid-state"
 	 "my-jump" ;SPC-j, avy, easymotion, xref
 	 "my-multiedit" ;iedit, multicursor
 	 "my-parens" ;smartparens, evil-surround
@@ -92,7 +92,7 @@
 	 "my-web"
 	 ;; c-c++: only enable 1 of cquery, rtags
 	 "my-cquery"
-	 ;my-rtags"
+	 ;"my-rtags"
 
 	 ;; miscellaneous
 	 "my-start-server"
