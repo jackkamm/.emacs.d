@@ -10,3 +10,4 @@ abbrev_defs
 anaconda-mode
 ac-comphist.dat
 request/
+.yas-compiled-snippets.el

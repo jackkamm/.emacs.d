@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : ob-ipython-header
+#key : ob-ipython-header
+#contributor : Jack Kamm
+# --
+#+PROPERTY: header-args:ipython :session ${1:$$(unless yas-modified-p (file-name-nondirectory (read-file-name "Kernel: " "/run/user/1000/jupyter/")))} :results raw drawer
