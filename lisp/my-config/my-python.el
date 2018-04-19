@@ -2,8 +2,19 @@
 (setq python-shell-interpreter-args "--simple-prompt -i")
 
 (with-eval-after-load 'python
-  (add-to-list 'python-shell-completion-native-disabled-interpreters
-	       "jupyter"))
+  (add-to-list
+   'python-shell-completion-native-disabled-interpreters
+   "jupyter"))
+
+(defun my-run-jupyter-existing ()
+  (interactive)
+  (run-python
+   "jupyter console --existing --simple-prompt"
+   t t))
+
+(my-major-leader
+  :keymaps 'python-mode-map
+  "\"" 'my-run-jupyter-existing)
 
 (use-package anaconda-mode
   :defer t
