@@ -6,14 +6,17 @@
    'python-shell-completion-native-disabled-interpreters
    "jupyter"))
 
-(defun my-run-jupyter-existing ()
-  (interactive)
-  (run-python
-   "jupyter console --existing --simple-prompt"
-   t t))
+(defun my-run-jupyter-existing (cmd)
+  (interactive
+   (list
+    (read-shell-command
+     "Run Python: "
+     "jupyter console --simple-prompt --existing")))
+  (run-python cmd t t))
 
 (my-major-leader
   :keymaps 'python-mode-map
+  "'" 'run-python
   "\"" 'my-run-jupyter-existing)
 
 (use-package anaconda-mode
