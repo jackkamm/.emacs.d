@@ -63,7 +63,7 @@
 	 "my-flycheck"
 	 "my-company"
 	 "my-expand-region"
-	 "my-scroll-hydra"
+	 "my-navigation" ;minimap
 	 "my-undo-tree"
 
 	 ;; applications
@@ -79,10 +79,9 @@
 	 "my-hidpi"
 	 "my-prompts"
 	 "my-pos-tip"
-	 "my-highlight"
+	 "my-highlight" ;hl-todo, evil-highlight-persist
 	 "my-popwin"
 	 "my-saving"
-	 "my-minimap"
 	 "my-default-browser"
 	 "my-whitespace"
 

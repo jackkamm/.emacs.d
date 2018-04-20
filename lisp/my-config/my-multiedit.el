@@ -24,6 +24,7 @@
     (kbd "<escape>") 'iedit-quit
     "n" 'iedit-next-occurrence
     "N" 'iedit-prev-occurrence
+    "D" 'iedit-delete-occurrences
     (kbd "/ f") 'iedit-restrict-function
     (kbd "/ v") 'iedit-show/hide-unmatched-lines
     (kbd "/ /") 'iedit-toggle-selection

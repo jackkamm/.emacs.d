@@ -1,9 +1,3 @@
-(use-package evil-search-highlight-persist
-  :config
-  (global-evil-search-highlight-persist)
-  (my-leader
-    "sc" 'evil-search-highlight-persist-remove-all))
-
 (use-package avy
   :general
   (my-leader
