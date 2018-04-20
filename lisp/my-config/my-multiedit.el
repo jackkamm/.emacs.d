@@ -6,6 +6,8 @@
   ;; evil-define on iedit keymaps has side effects(?),
   ;; so create a new minor-mode
   (define-minor-mode my-iedit-mode nil :keymap '())
+  (add-hook 'iedit-mode-hook (lambda () (my-iedit-mode 1)))
+  (add-hook 'iedit-mode-end-hook (lambda () (my-iedit-mode 0)))
   (evil-define-minor-mode-key 'normal 'my-iedit-mode
     (kbd "<escape>") 'iedit-quit
     "n" 'iedit-next-occurrence
@@ -23,11 +25,7 @@
     (kbd "/ j") 'iedit-expand-down-a-line
     (kbd "M-j") 'iedit-expand-down-a-line
     (kbd "/ k") 'iedit-expand-up-a-line
-    (kbd "M-k") 'iedit-expand-up-a-line)
-  (defun my-iedit-mode-on () (interactive) (my-iedit-mode 1))
-  (defun my-iedit-mode-off () (interactive) (my-iedit-mode 0))
-  (add-hook 'iedit-mode-hook 'my-iedit-mode-on)
-  (add-hook 'iedit-mode-end-hook 'my-iedit-mode-off))
+    (kbd "M-k") 'iedit-expand-up-a-line))
 
 ;;(global-unset-key (kbd "S-<down-mouse-1>"))
 (use-package evil-mc
