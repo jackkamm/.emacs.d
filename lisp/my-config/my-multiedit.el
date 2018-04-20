@@ -44,10 +44,7 @@
     ("S-<down-mouse-1>" evil-mc-toggle-cursor-on-click)
     ("u" evil-mc-undo-all-cursors "remove-all" :exit t)
     ("m" evil-mc-make-all-cursors "make-all")
-    ("p" evil-mc-pause-cursors "pause")
-    ("r" evil-mc-resume-cursors "resume")
-    ("<RET>" evil-mc-make-cursor-here "mark-here")
-    ("/" avy-goto-char-timer "avy")
+    ("p" my-paused-mc-hydra/body "pause" :exit t)
     ("J" evil-mc-make-cursor-move-next-line "next-line")
     ("K" evil-mc-make-cursor-move-prev-line "prev-line")
     ("H" evil-mc-make-and-goto-first-cursor "swap-to-first")
@@ -59,4 +56,14 @@
     ("C-n"  evil-mc-make-and-goto-next-match "make-next")
     ("C-p"  evil-mc-make-and-goto-prev-match "make-prev")
     ("M-n" evil-mc-skip-and-goto-next-match "pop-to-next-match")
-    ("M-p" evil-mc-skip-and-goto-prev-match "pop-to-prev-match")))
+    ("M-p" evil-mc-skip-and-goto-prev-match "pop-to-prev-match"))
+  (defhydra my-paused-mc-hydra (nil nil
+				    :foreign-keys run
+				    :body-pre (evil-mc-pause-cursors)
+				    :post (evil-mc-resume-cursors))
+    "paused-multicursor"
+    ("S-<down-mouse-1>" evil-mc-toggle-cursor-on-click)
+    ("<RET>" evil-mc-make-cursor-here "mark-here")
+    ("r" my-evil-mc-hydra/body "resume" :exit t)
+    ("a" evil-append :exit t)
+    ("i" evil-insert :exit t)))
