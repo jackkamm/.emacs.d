@@ -1,3 +1,15 @@
+;; narrow-region
+
+(put 'narrow-to-region 'disabled nil)
+(my-leader
+  "sn" '(:ignore t :which-key "narrow")
+  "snr" 'narrow-to-region
+  "snf" 'narrow-to-defun-include-comments
+  "snF" 'narrow-to-defun
+  "snw" 'widen)
+
+;; iedit
+
 (use-package iedit
   :general
   (my-leader
@@ -27,7 +39,8 @@
     (kbd "/ k") 'iedit-expand-up-a-line
     (kbd "M-k") 'iedit-expand-up-a-line))
 
-;;(global-unset-key (kbd "S-<down-mouse-1>"))
+;; evil-mc
+
 (use-package evil-mc
   :commands my-evil-mc-hydra/evil-mc-toggle-cursor-on-click
   :bind (("S-<down-mouse-1>" . 'my-evil-mc-hydra/evil-mc-toggle-cursor-on-click))

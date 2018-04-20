@@ -56,16 +56,15 @@
 
 	 ;; editing
 	 ;"my-hybrid-state"
-	 "my-jump" ;SPC-j, avy, easymotion, xref
-	 "my-multiedit" ;iedit, multicursor
+	 "my-jump" ;SPC-j: avy, easymotion, xref
+	 "my-multiedit" ;iedit, evil-mc, narrow-region
 	 "my-parens" ;smartparens, evil-surround
-	 "my-snippets"
+	 "my-snippets" ;yasnippet
 	 "my-flycheck"
 	 "my-company"
 	 "my-expand-region"
 	 "my-scroll-hydra"
 	 "my-undo-tree"
-	 "my-narrow-region"
 
 	 ;; applications
 	 "my-git"

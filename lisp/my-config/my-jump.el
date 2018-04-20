@@ -7,7 +7,7 @@
 (use-package avy
   :general
   (my-leader
-    "ja" 'avy-isearch
+    "js" 'avy-isearch
     "jj"  'avy-goto-char-timer
     "jw"  'avy-goto-word-1
     "jl"  'avy-goto-line))
