@@ -42,12 +42,12 @@
     "<tab>" 'indent-region
     ;; buffers
     "b" '(:ignore t :which-key "buffer")
-    "b d" 'kill-buffer
-    "b x" 'kill-buffer-and-window
+    "bd" 'kill-buffer
+    "bx" 'kill-buffer-and-window
     ;; quitting
     "q" '(:ignore t :which-key "quit")
-    "q q" 'save-buffers-kill-emacs
-    "q f" 'delete-frame
+    "qq" 'save-buffers-kill-emacs
+    "qf" 'delete-frame
     ;; files
     "f" '(:ignore t :which-key "file")
     "fs" 'save-some-buffers

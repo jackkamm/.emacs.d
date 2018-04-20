@@ -65,6 +65,7 @@
 	 "my-expand-region"
 	 "my-scroll-hydra"
 	 "my-undo-tree"
+	 "my-narrow-region"
 
 	 ;; applications
 	 "my-git"
@@ -109,4 +110,3 @@
   (message
    (format "Startup took %.2f seconds."
 	   (- (float-time) init-start-time))))
-
