@@ -4,7 +4,7 @@
     "se" 'iedit-mode)
   :config
   ;; evil-define on iedit modes/maps has strange effects(?)
-  ;; create a new minor-mode instead
+  ;; so create a new minor-mode instead
   (define-minor-mode my-iedit-mode nil :keymap '())
   (add-hook 'iedit-mode-hook (lambda () (my-iedit-mode 1)))
   (add-hook 'iedit-mode-end-hook (lambda () (my-iedit-mode 0)))
