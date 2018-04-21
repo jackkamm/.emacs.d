@@ -9,7 +9,7 @@
 
     (package-initialize)
 
-    ;;; bootstrap use-package
+    ;;; bootstrap and setup use-package
     (unless (package-installed-p 'use-package)
       (package-refresh-contents)
       (package-install 'use-package))
@@ -18,21 +18,18 @@
       (require 'use-package))
     (require 'bind-key)
 
-    ;;; always install missing packages
-    (setq use-package-always-ensure t)
+    (setq use-package-always-ensure t) ;install missing packages
 
-    ;;; setup load path ~/.emacs.d/lisp
+    ;;; setup load path
     (let ((default-directory (concat user-emacs-directory "lisp/")))
+      ;; recursively prepend to load-path
+      ;; NOTE add ".nosearch" file to exclude directory
       (setq load-path
-	    ;; prepend to load-path
 	    (append
 	     (let ((load-path (copy-sequence load-path))) ;shadow
 	       (append
 		(copy-sequence
-		 ;; recursively add subdirs
-		 ;; NOTE add ".nosearch" file to exclude directory
 		 (normal-top-level-add-to-load-path '(".")))
-		;; add top-level
 		(normal-top-level-add-subdirs-to-load-path)))
 	     load-path)))
 
@@ -40,7 +37,7 @@
      (format "Initial setup in %.2f seconds."
 	     (- (float-time) setup-init-start))))
 
-  ;;;; custom pre-module configuration here
+  ;;;; add pre-module configurations here
 
   ;;;; configuration modules to load
   (setq my-modules
@@ -122,7 +119,7 @@
 				  (error-message-string err)))))))
   (mapcar 'my-load-module my-modules)
 
-  ;;;; post module configuration here
+  ;;;; add post module configurations here
 
   ;;;; finished
   (message
