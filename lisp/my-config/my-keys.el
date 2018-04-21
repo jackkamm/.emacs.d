@@ -1,6 +1,3 @@
-;; bind-key
-(use-package bind-key)
-
 ;; evil
 (use-package evil
   :init
@@ -8,8 +5,7 @@
   (setq evil-want-C-u-scroll t)
   :config
   (evil-mode)
-  (evil-global-set-key 'motion (kbd "SPC") nil)
-  (evil-global-set-key 'motion (kbd "RET") nil))
+  (evil-global-set-key 'motion (kbd "SPC") nil))
 
 (use-package evil-collection
   :after evil

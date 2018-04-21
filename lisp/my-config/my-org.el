@@ -32,6 +32,7 @@
   (add-hook 'evil-org-mode-hook
             (lambda ()
               (evil-org-set-key-theme)))
+  (evil-define-minor-mode-key 'motion 'evil-org-mode
+    (kbd "RET") 'evil-org-return)
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
-

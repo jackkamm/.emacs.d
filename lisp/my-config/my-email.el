@@ -27,7 +27,10 @@
     "R" 'notmuch-show-reply
     "o" 'my-notmuch-open-part)
 
-  ;; TODO: PR evil-collection
+  (evil-define-key 'normal notmuch-show-mode-map
+    (kbd "RET") nil)
+
+  ;; TODO: PR evil-collection?
   (evil-set-initial-state 'notmuch-tree-mode 'normal)
   (evil-define-key 'visual notmuch-search-mode-map
     "+" 'notmuch-search-add-tag
