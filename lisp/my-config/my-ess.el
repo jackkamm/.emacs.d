@@ -1,6 +1,6 @@
 ;; based on spacemacs ess layer
 (use-package ess
-  :mode (("/R/.*\\.q\\'"       . R-mode) 
+  :mode (("/R/.*\\.q\\'"       . R-mode)
 	 ("\\.[rR]\\'"         . R-mode)
 	 ("\\.[rR]nw\\'"       . Rnw-mode)
 	 ("\\.[rR]profile\\'"  . R-mode)
