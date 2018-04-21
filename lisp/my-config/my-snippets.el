@@ -4,12 +4,13 @@
   (add-hook 'text-mode-hook 'yas-minor-mode-on)
   :commands yas-minor-mode-on)
 
-(use-package helm-c-yasnippet
-  :commands (helm-yas-complete
-	     helm-yas-visit-snippet-file)
-  :general
-  (my-leader
-    "is" 'helm-yas-complete))
+(with-eval-after-load "my-helm"
+  (use-package helm-c-yasnippet
+    :commands (helm-yas-complete
+	       helm-yas-visit-snippet-file)
+    :general
+    (my-leader
+      "is" 'helm-yas-complete)))
 
 (use-package yasnippet-snippets
   :defer t)

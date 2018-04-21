@@ -20,15 +20,16 @@
     "d" 'rtags-find-symbol
     "r" 'rtags-find-references
     "R" 'rtags-rename-symbol)
-  
+
   (with-eval-after-load 'company
     (setq rtags-autostart-diagnostics t)
     (rtags-diagnostics)
     (setq rtags-completions-enabled t)
     (push 'company-rtags company-backends))
 
-  (use-package helm-rtags :config
-    (setq rtags-display-result-backend 'helm))
+  (with-eval-after-load "my-helm"
+    (use-package helm-rtags :config
+      (setq rtags-display-result-backend 'helm)))
 
   ;; FIXME: flycheck-rtags not working...
   (require 'flycheck-rtags)
