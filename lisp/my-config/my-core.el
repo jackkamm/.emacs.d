@@ -1,22 +1,11 @@
 ;; evil
 (use-package evil
   :init
-  (setq evil-want-integration nil)
+  (setq evil-want-integration nil) ;needed for evil-collection
   (setq evil-want-C-u-scroll t)
   :config
-  (evil-mode)
-  (evil-global-set-key 'motion (kbd "SPC") nil))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-;; evil cursor colors
-(setq evil-normal-state-cursor "orange"
-    evil-motion-state-cursor "violet"
-    evil-insert-state-cursor '(bar "green")
-    evil-emacs-state-cursor "turquoise")
+  (evil-global-set-key 'motion (kbd "SPC") nil) ;for leader prefix
+  (evil-mode))
 
 ;; which-key
 (use-package which-key :config (which-key-mode))
