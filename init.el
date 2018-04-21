@@ -37,9 +37,9 @@
      (format "Initial setup in %.2f seconds."
 	     (- (float-time) setup-init-start))))
 
-  ;;;; add pre-module configurations here
+  ;;;; add custom pre-module configurations here
 
-  ;;;; configuration modules to load
+  ;;;; select which configuration modules to load
   (setq my-modules
 	(list
 	 ;;; load first -- all modules depend on it
@@ -119,7 +119,7 @@
 				  (error-message-string err)))))))
   (mapcar 'my-load-module my-modules)
 
-  ;;;; add post module configurations here
+  ;;;; add custom post-module configurations here
 
   ;;;; finished
   (message
