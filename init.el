@@ -1,6 +1,7 @@
 (let ((init-start-time (float-time)))
-  ;; setup package.el, load-path
-  (let ((package-init-start (float-time)))
+  ;; Initial setup
+  (let ((setup-init-start (float-time)))
+    ;; initialize packages
     (require 'package)
     (setq package-enable-at-startup nil)
     (add-to-list 'package-archives
@@ -8,8 +9,20 @@
 
     (package-initialize)
 
+    ;; bootstrap use-package
+    (unless (package-installed-p 'use-package)
+      (package-refresh-contents)
+      (package-install 'use-package))
+
+    (eval-when-compile
+      (require 'use-package))
+    (require 'bind-key)
+
+    ;; always install missing packages
+    (setq use-package-always-ensure t)
+
     ;; recursively add ~/.emacs.d/lisp to beginning of load-path
-    ;; add ".nosearch" file to exclude a directory
+    ;; NOTE add ".nosearch" file to exclude a directory
     (let ((default-directory (concat user-emacs-directory "lisp/")))
       (setq load-path
 	    (append
@@ -21,8 +34,8 @@
 	     load-path)))
 
     (message
-     (format "Initialized packages, load-path in %.2f seconds."
-	     (- (float-time) package-init-start))))
+     (format "Initial setup in %.2f seconds."
+	     (- (float-time) setup-init-start))))
 
   ;; function to load module, time it, catch any errors
   (defun my-load-module (module)
@@ -44,8 +57,7 @@
   (setq my-modules
 	(list
 	 ;;;; MUST be loaded first!
-	 "my-use-package"
-	 "my-keys" ;evil, general, which-key, bind-key
+	 "my-keys" ;evil, general, which-key
 	 "my-org" ;ensure org-plus-contrib
 	 ;; other core packages
 	 "my-helm"
