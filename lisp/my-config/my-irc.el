@@ -11,7 +11,7 @@
 	      :nick "freenode"
 	      :password nil))
   (defun my-freenode-znc () (interactive)
-	 (async-shell-command "ssh -f znc sleep 60")
+	 (async-shell-command "ssh -f aws sleep 60")
 	 (sleep-for 2)
 	 (my-freenode))
   :config
