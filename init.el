@@ -48,8 +48,11 @@
 	 ;;; load next to ensure org-plus-contrib
 	 "my-org"
 
-	 ;;; core editor modules
+	 ;; completion system -- only enable 1 of ivy, helm!
 	 "my-helm"
+	 ;"my-ivy"
+
+	 ;;; core editor modules
 	 "my-hydra"
 	 "my-evil-extra" ;evil-collection, extra evil configs
 	 ;;"my-hybrid-state"
