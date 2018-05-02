@@ -1,10 +1,7 @@
-;; ess automatically uses polymode when installed
-(use-package polymode :defer t)
-
-(use-package ess
+(use-package ess-site
+  :ensure ess
   :mode (("/R/.*\\.q\\'"       . R-mode)
 	 ("\\.[rR]\\'"         . R-mode)
-	 ("\\.[rR]nw\\'"       . Rnw-mode)
 	 ("\\.[rR]profile\\'"  . R-mode)
 	 ("NAMESPACE\\'"       . R-mode)
 	 ("CITATION\\'"        . R-mode)
@@ -12,10 +9,7 @@
 	 ("\\.[Rr]out"         . R-transcript-mode)
 	 ("\\.Rd\\'"           . Rd-mode))
   :commands (R julia)
-  :init
-  (setq ess-swv-plug-into-AUCTeX-p t)
   :config
-  (require 'ess-site) ;needed for Rnw-mode and other things
   (evil-set-initial-state 'ess-help-mode 'motion)
   ;; fix annoying ESS indentation
   ;; http://r.789695.n4.nabble.com/Commenting-conventions-td3216584.html
@@ -56,3 +50,15 @@
   (progn
     (add-hook 'ess-mode-hook 'ess-smart-equals-mode)
     (add-hook 'inferior-ess-mode-hook 'ess-smart-equals-mode)))
+
+(use-package polymode
+  :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
+	 ("\\.Rmd" . poly-markdown+r-mode))
+  :config
+  (require 'poly-R)
+  (require 'poly-noweb)
+  (require 'poly-markdown)
+  (setq polymode-weave-output-file-format "%s")
+  (setq polymode-exporter-output-file-format "%s")
+  (setq polymode-display-process-buffers nil)
+  (setq polymode-display-output-file nil))
