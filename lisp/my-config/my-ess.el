@@ -1,4 +1,6 @@
-;; based on spacemacs ess layer
+;; ess automatically uses polymode when installed
+(use-package polymode :defer t)
+
 (use-package ess
   :mode (("/R/.*\\.q\\'"       . R-mode)
 	 ("\\.[rR]\\'"         . R-mode)
@@ -10,7 +12,10 @@
 	 ("\\.[Rr]out"         . R-transcript-mode)
 	 ("\\.Rd\\'"           . Rd-mode))
   :commands (R julia)
+  :init
+  (setq ess-swv-plug-into-AUCTeX-p t)
   :config
+  (require 'ess-site) ;needed for Rnw-mode and other things
   (evil-set-initial-state 'ess-help-mode 'motion)
   ;; fix annoying ESS indentation
   ;; http://r.789695.n4.nabble.com/Commenting-conventions-td3216584.html
