@@ -68,6 +68,7 @@
 	 "my-email"
 	 "my-irc"
 	 "my-ediff"
+	 "my-dired"
 
 	 ;;; theming
 	 "my-theme"

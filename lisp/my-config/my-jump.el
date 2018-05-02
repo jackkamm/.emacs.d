@@ -16,6 +16,4 @@
 (my-leader
   ;; xref
   "jd" 'xref-find-definitions
-  "jr" 'xref-find-references
-  ;; dired
-  "jD" 'dired-jump)
+  "jr" 'xref-find-references)
