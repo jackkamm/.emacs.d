@@ -62,6 +62,7 @@
 	 "my-expand-region"
 	 "my-navigation" ;minimap
 	 "my-undo-tree"
+	 "my-emoji"
 
 	 ;;; applications
 	 "my-git"
