@@ -74,7 +74,7 @@
 	 "my-theme"
 	 "my-window-layout"
 	 "my-linum"
-	 "my-hidpi"
+	 ;"my-hidpi"
 	 "my-prompts"
 	 "my-pos-tip"
 	 "my-highlight" ;hl-todo, evil-highlight-persist

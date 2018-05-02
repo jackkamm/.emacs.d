@@ -1,6 +1,11 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 (setq sendmail-program "/bin/msmtp")
 
+(use-package emojify
+  :after notmuch
+  :config
+  (global-emojify-mode))
+
 (use-package notmuch
   :general
   (my-leader
