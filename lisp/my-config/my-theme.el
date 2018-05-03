@@ -5,8 +5,6 @@
 
 (setq my-light-theme 'leuven)
 
-;;(use-package material-theme :defer t)
-;;(setq my-dark-theme 'material)
 (use-package spacemacs-theme :defer t)
 (setq my-dark-theme 'spacemacs-dark)
 
@@ -28,10 +26,12 @@
 
 (my-leader
   "t" '(:ignore t :which-key "theme")
-  "tt" 'load-theme
-  "tT" 'disable-theme
+  "tt" 'my-load-theme
+  "tT" 'load-theme
+  "tD" 'disable-theme
   "tl" 'load-light-theme
   "td" 'load-dark-theme
-  "tL" 'toggle-truncate-lines)
+  "tL" 'toggle-truncate-lines
+  "tm" 'menu-bar-mode)
 
 (load-dark-theme)
