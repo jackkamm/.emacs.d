@@ -13,5 +13,5 @@
     ("q" nil "quit")
     ("Q" minimap-mode "quit-toggle-minimap" :exit t))
   (my-leader
-    "n" '(my-nav-hydra/body :which-key "nav-hydra"))
+    "n" '(my-nav-hydra/body :which-key "navigate-scroll"))
   :commands (minimap-mode))

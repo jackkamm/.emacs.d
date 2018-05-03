@@ -15,8 +15,7 @@
   :init
   (add-hook 'c-mode-common-hook 'lsp-cquery-enable)
   :config
-  (my-major-leader
-    :keymaps 'c-mode-base-map
+  (my-major-leader :keymaps 'c-mode-base-map
     "d" 'xref-find-definitions
     "r" 'xref-find-references
     "R" 'lsp-rename))

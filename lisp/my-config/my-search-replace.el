@@ -1,19 +1,32 @@
-;; narrow-region
+(my-leader "s" '(:ignore t :which-key "search-replace"))
+(general-create-definer my-search-replace-leader :prefix "C-c s")
+
+;;; helm
+(with-eval-after-load "my-helm"
+  (use-package helm-projectile
+    :general (my-search-replace-leader
+	       "p" 'helm-projectile-ag))
+
+  (use-package helm-swoop
+    :general (my-search-replace-leader
+	       "s" 'helm-swoop)))
+
+;;; narrow-region
 
 (put 'narrow-to-region 'disabled nil)
-(my-leader
-  "sn" '(:ignore t :which-key "narrow")
-  "snr" 'narrow-to-region
-  "snf" 'narrow-to-defun-include-comments
-  "snF" 'narrow-to-defun
-  "snw" 'widen)
+(my-search-replace-leader
+  "n" '(:ignore t :which-key "narrow")
+  "nr" 'narrow-to-region
+  "nf" 'narrow-to-defun-include-comments
+  "nF" 'narrow-to-defun
+  "nw" 'widen)
 
-;; iedit
+;;; iedit
 
 (use-package iedit
   :general
-  (my-leader
-    "se" 'iedit-mode)
+  (my-search-replace-leader
+    "e" 'iedit-mode)
   :config
   ;; evil-define on iedit modes/maps has strange effects(?)
   ;; so create a new minor-mode instead
@@ -40,14 +53,14 @@
     (kbd "/ k") 'iedit-expand-up-a-line
     (kbd "M-k") 'iedit-expand-up-a-line))
 
-;; evil-mc
+;;; evil-mc
 
 (use-package evil-mc
   :commands my-evil-mc-hydra/evil-mc-toggle-cursor-on-click
   :bind (("S-<down-mouse-1>" . 'my-evil-mc-hydra/evil-mc-toggle-cursor-on-click))
   :general
-  (my-leader
-    "sm" 'my-evil-mc-hydra/body)
+  (my-search-replace-leader
+    "m" 'my-evil-mc-hydra/body)
   :init
   (setq evil-mc-key-map nil)
   :config

@@ -48,42 +48,42 @@
 	 ;;; load next to ensure org-plus-contrib
 	 "my-org"
 
-	 ;; completion system, only enable 1
+	 ;;; completion system, only enable 1
 	 "my-helm"
 	 ;"my-ivy"
 
 	 ;;; core editor modules
-	 "my-hydra"
 	 "my-evil-extra" ;evil-collection, extra evil configs
 	 ;;"my-hybrid-state"
-	 "my-jump" ;SPC-j: avy, easymotion, xref
-	 "my-multiedit" ;iedit, evil-mc, narrow-region
 	 "my-parens" ;smartparens, evil-surround
-	 "my-snippets" ;yasnippet
 	 "my-flycheck"
 	 "my-company"
-	 "my-expand-region"
-	 "my-navigation" ;minimap
-	 "my-undo-tree"
-	 "my-emoji"
+
+	 ;;; leader keys
+	 "my-files" ;SPC-f, dired, helm-files
+	 "my-buffers" ;SPC-b, helm-buffers
+	 "my-jump" ;SPC-j, avy, easymotion, xref
+	 "my-scroll" ;SPC-n, nav-hydra, minimap
+	 "my-edit" ;SPC-e, undo-tree, yasnippet, expand-region
+	 "my-execute" ;SPC-x, universal-argument, shell-command, M-x
+	 "my-window-layout" ;SPC-w, winner, ace-window, popwin
+	 ;; SPC-s,iedit,evil-mc,narrow-region,helm-swoop/projectile
+	 "my-search-replace"
 
 	 ;;; applications
 	 "my-git"
 	 "my-email"
 	 "my-irc"
 	 "my-ediff"
-	 "my-dired"
 
 	 ;;; theming
 	 "my-theme"
-	 "my-window-layout"
+	 "my-emoji"
 	 "my-linum"
 	 ;"my-hidpi"
 	 "my-prompts"
 	 "my-pos-tip"
 	 "my-highlight" ;hl-todo, evil-highlight-persist
-	 "my-popwin"
-	 "my-saving"
 	 "my-default-browser"
 	 "my-whitespace"
 

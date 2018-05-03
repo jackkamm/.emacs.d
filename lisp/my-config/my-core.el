@@ -14,45 +14,27 @@
 (use-package general
   :config
   (general-override-mode)
+  (general-create-definer my-leader :prefix "C-c")
+  (general-create-definer my-major-leader :prefix "C-c m")
+  (general-create-definer my-eval-leader :prefix "C-c m e")
+
   (general-define-key
    :keymaps 'override
    :states '(normal motion visual)
-   "SPC" (general-simulate-key "C-c"))
-  (general-create-definer my-leader
-    :prefix "C-c")
+   "SPC" (general-simulate-key "C-c")
+   "S-SPC" (general-simulate-key "C-c m"))
+
+  (my-major-leader
+    "e" '(:ignore t :which-key "eval"))
+
   (my-leader
-    ;; buffers
-    "b" '(:ignore t :which-key "buffer")
-    "bd" 'kill-buffer
-    "bx" 'kill-buffer-and-window
-    ;; files
-    "f" '(:ignore t :which-key "file")
-    "fs" 'save-some-buffers
-    "fc" 'write-file
-    ;; help
+    "m" '(:ignore t :which-key "major")
+    "a" '(:ignore t :which-key "app")
     "h" '(:keymap help-map :which-key "help")
-    ;; insertion
-    "i" '(:ignore t :which-key "insert")
-    "i <tab>" 'indent-region
     ;; quitting
     "q" '(:ignore t :which-key "quit")
     "qq" 'save-buffers-kill-emacs
-    "qf" 'delete-frame
-    ;; commands
-    "x" '(:ignore t :which-key "cmd")
-    "xu" 'universal-argument
-    "xz" 'evil-execute-in-emacs-state
-    "x!" 'shell-command
-    "x&" 'async-shell-command
-    ;; other prefixes
-    "a" '(:ignore t :which-key "app")
-    "e" '(:ignore t :which-key "eval")
-    "j" '(:ignore t :which-key "jump")
-    "m" '(:ignore t :which-key "major")
-    "s" '(:ignore t :which-key "search"))
-  (general-create-definer my-major-leader
-    :states '(motion visual insert emacs)
-    :prefix "S-SPC"
-    :global-prefix "C-c m")
-  (general-create-definer my-eval-leader
-    :prefix "C-c e"))
+    "qf" 'delete-frame))
+
+;; hydra
+(use-package hydra)
