@@ -5,10 +5,10 @@
   (require 'helm-config)
   (helm-mode 1)
   (my-leader
-    "SPC" 'helm-M-x
-    "f f" 'helm-find-files
-    "f r" 'helm-recentf
-    "b b" 'helm-mini)
+    "xx" 'helm-M-x
+    "ff" 'helm-find-files
+    "fr" 'helm-recentf
+    "bb" 'helm-mini)
   (bind-keys :map help-map
 	     ("a" . helm-apropos))
   (bind-keys :map helm-map
@@ -28,7 +28,7 @@
 
 (use-package helm-projectile
   :general (my-leader
-	      "/" 'helm-projectile-ag))
+	      "sp" 'helm-projectile-ag))
 
 (use-package helm-swoop
   :general (my-leader

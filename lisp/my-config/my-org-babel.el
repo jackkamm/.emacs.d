@@ -16,13 +16,13 @@
      (emacs-lisp . t)
      (shell . t)
      (ipython . t)))
-  ;; macro for "C-c ' M-m e b C-c '"
+  ;; macro for "C-c ' C-c e b C-c '"
   ;; opens block (C-c '), evals buffer (M-m e b), closes block (C-c ')
   ;; assumes convention (M-m e b) to eval buffer defined across modes
   (fset 'my-babel-async-eval-session
 	(lambda (&optional arg) "Keyboard macro." (interactive "p")
 	  (kmacro-exec-ring-item
-	   (quote ("'\355eb'" 0 "%d")) arg)))
+	   (quote ("'eb'" 0 "%d")) arg)))
   (defhydra my-babel-hydra ()
     "babel"
     ("n" org-babel-next-src-block "next")

@@ -14,17 +14,19 @@
 (use-package general
   :config
   (general-override-mode)
+  (general-define-key
+   :keymaps 'override
+   :states '(normal motion visual)
+   "SPC" (general-simulate-key "C-c"))
   (general-create-definer my-leader
-    :states '(motion normal visual insert emacs)
-    :prefix "SPC"
-    :keymaps 'override
-    :global-prefix "M-m")
+    :prefix "C-c")
   (my-leader
-    "u" 'universal-argument
-    "z" 'evil-execute-in-emacs-state
-    "!" 'shell-command
+    "xu" 'universal-argument
+    "xz" 'evil-execute-in-emacs-state
+    "x!" 'shell-command
+    "x&" 'async-shell-command
     "h" '(:keymap help-map :which-key "help")
-    "<tab>" 'indent-region
+    "i <tab>" 'indent-region
     ;; buffers
     "b" '(:ignore t :which-key "buffer")
     "bd" 'kill-buffer
@@ -40,18 +42,15 @@
     ;; other prefixes
     "a" '(:ignore t :which-key "app")
     "e" '(:ignore t :which-key "eval")
-    "m" '(:ignore t :which-key "major")
-    "j" '(:ignore t :which-key "jump")
-    "i" '(:ignore t :which-key "insert")
     "g" '(:ignore t :which-key "git")
-    "s" '(:ignore t :which-key "search"))
-  (define-key key-translation-map (kbd "SPC c") (kbd "C-c"))
-  (define-key key-translation-map (kbd "M-m c") (kbd "C-c"))
+    "i" '(:ignore t :which-key "insert")
+    "j" '(:ignore t :which-key "jump")
+    "m" '(:ignore t :which-key "major")
+    "s" '(:ignore t :which-key "search")
+    "x" '(:ignore t :which-key "cmd"))
   (general-create-definer my-major-leader
     :states '(motion visual insert emacs)
-    :prefix "SPC m"
-    :global-prefix "M-m m")
+    :prefix "S-SPC"
+    :global-prefix "C-c m")
   (general-create-definer my-eval-leader
-    :states '(motion visual insert emacs)
-    :prefix "SPC e"
-    :global-prefix "M-m e"))
+    :prefix "C-c e"))
