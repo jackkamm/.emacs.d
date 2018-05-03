@@ -1,3 +1,5 @@
+(my-leader "g" '(:ignore t :which-key "git"))
+
 (use-package magit
   :general
   (my-leader

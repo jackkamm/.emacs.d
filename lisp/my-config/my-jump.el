@@ -8,8 +8,7 @@
 
 (use-package evil-easymotion
   :config
-  (evilem-default-keybindings "SPC j e")
-  (evilem-default-keybindings "M-m j e")
+  (evilem-default-keybindings "C-c j e")
   (my-leader
     "je" '(:ignore-key t :which-key "easymotion")))
 

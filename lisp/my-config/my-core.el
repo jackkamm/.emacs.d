@@ -21,33 +21,35 @@
   (general-create-definer my-leader
     :prefix "C-c")
   (my-leader
-    "xu" 'universal-argument
-    "xz" 'evil-execute-in-emacs-state
-    "x!" 'shell-command
-    "x&" 'async-shell-command
-    "h" '(:keymap help-map :which-key "help")
-    "i <tab>" 'indent-region
     ;; buffers
     "b" '(:ignore t :which-key "buffer")
     "bd" 'kill-buffer
     "bx" 'kill-buffer-and-window
-    ;; quitting
-    "q" '(:ignore t :which-key "quit")
-    "qq" 'save-buffers-kill-emacs
-    "qf" 'delete-frame
     ;; files
     "f" '(:ignore t :which-key "file")
     "fs" 'save-some-buffers
     "fc" 'write-file
+    ;; help
+    "h" '(:keymap help-map :which-key "help")
+    ;; insertion
+    "i" '(:ignore t :which-key "insert")
+    "i <tab>" 'indent-region
+    ;; quitting
+    "q" '(:ignore t :which-key "quit")
+    "qq" 'save-buffers-kill-emacs
+    "qf" 'delete-frame
+    ;; commands
+    "x" '(:ignore t :which-key "cmd")
+    "xu" 'universal-argument
+    "xz" 'evil-execute-in-emacs-state
+    "x!" 'shell-command
+    "x&" 'async-shell-command
     ;; other prefixes
     "a" '(:ignore t :which-key "app")
     "e" '(:ignore t :which-key "eval")
-    "g" '(:ignore t :which-key "git")
-    "i" '(:ignore t :which-key "insert")
     "j" '(:ignore t :which-key "jump")
     "m" '(:ignore t :which-key "major")
-    "s" '(:ignore t :which-key "search")
-    "x" '(:ignore t :which-key "cmd"))
+    "s" '(:ignore t :which-key "search"))
   (general-create-definer my-major-leader
     :states '(motion visual insert emacs)
     :prefix "S-SPC"

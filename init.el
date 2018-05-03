@@ -48,7 +48,7 @@
 	 ;;; load next to ensure org-plus-contrib
 	 "my-org"
 
-	 ;; completion system -- only enable 1 of ivy, helm!
+	 ;; completion system, only enable 1
 	 "my-helm"
 	 ;"my-ivy"
 

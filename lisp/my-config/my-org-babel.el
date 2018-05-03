@@ -17,8 +17,8 @@
      (shell . t)
      (ipython . t)))
   ;; macro for "C-c ' C-c e b C-c '"
-  ;; opens block (C-c '), evals buffer (M-m e b), closes block (C-c ')
-  ;; assumes convention (M-m e b) to eval buffer defined across modes
+  ;; opens block (C-c '), evals buffer (C-c e b), closes block (C-c ')
+  ;; assumes convention (C-c e b) to eval buffer defined across modes
   (fset 'my-babel-async-eval-session
 	(lambda (&optional arg) "Keyboard macro." (interactive "p")
 	  (kmacro-exec-ring-item
