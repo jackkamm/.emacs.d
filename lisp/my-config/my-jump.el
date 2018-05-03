@@ -1,4 +1,4 @@
-(my-leader "j" '(:ignore t :which-key "jump"))
+(my-leader "j" '(:ignore t :which-key "Jump"))
 (general-create-definer my-jump-leader :prefix "C-c j")
 
 (my-jump-leader

@@ -1,4 +1,4 @@
-(my-leader "s" '(:ignore t :which-key "search-replace"))
+(my-leader "s" '(:ignore t :which-key "Search/replace"))
 (general-create-definer my-search-replace-leader :prefix "C-c s")
 
 ;;; helm

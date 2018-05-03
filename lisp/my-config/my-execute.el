@@ -1,4 +1,4 @@
-(my-leader "x" '(:ignore t :which-key "execute"))
+(my-leader "x" '(:ignore t :which-key "Execute"))
 (general-create-definer my-execute-leader :prefix "C-c x")
 
 (my-execute-leader

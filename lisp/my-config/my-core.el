@@ -8,7 +8,10 @@
   (evil-mode))
 
 ;; which-key
-(use-package which-key :config (which-key-mode))
+(use-package which-key
+  :config
+  (which-key-mode)
+  (setq which-key-sort-order 'which-key-key-order-alpha))
 
 ;; general
 (use-package general
@@ -25,14 +28,14 @@
    "S-SPC" (general-simulate-key "C-c m"))
 
   (my-major-leader
-    "e" '(:ignore t :which-key "eval"))
+    "e" '(:ignore t :which-key "Evaluate"))
 
   (my-leader
-    "m" '(:ignore t :which-key "major")
-    "a" '(:ignore t :which-key "app")
-    "h" '(:keymap help-map :which-key "help")
+    "m" '(:ignore t :which-key "Major-mode")
+    "a" '(:ignore t :which-key "Applications")
+    "h" '(:keymap help-map :which-key "Help")
     ;; quitting
-    "q" '(:ignore t :which-key "quit")
+    "q" '(:ignore t :which-key "Quit")
     "qq" 'save-buffers-kill-emacs
     "qf" 'delete-frame))
 

@@ -1,4 +1,4 @@
-(my-leader "w" '(:ignore t :which-key "windows"))
+(my-leader "w" '(:ignore t :which-key "Window"))
 (general-create-definer my-windows-leader :prefix "C-c w")
 
 (winner-mode)

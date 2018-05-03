@@ -1,4 +1,4 @@
-(my-leader "b" '(:ignore t :which-key "buffers"))
+(my-leader "b" '(:ignore t :which-key "Buffer"))
 (general-create-definer my-buffers-leader :prefix "C-c b")
 
 (my-buffers-leader

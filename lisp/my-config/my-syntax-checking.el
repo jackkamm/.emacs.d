@@ -1,3 +1,6 @@
+(my-leader "r" '(:ignore t :which-key "Errors"))
+(general-create-definer my-errors-leader :prefix "C-c r")
+
 (use-package flycheck
   :config
   ;; enable flycheck globally
@@ -10,11 +13,10 @@
   	'(save idle-change mode-enabled))
   (setq flycheck-idle-change-delay 4)
   ;; keybinds
-  (my-leader
-    "r" '(:ignore t :which-key "errors")
-    "rr" 'flycheck-list-errors
-    "rj" 'flycheck-next-error
-    "rk" 'flycheck-previous-error)
+  (my-errors-leader
+    "r" 'flycheck-list-errors
+    "j" 'flycheck-next-error
+    "k" 'flycheck-previous-error)
   ;; nicer popup window
   (with-eval-after-load 'popwin
     (push '("^\\*Flycheck.+\\*$"

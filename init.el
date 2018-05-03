@@ -54,27 +54,22 @@
 
 	 ;;; core editor modules
 	 "my-evil-extra" ;evil-collection, extra evil configs
-	 ;;"my-hybrid-state"
-	 "my-parens" ;smartparens, evil-surround
-	 "my-flycheck"
-	 "my-company"
-
-	 ;;; leader keys
-	 "my-files" ;SPC-f, dired, helm-files
-	 "my-buffers" ;SPC-b, helm-buffers
-	 "my-jump" ;SPC-j, avy, easymotion, xref
-	 "my-scroll" ;SPC-n, nav-hydra, minimap
-	 "my-edit" ;SPC-e, undo-tree, yasnippet, expand-region
-	 "my-execute" ;SPC-x, universal-argument, shell-command, M-x
-	 "my-window-layout" ;SPC-w, winner, ace-window, popwin
-	 ;; SPC-s,iedit,evil-mc,narrow-region,helm-swoop/projectile
-	 "my-search-replace"
+	 "my-files" ;^Cf, dired, helm-files
+	 "my-edit" ;^Ce, undo-tree, ediff
+	 "my-buffers" ;^Cb, helm-buffers
+	 "my-jump" ;^Cj, avy, easymotion, xref
+	 "my-scroll" ;^Cn, nav-hydra, minimap
+	 "my-insert" ;^Ci, yasnippet, company
+	 "my-execute" ;^Cx, universal-argument, shell-command, M-x
+	 "my-window-layout" ;^Cw, winner, ace-window, popwin
+	 "my-syntax-checking" ;^Cr, flycheck
+	 "my-search-replace" ;^Cs,iedit/mc,swoop/projectile,narrowing
+	 "my-surround" ;^Cv, expand-region, smartparens, evil-surround
+	 "my-git" ;^Cg, magit, git-timemachine
 
 	 ;;; applications
-	 "my-git"
 	 "my-email"
 	 "my-irc"
-	 "my-ediff"
 
 	 ;;; theming
 	 "my-theme"
@@ -92,7 +87,6 @@
 	 "my-ein"
 	 "my-ess"
 	 "my-emacs-lisp"
-	 "my-org-babel"
 	 "my-tex"
 	 "my-web"
 	 ;; c-c++: only enable 1 of cquery, rtags

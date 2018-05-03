@@ -1,4 +1,4 @@
-(my-leader "f" '(:ignore t :which-key "files"))
+(my-leader "f" '(:ignore t :which-key "File"))
 (general-create-definer my-files-leader :prefix "C-c f")
 
 (my-files-leader
