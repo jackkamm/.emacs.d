@@ -13,7 +13,7 @@
 	     ("a" . helm-apropos))
   (bind-keys :map helm-map
 	     ;("C-<backspace>" . helm-delete-minibuffer-contents)
-	     ("<tab>" . helm-execute-persistent-action)
+	     ;("<tab>" . helm-execute-persistent-action)
 	     ("C-i" . helm-execute-persistent-action)
 	     ("C-z" . helm-select-action))
   (dolist (m (list helm-find-files-map
