@@ -42,10 +42,13 @@
 (setq my-modules
       (list
 	 ;;; load first -- all modules depend on it
-       "my-core" ;evil, general, which-key
+       "my-core" ;evil, general, which-key, hydra
 
 	 ;;; load next to ensure org-plus-contrib
        "my-org"
+
+         ;;; other miscellaneous setup
+       "my-setup" ;custom-file, server-start
 
 	 ;;; completion system, only enable 1
        "my-helm"
@@ -67,19 +70,15 @@
        "my-git" ;^Cg, magit, git-timemachine
 
 	 ;;; applications
+       "my-apps" ;browser, terminal
        "my-email"
        "my-irc"
+       "my-tramp"
 
 	 ;;; theming
        "my-theme"
        "my-emoji"
-       "my-linum"
        ;;"my-hidpi"
-       "my-prompts"
-       "my-pos-tip"
-       "my-highlight" ;hl-todo, evil-highlight-persist
-       "my-default-browser"
-       "my-whitespace"
 
 	 ;;; languages
        "my-python"
@@ -91,12 +90,6 @@
        ;; c-c++: only enable 1 of cquery, rtags
        "my-cquery"
        ;;"my-rtags"
-
-	 ;;; miscellaneous
-       "my-start-server"
-       "my-set-custom-file"
-       "my-functions" ;misc. useful functions
-       "my-tramp"
        ))
 
   ;;;; load my configuration modules
