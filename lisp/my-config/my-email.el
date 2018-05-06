@@ -30,6 +30,9 @@
   (evil-define-key 'normal notmuch-show-mode-map
     (kbd "RET") nil)
 
+  (evil-define-key 'normal notmuch-message-mode-map
+    (kbd "TAB") 'message-tab)
+
   ;; TODO: PR evil-collection?
   (evil-set-initial-state 'notmuch-tree-mode 'normal)
   (evil-define-key 'visual notmuch-search-mode-map
