@@ -13,6 +13,13 @@
   (bind-keys :map company-active-map
 	     ("<return>" . nil)))
 
+(with-eval-after-load "my-helm"
+  (use-package helm-company
+    :after company
+    :config
+    (define-key company-mode-map (kbd "C-;") 'helm-company)
+    (define-key company-active-map (kbd "C-;") 'helm-company)))
+
 ;;; yasnippet
 
 (use-package yasnippet
