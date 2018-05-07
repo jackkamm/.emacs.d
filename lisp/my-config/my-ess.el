@@ -4,7 +4,6 @@
 	 ("\\.[rR]\\'"         . R-mode)
 	 ("\\.[rR]profile\\'"  . R-mode)
 	 ("NAMESPACE\\'"       . R-mode)
-	 ("\\.[rR]nw\\'"       . Rnw-mode)
 	 ("CITATION\\'"        . R-mode)
 	 ("\\.jl\\'"           . ess-julia-mode)
 	 ("\\.[Rr]out"         . R-transcript-mode)
@@ -12,8 +11,6 @@
   :commands (R julia)
   :init
   (setq inferior-ess-same-window nil)
-  (setq ess-swv-processor 'knitr)
-  (setq ess-swv-plug-into-AUCTeX-p t)
   :config
   ;; TODO: PR evil-collection
   (evil-set-initial-state 'ess-help-mode 'motion)
@@ -48,17 +45,7 @@
     "R" 'ess-eval-region-and-go
     "r" 'ess-eval-region
     "F" 'ess-eval-function-and-go
-    "f" 'ess-eval-function)
-  ;; AUCTeX options for running knitr/sweave within inferior ESS
-  (with-eval-after-load 'tex
-    (add-to-list 'TeX-command-list
-		 '("Knitr-inferior-ess" "(ess-swv-knit)"
-		   TeX-run-function nil (latex-mode) :help
-		   "Run ess-swv-knit") t)
-   (add-to-list 'TeX-command-list
-		 '("Sweave-inferior-ess" "(ess-swv-sweave)"
-		   TeX-run-function nil (latex-mode) :help
-		   "Run ess-swv-sweave") t)))
+    "f" 'ess-eval-function))
 
 (use-package ess-smart-equals
   :commands ess-smart-equals-mode
@@ -66,3 +53,20 @@
   (progn
     (add-hook 'ess-mode-hook 'ess-smart-equals-mode)
     (add-hook 'inferior-ess-mode-hook 'ess-smart-equals-mode)))
+
+(use-package polymode
+  :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
+	 ("\\.Rmd" . poly-markdown+r-mode))
+  :config
+  (require 'poly-R)
+  (require 'poly-noweb)
+  (require 'poly-markdown)
+  (setq polymode-weave-output-file-format "%s")
+  (setq polymode-exporter-output-file-format "%s")
+  (setq polymode-display-process-buffers nil)
+  (setq polymode-display-output-file nil)
+  ;; AUCTeX integration
+  (with-eval-after-load 'tex
+    (add-to-list 'TeX-command-list
+  		 '("polymode-export" "(polymode-export)"
+  		   TeX-run-function nil (latex-mode) :help) t)))
