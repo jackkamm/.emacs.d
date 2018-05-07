@@ -5,10 +5,7 @@
   (my-major-leader
     :keymaps 'LaTeX-mode-map
     "m" 'TeX-command-master
-    "e" 'LaTeX-environment)
-  (my-eval-leader
-    :keymaps 'LaTeX-mode-map
-    "e" 'TeX-command-master))
+    "e" 'LaTeX-environment))
 
 ;; helm \includegraphics looks in local directory,
 ;; instead of TeX search path
