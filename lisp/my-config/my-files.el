@@ -10,6 +10,9 @@
     "f" 'helm-find-files
     "r" 'helm-recentf))
 
+;; human-readable file sizes
+(setq dired-listing-switches "-alh")
+;; copy to dired in other-window by default
 (setq dired-dwim-target t)
 
 (use-package dired-x
