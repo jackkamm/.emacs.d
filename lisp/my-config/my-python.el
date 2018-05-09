@@ -45,14 +45,6 @@
   :commands (pyvenv-activate
 	     pyvenv-workon))
 
-(use-package pipenv
-  :commands (pipenv-activate
-	     pipenv-deactivate
-	     pipenv-shell
-	     pipenv-open
-	     pipenv-install
-	     pipenv-uninstall))
-
 (use-package cython-mode
   :mode (("\\.pyx\\'" . cython-mode)
 	 ("\\.pxd\\'" . cython-mode)))
