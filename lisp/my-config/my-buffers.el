@@ -3,7 +3,8 @@
 
 (my-buffers-leader
  "d" 'kill-buffer
- "x" 'kill-buffer-and-window)
+ "x" 'kill-buffer-and-window
+ "r" 'revert-buffer)
 
 (with-eval-after-load "my-helm"
   (my-buffers-leader
