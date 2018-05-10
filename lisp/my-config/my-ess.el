@@ -69,4 +69,10 @@
   (with-eval-after-load 'tex
     (add-to-list 'TeX-command-list
   		 '("polymode-export" "(polymode-export)"
-  		   TeX-run-function nil (latex-mode) :help) t)))
+  		   TeX-run-function nil (latex-mode) :help) t)
+    (mapc (lambda (suffix)
+	    (add-to-list 'TeX-file-extensions suffix))
+	  '("nw" "Snw" "Rnw"))
+    (add-hook 'poly-noweb+r-mode-hook
+	      (lambda ()
+		(setq TeX-command-default "polymode-export")))))
