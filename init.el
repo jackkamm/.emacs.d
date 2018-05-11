@@ -61,7 +61,7 @@
        "my-search-replace" ;^Cs,iedit/mc,swoop/projectile,narrowing
        "my-editing" ;^Ce, undo-tree, expand-region, smartparens,
 		    ;evil-surround, yasnippet, company
-       "my-jump" ;^Cj, avy, easymotion, xref
+       "my-goto" ;^Cj, avy, easymotion, xref
        "my-scroll" ;^Cn, nav-hydra, minimap
        "my-execute" ;^Cx, universal-argument, shell-command, M-x
        "my-window-layout" ;^Cw, winner, ace-window, popwin
