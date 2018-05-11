@@ -1,7 +1,30 @@
-(my-leader "i" '(:ignore t :which-key "Insert"))
-(general-create-definer my-insert-leader :prefix "C-c i")
+(my-leader "e" '(:ignore t :which-key "Edit"))
+(general-create-definer my-edit-leader :prefix "C-c e")
 
-;;; company
+(my-edit-leader
+ "<tab>" 'indent-region)
+
+(use-package undo-tree
+  :general
+  (my-edit-leader
+    "u" 'undo-tree-visualize))
+
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package smartparens
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode))
+
+(use-package expand-region
+  :general
+  (my-edit-leader
+    "v" 'er/expand-region)
+  :config
+  (setq expand-region-contract-fast-key "V"
+	expand-region-reset-fast-key "r"))
 
 (use-package company
   :commands (company-mode company-mode-on)
@@ -20,8 +43,6 @@
     (define-key company-mode-map (kbd "C-;") 'helm-company)
     (define-key company-active-map (kbd "C-;") 'helm-company)))
 
-;;; yasnippet
-
 (use-package yasnippet
   :init
   (add-hook 'prog-mode-hook 'yas-minor-mode-on)
@@ -35,7 +56,7 @@
     :commands (helm-yas-complete
 	       helm-yas-visit-snippet-file)
     :general
-    (my-insert-leader
-      "s" 'helm-yas-complete)))
+    (my-edit-leader
+      "y" 'helm-yas-complete)))
 
 (use-package yasnippet-snippets :defer t)

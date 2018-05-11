@@ -3,7 +3,7 @@
 
 (my-jump-leader
   ;; xref
-  "d" 'xref-find-definitions
+  "d" 'xref-find-definitions ;note: already bound to "gd"
   "r" 'xref-find-references)
 
 (use-package avy

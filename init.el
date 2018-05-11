@@ -57,17 +57,16 @@
 	 ;;; core editor modules
        "my-evil-extra" ;evil-collection, extra evil configs
        "my-files" ;^Cf, dired, helm-files
-       "my-edit" ;^Ce, undo-tree, ediff
        "my-buffers" ;^Cb, helm-buffers
+       "my-search-replace" ;^Cs,iedit/mc,swoop/projectile,narrowing
+       "my-editing" ;^Ce, undo-tree, expand-region, smartparens,
+		    ;evil-surround, yasnippet, company
        "my-jump" ;^Cj, avy, easymotion, xref
        "my-scroll" ;^Cn, nav-hydra, minimap
-       "my-insert" ;^Ci, yasnippet, company
        "my-execute" ;^Cx, universal-argument, shell-command, M-x
        "my-window-layout" ;^Cw, winner, ace-window, popwin
        "my-syntax-checking" ;^Cr, flycheck
-       "my-search-replace" ;^Cs,iedit/mc,swoop/projectile,narrowing
-       "my-surround" ;^Cv, expand-region, smartparens, evil-surround
-       "my-git" ;^Cg, magit, git-timemachine
+       "my-versioning" ;^Cg, magit, git-timemachine, ediff
 
 	 ;;; applications
        "my-apps" ;browser, terminal
