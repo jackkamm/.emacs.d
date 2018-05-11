@@ -48,3 +48,10 @@
 (use-package cython-mode
   :mode (("\\.pyx\\'" . cython-mode)
 	 ("\\.pxd\\'" . cython-mode)))
+
+(use-package yapfify
+  :commands (yapfify-buffer)
+  :init
+  (my-major-leader
+    :keymaps 'python-mode-map
+    "y" 'yapfify-buffer))
