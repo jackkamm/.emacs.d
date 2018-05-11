@@ -34,12 +34,11 @@
 	     ipython-shell-send-defun
 	     ipython-shell-send-file)
   :general
-  (my-eval-leader
+  (my-major-leader
     :keymaps 'python-mode-map
     "b" 'ipython-shell-send-buffer
     "f" 'ipython-shell-send-defun
-    "r" 'ipython-shell-send-region
-    "e" 'ipython-shell-send-region))
+    "r" 'ipython-shell-send-region))
 
 (use-package pyvenv
   :commands (pyvenv-activate

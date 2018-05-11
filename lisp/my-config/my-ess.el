@@ -31,20 +31,10 @@
     "h" 'ess-doc-map
     "r" 'ess-extra-map
     "w" 'ess-r-package-dev-map
-    "d" 'ess-dev-map)
-  (my-eval-leader
-    :keymaps '(ess-julia-mode-map ess-mode-map)
-    ;; REPL
-    "e"  'ess-eval-region-or-function-or-paragraph-and-step
-    "B" 'ess-eval-buffer-and-go
+    "d" 'ess-dev-map
     "b" 'ess-eval-buffer
-    "d" 'ess-eval-region-or-line-and-step
-    "D" 'ess-eval-function-or-paragraph-and-step
-    "L" 'ess-eval-line-and-go
     "l" 'ess-eval-line
-    "R" 'ess-eval-region-and-go
     "r" 'ess-eval-region
-    "F" 'ess-eval-function-and-go
     "f" 'ess-eval-function))
 
 (use-package ess-smart-equals

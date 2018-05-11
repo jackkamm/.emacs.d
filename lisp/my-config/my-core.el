@@ -18,20 +18,18 @@
   :config
   (general-override-mode)
   (general-create-definer my-leader :prefix "C-c")
-  (general-create-definer my-major-leader :prefix "C-c m")
-  (general-create-definer my-eval-leader :prefix "C-c m e")
-
   (general-define-key
    :keymaps 'override
    :states '(normal motion visual)
-   "SPC" (general-simulate-key "C-c")
-   "S-SPC" (general-simulate-key "C-c m"))
+   "SPC" (general-simulate-key "C-c"))
 
+  (general-create-definer my-major-leader :prefix "C-c c")
   (my-major-leader
-    "e" '(:ignore t :which-key "Evaluate"))
+    "c" (general-simulate-key "C-c C-c"
+	  :which-key "C-c C-c"))
 
   (my-leader
-    "m" '(:ignore t :which-key "Major-mode")
+    "c" '(:ignore t :which-key "Major-mode")
     "a" '(:ignore t :which-key "Applications")
     "h" '(:keymap help-map :which-key "Help")
     ;; quitting

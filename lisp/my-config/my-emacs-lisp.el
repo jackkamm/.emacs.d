@@ -1,6 +1,6 @@
-(my-eval-leader
+(my-major-leader
   :keymaps 'emacs-lisp-mode-map
-  "e" 'eval-last-sexp
   "r" 'eval-region
   "b" 'eval-buffer
+  "f" 'eval-defun
   "l" 'eval-last-sexp)

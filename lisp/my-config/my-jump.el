@@ -8,21 +8,17 @@
 (general-create-definer
   my-goto-leader
   :prefix "C-c g")
-(general-define-key
- :keymaps 'override
- :states '(normal motion visual)
- "g SPC" (general-simulate-key "C-c g" :which-key "my-motions"))
 
 (use-package avy
   :general
   (my-goto-leader
     "s" 'avy-isearch
-    "g"  'avy-goto-char-timer
+    "t"  'avy-goto-char-timer
     "w"  'avy-goto-word-1
     "l"  'avy-goto-line))
 
 (use-package evil-easymotion
   :config
-  (evilem-default-keybindings "C-c g e")
+  (evilem-default-keybindings "C-c g g")
   (my-goto-leader
     "SPC" '(:ignore-key t :which-key "easymotion")))

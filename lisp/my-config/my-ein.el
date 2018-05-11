@@ -25,8 +25,4 @@
     "O" 'ein:worksheet-insert-cell-above
     "j" 'ein:worksheet-goto-next-input
     "k" 'ein:worksheet-goto-prev-input
-    "<return>" 'ein:worksheet-execute-cell-and-goto-next)
-  (my-eval-leader
-    :keymaps 'ein:notebook-mode-map
-    "e" 'ein:worksheet-execute-cell-and-goto-next)
-  )
+    "<return>" 'ein:worksheet-execute-cell-and-goto-next))
