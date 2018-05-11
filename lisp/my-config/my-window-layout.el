@@ -1,27 +1,20 @@
-(my-leader "w" '(:ignore t :which-key "Window"))
-(general-create-definer my-windows-leader :prefix "C-c w")
+(my-leader
+  "w" '(evil-window-map :which-key "Window"))
 
 (winner-mode)
-(my-windows-leader
- "m" 'delete-other-windows
- "d" 'delete-window
- "u" 'winner-undo
- "U" 'winner-redo
- "l" 'evil-window-right
- "h" 'evil-window-left
- "j" 'evil-window-down
- "k" 'evil-window-up
- "L" 'evil-window-move-far-right
- "H" 'evil-window-move-far-left
- "K" 'evil-window-move-very-top
- "J" 'evil-window-move-very-bottom)
+(bind-keys
+ :map evil-window-map
+ ("m" . delete-other-windows)
+ ("d" . delete-window)
+ ("u" . winner-undo)
+ ("U" . winner-redo))
 
 (use-package ace-window
-  :general
-  (my-windows-leader
-   "w" 'ace-select-window
-   "D" 'ace-delete-window
-   "M" 'ace-swap-window))
+  :bind
+  (:map evil-window-map
+   ("w" . ace-select-window)
+   ("D" . ace-delete-window)
+   ("M" . ace-swap-window)))
 
 (use-package popwin
   :config
