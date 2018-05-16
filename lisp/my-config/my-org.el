@@ -20,6 +20,8 @@
 	   "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
 	   :prepend t)))
 
+  (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
+
   ;;; org-babel
 
   (setq org-confirm-babel-evaluate nil)
