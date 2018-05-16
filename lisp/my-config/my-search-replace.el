@@ -3,6 +3,9 @@
 
 ;;; helm
 (with-eval-after-load "my-helm"
+  (my-search-replace-leader
+    "g" 'helm-do-grep-ag)
+
   (use-package helm-projectile
     :general (my-search-replace-leader
 	       "p" 'helm-projectile-ag))
