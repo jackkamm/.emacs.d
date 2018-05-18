@@ -48,9 +48,9 @@
 
 ;;; theme
 
-(setq my-light-theme 'leuven)
 (use-package spacemacs-theme :defer t)
 (setq my-dark-theme 'spacemacs-dark)
+(setq my-light-theme 'spacemacs-light)
 
 (defun my-load-theme (th)
   (interactive
