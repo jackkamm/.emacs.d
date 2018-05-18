@@ -34,9 +34,10 @@
   ;; evil-define on iedit modes/maps has strange effects(?)
   ;; so create a new minor-mode instead
   (define-minor-mode my-iedit-mode nil :keymap '())
-  (add-hook 'iedit-mode-hook (lambda () (my-iedit-mode 1)))
-  (add-hook 'iedit-mode-end-hook (lambda () (my-iedit-mode 0)))
-  (evil-define-minor-mode-key 'normal 'my-iedit-mode
+  (add-hook 'iedit-mode-hook #'evil-normalize-keymaps)
+  (add-hook 'iedit-mode-hook #'my-iedit-mode)
+  (add-hook 'iedit-mode-end-hook (lambda () (my-iedit-mode -1)))
+  (evil-define-key 'normal 'my-iedit-mode
     (kbd "<escape>") 'iedit-quit
     "n" 'iedit-next-occurrence
     "N" 'iedit-prev-occurrence
