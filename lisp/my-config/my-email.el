@@ -1,10 +1,19 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 (setq sendmail-program "/bin/msmtp")
 
+(defun my-inbox-agenda ()
+  (interactive)
+  (notmuch-search "tag:unread")
+  (let ((nm-window (get-buffer-window)))
+    (org-agenda nil "n")
+    (select-window nm-window)))
+
 (use-package notmuch
+  :commands (notmuch
+	     notmuch-search)
   :general
   (my-leader
-    "ae" 'notmuch)
+    "ae" 'my-inbox-agenda)
   :config
   (require 'org-notmuch)
 
