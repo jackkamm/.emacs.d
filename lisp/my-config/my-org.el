@@ -15,6 +15,7 @@
   (setq org-return-follows-link t)
   :config
   (setq org-agenda-files (list "~/Dropbox/org/agenda.org"))
+  (setq org-agenda-start-on-weekday nil)
   (setq org-capture-templates
 	'(("t" "todo" entry (file "~/Dropbox/org/agenda.org")
 	   "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
