@@ -86,6 +86,7 @@
        "my-emacs-lisp"
        "my-tex"
        "my-web"
+       "my-yaml"
        ;; c-c++: only enable 1 of cquery, rtags
        "my-cquery"
        ;;"my-rtags"
