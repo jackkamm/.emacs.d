@@ -13,7 +13,7 @@
   :general
   (my-goto-leader
     "s" 'avy-isearch
-    "t"  'avy-goto-char-timer
+    "c"  'avy-goto-char-timer
     "w"  'avy-goto-word-1
     "l"  'avy-goto-line))
 
