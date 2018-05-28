@@ -4,7 +4,7 @@
   (interactive)
   (notmuch-search "tag:unread")
   (let ((nm-window (get-buffer-window)))
-    (org-agenda nil "n")
+    (org-agenda-list)
     (select-window nm-window)))
 
 (use-package notmuch
@@ -35,8 +35,8 @@
     "R" 'notmuch-show-reply
     "o" 'my-notmuch-open-part)
 
-  (evil-define-key 'normal notmuch-show-mode-map
-    (kbd "RET") nil)
+  ;;(evil-define-key 'normal notmuch-show-mode-map
+  ;;  (kbd "RET") nil)
 
   (evil-define-key 'normal notmuch-message-mode-map
     (kbd "TAB") 'message-tab)
