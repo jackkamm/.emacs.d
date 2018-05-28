@@ -70,6 +70,13 @@
 
 (load-dark-theme)
 
+
+;; visual lines (line wrap)
+
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;; leader
+
 (my-leader
   "t" '(:ignore t :which-key "theme")
   "tt" 'my-load-theme
@@ -77,5 +84,5 @@
   "tD" 'disable-theme
   "tl" 'load-light-theme
   "td" 'load-dark-theme
-  "tL" 'toggle-truncate-lines
+  "tv" 'visual-line-mode
   "tm" 'menu-bar-mode)
