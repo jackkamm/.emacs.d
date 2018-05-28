@@ -1,5 +1,4 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
-(setq sendmail-program "/bin/msmtp")
 
 (defun my-inbox-agenda ()
   (interactive)
