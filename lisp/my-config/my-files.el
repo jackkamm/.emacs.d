@@ -36,7 +36,6 @@
    (find-file-noselect fname)))
 (my-files-leader "m" 'my-find-config-module)
 
-(recentf-mode 1)
 (setq recentf-max-saved-items 1000)
 
 ;; remember cursor position, for emacs 25.1 or later
