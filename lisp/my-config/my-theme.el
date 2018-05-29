@@ -68,8 +68,7 @@
 (defun load-dark-theme () (interactive)
        (my-load-theme my-dark-theme))
 
-(load-dark-theme)
-
+(load-theme my-dark-theme t)
 
 ;; visual lines (line wrap)
 
