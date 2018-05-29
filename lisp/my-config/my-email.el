@@ -1,4 +1,5 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
+(setq message-make-forward-subject-function 'message-forward-subject-fwd)
 
 (defun my-inbox-agenda ()
   (interactive)
