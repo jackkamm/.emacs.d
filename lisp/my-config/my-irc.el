@@ -14,11 +14,11 @@
      ;; forward znc to local port 55555
      :server "localhost" :port "55555"
      ;; configure SASL on 1st login (https://wiki.znc.in/Sasl)
-     ;; no other configuration should be needed
+     ;; no other configuration should be needed...
      :nick "freenode"
-     ;; password is
-     ;;    znc/freenode:<password>
-     ;; store in authinfo
+     ;; password has format
+     ;;     <znc-user>/freenode:<znc-password>
+     ;; store password in authinfo
      :password nil))
   :config
   (add-to-list 'erc-modules 'notifications))
