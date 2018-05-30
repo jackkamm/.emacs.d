@@ -1,18 +1,24 @@
 (use-package erc
   :commands erc
   :general
-  (my-leader
-    "a i" 'my-freenode
-    "a I" 'my-freenode-znc)
+  (my-leader "a i" 'my-znc-freenode)
   :init
-  (defun my-freenode () (interactive)
-	 (erc :server "localhost"
-	      :port "55555"
-	      :nick "freenode"
-	      :password nil))
-  (defun my-freenode-znc () (interactive)
-	 (async-shell-command "ssh -f aws sleep 60")
-	 (sleep-for 2)
-	 (my-freenode))
+  (defun my-znc-freenode (tunnelp)
+    (interactive
+     (list (y-or-n-p "Open tunnel?")))
+    (if tunnelp
+	(progn
+	  (async-shell-command "ssh -f znc sleep 60")
+	  (sleep-for 2)))
+    (erc
+     ;; forward znc to local port 55555
+     :server "localhost" :port "55555"
+     ;; configure SASL on 1st login (https://wiki.znc.in/Sasl)
+     ;; no other configuration should be needed
+     :nick "freenode"
+     ;; password is
+     ;;    znc/freenode:<password>
+     ;; store in authinfo
+     :password nil))
   :config
   (add-to-list 'erc-modules 'notifications))
