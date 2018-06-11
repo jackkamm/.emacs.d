@@ -1,26 +1,21 @@
-;;; menus, cursors, etc
-
+;; menus, cursors, etc
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (blink-cursor-mode -1)
 
-;;; prompts
-
+;; prompts
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;;; pos-tip
-
+;; pos-tip
 (use-package pos-tip)
 
-;;; whitespace
-
+;; whitespace
 (setq whitespace-style '(face trailing))
 (setq whitespace-global-modes '(not erc-mode))
 (global-whitespace-mode 1)
 
-;;; higlighting
-
+;; higlighting
 (use-package hl-todo
   :config
   (global-hl-todo-mode 1))
@@ -31,15 +26,16 @@
   (my-leader
     "sc" 'evil-search-highlight-persist-remove-all))
 
-;;; line numbers
-
+;; relative line numbers in programming modes
 (use-package linum-relative
   :config
   (setq linum-relative-current-symbol "")
   (add-hook 'prog-mode-hook 'linum-relative-on))
 
-;;; theme
+;; line wrap in text modes
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
+;; theme
 (use-package spacemacs-theme :defer t)
 (setq my-dark-theme 'spacemacs-dark)
 (setq my-light-theme 'spacemacs-light)
@@ -60,14 +56,9 @@
 (defun load-dark-theme () (interactive)
        (my-load-theme my-dark-theme))
 
-(load-theme my-dark-theme t)
-
-;; visual lines (line wrap)
-
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+(load-dark-theme)
 
 ;; leader
-
 (my-leader
   "t" '(:ignore t :which-key "theme")
   "tt" 'my-load-theme
