@@ -23,5 +23,5 @@
 	  :regexp t
 	  :noselect t)
 	popwin:special-display-config)
-  (push '("*Help*" :noselect t)
+  (push '("*Help*" :stick t)
 	popwin:special-display-config))
