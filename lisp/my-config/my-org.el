@@ -14,11 +14,17 @@
   :init
   (setq org-return-follows-link t)
   :config
-  (setq org-agenda-files (list "~/Dropbox/org-files/agenda.org"))
+  (setq org-agenda-files (list "~/Dropbox/org-files/old-agenda.org"
+			       "~/Dropbox/org-files/notes.org"
+			       "~/Dropbox/org-files/todo.org"
+			       "~/Dropbox/org-files/calendar.org"
+			       "~/Dropbox/org-files/caldav-inbox.org"))
   (setq org-agenda-start-on-weekday nil)
   (setq org-capture-templates
-	'(("t" "todo" entry (file "~/Dropbox/org-files/agenda.org")
-	   "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
+	'(("t" "todo" entry (file "~/Dropbox/org-files/todo.org")
+	   "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
+	  ("c" "calendar" entry (file "~/Dropbox/org-files/calendar.org")
+	   "* %?\n  %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
 
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
 
