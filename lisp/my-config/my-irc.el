@@ -1,7 +1,7 @@
 (use-package erc
   :commands erc
   :general
-  (my-leader "a i" 'my-znc-freenode)
+  (my-leader "az" 'my-znc-freenode)
   :init
   (defun my-znc-freenode (tunnelp)
     (interactive

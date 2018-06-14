@@ -1,8 +1,10 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 (setq message-make-forward-subject-function 'message-forward-subject-fwd)
 
-(defun my-inbox-agenda ()
+(defun my-inbox ()
   (interactive)
+  (require 'my-org-caldav)
+  (org-caldav-sync)
   (notmuch-search "tag:unread")
   (let ((nm-window (get-buffer-window)))
     (org-agenda-list)
@@ -13,7 +15,7 @@
 	     notmuch-search)
   :general
   (my-leader
-    "ae" 'my-inbox-agenda)
+    "ai" 'my-inbox)
   :config
   (require 'org-notmuch)
 
