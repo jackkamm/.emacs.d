@@ -70,7 +70,7 @@
 
 	 ;;; applications
        "my-apps" ;browser, terminal
-       "my-email"
+       "my-inbox"
        "my-irc"
        "my-tramp"
 
