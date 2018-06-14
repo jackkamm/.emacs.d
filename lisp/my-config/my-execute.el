@@ -9,4 +9,5 @@
 
 (with-eval-after-load "my-helm"
   (my-execute-leader
-   "x" 'helm-M-x))
+    "x" 'helm-M-x
+    "r" 'helm-resume))
