@@ -12,11 +12,10 @@
   :init
   (setq inferior-ess-same-window nil)
   :config
+  (setq ess-smart-S-assign-key nil)
+  (setq ess-indent-with-fancy-comments nil)
   ;; TODO: PR evil-collection
   (evil-set-initial-state 'ess-help-mode 'motion)
-  ;; fix annoying ESS indentation
-  ;; http://r.789695.n4.nabble.com/Commenting-conventions-td3216584.html
-  (setq ess-indent-with-fancy-comments nil)
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil)
   ;; Follow Hadley Wickham's R style guide
@@ -36,13 +35,6 @@
     "l" 'ess-eval-line
     "r" 'ess-eval-region
     "f" 'ess-eval-function))
-
-(use-package ess-smart-equals
-  :commands ess-smart-equals-mode
-  :init
-  (progn
-    (add-hook 'ess-mode-hook 'ess-smart-equals-mode)
-    (add-hook 'inferior-ess-mode-hook 'ess-smart-equals-mode)))
 
 (use-package polymode
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
