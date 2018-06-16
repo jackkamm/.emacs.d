@@ -27,22 +27,11 @@
     :keymaps 'notmuch-common-keymap
     "h" 'notmuch-help)
 
-  ;; leader keys for notmuch-show
-  (defun my-notmuch-open-part ()
-    "Display attachment using xdg-open"
-    (interactive)
-    ;; TODO use "open" on macOS
-    (notmuch-show-apply-to-current-part-handle
-     (lambda (handle) (mm-display-external handle "xdg-open %s"))))
   (my-major-leader
     :keymaps 'notmuch-show-mode-map
     "f" 'notmuch-show-forward-message
     "r" 'notmuch-show-reply-sender
-    "R" 'notmuch-show-reply
-    "o" 'my-notmuch-open-part)
-
-  ;;(evil-define-key 'normal notmuch-show-mode-map
-  ;;  (kbd "RET") nil)
+    "R" 'notmuch-show-reply)
 
   (evil-define-key 'normal notmuch-message-mode-map
     (kbd "TAB") 'message-tab)
