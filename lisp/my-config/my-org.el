@@ -47,7 +47,7 @@
   (fset 'my-babel-async-eval-session
 	(lambda (&optional arg) "Keyboard macro." (interactive "p")
 	  (kmacro-exec-ring-item
-	   (quote ("'mb'" 0 "%d")) arg)))
+	   (quote ("'cb'" 0 "%d")) arg)))
 
   (with-eval-after-load 'hydra
     (defhydra my-babel-hydra ()
@@ -67,7 +67,7 @@
     "x" 'org-babel-execute-maybe
     "r" 'org-redisplay-inline-images
     "l" 'org-insert-link
-    "m" 'org-ctrl-c-ctrl-c))
+    "t" 'org-toggle-inline-images))
 
 (use-package evil-org
   :after org
