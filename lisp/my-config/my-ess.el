@@ -1,14 +1,13 @@
-(use-package ess-site
+(use-package ess-r-mode
   :ensure ess
   :mode (("/R/.*\\.q\\'"       . R-mode)
 	 ("\\.[rR]\\'"         . R-mode)
 	 ("\\.[rR]profile\\'"  . R-mode)
 	 ("NAMESPACE\\'"       . R-mode)
 	 ("CITATION\\'"        . R-mode)
-	 ("\\.jl\\'"           . ess-julia-mode)
 	 ("\\.[Rr]out"         . R-transcript-mode)
 	 ("\\.Rd\\'"           . Rd-mode))
-  :commands (R julia)
+  :commands R
   :init
   (setq inferior-ess-same-window nil)
   :config
@@ -25,7 +24,7 @@
 	ess-nuke-trailing-whitespace-p t
 	ess-default-style 'DEFAULT)
   (my-major-leader
-    :keymaps '(ess-julia-mode-map ess-mode-map)
+    :keymaps 'ess-mode-map
     ;; predefined keymaps
     "h" 'ess-doc-map
     "r" 'ess-extra-map
