@@ -13,6 +13,7 @@
     "oa" 'org-agenda)
   :init
   (setq org-return-follows-link t)
+  (setq org-image-actual-width nil)
   :config
   (setq org-agenda-files (list "~/Dropbox/org-files/old-agenda.org"
 			       "~/Dropbox/org-files/notes.org"
