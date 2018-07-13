@@ -18,8 +18,9 @@
   (setq org-agenda-files (list "~/Dropbox/org-files/old-agenda.org"
 			       "~/Dropbox/org-files/notes.org"
 			       "~/Dropbox/org-files/todo.org"
-			       "~/Dropbox/org-files/calendar.org"
-			       "~/Dropbox/org-files/caldav-inbox.org"))
+			       "~/Dropbox/org-files/gmail-calendar.org"
+			       "~/Dropbox/org-files/czb-calendar.org"
+			       "~/Dropbox/org-files/calendar.org"))
   (setq org-agenda-start-on-weekday nil)
   (setq org-capture-templates
 	'(("t" "todo" entry (file "~/Dropbox/org-files/todo.org")
