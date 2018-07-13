@@ -1,13 +1,13 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 (setq message-make-forward-subject-function 'message-forward-subject-fwd)
 
-(defun my-inbox (sync-calendar-p)
+(defun my-inbox (fetch-calendar-p)
   (interactive
-   (list (y-or-n-p "Sync calendar?")))
-  (if sync-calendar-p
+   (list (y-or-n-p "Fetch google calendar?")))
+  (if fetch-calendar-p
       (progn
-	(require 'my-org-caldav)
-	(org-caldav-sync)))
+	(require 'my-org-gcal)
+	(org-gcal-fetch)))
   (notmuch-search "tag:unread")
   (let ((nm-window (get-buffer-window)))
     (org-agenda-list)
