@@ -16,7 +16,7 @@
       ("q" nil "quit"))
     (my-major-leader
       :keymaps 'ein:notebook-mode-map
-      "m" 'my-ein-hydra/body))
+      "h" 'my-ein-hydra/body))
   (my-major-leader
     :keymaps 'ein:notebook-mode-map
     "s" 'ein:notebook-save-notebook-command

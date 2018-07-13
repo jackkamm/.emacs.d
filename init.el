@@ -58,7 +58,7 @@
        "my-evil-extra" ;evil-collection, extra evil configs
        "my-files" ;^Cf, dired, helm-files
        "my-buffers" ;^Cb, helm-buffers
-       "my-search-replace" ;^Cs,iedit/mc,swoop/projectile,narrowing
+       "my-search-replace" ;^Cs,iedit/mc,swoop/projectile,narrowing,wgrep
        "my-editing" ;^Ce, undo-tree, expand-region, smartparens,
 		    ;evil-surround, yasnippet, company
        "my-goto" ;^Cj, avy, easymotion, xref
