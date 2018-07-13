@@ -3,8 +3,13 @@
 
 ;;; helm
 (with-eval-after-load "my-helm"
-  (my-search-replace-leader
-    "g" 'helm-do-grep-ag)
+  (use-package helm-ag
+    :commands (helm-ag
+	       helm-do-ag
+	       helm-ag-buffers
+	       helm-do-ag-buffers)
+    :general (my-search-replace-leader
+	       "g" 'helm-do-ag))
 
   (use-package helm-projectile
     :general (my-search-replace-leader
@@ -13,6 +18,11 @@
   (use-package helm-swoop
     :general (my-search-replace-leader
 	       "s" 'helm-swoop)))
+
+;;; wgrep
+
+(use-package wgrep
+  :commands wgrep-change-to-wgrep-mode)
 
 ;;; narrow-region
 
