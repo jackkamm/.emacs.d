@@ -3,11 +3,12 @@
 
 (use-package flycheck
   :config
-  ;; enable flycheck globally
   (global-flycheck-mode)
   (setq flycheck-global-modes
-	;; exclude emacs-lisp (too many false positives)
-  	(list 'not 'emacs-lisp-mode))
+  	(list 'not
+  	      'emacs-lisp-mode ;false positives
+  	      ;'ess-mode ;causes hanging?
+	      ))
   ;; improve performance
   (setq flycheck-check-syntax-automatically
   	'(save idle-change mode-enabled))

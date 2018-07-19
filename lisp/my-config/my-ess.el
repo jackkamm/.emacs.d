@@ -11,12 +11,12 @@
   :init
   (setq inferior-ess-same-window nil)
   :config
+  (setq ess-use-flymake nil) ;ess-flymake not working (7-2018)
   (setq ess-smart-S-assign-key nil)
   (setq ess-indent-with-fancy-comments nil)
-  ;; TODO: PR evil-collection
-  (evil-set-initial-state 'ess-help-mode 'motion)
+  (evil-set-initial-state 'ess-help-mode 'motion) ;TODO PR evil-collection
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
-  (define-key inferior-ess-mode-map (kbd "C-d") nil)
+  (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
   ;; Follow Hadley Wickham's R style guide
   (setq ess-first-continued-statement-offset 2
 	ess-continued-statement-offset 0
