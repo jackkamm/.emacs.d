@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ob-R-header
+# key: ob-R-header
+# contributor: Jack Kamm
+# --
+#+PROPERTY: header-args:R :session :colnames yes :results output :tangle yes
