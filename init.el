@@ -51,8 +51,8 @@
        "my-setup" ;custom-file, server-start
 
 	 ;;; completion system, only enable 1
-       "my-helm"
-       ;;"my-ivy"
+       ;;"my-helm"
+       "my-ivy"
 
 	 ;;; core editor modules
        "my-evil-extra" ;evil-collection, extra evil configs

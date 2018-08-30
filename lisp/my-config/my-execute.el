@@ -11,3 +11,7 @@
   (my-execute-leader
     "x" 'helm-M-x
     "r" 'helm-resume))
+
+(with-eval-after-load "my-ivy"
+  (my-execute-leader
+    "x" 'counsel-M-x))

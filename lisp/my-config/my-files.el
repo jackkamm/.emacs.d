@@ -10,6 +10,11 @@
     "f" 'helm-find-files
     "r" 'helm-recentf))
 
+(with-eval-after-load "my-ivy"
+  (my-files-leader
+    "f" 'counsel-find-file
+    "r" 'counsel-recentf))
+
 ;; human-readable file sizes
 (setq dired-listing-switches "-alh")
 ;; copy to dired in other-window by default

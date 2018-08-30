@@ -1,6 +1,13 @@
 (my-leader "s" '(:ignore t :which-key "Search/replace"))
 (general-create-definer my-search-replace-leader :prefix "C-c s")
 
+(my-search-replace-leader "l" 'lgrep)
+(my-search-replace-leader "r" 'rgrep)
+
+(use-package projectile
+  :general (my-search-replace-leader
+	     "p" 'projectile-grep))
+
 ;;; helm
 (with-eval-after-load "my-helm"
   (use-package helm-ag
@@ -18,6 +25,12 @@
   (use-package helm-swoop
     :general (my-search-replace-leader
 	       "s" 'helm-swoop)))
+
+;; ivy
+(with-eval-after-load "my-ivy"
+  (use-package swiper
+    :general
+    (my-search-replace-leader "s" 'swiper)))
 
 ;;; wgrep
 

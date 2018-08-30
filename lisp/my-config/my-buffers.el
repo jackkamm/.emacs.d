@@ -9,3 +9,7 @@
 (with-eval-after-load "my-helm"
   (my-buffers-leader
    "b" 'helm-mini))
+
+(with-eval-after-load "my-ivy"
+  (my-buffers-leader
+    "b" 'ivy-switch-buffer))
