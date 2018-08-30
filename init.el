@@ -91,6 +91,7 @@
        ;; c-c++: only enable 1 of cquery, rtags
        "my-cquery"
        ;;"my-rtags"
+       "my-lang-misc"
        ))
 
   ;;;; load my configuration modules
