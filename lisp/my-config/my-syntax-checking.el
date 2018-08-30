@@ -7,7 +7,7 @@
   (setq flycheck-global-modes
   	(list 'not
   	      'emacs-lisp-mode ;false positives
-  	      ;'ess-mode ;causes hanging?
+  	      'ess-mode ;hanging, false positives
 	      ))
   ;; improve performance
   (setq flycheck-check-syntax-automatically
