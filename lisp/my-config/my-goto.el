@@ -4,21 +4,19 @@
  "gD" 'xref-find-references)
 
 (my-leader
-  "g" '(:ignore t :which-key "Goto"))
+  "j" '(:ignore t :which-key "Jump"))
 (general-create-definer
   my-goto-leader
-  :prefix "C-c g")
+  :prefix "C-c j")
 
 (use-package avy
   :general
   (my-goto-leader
     "s" 'avy-isearch
-    "c"  'avy-goto-char-timer
+    "j"  'avy-goto-char-timer
     "w"  'avy-goto-word-1
     "l"  'avy-goto-line))
 
 (use-package evil-easymotion
   :config
-  (evilem-default-keybindings "C-c g g")
-  (my-goto-leader
-    "SPC" '(:ignore-key t :which-key "easymotion")))
+  (evilem-default-keybindings "C-c j e"))
