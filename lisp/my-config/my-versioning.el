@@ -1,16 +1,16 @@
-(my-leader "v" '(:ignore t :which-key "Versioning"))
+(my-leader "g" '(:ignore t :which-key "Git"))
 
 (use-package magit
   :general
   (my-leader
-    "vg" 'magit-status)
+    "gs" 'magit-status)
   :config
   (use-package evil-magit))
 
 (use-package git-timemachine
   :general
   (my-leader
-    "vt" 'git-timemachine))
+    "gt" 'git-timemachine))
 
 (use-package ediff
   :commands ediff
