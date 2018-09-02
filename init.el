@@ -61,7 +61,7 @@
        "my-navigation" ;minimap, navigation hydra
        "my-window-layout" ;winner, ace-window
        "my-syntax-checking" ;flycheck
-       "my-versioning" ;magit, git-timemachine, ediff
+       "my-git"
        "my-snippets"
        "my-company"
        "my-undo"
