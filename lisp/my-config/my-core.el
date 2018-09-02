@@ -28,6 +28,7 @@
   (my-leader
     "a" '(:ignore t :which-key "Applications")
     "q" '(:ignore t :which-key "Quit")
+    "m" '(:ignore t :which-key "Major")
     "qq" 'save-buffers-kill-emacs
     "qf" 'delete-frame
     "h" '(:keymap help-map :which-key "Help")
@@ -35,7 +36,8 @@
     "z" 'evil-execute-in-emacs-state
     "!" 'shell-command
     "&" 'async-shell-command
-    "SPC" (general-simulate-key "M-x" :which-key "M-x"))
+    "SPC" (general-simulate-key "M-x" :which-key "M-x")
+    "<tab>" 'indent-region)
 
   (general-create-definer my-major-leader
     :states '(normal motion visual)
