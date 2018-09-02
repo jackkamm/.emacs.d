@@ -26,6 +26,7 @@
    :global-prefix "C-c c")
 
   (my-leader
+    "a" '(:ignore t :which-key "Applications")
     "q" '(:ignore t :which-key "Quit")
     "qq" 'save-buffers-kill-emacs
     "qf" 'delete-frame
