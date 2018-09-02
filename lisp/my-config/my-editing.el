@@ -7,7 +7,9 @@
 (use-package undo-tree
   :general
   (my-edit-leader
-    "u" 'undo-tree-visualize))
+    "u" 'undo-tree-visualize)
+  :init
+  (setq undo-tree-enable-undo-in-region nil))
 
 (use-package evil-surround
   :config
