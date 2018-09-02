@@ -18,25 +18,29 @@
 (use-package general
   :config
   (general-override-mode)
-  (general-create-definer my-leader :prefix "C-c")
-  (general-define-key
-   :keymaps 'override
-   :states '(normal motion visual)
-   "SPC" (general-simulate-key "C-c"))
 
-  (general-create-definer my-major-leader :prefix "C-c c")
-  (my-major-leader
-    "c" (general-simulate-key "C-c C-c"
-	  :which-key "C-c C-c"))
+  (general-create-definer my-leader
+   :keymaps 'override
+   :states '(normal motion visual emacs insert)
+   :prefix "SPC"
+   :global-prefix "C-c c")
 
   (my-leader
-    "c" '(:ignore t :which-key "Major-mode")
-    "a" '(:ignore t :which-key "Applications")
-    "h" '(:keymap help-map :which-key "Help")
-    ;; quitting
     "q" '(:ignore t :which-key "Quit")
     "qq" 'save-buffers-kill-emacs
-    "qf" 'delete-frame))
+    "qf" 'delete-frame
+    "h" '(:keymap help-map :which-key "Help")
+    "u" 'universal-argument
+    "z" 'evil-execute-in-emacs-state
+    "!" 'shell-command
+    "&" 'async-shell-command
+    "SPC" (general-simulate-key "M-x" :which-key "M-x"))
+
+  (general-create-definer my-major-leader
+    :states '(normal motion visual)
+    :prefix "SPC m")
+  )
 
 ;; hydra
 (use-package hydra)
+

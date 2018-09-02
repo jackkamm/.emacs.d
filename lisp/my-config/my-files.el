@@ -1,5 +1,6 @@
-(my-leader "f" '(:ignore t :which-key "File"))
-(general-create-definer my-files-leader :prefix "C-c f")
+(setq my-files-map (make-sparse-keymap))
+(general-create-definer my-files-leader :prefix-map 'my-files-map)
+(my-leader "f" '(:keymap my-files-map :which-key "File"))
 
 (my-files-leader
  "s" 'save-some-buffers

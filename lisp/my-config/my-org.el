@@ -47,13 +47,13 @@
      (shell . t)
      (ipython . t)))
 
-  ;; macro for "C-c ' C-c m b C-c '"
-  ;; open block (C-c '), eval buffer (C-c m b), close block (C-c ')
-  ;; assumes convention (C-c m b) to eval buffer across modes
+  ;; macro for "C-c ' C-c c m b C-c '"
+  ;; open block (C-c '), eval buffer (C-c c m b), close block (C-c ')
+  ;; assumes convention (C-c c m b) to eval buffer across modes
   (fset 'my-babel-async-eval-session
 	(lambda (&optional arg) "Keyboard macro." (interactive "p")
 	  (kmacro-exec-ring-item
-	   (quote ("'cb'" 0 "%d")) arg)))
+	   (quote ("'cmb'" 0 "%d")) arg)))
 
   (with-eval-after-load 'hydra
     (defhydra my-babel-hydra ()

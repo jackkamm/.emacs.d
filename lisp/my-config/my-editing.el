@@ -1,5 +1,6 @@
-(my-leader "e" '(:ignore t :which-key "Edit"))
-(general-create-definer my-edit-leader :prefix "C-c e")
+(setq my-edit-map (make-sparse-keymap))
+(general-create-definer my-edit-leader :prefix-map 'my-edit-map)
+(my-leader "e" '(:keymap my-edit-map :which-key "Edit"))
 
 (my-edit-leader
  "<tab>" 'indent-region)

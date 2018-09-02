@@ -1,5 +1,6 @@
-(my-leader "s" '(:ignore t :which-key "Search/replace"))
-(general-create-definer my-search-replace-leader :prefix "C-c s")
+(setq my-search-map (make-sparse-keymap))
+(general-create-definer my-search-replace-leader :prefix-map 'my-search-map)
+(my-leader "s" '(:keymap my-search-map :which-key "Search/replace"))
 
 (my-search-replace-leader "l" 'lgrep)
 (my-search-replace-leader "r" 'rgrep)
@@ -30,7 +31,9 @@
 (with-eval-after-load "my-ivy"
   (use-package swiper
     :general
-    (my-search-replace-leader "s" 'swiper)))
+    (my-search-replace-leader
+      "s" 'swiper
+      "f" 'counsel-locate)))
 
 ;;; wgrep
 

@@ -1,5 +1,6 @@
-(my-leader "b" '(:ignore t :which-key "Buffer"))
-(general-create-definer my-buffers-leader :prefix "C-c b")
+(setq my-buffers-map (make-sparse-keymap))
+(general-create-definer my-buffers-leader :prefix-map 'my-buffers-map)
+(my-leader "b" '(:keymap my-buffers-map :which-key "Buffer"))
 
 (my-buffers-leader
  "d" 'kill-buffer

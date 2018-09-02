@@ -63,7 +63,6 @@
 		    ;evil-surround, yasnippet, company
        "my-jump" ;^Cj, avy, easymotion, xref
        "my-scroll" ;^Cn, nav-hydra, minimap
-       "my-execute" ;^Cx, universal-argument, shell-command, M-x
        "my-window-layout" ;^Cw, winner, ace-window, popwin
        "my-syntax-checking" ;^Cr, flycheck
        "my-versioning" ;^Cg, magit, git-timemachine, ediff
