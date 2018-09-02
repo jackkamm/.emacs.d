@@ -5,7 +5,7 @@
 	'((t . ivy--regex-ignore-order)))
   (setq ivy-use-virtual-buffers t)
   (ivy-mode)
-  :general (my-leader "R" 'ivy-resume))
+  :general (my-leader "r" 'ivy-resume))
 
 (use-package ivy-hydra)
 
