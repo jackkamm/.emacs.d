@@ -1,6 +1,8 @@
 (use-package helm
   :init
   (setq helm-ff-lynx-style-map nil)
+  :general (my-leader
+	    "R" 'helm-resume)
   :config
   (require 'helm-config)
   (helm-mode 1)
