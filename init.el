@@ -36,9 +36,7 @@
    (format "Initial setup in %.2f seconds."
 	   (- (float-time) setup-init-start))))
 
-  ;;;; add custom pre-module configurations here
-
-  ;;;; select which configuration modules to load
+  ;;;; load modules
 (mapc 'load
       (list
 	 ;;; load first -- all modules depend on it
