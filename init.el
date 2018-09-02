@@ -52,16 +52,16 @@
        ;;"my-helm"
        "my-ivy"
 
-	 ;;; core editor modules
+	 ;;; editing
        "my-evil-extra" ;evil-collection, extra evil configs
-       "my-files" ;^Cf, dired, helm-files
-       "my-buffers" ;^Cb, helm-buffers
-       "my-search-replace" ;^Cs,iedit/mc,swoop/projectile,narrowing,wgrep
-       "my-jump" ;^Cj, avy, easymotion, xref
-       "my-scroll" ;^Cn, nav-hydra, minimap
-       "my-window-layout" ;^Cw, winner, ace-window, popwin
-       "my-syntax-checking" ;^Cr, flycheck
-       "my-versioning" ;^Cg, magit, git-timemachine, ediff
+       "my-files" ;dired, find-files
+       "my-buffers"
+       "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
+       "my-jump" ;avy, easymotion, xref
+       "my-scroll" ;nav-hydra, minimap
+       "my-window-layout" ;winner, ace-window
+       "my-syntax-checking" ;flycheck
+       "my-versioning" ;magit, git-timemachine, ediff
        "my-snippets"
        "my-company"
        "my-undo"

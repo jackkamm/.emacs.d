@@ -1,6 +1,6 @@
 (setq my-errors-map (make-sparse-keymap))
 (general-create-definer my-errors-leader :prefix-map 'my-errors-map)
-(my-leader "r" '(:keymap my-errors-map :which-key "Errors"))
+(my-leader "x" '(:keymap my-errors-map :which-key "Syntax"))
 
 (use-package flycheck
   :config
