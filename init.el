@@ -1,42 +1,47 @@
-  ;;;; Initial setup
-(let ((setup-init-start (float-time)))
-    ;;; initialize packages
-  (require 'package)
-  (setq package-enable-at-startup nil)
-  (add-to-list 'package-archives
-	       '("melpa" . "https://melpa.org/packages/"))
+;; start emacs server
+(require 'server)
+(unless (server-running-p) (server-start))
 
-  (package-initialize)
+;; set custom file
+(setq custom-file (concat user-emacs-directory
+			  "custom.el"))
+(if (file-exists-p custom-file)
+    (load-file custom-file))
 
-    ;;; bootstrap and setup use-package
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
+;; packages
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
 
-  (eval-when-compile
-    (require 'use-package))
-  (require 'bind-key)
+(package-initialize)
 
-  (setq use-package-always-ensure t) ;install missing packages
+;; use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-    ;;; setup load path
-  (let ((default-directory (concat user-emacs-directory "lisp/")))
-    ;; recursively prepend to load-path
-    ;; NOTE add ".nosearch" file to exclude directory
-    (setq load-path
-	  (append
-	   (let ((load-path (copy-sequence load-path))) ;shadow
-	     (append
-	      (copy-sequence
-	       (normal-top-level-add-to-load-path '(".")))
-	      (normal-top-level-add-subdirs-to-load-path)))
-	   load-path)))
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)
 
-  (message
-   (format "Initial setup in %.2f seconds."
-	   (- (float-time) setup-init-start))))
+(setq use-package-always-ensure t) ;install missing packages
 
-  ;;;; load modules
+; load path
+(let ((default-directory (concat user-emacs-directory "lisp/")))
+  ;; recursively prepend to load-path
+  ;; NOTE add ".nosearch" file to exclude directory
+  (setq load-path
+	(append
+	 (let ((load-path (copy-sequence load-path))) ;shadow
+	   (append
+	    (copy-sequence
+	     (normal-top-level-add-to-load-path '(".")))
+	    (normal-top-level-add-subdirs-to-load-path)))
+	 load-path)))
+
+
+;;;; load modules
 (mapc 'load
       (list
 	 ;;; load first -- all modules depend on it
@@ -44,9 +49,6 @@
 
 	 ;;; load next to ensure org-plus-contrib
        "my-org"
-
-         ;;; other miscellaneous setup
-       "my-setup" ;custom-file, server-start
 
 	 ;;; completion system, only enable 1
        ;;"my-helm"
@@ -73,6 +75,7 @@
        "my-inbox"
        "my-irc"
        "my-tramp"
+       "my-startup-profiler" ;esup
 
 	 ;;; theming
        "my-theme"
