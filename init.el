@@ -62,6 +62,7 @@
        "my-window-layout" ;winner, ace-window
        "my-syntax-checking" ;flycheck
        "my-git"
+       "my-ediff"
        "my-snippets"
        "my-company"
        "my-undo"
