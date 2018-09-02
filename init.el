@@ -58,7 +58,7 @@
        "my-buffers"
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
        "my-jump" ;avy, easymotion, xref
-       "my-scroll" ;nav-hydra, minimap
+       "my-navigation" ;minimap, navigation hydra
        "my-window-layout" ;winner, ace-window
        "my-syntax-checking" ;flycheck
        "my-versioning" ;magit, git-timemachine, ediff
