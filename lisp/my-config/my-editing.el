@@ -61,4 +61,11 @@
     (my-edit-leader
       "y" 'helm-yas-complete)))
 
+(with-eval-after-load "my-ivy"
+  (use-package ivy-yasnippet
+    :commands ivy-yasnippet
+    :general
+    (my-edit-leader
+      "y" 'ivy-yasnippet)))
+
 (use-package yasnippet-snippets :defer t)
