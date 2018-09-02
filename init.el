@@ -39,7 +39,7 @@
   ;;;; add custom pre-module configurations here
 
   ;;;; select which configuration modules to load
-(setq my-modules
+(mapc 'load
       (list
 	 ;;; load first -- all modules depend on it
        "my-core" ;evil, general, which-key, hydra
@@ -91,29 +91,3 @@
        ;;"my-rtags"
        "my-lang-misc"
        ))
-
-  ;;;; load my configuration modules
-(defun my-load-module (module)
-  (let ((module-init-start (float-time)))
-    (condition-case err
-	(progn
-	  (load module nil t)
-	  (message
-	   (concat "Loaded " module " in "
-		   (format "%.2f" (- (float-time)
-				     module-init-start))
-		   " seconds.")))
-      (error
-       (display-warning :error
-			(concat "Error loading "
-				module ": "
-				(error-message-string err)))))))
-(mapcar 'my-load-module my-modules)
-
-  ;;;; add custom post-module configurations here
-(add-hook
- 'after-init-hook
- (lambda ()
-   (message (format "Startup took %s."
-		    (emacs-init-time)))))
-

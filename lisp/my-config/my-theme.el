@@ -17,6 +17,7 @@
 
 ;; higlighting
 (use-package hl-todo
+  :defer 5
   :config
   (global-hl-todo-mode 1))
 

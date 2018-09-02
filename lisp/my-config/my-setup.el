@@ -5,3 +5,7 @@
 			  "custom.el"))
 (if (file-exists-p custom-file)
     (load-file custom-file))
+
+;; startup profiler
+(use-package esup
+  :commands esup)
