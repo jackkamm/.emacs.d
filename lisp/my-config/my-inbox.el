@@ -10,7 +10,7 @@
 	(org-gcal-fetch)))
   (notmuch-search "tag:unread")
   (let ((nm-window (get-buffer-window)))
-    (org-agenda-list)
+    (org-agenda nil "n")
     (select-window nm-window)))
 
 (use-package notmuch
