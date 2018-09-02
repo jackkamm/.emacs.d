@@ -15,13 +15,3 @@
    ("w" . ace-select-window)
    ("D" . ace-delete-window)
    ("M" . ace-swap-window)))
-
-(use-package popwin
-  :config
-  (popwin-mode 1)
-  (push '("^\*Async Shell Command\*.+$"
-	  :regexp t
-	  :noselect t)
-	popwin:special-display-config)
-  (push '("*Help*" :stick t)
-	popwin:special-display-config))
