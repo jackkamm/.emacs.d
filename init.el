@@ -69,7 +69,6 @@
        "my-versioning" ;^Cg, magit, git-timemachine, ediff
 
 	 ;;; applications
-       "my-apps" ;browser, terminal
        "my-inbox"
        "my-irc"
        "my-tramp"
