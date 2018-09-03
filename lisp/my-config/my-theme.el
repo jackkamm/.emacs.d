@@ -38,9 +38,10 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;; theme
-(use-package spacemacs-theme :defer t)
-(setq my-dark-theme 'spacemacs-dark)
-(setq my-light-theme 'spacemacs-light)
+(use-package material-theme
+  :config
+  (setq my-dark-theme 'material)
+  (setq my-light-theme 'material-light))
 
 (defun my-load-theme (th)
   (interactive
