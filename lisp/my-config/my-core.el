@@ -3,6 +3,7 @@
   :init
   (setq evil-want-integration nil) ;needed for evil-collection
   (setq evil-want-C-u-scroll t)
+  (setq evil-symbol-word-search t)
   (setq evil-respect-visual-line-mode t)
   :config
   (evil-global-set-key 'motion (kbd "SPC") nil) ;for leader prefix
