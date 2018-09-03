@@ -5,7 +5,9 @@
 (my-buffers-leader
  "d" 'kill-buffer
  "x" 'kill-buffer-and-window
- "r" 'revert-buffer)
+ "r" 'revert-buffer
+ "m" 'buffer-menu
+ "M" 'buffer-menu-other-window)
 
 (with-eval-after-load "my-helm"
   (my-buffers-leader
