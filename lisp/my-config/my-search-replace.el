@@ -44,16 +44,6 @@
 (use-package wgrep
   :commands wgrep-change-to-wgrep-mode)
 
-;;; narrow-region
-
-(put 'narrow-to-region 'disabled nil)
-(my-search-replace-leader
-  "n" '(:ignore t :which-key "narrow")
-  "nr" 'narrow-to-region
-  "nf" 'narrow-to-defun-include-comments
-  "nF" 'narrow-to-defun
-  "nw" 'widen)
-
 ;;; iedit
 
 (use-package evil-iedit-state

@@ -70,6 +70,7 @@
        "my-undo"
        "my-parens"
        "my-expand-region"
+       "my-narrow"
 
 	 ;;; applications
        "my-inbox"
