@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ob-eval-never-export
+# key: ob-eval-never-export
+# --
+#+PROPERTY: header-args :eval never-export

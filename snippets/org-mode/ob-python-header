@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ob-python-header
+# key: ob-python-header
+# --
+#+PROPERTY: header-args:python :session :results output
