@@ -22,9 +22,8 @@
 
   (general-create-definer my-leader
    :keymaps 'override
-   :states '(normal motion visual emacs insert)
-   :prefix "SPC"
-   :global-prefix "C-c c")
+   :states '(normal motion visual)
+   :prefix "SPC")
 
   (my-leader
     "a" '(:ignore t :which-key "Applications")
@@ -38,11 +37,12 @@
     "!" 'shell-command
     "&" 'async-shell-command
     "SPC" (general-simulate-key "M-x" :which-key "M-x")
-    "<tab>" 'indent-region)
+    "<tab>" 'indent-region
+    "c" (general-simulate-key "C-c" :which-key "C-c")
+    "C" (general-simulate-key "C-c C-c" :which-key "C-c C-c"))
 
   (general-create-definer my-major-leader
-    :states '(normal motion visual)
-    :prefix "SPC m")
+    :prefix "C-c")
   )
 
 ;; hydra
