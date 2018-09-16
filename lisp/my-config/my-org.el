@@ -19,6 +19,9 @@
   (add-to-list 'image-file-name-extensions "pdf")
   (setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
   (setq org-image-actual-width 600)
+  (setq org-agenda-todo-ignore-scheduled t
+	org-agenda-todo-ignore-deadlines t
+	org-deadline-warning-days 30)
   :config
   (setq org-agenda-files (list "~/Dropbox/org-files/old-agenda.org"
 			       "~/Dropbox/org-files/notes.org"
