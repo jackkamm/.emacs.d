@@ -33,7 +33,9 @@
     "b" 'ess-eval-buffer
     "l" 'ess-eval-line
     "r" 'ess-eval-region
-    "f" 'ess-eval-function))
+    "f" 'ess-eval-function
+    "p" 'ess-eval-paragraph
+    "P" 'ess-eval-paragraph-and-step))
 
 (use-package polymode
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
