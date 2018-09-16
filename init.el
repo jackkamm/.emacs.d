@@ -82,6 +82,7 @@
        "my-theme"
        "my-emoji"
        "my-osx"
+       "my-lines" ;linenum, visual-line-mode
        ;;"my-hidpi"
 
 	 ;;; languages
