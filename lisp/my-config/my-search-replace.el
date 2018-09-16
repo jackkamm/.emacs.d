@@ -33,7 +33,11 @@
     :general
     (my-search-replace-leader
       "s" 'swiper
-      "f" 'counsel-locate)))
+      "f" 'counsel-locate
+      "i" 'swiper-from-isearch))
+
+  (my-search-replace-leader
+    "p" 'counsel-projectile-grep))
 
 ;;; wgrep
 

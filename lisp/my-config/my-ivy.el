@@ -12,3 +12,6 @@
 (use-package counsel
   :init
   (counsel-mode))
+
+(use-package counsel-projectile
+  :commands (counsel-projectile counsel-projectile-grep))
