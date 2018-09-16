@@ -12,6 +12,7 @@
     "r" 'helm-recentf))
 
 (with-eval-after-load "my-ivy"
+  (setq counsel-find-file-at-point t)
   (my-files-leader
     "f" 'counsel-find-file
     "r" 'counsel-recentf))
