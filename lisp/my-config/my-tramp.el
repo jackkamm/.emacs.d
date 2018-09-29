@@ -8,10 +8,12 @@
   ;; or using eshell
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
-  ;; use ssh-agent forwarding for /ssh: connections
-  ;; this has security implications; use /scp: to avoid forwarding
-  (let* ((ssh-args (assoc "ssh" tramp-methods))
-	 (ssh-login-list (assoc 'tramp-login-args ssh-args))
-	 (ssh-login-args (car (cdr ssh-login-list))))
-    (setcdr ssh-login-list (add-to-list 'ssh-login-args '("-A")))))
+  ;; use ssh-agent forwarding under /scp:
+  ;; this has security implications; use /ssh: to avoid forwarding
+  ;; https://emacs.stackexchange.com/questions/18262/tramp-how-to-add-a-agent-forwarding-to-ssh-connections/18280
+  (add-to-list 'tramp-connection-properties
+               (list (regexp-quote "/scp:")
+                     "login-args"
+                     '(("-A") ("-l" "%u") ("-p" "%p") ("%c")
+                       ("-e" "none") ("%h")))))
 
