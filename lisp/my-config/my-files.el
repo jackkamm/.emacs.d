@@ -43,6 +43,14 @@
    (find-file-noselect fname)))
 (my-files-leader "m" 'my-find-config-module)
 
+(defun my-copy-filename ()
+  (interactive)
+  (message
+   (kill-new
+    (or (buffer-file-name)
+	default-directory))))
+(my-files-leader "y" 'my-copy-filename)
+
 (setq recentf-max-saved-items 1000)
 
 ;; remember cursor position, for emacs 25.1 or later
