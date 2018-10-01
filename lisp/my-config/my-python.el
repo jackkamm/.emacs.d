@@ -23,8 +23,9 @@
 (use-package anaconda-mode
   :defer t
   :init
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+  (add-hook 'python-mode-hook (lambda () (unless (file-remote-p default-directory)
+					   (anaconda-mode)
+					   (anaconda-eldoc-mode))))
   :config
   (evil-set-initial-state 'anaconda-view-mode 'motion))
 
