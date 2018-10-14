@@ -1,10 +1,19 @@
 ;; evil
 (use-package evil
   :init
-  (setq evil-want-integration nil) ;needed for evil-collection
+  (setq evil-want-keybinding nil) ;needed for evil-collection
+  ;;(setq evil-want-integration nil) ;needed for evil-collection
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil) ;allow org-mode TAB in terminal
   (setq evil-symbol-word-search t)
   (setq evil-respect-visual-line-mode t)
+  (setq evil-disable-insert-state-bindings t)
+  ;; evil cursor colors
+  (setq evil-normal-state-cursor "orange"
+	evil-motion-state-cursor "violet"
+	;;evil-insert-state-cursor '(bar "green")
+	evil-insert-state-cursor '(bar "turquoise")
+	evil-emacs-state-cursor "turquoise")
   :config
   (evil-global-set-key 'motion (kbd "SPC") nil) ;for leader prefix
   (evil-mode))
@@ -34,6 +43,7 @@
     "h" '(:keymap help-map :which-key "Help")
     "u" 'universal-argument
     "z" 'evil-execute-in-emacs-state
+    "i" 'evil-jump-forward
     "!" 'shell-command
     "&" 'async-shell-command
     "SPC" (general-simulate-key "M-x" :which-key "M-x")
