@@ -43,7 +43,6 @@
     "h" '(:keymap help-map :which-key "Help")
     "u" 'universal-argument
     "z" 'evil-execute-in-emacs-state
-    "i" 'evil-jump-forward
     "!" 'shell-command
     "&" 'async-shell-command
     "SPC" (general-simulate-key "M-x" :which-key "M-x")

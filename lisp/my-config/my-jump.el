@@ -7,6 +7,10 @@
 (general-create-definer my-jump-leader :prefix-map 'my-jump-map)
 (my-leader "j" '(:keymap my-jump-map :which-key "Jump"))
 
+(my-jump-leader
+  "i" 'evil-jump-forward
+  "o" 'evil-jump-backward)
+
 (use-package avy
   :general
   (my-jump-leader
