@@ -54,8 +54,7 @@
 ;; multiple-cursors
 
 (use-package multiple-cursors
-  :bind (("S-<down-mouse-1>" . nil)
-	 ("S-<mouse-1>" . 'mc/add-cursor-on-click))
+  :bind (("M-C-<mouse-1>" . 'mc/add-cursor-on-click))
   :config
   (add-hook 'multiple-cursors-mode-enabled-hook 'evil-emacs-state)
   (add-hook 'multiple-cursors-mode-disabled-hook 'evil-exit-emacs-state)
