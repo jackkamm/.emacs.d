@@ -23,6 +23,9 @@
 	org-agenda-todo-ignore-deadlines t
 	org-deadline-warning-days 30)
   :config
+  (setq org-agenda-todo-ignore-scheduled t
+  	org-agenda-todo-ignore-deadlines t
+  	org-deadline-warning-days 30)
   (setq org-agenda-files (list "~/Dropbox/org-files/old-agenda.org"
 			       "~/Dropbox/org-files/notes.org"
 			       "~/Dropbox/org-files/todo.org"
