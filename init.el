@@ -76,6 +76,7 @@
        "my-inbox"
        "my-irc"
        "my-tramp"
+       "my-shell"
        "my-startup-profiler" ;esup
 
 	 ;;; theming

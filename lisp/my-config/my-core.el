@@ -44,7 +44,6 @@
     "u" 'universal-argument
     "z" 'evil-execute-in-emacs-state
     "!" 'shell-command
-    "&" 'async-shell-command
     "SPC" (general-simulate-key "M-x" :which-key "M-x")
     "<tab>" 'indent-region
     "c" (general-simulate-key "C-c" :which-key "C-c")
