@@ -1,5 +1,4 @@
-(use-package exec-path-from-shell
-  :commands (exec-path-from-shell-initialize)
-  :init
-  (when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize)))
+(when (eq system-type 'darwin)
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-initialize)))
