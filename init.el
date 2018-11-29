@@ -88,6 +88,7 @@
 
 	 ;;; languages
        "my-python"
+       "my-clojure"
        "my-ein"
        "my-ess"
        "my-emacs-lisp"
