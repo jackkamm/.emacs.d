@@ -1,8 +1,11 @@
-;; TODO lazy autoload
-(use-package clojure-mode)
+(use-package clojure-mode
+  :mode (("\\.clj\\'" . clojure-mode)
+         ("\\.cljs\\'" . clojurescript-mode)
+         ("\\.cljc\\'" . clojurec-mode)))
 
 (use-package cider
-  :after clojure-mode
+  ;; :after clojure-mode
+  :commands cider-jack-in
   :config
   (my-major-leader
     :keymaps 'clojure-mode-map
