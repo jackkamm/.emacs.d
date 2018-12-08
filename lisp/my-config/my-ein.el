@@ -2,6 +2,9 @@
   :commands (ein:notebooklist-login
 	     ein:notebooklist-open)
   :config
+  (require 'ein-notebook)
+  (require 'ein-subpackages)
+
   (with-eval-after-load 'hydra
     (defhydra my-ein-hydra ()
       "ein"
