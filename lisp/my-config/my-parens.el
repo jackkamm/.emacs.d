@@ -10,10 +10,9 @@
 (use-package evil-matchit
   :config
   (global-evil-matchit-mode 1)
-  ;; access the "raw" default evil-jump
-  (my-leader
-    "%" 'evil-jump-item)
+  (setq evilmi-always-simple-jump t)
   ;; mhtml-mode
-  (plist-put evilmi-plugins 'mhtml-mode '((evilmi-template-get-tag evilmi-template-jump)
-                                          (evilmi-simple-get-tag evilmi-simple-jump)
-                                          (evilmi-html-get-tag evilmi-html-jump))))
+  (plist-put evilmi-plugins 'mhtml-mode
+             '((evilmi-template-get-tag evilmi-template-jump)
+               (evilmi-simple-get-tag evilmi-simple-jump)
+               (evilmi-html-get-tag evilmi-html-jump))))
