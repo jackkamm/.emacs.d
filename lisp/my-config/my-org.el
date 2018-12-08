@@ -13,15 +13,6 @@
     "oa" 'org-agenda)
   :init
   (setq org-return-follows-link t)
-  ;(setq org-image-actual-width nil)
-  ;; https://stackoverflow.com/a/35261577
-  (add-to-list 'image-type-file-name-regexps '("\\.pdf\\'" . imagemagick))
-  (add-to-list 'image-file-name-extensions "pdf")
-  (setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
-  (setq org-image-actual-width 600)
-  (setq org-agenda-todo-ignore-scheduled t
-	org-agenda-todo-ignore-deadlines t
-	org-deadline-warning-days 30)
   :config
   (setq org-agenda-todo-ignore-scheduled t
   	org-agenda-todo-ignore-deadlines t
