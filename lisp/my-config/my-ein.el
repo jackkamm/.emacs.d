@@ -28,7 +28,7 @@
     "O" 'ein:worksheet-insert-cell-above
     "j" 'ein:worksheet-goto-next-input
     "k" 'ein:worksheet-goto-prev-input
-    "<return>" 'ein:worksheet-execute-cell-and-goto-next))
+    "<return>" 'ein:worksheet-execute-cell-and-goto-next)
 
   ;; ob-ein should be loaded by org-mode
   (with-eval-after-load 'ob-ein
