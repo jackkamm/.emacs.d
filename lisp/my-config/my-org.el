@@ -70,13 +70,10 @@
   (my-major-leader
     :keymaps 'org-mode-map
     "b" 'my-babel-hydra/body
-    "x" 'my-babel-async-eval-session
+    "s" 'my-babel-async-eval-session
     "r" 'org-redisplay-inline-images
-    "l" 'org-insert-link
     "t" 'org-toggle-inline-images
-    "s" 'org-schedule
-    "d" 'org-deadline
-    "." 'org-time-stamp))
+    "e" 'org-export-dispatch))
 
 (use-package evil-org
   :after org
