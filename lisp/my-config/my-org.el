@@ -95,5 +95,9 @@
 	    :noselect t)
 	  popwin:special-display-config)))
 
+(use-package ob-async
+  :after org
+  :init
+  (setq ob-async-no-async-languages-alist '("ipython" "ein" "ein-R")))
 
 
