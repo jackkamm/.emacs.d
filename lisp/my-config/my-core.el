@@ -46,11 +46,11 @@
     "!" 'shell-command
     "SPC" (general-simulate-key "M-x" :which-key "M-x")
     "<tab>" 'indent-region
-    "c" (general-simulate-key "C-c" :which-key "C-c")
-    "C" (general-simulate-key "C-c C-c" :which-key "C-c C-c"))
+    "c" (general-simulate-key "C-c" :which-key "C-c"))
 
   (general-create-definer my-major-leader
-    :prefix "C-c")
+    :states '(normal motion visual)
+    :prefix "SPC m")
   )
 
 ;; hydra
