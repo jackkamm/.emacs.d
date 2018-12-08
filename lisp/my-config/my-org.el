@@ -46,20 +46,21 @@
      (shell . t)
      (ipython . t)))
 
-  ;; macro for "C-c ' C-c c m b C-c '"
-  ;; open block (C-c '), eval buffer (C-c c m b), close block (C-c ')
-  ;; assumes convention (C-c c m b) to eval buffer across modes
+  ;; macro for "C-c ' SPC m b C-c '"
+  ;; open block (C-c '), eval buffer (SPC m b), close block (C-c ')
+  ;; assumes convention (SPC m b) to eval buffer across modes
   (fset 'my-babel-async-eval-session
 	(lambda (&optional arg) "Keyboard macro." (interactive "p")
 	  (kmacro-exec-ring-item
-	   (quote ("'b'" 0 "%d")) arg)))
+	   (quote ("' mb'" 0 "%d")) arg)))
+
 
   (with-eval-after-load 'hydra
     (defhydra my-babel-hydra ()
       "babel"
       ("n" org-babel-next-src-block "next")
       ("p" org-babel-previous-src-block "previous")
-      ("s" my-babel-async-eval-session "send-session")
+      ("s" my-babel-async-eval-session "async-eval")
       ("x" org-babel-execute-maybe "execute")
       ("q" nil "quit")))
 
