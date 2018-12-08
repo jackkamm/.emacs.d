@@ -44,6 +44,7 @@
      (python . t)
      (emacs-lisp . t)
      (shell . t)
+     (ein . t)
      (ipython . t)))
 
   ;; macro for "C-c ' SPC m b C-c '"
