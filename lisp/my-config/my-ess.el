@@ -9,20 +9,22 @@
 	 ("\\.Rd\\'"           . Rd-mode))
   :commands R
   :init
-  (setq inferior-ess-same-window nil)
-  :config
-  (setq ess-use-flymake nil) ;ess-flymake not working (7-2018)
-  (setq ess-smart-S-assign-key nil)
-  (setq ess-indent-with-fancy-comments nil)
-  (evil-set-initial-state 'ess-help-mode 'motion) ;TODO PR evil-collection
-  ;; https://github.com/syl20bnr/spacemacs/pull/9364
-  (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
-  ;; Follow Hadley Wickham's R style guide
-  (setq ess-first-continued-statement-offset 2
+  ;; many variables need to be set in :init to have effect
+  (setq inferior-ess-same-window nil
+        ess-indent-with-fancy-comments nil
+        ess-eval-visibly 'nowait
+        ess-use-flymake nil ;ess-flymake not working (7-2018)
+        ess-smart-S-assign-key nil
+        ;; Follow Hadley Wickham's R style guide
+        ess-first-continued-statement-offset 2
 	ess-continued-statement-offset 0
 	ess-expression-offset 2
 	ess-nuke-trailing-whitespace-p t
 	ess-default-style 'DEFAULT)
+  :config
+  (evil-set-initial-state 'ess-help-mode 'motion) ;TODO PR evil-collection
+  ;; https://github.com/syl20bnr/spacemacs/pull/9364
+  (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
