@@ -26,3 +26,7 @@
     "j" 'ein:worksheet-goto-next-input
     "k" 'ein:worksheet-goto-prev-input
     "<return>" 'ein:worksheet-execute-cell-and-goto-next))
+
+  ;; ob-ein should be loaded by org-mode
+  (with-eval-after-load 'ob-ein
+    (ein:org-register-lang-mode "ein-R" 'R)))
