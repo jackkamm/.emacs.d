@@ -60,6 +60,7 @@
   "tl" 'load-light-theme
   "td" 'load-dark-theme
   "tv" 'visual-line-mode
+  "tr" 'toggle-truncate-lines
   "tm" 'menu-bar-mode)
 
 (setq-default indent-tabs-mode nil)
