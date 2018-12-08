@@ -61,3 +61,5 @@
   "td" 'load-dark-theme
   "tv" 'visual-line-mode
   "tm" 'menu-bar-mode)
+
+(setq-default indent-tabs-mode nil)
