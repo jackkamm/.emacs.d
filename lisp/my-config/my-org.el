@@ -14,6 +14,8 @@
   :init
   (setq org-return-follows-link t)
   :config
+  (setq org-src-window-setup 'current-window)
+  (setq org-tags-column 0)
   (setq org-agenda-todo-ignore-scheduled t
   	org-agenda-todo-ignore-deadlines t
   	org-deadline-warning-days 30)
