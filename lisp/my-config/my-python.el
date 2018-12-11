@@ -20,14 +20,11 @@
   "'" 'run-python
   "\"" 'my-run-jupyter-existing)
 
-(use-package anaconda-mode
-  :defer t
+(use-package elpy
+  :commands elpy-enable
   :init
-  (add-hook 'python-mode-hook (lambda () (unless (file-remote-p default-directory)
-					   (anaconda-mode)
-					   (anaconda-eldoc-mode))))
-  :config
-  (evil-set-initial-state 'anaconda-view-mode 'motion))
+  (with-eval-after-load 'python
+    (elpy-enable)))
 
 (use-package ipython-shell-send
   :commands (ipython-shell-send-region
