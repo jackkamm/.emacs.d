@@ -78,6 +78,7 @@
        "my-tramp"
        "my-shell"
        "my-startup-profiler" ;esup
+       "my-docker"
 
 	 ;;; theming
        "my-theme"
