@@ -1,8 +1,8 @@
-;; menus, cursors, etc
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(blink-cursor-mode -1)
+(when (display-graphic-p)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (blink-cursor-mode -1))
+;(menu-bar-mode -1)
 
 ;; prompts
 (defalias 'yes-or-no-p 'y-or-n-p)
