@@ -32,7 +32,12 @@
    :keymaps 'override
    :states '(normal motion visual emacs insert)
    :prefix "SPC"
-   :non-normal-prefix "C-c c")
+   :global-prefix "C-c")
+
+  (general-create-definer my-evil-leader
+    :keymaps 'override
+    :states '(normal motion visual)
+    :prefix "SPC")
 
   (my-leader
     "a" '(:ignore t :which-key "Applications")
@@ -42,16 +47,17 @@
     "qf" 'delete-frame
     "h" '(:keymap help-map :which-key "Help")
     "u" 'universal-argument
-    "z" 'evil-execute-in-emacs-state
+    "z" 'evil-execute-in-emacs-state)
+
+  (my-evil-leader
     "!" 'shell-command
     "SPC" (general-simulate-key "M-x" :which-key "M-x")
-    "TAB" 'indent-region
-    ;"c" (general-simulate-key "C-c" :which-key "C-c")
-    )
+    "TAB" 'indent-region)
 
   (general-create-definer my-major-leader
-    :states '(normal motion visual)
-    :prefix "SPC m")
+    :states '(normal motion visual emacs insert)
+    :prefix "SPC m"
+    :global-prefix "C-c m")
   )
 
 ;; hydra
