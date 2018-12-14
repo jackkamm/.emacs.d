@@ -8,12 +8,11 @@
   (setq evil-symbol-word-search t)
   (setq evil-respect-visual-line-mode t)
   (setq evil-disable-insert-state-bindings t)
-  ;; evil cursor colors
-  (setq evil-normal-state-cursor "orange"
-	evil-motion-state-cursor "violet"
-	;;evil-insert-state-cursor '(bar "green")
-	evil-insert-state-cursor '(bar "turquoise")
-	evil-emacs-state-cursor "turquoise")
+  (setq evil-motion-state-cursor 'box
+        evil-visual-state-cursor 'box
+        evil-normal-state-cursor 'box
+        evil-insert-state-cursor 'bar
+        evil-emacs-state-cursor  'hbar)
   :config
   (evil-global-set-key 'motion (kbd "SPC") nil) ;for leader prefix
   (evil-mode))
@@ -31,8 +30,9 @@
 
   (general-create-definer my-leader
    :keymaps 'override
-   :states '(normal motion visual)
-   :prefix "SPC")
+   :states '(normal motion visual emacs insert)
+   :prefix "SPC"
+   :non-normal-prefix "C-c c")
 
   (my-leader
     "a" '(:ignore t :which-key "Applications")
@@ -45,8 +45,9 @@
     "z" 'evil-execute-in-emacs-state
     "!" 'shell-command
     "SPC" (general-simulate-key "M-x" :which-key "M-x")
-    "<tab>" 'indent-region
-    "c" (general-simulate-key "C-c" :which-key "C-c"))
+    "TAB" 'indent-region
+    ;"c" (general-simulate-key "C-c" :which-key "C-c")
+    )
 
   (general-create-definer my-major-leader
     :states '(normal motion visual)
