@@ -1,7 +1,9 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
-(blink-cursor-mode -1)
 (tool-bar-mode -1)
+;; disable blinking cursor:
+(blink-cursor-mode -1) ;gui
+(setq visible-cursor nil) ;terminal
 
 ;; prompts
 (defalias 'yes-or-no-p 'y-or-n-p)
