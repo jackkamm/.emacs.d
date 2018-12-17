@@ -21,7 +21,7 @@
 
   (use-package helm-projectile
     :general (my-search-replace-leader
-	       "p" 'helm-projectile-ag))
+	       "P" 'helm-projectile-ag))
 
   (use-package helm-swoop
     :general (my-search-replace-leader
@@ -37,7 +37,7 @@
       "i" 'swiper-from-isearch))
 
   (my-search-replace-leader
-    "p" 'counsel-projectile-grep))
+    "P" 'counsel-projectile-grep))
 
 ;;; wgrep
 
