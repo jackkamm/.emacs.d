@@ -3,6 +3,9 @@
 (with-eval-after-load 'evil
   (global-undo-tree-mode -1))
 
+(my-evil-leader
+  "_" 'undo-only)
+
 ;;(use-package undo-tree
 ;;  :general
 ;;  (my-leader "_" 'undo-tree-visualize)
