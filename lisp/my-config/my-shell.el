@@ -6,7 +6,3 @@
 
 (my-evil-leader "&" 'my-shell-command)
 (general-define-key "M-&" 'my-shell-command)
-
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))

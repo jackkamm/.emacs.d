@@ -77,7 +77,7 @@
        "my-irc"
        "my-tramp"
        "my-shell"
-       "my-startup-profiler" ;esup
+       "my-startup" ;path, keychain, profiler
        "my-docker"
 
 	 ;;; theming
