@@ -91,7 +91,7 @@
        "my-python"
        "my-clojure"
        "my-ein"
-       "my-ess"
+       "my-R"
        "my-emacs-lisp"
        "my-tex"
        "my-web"
