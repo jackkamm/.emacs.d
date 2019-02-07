@@ -19,6 +19,9 @@
   :general
   (my-leader
     "ai" 'my-inbox)
+  :init
+  ;; load config for browse-url-mail, used by x-scheme-handler/mailto
+  (with-eval-after-load 'browse-url (require 'notmuch))
   :config
   (require 'org-notmuch)
 

@@ -73,7 +73,7 @@
        "my-narrow"
 
 	 ;;; applications
-       "my-inbox"
+       "my-email"
        "my-irc"
        "my-tramp"
        "my-shell"
