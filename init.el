@@ -92,6 +92,7 @@
        "my-clojure"
        "my-ein"
        "my-R"
+       "my-julia"
        "my-emacs-lisp"
        "my-tex"
        "my-web"
