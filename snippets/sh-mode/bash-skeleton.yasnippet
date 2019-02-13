@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: my-bash-skeleton
+# key: my-bash-skeleton
+# --
+#/bin/bash
+set -euxo pipefail
+{
+    function usage {
+        echo "script usage: $(basename $0) -a -b B" >&2
+    }
+
+    while getopts 'hab:' opt; do
+        case "$opt" in
+            a) A=1 ;;
+            b) B="$OPTARG" ;;
+            h) usage
+               exit 0;;
+        esac
+    done
+
+    exit
+}
