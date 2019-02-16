@@ -6,7 +6,7 @@
 set -euxo pipefail
 {
     function usage {
-        echo "script usage: $(basename $0) -a -b B" >&2
+        echo "script usage: $(basename \$0) -a -b B" >&2
     }
 
     while getopts 'hab:' opt; do
@@ -17,6 +17,7 @@ set -euxo pipefail
                exit 0;;
         esac
     done
+    shift "$((OPTIND-1))"
 
     exit
 }
