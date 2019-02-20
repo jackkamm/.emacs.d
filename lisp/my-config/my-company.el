@@ -14,3 +14,7 @@
     :config
     (define-key company-mode-map (kbd "C-;") 'helm-company)
     (define-key company-active-map (kbd "C-;") 'helm-company)))
+
+(with-eval-after-load "my-ivy"
+  (define-key company-mode-map (kbd "C-;") 'counsel-company)
+  (define-key company-active-map (kbd "C-;") 'counsel-company))
