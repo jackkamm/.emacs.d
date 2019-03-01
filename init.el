@@ -61,7 +61,7 @@
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
        "my-jump" ;avy, easymotion, xref
        "my-navigation" ;minimap, navigation hydra
-       "my-window-layout" ;winner, ace-window
+       "my-display" ;window, frame
        "my-syntax-checking" ;flycheck
        "my-git"
        "my-ediff"
