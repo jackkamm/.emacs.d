@@ -52,9 +52,6 @@
     "p" 'ess-eval-paragraph
     "P" 'ess-eval-paragraph-and-step))
 
-(use-package ess-R-data-view
-  :after ess-r-mode)
-
 (use-package polymode
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
 	 ("\\.Rmd" . poly-markdown+r-mode))
