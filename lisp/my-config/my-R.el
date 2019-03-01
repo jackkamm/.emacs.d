@@ -30,6 +30,14 @@
   (evil-set-initial-state 'ess-help-mode 'motion) ;TODO PR evil-collection
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
+  ;; Control which frame to display *R*
+  ;; https://ess.r-project.org/Manual/ess.html#Controlling-buffer-display
+  (setq display-buffer-alist
+        (append
+         '(("*R"
+            (display-buffer-reuse-window display-buffer-same-window)
+            (reusable-frames . 0)))
+         display-buffer-alist))
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
