@@ -8,11 +8,12 @@
   (setq evil-symbol-word-search t)
   (setq evil-respect-visual-line-mode t)
   (setq evil-disable-insert-state-bindings t)
-  (setq evil-motion-state-cursor 'box
-        evil-visual-state-cursor 'box
-        evil-normal-state-cursor 'box
-        evil-insert-state-cursor 'bar
-        evil-emacs-state-cursor  'hbar)
+  (setq evil-insert-state-tag (propertize
+                               "  INSERT  " 'face
+                               '((:background "green" :foreground "black")))
+        evil-emacs-state-tag (propertize
+                              "  EMACS  " 'face
+                              '((:background "turquoise" :foreground "black"))))
   :config
   (evil-global-set-key 'motion (kbd "SPC") nil) ;for leader prefix
   (evil-mode))
