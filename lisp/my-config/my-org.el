@@ -88,6 +88,9 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
+;; NOTE if jupyter dependencies not installed, will break org-babel in hard to debug ways, even if not using ob-ipython in notebook!
+;; TODO insert some sort of check for jupyter?
+;; TODO replace with https://github.com/dzop/emacs-jupyter
 (use-package ob-ipython :defer t
   :config
   (with-eval-after-load 'popwin
