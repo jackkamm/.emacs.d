@@ -2,7 +2,6 @@
 (use-package evil
   :init
   (setq evil-want-keybinding nil) ;needed for evil-collection
-  ;;(setq evil-want-integration nil) ;needed for evil-collection
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil) ;allow org-mode TAB in terminal
   (setq evil-symbol-word-search t)
