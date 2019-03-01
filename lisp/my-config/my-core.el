@@ -44,7 +44,6 @@
     "q" '(:ignore t :which-key "Quit")
     "m" '(:ignore t :which-key "Major")
     "qq" 'save-buffers-kill-emacs
-    "qf" 'delete-frame
     "h" '(:keymap help-map :which-key "Help")
     "u" 'universal-argument
     "z" 'evil-execute-in-emacs-state)
