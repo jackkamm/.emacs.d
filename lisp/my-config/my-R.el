@@ -35,7 +35,7 @@
   (setq display-buffer-alist
         (append
          '(("*R"
-            (display-buffer-reuse-window display-buffer-same-window)
+            (display-buffer-reuse-window)
             (reusable-frames . 0)))
          display-buffer-alist))
   (my-major-leader
