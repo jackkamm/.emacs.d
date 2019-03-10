@@ -21,4 +21,4 @@
 
 (use-package evil-easymotion
   :config
-  (evilem-default-keybindings "SPC j e"))
+  (evilem-default-keybindings "SPC e"))
