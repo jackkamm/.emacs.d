@@ -3,11 +3,6 @@
 (with-eval-after-load 'evil
   (global-undo-tree-mode -1))
 
-(my-evil-leader
-  "_" 'undo-only)
-
-;;(use-package undo-tree
-;;  :general
-;;  (my-leader "_" 'undo-tree-visualize)
-;;  :init
-;;  (setq undo-tree-enable-undo-in-region nil))
+(use-package undo-propose
+  :general
+  (my-evil-leader "_" 'undo-propose))
