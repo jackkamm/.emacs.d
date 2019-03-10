@@ -15,17 +15,10 @@
         ess-eval-visibly 'nowait
         ess-use-flymake nil ;ess-flymake not working (7-2018)
         ess-smart-S-assign-key nil
-        ;; start R session as *R* instead of *R:<project>*,
-        ;; because ob-R isn't smart enough to use *R:<project> by default
-        ;; TODO submit PR to ob-R.el and remove this customization
-        ;; in particular, have org-babel-R-initiate-session call ess-gen-proc-buffer-name-function
+        ;; FIXME workaround to accommodate ob-R :session
+        ;; TODO PR (org-babel-R-initiate-session, ess-gen-proc-buffer-name-function)
         ess-gen-proc-buffer-name-function 'ess-gen-proc-buffer-name:simple
-        ;; Follow Hadley Wickham's R style guide
-        ess-first-continued-statement-offset 2
-	ess-continued-statement-offset 0
-	ess-expression-offset 2
-	ess-nuke-trailing-whitespace-p t
-	ess-default-style 'DEFAULT)
+        ess-default-style 'RStudio)
   :config
   (evil-set-initial-state 'ess-help-mode 'motion) ;TODO PR evil-collection
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
