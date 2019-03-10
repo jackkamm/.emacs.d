@@ -89,7 +89,7 @@
 
 	 ;;; languages
        "my-python"
-       "my-clojure"
+       ;;"my-clojure"
        "my-ein"
        "my-R"
        "my-julia"
@@ -98,7 +98,7 @@
        "my-web"
        "my-yaml"
        ;; c-c++: only enable 1 of cquery, rtags
-       "my-cquery"
+       ;;"my-cquery"
        ;;"my-rtags"
        "my-lang-misc"
        ))
