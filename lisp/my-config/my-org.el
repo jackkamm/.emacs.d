@@ -104,4 +104,6 @@
   :init
   (setq ob-async-no-async-languages-alist '("ipython" "ein" "ein-R")))
 
+(use-package orgit
+  :after magit)
 
