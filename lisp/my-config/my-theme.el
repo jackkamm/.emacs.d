@@ -29,39 +29,27 @@
     "sc" 'evil-search-highlight-persist-remove-all))
 
 ;; theme
-(use-package material-theme
-  :config
-  (setq my-dark-theme 'material)
-  (setq my-light-theme 'material-light))
+(use-package material-theme)
 
-(defun my-load-theme (th)
-  (interactive
-   (list
-    (intern (completing-read "Load custom theme: "
-			     (mapcar 'symbol-name
-				     (custom-available-themes))))))
-  (mapcar 'disable-theme custom-enabled-themes)
-  (load-theme th t)
-  (evil-refresh-cursor))
+(setq my-themes-ring '(material material-light))
+(defun my-themes-cycle ()
+  (interactive)
+  (let ((car-theme (car my-themes-ring)))
+    (mapcar 'disable-theme custom-enabled-themes)
+    (load-theme car-theme t)
+    (setq my-themes-ring (append (cdr my-themes-ring)
+                                 (list car-theme)))))
 
-(defun load-light-theme () (interactive)
-       (my-load-theme my-light-theme))
+(my-themes-cycle)
 
-(defun load-dark-theme () (interactive)
-       (my-load-theme my-dark-theme))
-
-(load-dark-theme)
-
-;; leader
+;; theme leader
 (my-leader
   "t" '(:ignore t :which-key "theme")
-  "tt" 'my-load-theme
+  "tt" 'my-themes-cycle
   "tT" 'load-theme
   "tD" 'disable-theme
-  "tl" 'load-light-theme
-  "td" 'load-dark-theme
   "tv" 'visual-line-mode
-  "tr" 'toggle-truncate-lines
+  "tl" 'toggle-truncate-lines
   "tm" 'menu-bar-mode)
 
 (setq-default indent-tabs-mode nil)
