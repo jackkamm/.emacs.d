@@ -10,14 +10,10 @@
   (setq evil-disable-insert-state-bindings t)
   :config
   ;; make emacs- and insert-states identical
-  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
-  (setq evil-emacs-state-cursor evil-insert-state-cursor)
+  (defalias 'evil-emacs-state 'evil-insert-state)
   (setq evil-insert-state-tag (propertize
                                "  INSERT  " 'face
-                               '((:background "turquoise" :foreground "black")))
-        evil-emacs-state-tag (propertize
-                              "  EMACS  " 'face
-                              '((:background "turquoise" :foreground "black"))))
+                               '((:background "turquoise" :foreground "black"))))
   ;; Remove SPC/RET keybindings
   (evil-global-set-key 'motion (kbd "SPC") nil)
   (evil-global-set-key 'motion (kbd "RET") nil)
