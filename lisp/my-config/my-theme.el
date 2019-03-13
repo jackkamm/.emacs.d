@@ -1,6 +1,22 @@
+(setq my-theme-map (make-sparse-keymap))
+(general-create-definer my-theme-leader :prefix-map 'my-theme-map)
+(my-leader "t" '(:keymap my-theme-map :which-key "Theme"))
+
+(my-theme-leader
+  "tv" 'visual-line-mode
+  "tl" 'toggle-truncate-lines
+  "tm" 'menu-bar-mode)
+
+;; disable toolbar/scrollbar
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 (tool-bar-mode -1)
+
+;; minimap
+(use-package minimap
+  :general
+  (my-leader "tM" 'minimap-mode))
+
 ;; disable blinking cursor:
 (blink-cursor-mode -1) ;gui
 (setq visible-cursor nil) ;terminal
@@ -12,6 +28,8 @@
 (setq whitespace-style '(face trailing))
 (setq whitespace-global-modes '(not erc-mode))
 (global-whitespace-mode 1)
+
+(setq-default indent-tabs-mode nil)
 
 ;; higlighting
 (use-package hl-todo
@@ -39,19 +57,7 @@
 
 (my-themes-cycle)
 
-;; theme leader
-(my-leader
-  "t" '(:ignore t :which-key "theme")
-  "tt" 'my-themes-cycle
-  "tT" 'load-theme
-  "tD" 'disable-theme
-  "tv" 'visual-line-mode
-  "tl" 'toggle-truncate-lines
-  "tm" 'menu-bar-mode)
-
-(setq-default indent-tabs-mode nil)
-
-;; minimap
-(use-package minimap
-  :general
-  (my-leader "tM" 'minimap-mode))
+(my-theme-leader
+  "t" 'my-themes-cycle
+  "T" 'load-theme
+  "D" 'disable-theme)
