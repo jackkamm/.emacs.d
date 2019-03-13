@@ -60,7 +60,6 @@
        "my-buffers"
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
        "my-jump" ;avy, easymotion, xref
-       "my-navigation" ;minimap, navigation hydra
        "my-display" ;window, frame
        "my-syntax-checking" ;flycheck
        "my-git"

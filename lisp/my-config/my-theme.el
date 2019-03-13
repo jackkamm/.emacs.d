@@ -50,3 +50,8 @@
   "tm" 'menu-bar-mode)
 
 (setq-default indent-tabs-mode nil)
+
+;; minimap
+(use-package minimap
+  :general
+  (my-leader "tM" 'minimap-mode))
