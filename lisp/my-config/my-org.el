@@ -80,13 +80,7 @@
   :after org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme)))
-  (evil-define-minor-mode-key 'motion 'evil-org-mode
-    (kbd "RET") 'evil-org-return)
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
+  (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
 
 ;; NOTE if jupyter dependencies not installed, will break org-babel in hard to debug ways, even if not using ob-ipython in notebook!
 ;; TODO insert some sort of check for jupyter?

@@ -6,15 +6,24 @@
   (setq evil-want-C-i-jump nil) ;allow org-mode TAB in terminal
   (setq evil-symbol-word-search t)
   (setq evil-respect-visual-line-mode t)
+  ;; make emacs- and insert-states identical
   (setq evil-disable-insert-state-bindings t)
+  :config
+  ;; make emacs- and insert-states identical
+  (define-key evil-emacs-state-map [escape] 'evil-normal-state)
+  (setq evil-emacs-state-cursor evil-insert-state-cursor)
   (setq evil-insert-state-tag (propertize
                                "  INSERT  " 'face
-                               '((:background "green" :foreground "black")))
+                               '((:background "turquoise" :foreground "black")))
         evil-emacs-state-tag (propertize
                               "  EMACS  " 'face
                               '((:background "turquoise" :foreground "black"))))
-  :config
-  (evil-global-set-key 'motion (kbd "SPC") nil) ;for leader prefix
+  ;; Remove SPC/RET keybindings
+  (evil-global-set-key 'motion (kbd "SPC") nil)
+  (evil-global-set-key 'motion (kbd "RET") nil)
+  ;; https://vim.fandom.com/wiki/Unused_keys
+  (evil-global-set-key 'motion "+" 'repeat)
+  ;; Start evil
   (evil-mode))
 
 ;; which-key
