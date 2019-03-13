@@ -3,9 +3,9 @@
 (my-leader "t" '(:keymap my-theme-map :which-key "Theme"))
 
 (my-theme-leader
-  "tv" 'visual-line-mode
-  "tl" 'toggle-truncate-lines
-  "tm" 'menu-bar-mode)
+  "v" 'visual-line-mode
+  "l" 'toggle-truncate-lines
+  "m" 'menu-bar-mode)
 
 ;; disable toolbar/scrollbar
 (when (fboundp 'scroll-bar-mode)
