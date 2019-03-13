@@ -21,4 +21,5 @@
 
 (use-package evil-easymotion
   :config
-  (evilem-default-keybindings "SPC e"))
+  (evilem-default-keybindings "C-c e"))
+(my-leader "e" '(:ignore t :which-key "easymotion"))

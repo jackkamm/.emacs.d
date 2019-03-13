@@ -5,4 +5,4 @@
 
 (use-package undo-propose
   :general
-  (my-evil-leader "_" 'undo-propose))
+  (my-leader "U" 'undo-propose))

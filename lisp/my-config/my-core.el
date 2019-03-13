@@ -28,30 +28,23 @@
   :config
   (general-override-mode)
 
-  (general-create-definer my-leader
-   :keymaps 'override
-   :states '(normal motion visual emacs insert)
-   :prefix "SPC"
-   :global-prefix "C-c")
+  (general-create-definer my-leader :prefix "C-c")
 
-  (general-create-definer my-evil-leader
-    :keymaps 'override
-    :states '(normal motion visual)
-    :prefix "SPC")
+  (general-define-key
+   :keymaps 'override
+   :states '(normal motion visual)
+   "SPC" (general-simulate-key "C-c"))
 
   (my-leader
     "a" '(:ignore t :which-key "Applications")
     "q" '(:ignore t :which-key "Quit")
     "m" '(:ignore t :which-key "Major")
+    "k" 'which-key-show-top-level
     "qq" 'save-buffers-kill-emacs
     "h" '(:keymap help-map :which-key "Help")
     "u" 'universal-argument
-    "z" 'evil-execute-in-emacs-state)
-
-  (my-evil-leader
-    "!" 'shell-command
-    "SPC" (general-simulate-key "M-x" :which-key "M-x")
-    "TAB" 'indent-region)
+    "z" 'evil-execute-in-emacs-state
+    "x" (general-simulate-key "M-x" :which-key "M-x"))
 
   (general-create-definer my-major-leader
     :states '(normal motion visual emacs insert)

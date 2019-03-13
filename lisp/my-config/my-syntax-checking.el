@@ -1,6 +1,6 @@
 (setq my-errors-map (make-sparse-keymap))
 (general-create-definer my-errors-leader :prefix-map 'my-errors-map)
-(my-leader "x" '(:keymap my-errors-map :which-key "Syntax"))
+(my-leader "c" '(:keymap my-errors-map :which-key "Checking"))
 
 (use-package flycheck
   :config
@@ -16,9 +16,9 @@
   (setq flycheck-idle-change-delay 4)
   ;; keybinds
   (my-errors-leader
-    "r" 'flycheck-list-errors
-    "j" 'flycheck-next-error
-    "k" 'flycheck-previous-error)
+    "l" 'flycheck-list-errors
+    "n" 'flycheck-next-error
+    "p" 'flycheck-previous-error)
   ;; nicer popup window
   (with-eval-after-load 'popwin
     (push '("^\\*Flycheck.+\\*$"
