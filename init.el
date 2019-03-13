@@ -68,8 +68,7 @@
        "my-company"
        "my-undo"
        "my-parens"
-       "my-expand-region"
-       "my-narrow"
+       "my-region"
 
 	 ;;; applications
        "my-email"

@@ -2,7 +2,7 @@
   :init
   (setq helm-ff-lynx-style-map nil)
   :general (my-leader
-	    "r" 'helm-resume)
+	    "R" 'helm-resume)
   :config
   (require 'helm-config)
   (helm-mode 1)
