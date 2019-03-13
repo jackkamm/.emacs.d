@@ -5,9 +5,6 @@
 (blink-cursor-mode -1) ;gui
 (setq visible-cursor nil) ;terminal
 
-;; prompts
-(defalias 'yes-or-no-p 'y-or-n-p)
-
 ;; pos-tip
 (use-package pos-tip)
 
