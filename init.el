@@ -55,6 +55,7 @@
        "my-ivy"
 
 	 ;;; editing
+       "my-evil-collection"
        "my-files" ;dired, find-files
        "my-buffers"
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep

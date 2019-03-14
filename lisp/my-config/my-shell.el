@@ -14,5 +14,3 @@
 (defun my-read-shell-command-advice (&rest args)
   (setq-default comint-input-autoexpand nil))
 (advice-add 'read-shell-command :after 'my-read-shell-command-advice)
-
-(evil-define-key 'normal 'comint-mode-map (kbd "C-d") 'evil-scroll-down)
