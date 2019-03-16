@@ -11,7 +11,7 @@
   	'(save idle-change mode-enabled))
   (setq flycheck-idle-change-delay 4)
   ;; keybinds
-  (my-leader "!" '(:ignore t :which-key "flycheck"))
+  (define-key global-map (kbd "C-c !") '("flycheck"))
   ;; nicer popup window
   (with-eval-after-load 'popwin
     (push '("^\\*Flycheck.+\\*$"

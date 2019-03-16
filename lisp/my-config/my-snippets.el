@@ -5,6 +5,7 @@
   :commands yas-minor-mode-on
   :general (my-leader "&" '(:ignore t :which-key "yasnippet"))
   :config
-  (yas-reload-all))
+  (yas-reload-all)
+  (define-key global-map (kbd "C-c &") '("yasnippet")))
 
 (use-package yasnippet-snippets :defer t)
