@@ -14,6 +14,11 @@
   (setq evil-insert-state-tag (propertize
                                "  INSERT  " 'face
                                '((:background "turquoise" :foreground "black"))))
+  ;; set evil-insert-state-cursor to "box",
+  ;; otherwise invisible in multiple-cursors.
+  ;; add color to more easily distinguish states
+  (setq evil-insert-state-cursor '(box "turquoise")
+        evil-normal-state-cursor '(box "orange"))
   ;; Remove SPC/RET keybindings
   (evil-global-set-key 'motion (kbd "SPC") nil)
   (evil-global-set-key 'motion (kbd "RET") nil)

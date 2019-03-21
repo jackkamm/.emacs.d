@@ -56,6 +56,11 @@
 (use-package multiple-cursors
   :bind (("M-C-<mouse-1>" . 'mc/add-cursor-on-click))
   :config
+  ;; use insert/emacs state in multiple-cursors mode
   (add-hook 'multiple-cursors-mode-enabled-hook 'evil-emacs-state)
-  (add-hook 'multiple-cursors-mode-disabled-hook 'evil-exit-emacs-state)
+  ;; remap escape to quit multiple-cursors
+  (define-key mc/keymap [remap evil-normal-state] 'mc/keyboard-quit)
+  ;; switch back to normal state when exiting multiple-cursors
+  (add-hook 'multiple-cursors-mode-disabled-hook 'evil-normal-state)
+  ;; allow ENTER in multiple-cursors mode
   (define-key mc/keymap (kbd "<return>") nil))
