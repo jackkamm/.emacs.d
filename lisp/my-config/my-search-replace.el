@@ -53,14 +53,21 @@
 
 ;; multiple-cursors
 
-(use-package multiple-cursors
-  :bind (("M-C-<mouse-1>" . 'mc/add-cursor-on-click))
+(use-package evil-mc
+  :general (my-search-replace-leader
+	     "m" 'my-toggle-evil-mc-mode)
+  :custom (evil-mc-custom-known-commands
+           '((backward-kill-word . ((:default . evil-mc-execute-default-call-with-count)))
+             (delete-char . ((:default . evil-mc-execute-default-call-with-count)))
+             (kill-word . ((:default . evil-mc-execute-default-call-with-count)))))
   :config
-  ;; use insert/emacs state in multiple-cursors mode
-  (add-hook 'multiple-cursors-mode-enabled-hook 'evil-emacs-state)
-  ;; remap escape to quit multiple-cursors
-  (define-key mc/keymap [remap evil-normal-state] 'mc/keyboard-quit)
-  ;; switch back to normal state when exiting multiple-cursors
-  (add-hook 'multiple-cursors-mode-disabled-hook 'evil-normal-state)
-  ;; allow ENTER in multiple-cursors mode
-  (define-key mc/keymap (kbd "<return>") nil))
+  (defun my-toggle-evil-mc-mode () (interactive)
+         (if evil-mc-mode
+             (progn
+               (evil-mc-undo-all-cursors)
+               (turn-off-evil-mc-mode)
+               (message "Disabled evil-mc-mode"))
+           (turn-on-evil-mc-mode)
+           (message "Enabled evil-mc-mode")))
+  (define-key evil-mc-key-map (kbd "M-C-<mouse-1>")
+    'evil-mc-toggle-cursor-on-click))
