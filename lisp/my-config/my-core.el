@@ -1,16 +1,15 @@
 ;; evil
 (use-package evil
-  :init
-  (setq evil-want-keybinding nil) ;needed for evil-collection
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump nil) ;allow org-mode TAB in terminal
-  (setq evil-symbol-word-search t)
-  (setq evil-respect-visual-line-mode t)
-  ;; make emacs- and insert-states identical
-  (setq evil-disable-insert-state-bindings t)
   :custom
   (evil-overriding-maps '())
   (evil-intercept-maps '())
+  (evil-want-keybinding nil) ;needed for evil-collection
+  (evil-want-C-u-scroll t)
+  (evil-want-C-i-jump nil) ;allow org-mode TAB in terminal
+  (evil-symbol-word-search t)
+  (evil-respect-visual-line-mode t)
+  ;; make emacs- and insert-states identical
+  (evil-disable-insert-state-bindings t)
   :config
   ;; make emacs- and insert-states identical
   (defalias 'evil-emacs-state 'evil-insert-state)
