@@ -8,9 +8,13 @@
   (setq evil-respect-visual-line-mode t)
   ;; make emacs- and insert-states identical
   (setq evil-disable-insert-state-bindings t)
+  :custom
+  (evil-overriding-maps '())
+  (evil-intercept-maps '())
   :config
   ;; make emacs- and insert-states identical
   (defalias 'evil-emacs-state 'evil-insert-state)
+  (defalias 'evil-motion-state 'evil-insert-state)
   (setq evil-insert-state-tag (propertize
                                "  INSERT  " 'face
                                '((:background "turquoise" :foreground "black"))))
