@@ -39,6 +39,11 @@
   (my-search-replace-leader
     "P" 'counsel-projectile-grep))
 
+;; visualstar
+(use-package evil-visualstar
+  :config
+  (global-evil-visualstar-mode))
+
 ;;; wgrep
 
 (use-package wgrep
