@@ -3,7 +3,8 @@
 (my-leader "b" '(:keymap my-buffers-map :which-key "Buffer"))
 
 (my-buffers-leader
- "d" 'kill-buffer
+ "d" 'kill-current-buffer
+ "D" 'kill-buffer
  "x" 'kill-buffer-and-window
  "r" 'revert-buffer
  "m" 'buffer-menu
