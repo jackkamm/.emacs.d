@@ -1,8 +1,8 @@
 ;; evil
 (use-package evil
   :custom
-  (evil-overriding-maps '())
-  (evil-intercept-maps '())
+  (evil-overriding-maps nil)
+  (evil-intercept-maps nil)
   (evil-want-keybinding nil) ;needed for evil-collection
   (evil-want-C-u-scroll t)
   (evil-want-C-i-jump nil) ;allow org-mode TAB in terminal
