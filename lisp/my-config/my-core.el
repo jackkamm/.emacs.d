@@ -51,10 +51,7 @@
     "m" '(:ignore t :which-key "Major")
     "k" 'which-key-show-top-level
     "qq" 'save-buffers-kill-emacs
-    "h" '(:keymap help-map :which-key "Help")
-    "u" 'universal-argument
-    "z" 'evil-execute-in-emacs-state
-    "x" (general-simulate-key "M-x" :which-key "M-x"))
+    "h" '(:keymap help-map :which-key "Help"))
 
   (general-create-definer my-major-leader
     :states '(normal motion visual emacs insert)
