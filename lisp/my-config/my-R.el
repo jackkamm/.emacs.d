@@ -49,9 +49,9 @@
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
 	 ("\\.Rmd" . poly-markdown+r-mode))
   :config
-  (require 'poly-R)
-  (require 'poly-noweb)
-  (require 'poly-markdown)
+  (use-package poly-R)
+  (use-package poly-noweb)
+  (use-package poly-markdown)
   (setq polymode-weave-output-file-format "%s")
   (setq polymode-exporter-output-file-format "%s")
   (setq polymode-display-process-buffers nil)
