@@ -22,7 +22,8 @@
 
 (defun my-shell-send-region (beg end)
  (interactive "r")
- (process-send-region "*shell*" beg end))
+ (process-send-region "*shell*" beg end)
+ (process-send-string "*shell*" "\n"))
 
 (defun my-shell-send-buffer ()
  (interactive)
