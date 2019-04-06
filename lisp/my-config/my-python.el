@@ -43,3 +43,12 @@
   (my-major-leader
     :keymaps 'python-mode-map
     "y" 'yapfify-buffer))
+
+(defun my-run-python-dtach ()
+  (interactive)
+  (let* ((socket-file (read-file-name "dtach socket file: "))
+         (default-directory (file-name-directory socket-file)))
+    (run-python
+     (concat "dtach -A " (file-name-nondirectory socket-file)
+             " ipython --simple-prompt -i")
+     nil t)))
