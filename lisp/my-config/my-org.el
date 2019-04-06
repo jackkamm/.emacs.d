@@ -85,7 +85,9 @@
     "s" 'my-babel-async-eval-session
     "r" 'org-redisplay-inline-images
     "t" 'org-toggle-inline-images
-    "e" 'org-export-dispatch))
+    "e" 'org-export-dispatch
+    ;; C-c C-, can't be typed in a terminal
+    "," 'org-insert-structure-template))
 
 (use-package evil-org
   :after org
