@@ -102,9 +102,3 @@
 
 (use-package orgit
   :after magit)
-
-(require 'my-org-gcal)
-(my-leader
-  "og" '(:ignore t :which-key "org-gcal")
-  "ogf" 'org-gcal-fetch
-  "ogs" 'org-capture-sync)
