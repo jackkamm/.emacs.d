@@ -88,7 +88,7 @@
 	 ;;; languages
        "my-python"
        ;;"my-clojure"
-       "my-ein"
+       "my-jupyter"
        "my-R"
        "my-julia"
        "my-emacs-lisp"

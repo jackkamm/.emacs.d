@@ -33,3 +33,7 @@
   ;; ob-ein should be loaded by org-mode
   (with-eval-after-load 'ob-ein
     (ein:org-register-lang-mode "ein-R" 'R)))
+
+; NOTE this is a hevy install (requires building ZMQ module)
+; really need to modularize my emacs config...
+(use-package jupyter :commands (jupyter-run-repl jupyter-connect-repl))

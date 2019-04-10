@@ -39,6 +39,7 @@
 
   (setq org-confirm-babel-evaluate nil)
 
+  (require 'jupyter)
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((R . t)
@@ -46,7 +47,7 @@
      (emacs-lisp . t)
      (shell . t)
      (ein . t)
-     (ipython . t)))
+     (jupyter . t)))
 
   ;; macro for "C-c ' SPC m b C-c '"
   ;; open block (C-c '), eval buffer (SPC m b), close block (C-c ')
@@ -94,22 +95,6 @@
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
-
-;; NOTE if jupyter dependencies not installed, will break org-babel in hard to debug ways, even if not using ob-ipython in notebook!
-;; TODO insert some sort of check for jupyter?
-;; TODO replace with https://github.com/dzop/emacs-jupyter
-(use-package ob-ipython :defer t
-  :config
-  (with-eval-after-load 'popwin
-    (push '("^\*ob-ipython-.+\*.+$"
-	    :regexp t
-	    :noselect t)
-	  popwin:special-display-config)))
-
-(use-package ob-async
-  :after org
-  :init
-  (setq ob-async-no-async-languages-alist '("ipython" "ein" "ein-R")))
 
 (use-package orgit
   :after magit)
