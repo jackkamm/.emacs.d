@@ -30,6 +30,11 @@
   (:map evil-window-map
    ("w" . ace-select-window)
    ("D" . ace-delete-window)
-   ("M" . ace-swap-window)))
+   ("M" . ace-swap-window))
+  :config
+  (set-face-attribute
+     'aw-leading-char-face nil
+     :weight 'bold
+     :height 2.0))
 
 (setq help-window-select t)

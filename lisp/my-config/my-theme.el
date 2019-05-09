@@ -44,9 +44,10 @@
     "sc" 'evil-search-highlight-persist-remove-all))
 
 ;; theme
-(use-package material-theme)
+(use-package monokai-theme :defer t)
+(use-package leuven-theme :defer t)
 
-(setq my-themes-ring '(material material-light))
+(setq my-themes-ring '(monokai leuven))
 (defun my-themes-cycle ()
   (interactive)
   (let ((car-theme (car my-themes-ring)))
