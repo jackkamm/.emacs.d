@@ -43,11 +43,10 @@
   (my-leader
     "sc" 'evil-search-highlight-persist-remove-all))
 
-;; theme
-(use-package monokai-theme :defer t)
-(use-package leuven-theme :defer t)
+;; Theme
 
-(setq my-themes-ring '(monokai leuven))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/eziam-theme-emacs/")
+(setq my-themes-ring '(eziam-dark eziam-dusk eziam-light))
 (defun my-themes-cycle ()
   (interactive)
   (let ((car-theme (car my-themes-ring)))

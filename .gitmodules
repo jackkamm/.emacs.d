@@ -1,3 +1,6 @@
 [submodule "snippets/latex-mode"]
 	path = snippets/latex-mode
 	url = https://github.com/jackkamm/yasnippets-latex
+[submodule "lisp/eziam-theme-emacs"]
+	path = lisp/eziam-theme-emacs
+	url = https://github.com/jackkamm/eziam-theme-emacs
