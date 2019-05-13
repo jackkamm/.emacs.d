@@ -40,22 +40,21 @@
 	    (normal-top-level-add-subdirs-to-load-path)))
 	 load-path)))
 
-
-;;;; load modules
+;;;; load core modules
 (mapc 'load
       (list
 	 ;;; load first -- all modules depend on it
        "my-core" ;evil, general, which-key, hydra
 
-	 ;;; load next to ensure org-plus-contrib
+         ;;; load next to ensure org-plus-contrib
        "my-org"
 
-	 ;;; completion system, only enable 1
+         ;;; completion system, only enable 1
        ;;"my-helm"
        "my-ivy"
 
-	 ;;; editing
-       "my-evil-collection"
+	;;; editing
+       ;;"my-evil-collection"
        "my-files" ;dired, find-files
        "my-buffers"
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
@@ -69,34 +68,10 @@
        "my-undo"
        "my-parens"
        "my-region"
-
-	 ;;; applications
-       "my-email"
-       "my-irc"
-       "my-tramp"
-       "my-shell"
-       "my-startup" ;path, keychain, profiler
-       "my-docker"
-
-	 ;;; theming
-       "my-theme"
-       "my-emoji"
-       "my-osx"
        "my-lines" ;linenum, visual-line-mode
-       ;;"my-hidpi"
-
-	 ;;; languages
-       "my-python"
-       ;;"my-clojure"
-       "my-jupyter"
-       "my-R"
-       "my-julia"
-       "my-emacs-lisp"
-       "my-tex"
-       "my-web"
-       "my-yaml"
-       ;; c-c++: only enable 1 of cquery, rtags
-       ;;"my-cquery"
-       ;;"my-rtags"
-       "my-lang-misc"
        ))
+
+;; load extra modules in config.el
+(let ((config-el "~/.emacs.d/config.el"))
+  (when (file-exists-p config-el)
+    (load config-el)))
