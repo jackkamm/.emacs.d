@@ -38,8 +38,12 @@
   :custom
   ;; for tmux version >= 2 (breaks emamux:yank on tmux < 2)
   (emamux:show-buffers-with-index nil)
-  (emamux:get-buffers-regexp "^\\(buffer[0-9]+\\): +\\([0-9]+\\) +\\(bytes\\): +[\"]\\(.*\\)[\"]")
+  (emamux:get-buffers-regexp
+   "^\\(buffer[0-9]+\\): +\\([0-9]+\\) +\\(bytes\\): +[\"]\\(.*\\)[\"]")
   :general
   (my-leader
-    "z" '(:keymap emamux:keymap :which-key "tmux")
-    "zz" 'emamux:send-region))
+    "z" '(:keymap emamux:keymap :which-key "tmux"))
+  :config
+  (bind-keys
+   :map emamux:keymap
+   ("z" 'emamux:send-region)))
