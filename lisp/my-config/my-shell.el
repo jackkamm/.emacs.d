@@ -46,4 +46,4 @@
   :config
   (bind-keys
    :map emamux:keymap
-   ("z" 'emamux:send-region)))
+   ("z" . emamux:send-region)))
