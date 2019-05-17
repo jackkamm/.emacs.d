@@ -27,5 +27,4 @@
   '(operators
     c-w
     slurp/barf-lispy
-    additional-wrap
     additional-movement)))
