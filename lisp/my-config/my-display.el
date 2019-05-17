@@ -17,6 +17,13 @@
 (my-leader
   "w" '(evil-window-map :which-key "Window"))
 
+(bind-keys
+ :map evil-window-map
+ ((kbd "<down>") . evil-window-down)
+ ((kbd "<up>") . evil-window-up)
+ ((kbd "<right>") . evil-window-right)
+ ((kbd "<left>") . evil-window-left))
+
 (winner-mode)
 (bind-keys
  :map evil-window-map
