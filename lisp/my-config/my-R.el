@@ -18,8 +18,12 @@
         ;; FIXME workaround to accommodate ob-R :session
         ;; TODO PR (org-babel-R-initiate-session, ess-gen-proc-buffer-name-function)
         ess-gen-proc-buffer-name-function 'ess-gen-proc-buffer-name:simple
-        ess-default-style 'RStudio)
+        ess-style 'RStudio)
   :config
+  ;; HACK Setting ess-style globally doesn't work in org src buffers
+  ;; TODO File an issue with ESS
+  ;; See also: https://github.com/emacs-ess/ESS/issues/661
+  (add-hook 'ess-mode-hook (lambda () (ess-set-style 'RStudio 'quiet)))
   (evil-set-initial-state 'ess-help-mode 'motion) ;TODO PR evil-collection
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
