@@ -57,6 +57,7 @@
     "k" 'which-key-show-top-level
     "qq" 'save-buffers-kill-emacs
     "h" '(:keymap help-map :which-key "Help")
+    "c" (general-simulate-key "C-c C-c")
     "u" 'universal-argument)
 
   (general-create-definer my-major-leader
