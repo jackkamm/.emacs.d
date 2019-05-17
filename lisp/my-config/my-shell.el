@@ -1,8 +1,12 @@
 ;; https://www.reddit.com/r/emacs/comments/88yzp4/better_way_to_run_terminals_in_emacs/
+;; screen seems to do slightly better than tmux (tested on dwarffortress intro movie sequence)
+;; however, tmux has convenient bindings thru emamux
+;; TODO make an emamux for screen?
 (defun my-term () (interactive) (term "/bin/screen"))
+;;(defun my-term () (interactive) (term "/bin/tmux"))
 (with-eval-after-load 'term
-  (evil-set-initial-state 'term-mode 'emacs)
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
+  (evil-set-initial-state 'term-mode 'emacs)
   (advice-add 'term-line-mode :after #'evil-motion-state)
   (advice-add 'term-char-mode :after #'evil-emacs-state))
 
