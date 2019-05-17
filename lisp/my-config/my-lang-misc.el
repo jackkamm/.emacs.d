@@ -21,3 +21,6 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc"))
+
+(use-package groovy-mode
+  :mode (("\\.nf\\'" . groovy-mode)))
