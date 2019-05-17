@@ -11,6 +11,8 @@
   :config
   (require 'org-notmuch)
 
+  (add-to-list 'notmuch-tagging-keys '("x" ("+killed" "-unread") "Kill thread"))
+
   ;; bind notmuch-help to leader
   (my-major-leader
     :keymaps 'notmuch-common-keymap
