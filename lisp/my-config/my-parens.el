@@ -28,3 +28,9 @@
     c-w
     slurp/barf-lispy
     additional-movement)))
+
+(use-package rainbow-delimiters
+  :commands rainbow-delimiters-mode
+  :init
+  (with-eval-after-load "my-theme"
+    (my-theme-leader "r" 'rainbow-delimiters-mode)))
