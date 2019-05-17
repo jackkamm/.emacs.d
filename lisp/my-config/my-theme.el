@@ -61,3 +61,9 @@
   "t" 'my-themes-cycle
   "T" 'load-theme
   "D" 'disable-theme)
+
+;; Open in browser
+
+(setq browse-url-new-window-flag t)
+;; need to set this explicitly, xdg-open doesn't know about new-window-flag
+(setq browse-url-browser-function 'browse-url-firefox)
