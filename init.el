@@ -69,6 +69,7 @@
        "my-parens"
        "my-region"
        "my-lines" ;linenum, visual-line-mode
+       "my-lsp"
        ))
 
 ;; load extra modules in config.el

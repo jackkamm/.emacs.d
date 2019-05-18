@@ -11,11 +11,8 @@
   "'" 'run-python
   "\"" 'my-run-jupyter-existing)
 
-(use-package elpy
-  :commands elpy-enable
-  :init
-  (with-eval-after-load 'python
-    (elpy-enable)))
+(with-eval-after-load "my-lsp"
+  (add-hook 'python-mode-hook #'lsp))
 
 (use-package ipython-shell-send
   :commands (ipython-shell-send-region
