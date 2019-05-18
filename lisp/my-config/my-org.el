@@ -35,6 +35,14 @@
 
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
 
+  ;; allow \includesvg in latex export
+  ;; https://emacs-orgmode.gnu.narkive.com/TnHAVxbF/o-how-to-handle-svg-files-when-exporting-orgmode-to-html-and-pdf
+  (with-eval-after-load 'ox-latex
+    (setq org-latex-pdf-process
+          (mapcar (lambda (x)
+                    (replace-regexp-in-string "\%latex" "%latex --shell-escape" x))
+                  org-latex-pdf-process)))
+
   ;;; org-babel
 
   (setq org-confirm-babel-evaluate nil)

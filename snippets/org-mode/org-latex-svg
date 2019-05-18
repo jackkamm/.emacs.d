@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: org-latex-svg
+# key: org-latex-svg
+# --
+#+LATEX_HEADER: \usepackage[inkscapelatex=false]{svg}

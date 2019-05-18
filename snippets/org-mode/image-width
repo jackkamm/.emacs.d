@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: image-width
+# key: image-width
+# --
+# -*- org-image-actual-width: 500; -*-
