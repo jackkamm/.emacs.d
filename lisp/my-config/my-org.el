@@ -102,6 +102,8 @@
     "r" 'org-redisplay-inline-images
     "t" 'org-toggle-inline-images
     "e" 'org-export-dispatch
+    "n" 'org-babel-next-src-block
+    "p" 'org-babel-previous-src-block
     ;; C-c C-, can't be typed in a terminal
     "," 'org-insert-structure-template))
 
