@@ -76,19 +76,10 @@
      (ein . t)
      (jupyter . t)))
 
-  (with-eval-after-load 'hydra
-    (defhydra my-babel-hydra ()
-      "babel"
-      ("n" org-babel-next-src-block "next")
-      ("p" org-babel-previous-src-block "previous")
-      ("x" org-babel-execute-maybe "execute")
-      ("q" nil "quit")))
-
   ;;; bind major keys
 
   (my-major-leader
     :keymaps 'org-mode-map
-    "b" 'my-babel-hydra/body
     "r" 'org-redisplay-inline-images
     "t" 'org-toggle-inline-images
     "e" 'org-export-dispatch
