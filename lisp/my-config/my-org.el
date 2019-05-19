@@ -11,40 +11,28 @@
     "ol" 'org-store-link
     "oc" 'org-capture
     "oa" 'org-agenda)
-  :init
-  (setq org-return-follows-link t)
-  :config
-  (setq org-adapt-indentation nil)
+  :custom
+  (org-return-follows-link t)
+  (org-tags-column 0)
 
   ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
-  (setq org-catch-invisible-edits 'show-and-error)
-  (setq org-cycle-separator-lines 0)
+  (org-catch-invisible-edits 'show-and-error)
+  (org-cycle-separator-lines 0)
 
-  (setq org-tags-column 0)
+  (org-deadline-warning-days 30)
+  (org-agenda-start-on-weekday nil)
 
-  (setq org-agenda-files '("~/org" "~/org/old" "~/org/sorted"))
+  (org-refile-use-outline-path 'file)
+  (org-outline-path-complete-in-steps nil)
+  ;;(org-goto-interface 'outline-path-completion)
 
-  (defun my-org-refile-targets ()
-    (directory-files "~/org/sorted" t org-agenda-file-regexp))
-  (setq org-refile-targets '((my-org-refile-targets :maxlevel . 1)))
-
-  (setq org-refile-use-outline-path 'file)
-  ;;(setq org-goto-interface 'outline-path-completion)
-  (setq org-outline-path-complete-in-steps nil)
-
-  ;; NOTE don't use org-reverse-note-order because of bug!
-  ;; when refiling to a top-level header, if the file starts with a section header, item gets filed incorrectly
+  ;; NOTE org-reverse-note-order is bugged: if file starts with
+  ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
-  ;;(setq org-reverse-note-order t)
-
-  (setq org-deadline-warning-days 30)
-  (setq org-agenda-start-on-weekday nil)
-  (setq org-capture-templates
-        '(("l" "link" entry (file "notes.org")
-           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
-          ("n" "note" entry (file "notes.org")
-           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
-
+  ;; (org-reverse-note-order t)
+  :config
+  ;; Indentation
+  (setq org-adapt-indentation nil)
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
 
   ;; Truncate long lines so tables aren't misaligned
@@ -54,16 +42,30 @@
   (add-hook 'org-mode-hook
             (lambda () (setq-local display-line-numbers-type 'visual)))
 
+  ;; Agenda, refile, and capture
+
+  (setq org-agenda-files '("~/org" "~/org/old" "~/org/sorted"))
+
+  (defun my-org-refile-targets ()
+    (directory-files "~/org/sorted" t org-agenda-file-regexp))
+  (setq org-refile-targets '((my-org-refile-targets :maxlevel . 1)))
+
+  (setq org-capture-templates
+        '(("l" "link" entry (file "notes.org")
+           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
+          ("n" "note" entry (file "notes.org")
+           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
+
   ;; allow \includesvg in latex export
   ;; https://emacs-orgmode.gnu.narkive.com/TnHAVxbF/o-how-to-handle-svg-files-when-exporting-orgmode-to-html-and-pdf
   (with-eval-after-load 'ox-latex
     (setq org-latex-pdf-process
           (mapcar (lambda (x)
-                    (replace-regexp-in-string "\%latex" "%latex --shell-escape" x))
+                    (replace-regexp-in-string
+                     "\%latex" "%latex --shell-escape" x))
                   org-latex-pdf-process)))
 
   ;;; bind major keys
-
   (my-major-leader
     :keymaps 'org-mode-map
     "r" 'org-redisplay-inline-images
@@ -80,5 +82,4 @@
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
 
-(use-package orgit
-  :after magit)
+(use-package orgit :after (org magit))
