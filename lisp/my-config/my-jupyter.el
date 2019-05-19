@@ -36,4 +36,14 @@
 
 ; NOTE this is a hevy install (requires building ZMQ module)
 ; really need to modularize my emacs config...
-(use-package jupyter :commands (jupyter-run-repl jupyter-connect-repl))
+(use-package jupyter
+  :load-path "~/src/emacs-jupyter"
+  :commands (jupyter-run-repl jupyter-connect-repl)
+  :init
+  ;; TODO jupyter.el violates keybinding conventions; submit PR
+  (with-eval-after-load 'jupyter-org-extensions
+    (bind-key (kbd "C-c h") nil jupyter-org-interaction-mode-map)
+    (my-major-leader
+      :keymaps 'org-mode-map
+      "h" 'jupyter-org-hydra/body))
+  )
