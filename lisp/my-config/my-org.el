@@ -76,20 +76,11 @@
      (ein . t)
      (jupyter . t)))
 
-  ;; macro for "C-c ' SPC m b C-c '"
-  ;; open block (C-c '), eval buffer (SPC m b), close block (C-c ')
-  ;; assumes convention (SPC m b) to eval buffer across modes
-  (fset 'my-babel-async-eval-session
-	(lambda (&optional arg) "Keyboard macro." (interactive "p")
-	  (kmacro-exec-ring-item
-	   (quote ("' mb'" 0 "%d")) arg)))
-
   (with-eval-after-load 'hydra
     (defhydra my-babel-hydra ()
       "babel"
       ("n" org-babel-next-src-block "next")
       ("p" org-babel-previous-src-block "previous")
-      ("s" my-babel-async-eval-session "async-eval")
       ("x" org-babel-execute-maybe "execute")
       ("q" nil "quit")))
 
@@ -98,7 +89,6 @@
   (my-major-leader
     :keymaps 'org-mode-map
     "b" 'my-babel-hydra/body
-    "s" 'my-babel-async-eval-session
     "r" 'org-redisplay-inline-images
     "t" 'org-toggle-inline-images
     "e" 'org-export-dispatch
