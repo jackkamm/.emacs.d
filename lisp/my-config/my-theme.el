@@ -43,22 +43,9 @@
   (my-leader
     "sc" 'evil-search-highlight-persist-remove-all))
 
-;; Theme
-
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/eziam-theme-emacs/")
-(setq my-themes-ring '(eziam-dark eziam-dusk eziam-light))
-(defun my-themes-cycle ()
-  (interactive)
-  (let ((car-theme (car my-themes-ring)))
-    (mapcar 'disable-theme custom-enabled-themes)
-    (load-theme car-theme t)
-    (setq my-themes-ring (append (cdr my-themes-ring)
-                                 (list car-theme)))))
-
-(my-themes-cycle)
 
 (my-theme-leader
-  "t" 'my-themes-cycle
   "T" 'load-theme
   "D" 'disable-theme)
 
