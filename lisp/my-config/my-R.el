@@ -48,26 +48,3 @@
     "f" 'ess-eval-function
     "p" 'ess-eval-paragraph
     "P" 'ess-eval-paragraph-and-step))
-
-(use-package polymode
-  :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
-	 ("\\.Rmd" . poly-markdown+r-mode))
-  :config
-  (use-package poly-R)
-  (use-package poly-noweb)
-  (use-package poly-markdown)
-  (setq polymode-weave-output-file-format "%s")
-  (setq polymode-exporter-output-file-format "%s")
-  (setq polymode-display-process-buffers nil)
-  (setq polymode-display-output-file nil)
-  ;; AUCTeX integration
-  (with-eval-after-load 'tex
-    (add-to-list 'TeX-command-list
-  		 '("polymode-export" "(polymode-export)"
-  		   TeX-run-function nil (latex-mode) :help) t)
-    (mapc (lambda (suffix)
-	    (add-to-list 'TeX-file-extensions suffix))
-	  '("nw" "Snw" "Rnw"))
-    (add-hook 'poly-noweb+r-mode-hook
-	      (lambda ()
-		(setq TeX-command-default "polymode-export")))))

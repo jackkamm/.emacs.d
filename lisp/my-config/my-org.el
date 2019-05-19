@@ -62,20 +62,6 @@
                     (replace-regexp-in-string "\%latex" "%latex --shell-escape" x))
                   org-latex-pdf-process)))
 
-  ;;; org-babel
-
-  (setq org-confirm-babel-evaluate nil)
-
-  (require 'jupyter)
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((R . t)
-     (python . t)
-     (emacs-lisp . t)
-     (shell . t)
-     (ein . t)
-     (jupyter . t)))
-
   ;;; bind major keys
 
   (my-major-leader
@@ -93,12 +79,6 @@
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
-
-(use-package ob-async
-  :after org
-  :init
-  (setq ob-async-no-async-languages-alist '("ipython" "ein" "ein-R" "jupyter-python" "jupyter-R")))
-
 
 (use-package orgit
   :after magit)
