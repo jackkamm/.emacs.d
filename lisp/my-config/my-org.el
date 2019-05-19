@@ -40,10 +40,10 @@
   (setq org-deadline-warning-days 30)
   (setq org-agenda-start-on-weekday nil)
   (setq org-capture-templates
-	'(("t" "todo" entry (file "~/Dropbox/org-files/todo.org")
-	   "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
-	  ("c" "calendar" entry (file "~/Dropbox/org-files/calendar.org")
-	   "* %?\n  %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
+        '(("l" "link" entry (file "notes.org")
+           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
+          ("n" "note" entry (file "notes.org")
+           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
 
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
 
