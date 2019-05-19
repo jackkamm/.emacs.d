@@ -17,15 +17,13 @@
   (setq org-adapt-indentation nil)
 
   (setq org-tags-column 0)
-  (setq org-agenda-todo-ignore-scheduled t
-  	org-agenda-todo-ignore-deadlines t
-  	org-deadline-warning-days 30)
   (setq org-agenda-files (list "~/Dropbox/org-files/old-agenda.org"
 			       "~/Dropbox/org-files/notes.org"
 			       "~/Dropbox/org-files/todo.org"
 			       "~/Dropbox/org-files/gmail-calendar.org"
 			       "~/Dropbox/org-files/czb-calendar.org"
 			       "~/Dropbox/org-files/calendar.org"))
+  (setq org-deadline-warning-days 30)
   (setq org-agenda-start-on-weekday nil)
   (setq org-capture-templates
 	'(("t" "todo" entry (file "~/Dropbox/org-files/todo.org")
