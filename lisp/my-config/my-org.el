@@ -113,5 +113,11 @@
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
 
+(use-package ob-async
+  :after org
+  :init
+  (setq ob-async-no-async-languages-alist '("ipython" "ein" "ein-R" "jupyter-python" "jupyter-R")))
+
+
 (use-package orgit
   :after magit)
