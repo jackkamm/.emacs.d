@@ -16,6 +16,10 @@
   :config
   (setq org-adapt-indentation nil)
 
+  ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
+  (setq org-catch-invisible-edits 'show-and-error)
+  (setq org-cycle-separator-lines 0)
+
   (setq org-tags-column 0)
 
   (setq org-agenda-files '("~/org" "~/org/old" "~/org/sorted"))
