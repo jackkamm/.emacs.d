@@ -17,12 +17,22 @@
   (setq org-adapt-indentation nil)
 
   (setq org-tags-column 0)
-  (setq org-agenda-files (list "~/Dropbox/org-files/old-agenda.org"
-			       "~/Dropbox/org-files/notes.org"
-			       "~/Dropbox/org-files/todo.org"
-			       "~/Dropbox/org-files/gmail-calendar.org"
-			       "~/Dropbox/org-files/czb-calendar.org"
-			       "~/Dropbox/org-files/calendar.org"))
+
+  (setq org-agenda-files '("~/org" "~/org/old" "~/org/sorted"))
+
+  (defun my-org-refile-targets ()
+    (directory-files "~/org/sorted" t org-agenda-file-regexp))
+  (setq org-refile-targets '((my-org-refile-targets :maxlevel . 1)))
+
+  (setq org-refile-use-outline-path 'file)
+  ;;(setq org-goto-interface 'outline-path-completion)
+  (setq org-outline-path-complete-in-steps nil)
+
+  ;; NOTE don't use org-reverse-note-order because of bug!
+  ;; when refiling to a top-level header, if the file starts with a section header, item gets filed incorrectly
+  ;; TODO minimal reproducible example + bug report
+  ;;(setq org-reverse-note-order t)
+
   (setq org-deadline-warning-days 30)
   (setq org-agenda-start-on-weekday nil)
   (setq org-capture-templates
