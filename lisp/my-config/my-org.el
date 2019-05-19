@@ -35,6 +35,13 @@
 
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
 
+  ;; Truncate long lines so tables aren't misaligned
+  (add-hook 'org-mode-hook
+            (lambda () (toggle-truncate-lines 1)))
+  ;; Use relative visual line numbers to account for folding
+  (add-hook 'org-mode-hook
+            (lambda () (setq-local display-line-numbers-type 'visual)))
+
   ;; allow \includesvg in latex export
   ;; https://emacs-orgmode.gnu.narkive.com/TnHAVxbF/o-how-to-handle-svg-files-when-exporting-orgmode-to-html-and-pdf
   (with-eval-after-load 'ox-latex
