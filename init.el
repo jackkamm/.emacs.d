@@ -1,5 +1,6 @@
 ;; NOTE ~/.emacs takes precedence over this file;
-;; so to use a different config, copy this file to ~/.emacs and adjust it
+;; so to use a different config, copy this file to ~/.emacs and adjust it,
+;; or load this file from ~/.emacs and add additional configurations.
 
 ;; Bootstrap setup and load "core" modules
 (load (concat user-emacs-directory "lisp/my-init.el"))
