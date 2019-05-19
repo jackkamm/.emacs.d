@@ -15,7 +15,7 @@
   (setq org-return-follows-link t)
   :config
   (setq org-adapt-indentation nil)
-  (setq org-src-window-setup 'current-window)
+
   (setq org-tags-column 0)
   (setq org-agenda-todo-ignore-scheduled t
   	org-agenda-todo-ignore-deadlines t
@@ -71,18 +71,6 @@
 	(lambda (&optional arg) "Keyboard macro." (interactive "p")
 	  (kmacro-exec-ring-item
 	   (quote ("' mb'" 0 "%d")) arg)))
-
-  ;; https://emacs.stackexchange.com/questions/26191/org-mode-prevent-org-src-from-restoring-window-configuration-after-editing
-  ;; TODO PR org-plus-contrib?
-  (defun fn/org-src-inhibit-save-window-configuration ()
-    "Disable org-src from saving the window configuration"
-    ;; HACK: This uses an internal variable, might be unstable
-    (with-current-buffer (marker-buffer org-src--beg-marker)
-      (setq org-src--saved-temp-window-config nil)))
-
-  (add-hook 'org-src-mode-hook #'fn/org-src-inhibit-save-window-configuration)
-  (remove-hook 'org-src-mode-hook #'fn/org-src-inhibit-save-window-configuration)
-
 
   (with-eval-after-load 'hydra
     (defhydra my-babel-hydra ()
