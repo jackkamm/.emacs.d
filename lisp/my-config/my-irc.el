@@ -8,7 +8,7 @@
      (list (y-or-n-p "Open tunnel?")))
     (if tunnelp
 	(progn
-	  (async-shell-command "ssh -f znc sleep 60")
+	  (async-shell-command "ssh -f znc -L 55555:localhost:55555 sleep 60")
 	  (sleep-for 2)))
     (erc
      ;; forward znc to local port 55555
