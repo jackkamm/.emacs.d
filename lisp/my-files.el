@@ -37,7 +37,7 @@
   (interactive
    (list (read-file-name
     "Find my config module: "
-    (concat user-emacs-directory "lisp/my-config/")
+    (concat user-emacs-directory "lisp/")
     nil
     'confirm
     (thing-at-point 'symbol t))))

@@ -1,13 +1,36 @@
-;; NOTE ~/.emacs takes precedence over this file;
-;; so to use a different config, copy this file to ~/.emacs and adjust it,
-;; or load this file from ~/.emacs and add additional configurations.
+;; Setup packages and paths
+(load (concat user-emacs-directory "lisp/my-early-init.el"))
 
-;; Bootstrap setup and load "core" modules
-(load (concat user-emacs-directory "lisp/my-init.el"))
-
-;; load extra modules not included in my-init.el
 (mapc 'load
       (list
+	 ;;; load first -- all modules depend on it
+       "my-core" ;evil, general, which-key, hydra
+
+         ;;; load next to ensure org-plus-contrib
+       "my-org"
+
+         ;;; completion system, only enable 1
+       ;;"my-helm"
+       "my-ivy"
+
+	;;; editing
+       ;;"my-evil-collection"
+       "my-files" ;dired, find-files
+       "my-buffers"
+       "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
+       "my-jump" ;avy, easymotion, xref
+       "my-display" ;window, frame
+       "my-syntax-checking" ;flycheck
+       "my-git"
+       "my-ediff"
+       "my-snippets"
+       "my-company"
+       "my-undo"
+       "my-parens"
+       "my-region"
+       "my-lines" ;linenum, visual-line-mode
+       "my-lsp"
+
        ;; applications
        "my-email"
        "my-irc"
