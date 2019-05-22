@@ -7,7 +7,9 @@
 
 (use-package projectile
   :general (my-search-replace-leader
-	     "p" 'projectile-grep))
+	     "p" 'projectile-grep)
+  :custom
+  (projectile-use-git-grep t))
 
 ;;; helm
 (with-eval-after-load "my-helm"
