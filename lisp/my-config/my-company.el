@@ -12,3 +12,8 @@
     (use-package helm-company
       :config
       (my-leader "C" 'helm-company))))
+
+(use-package company-prescient
+  :config
+  ;; TODO autoload?
+  (company-prescient-mode))
