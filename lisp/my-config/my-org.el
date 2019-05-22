@@ -14,6 +14,7 @@
   :custom
   (org-return-follows-link t)
   (org-tags-column 0)
+  (org-agenda-tags-column 0)
 
   ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
   (org-catch-invisible-edits 'show-and-error)
