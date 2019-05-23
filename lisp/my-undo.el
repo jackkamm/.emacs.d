@@ -4,5 +4,6 @@
   (global-undo-tree-mode -1))
 
 (use-package undo-propose
+  :ensure nil
   :general
   (my-leader "U" 'undo-propose))
