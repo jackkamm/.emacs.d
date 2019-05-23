@@ -41,19 +41,16 @@
 
 ;; send lines from .sh files to *shell* buffer
 
-(defun my-shell-send-region (beg end)
- (interactive "r")
- (process-send-region "*shell*" beg end)
- (process-send-string "*shell*" "\n"))
-
-(defun my-shell-send-buffer ()
- (interactive)
- (my-shell-send-region (point-min) (point-max)))
+(require 'essh)
 
 (my-major-leader
   :keymaps 'sh-mode-map
-  "b" 'my-shell-send-buffer
-  "r" 'my-shell-send-region)
+  "b" 'pipe-buffer-to-shell
+  "r" 'pipe-region-to-shell
+  "l" 'pipe-line-to-shell
+  "j" 'pipe-line-to-shell-and-step
+  "f" 'pipe-function-to-shell
+  "d" 'shell-cd-current-directory)
 
 (use-package emamux
   :custom
