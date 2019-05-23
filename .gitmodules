@@ -4,3 +4,6 @@
 [submodule "lisp/eziam-theme-emacs"]
 	path = lisp/eziam-theme-emacs
 	url = https://github.com/jackkamm/eziam-theme-emacs
+[submodule "lisp/ob-emamux"]
+	path = lisp/ob-emamux
+	url = git@github.com:jackkamm/ob-emamux.git

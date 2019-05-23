@@ -54,6 +54,8 @@
   ;;  (define-key jupyter-repl-interaction-mode-map
   ;;    [remap jupyter-eval-defun] 'jupyter-send-to-repl-defun))
 
+(use-package ob-emamux :ensure nil)
+
 (with-eval-after-load 'org
   ;;; org-babel
   (setq org-confirm-babel-evaluate nil)
@@ -63,6 +65,7 @@
    'org-babel-load-languages
    '((R . t)
      (python . t)
+     (emamux . t)
      (emacs-lisp . t)
      (shell . t)
      (ein . t)
