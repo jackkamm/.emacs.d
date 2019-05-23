@@ -15,6 +15,7 @@
   (add-hook 'python-mode-hook #'lsp))
 
 (use-package ipython-shell-send
+  :ensure nil
   :commands (ipython-shell-send-region
 	     ipython-shell-send-buffer
 	     ipython-shell-send-defun

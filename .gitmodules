@@ -10,3 +10,6 @@
 [submodule "lisp/undo-propose-el"]
 	path = lisp/undo-propose-el
 	url = git@github.com:jackkamm/undo-propose-el.git
+[submodule "lisp/ipython-shell-send-el"]
+	path = lisp/ipython-shell-send-el
+	url = git@github.com:jackkamm/ipython-shell-send-el.git
