@@ -34,8 +34,6 @@
   (with-eval-after-load 'ob-ein
     (ein:org-register-lang-mode "ein-R" 'R)))
 
-; NOTE this is a hevy install (requires building ZMQ module)
-; really need to modularize my emacs config...
 (use-package jupyter
   :load-path "~/src/emacs-jupyter"
   :commands (jupyter-run-repl jupyter-connect-repl)
@@ -46,13 +44,6 @@
     (my-major-leader
       :keymaps 'org-mode-map
       "h" 'jupyter-org-hydra/body)))
-  ;;(with-eval-after-load 'jupyter-repl
-  ;;  (define-key jupyter-repl-interaction-mode-map
-  ;;    [remap jupyter-eval-line-or-region] 'jupyter-send-to-repl-line-or-region)
-  ;;  (define-key jupyter-repl-interaction-mode-map
-  ;;    [remap jupyter-eval-buffer] 'jupyter-send-to-repl-buffer)
-  ;;  (define-key jupyter-repl-interaction-mode-map
-  ;;    [remap jupyter-eval-defun] 'jupyter-send-to-repl-defun))
 
 (use-package ob-emamux :ensure nil)
 
