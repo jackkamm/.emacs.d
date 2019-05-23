@@ -52,6 +52,8 @@
   "f" 'pipe-function-to-shell
   "d" 'shell-cd-current-directory)
 
+;; tmux
+
 (use-package emamux
   :custom
   ;; for tmux version >= 2 (breaks emamux:yank on tmux < 2)
@@ -59,9 +61,16 @@
   (emamux:get-buffers-regexp
    "^\\(buffer[0-9]+\\): +\\([0-9]+\\) +\\(bytes\\): +[\"]\\(.*\\)[\"]")
   :general
-  (my-leader
-    "z" '(:keymap emamux:keymap :which-key "tmux"))
+  (my-major-leader
+    :keymaps 'sh-mode-map
+    "x" '(:keymap emamux:keymap :which-key "tmux"))
   :config
+
+  (defun my-emamux-send-buffer ()
+    (interactive)
+    (emamux:send-region (point-min) (point-max)))
+
   (bind-keys
    :map emamux:keymap
-   ("z" . emamux:send-region)))
+   ("r" . emamux:send-region)
+   ("b" . my-emamux-send-buffer)))
