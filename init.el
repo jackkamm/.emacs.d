@@ -3,13 +3,13 @@
 
 (mapc 'load
       (list
-	 ;;; load first -- all modules depend on it
+       ;; load first -- all modules depend on it
        "my-core" ;evil, general, which-key, hydra
 
-         ;;; load next to ensure org-plus-contrib
+       ;; load next to ensure org-plus-contrib
        "my-org"
 
-         ;;; completion system, only enable 1
+       ;; completion system, only enable 1
        ;;"my-helm"
        "my-ivy"
 
