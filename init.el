@@ -15,11 +15,10 @@
 
 	;;; editing
        ;;"my-evil-collection"
-       "my-files" ;dired, find-files
-       "my-buffers"
+       "my-buffers-files-dired"
+       "my-windows-frames"
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
        "my-jump" ;avy, easymotion, xref
-       "my-windows-frames"
        "my-syntax-checking" ;flycheck
        "my-git"
        "my-ediff"

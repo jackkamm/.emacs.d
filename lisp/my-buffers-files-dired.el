@@ -1,3 +1,27 @@
+;; Buffers
+
+(setq my-buffers-map (make-sparse-keymap))
+(general-create-definer my-buffers-leader :prefix-map 'my-buffers-map)
+(my-leader "b" '(:keymap my-buffers-map :which-key "Buffer"))
+
+(my-buffers-leader
+ "d" 'kill-current-buffer
+ "D" 'kill-buffer
+ "x" 'kill-buffer-and-window
+ "r" 'revert-buffer
+ "m" 'buffer-menu
+ "M" 'buffer-menu-other-window)
+
+(with-eval-after-load "my-helm"
+  (my-buffers-leader
+   "b" 'helm-mini))
+
+(with-eval-after-load "my-ivy"
+  (my-buffers-leader
+    "b" 'ivy-switch-buffer))
+
+;; Files
+
 (setq my-files-map (make-sparse-keymap))
 (general-create-definer my-files-leader :prefix-map 'my-files-map)
 (my-leader "f" '(:keymap my-files-map :which-key "File"))
@@ -16,22 +40,6 @@
   (my-files-leader
     "f" 'counsel-find-file
     "r" 'counsel-recentf))
-
-;; human-readable file sizes
-(setq dired-listing-switches "-alh")
-;; copy to dired in other-window by default
-(setq dired-dwim-target t)
-
-(use-package dired-x
-  :ensure nil
-  :general
-  (my-files-leader
-   "j" 'dired-jump))
-
-(my-major-leader :keymaps 'dired-mode-map
-  "w" 'wdired-change-to-wdired-mode)
-
-(evil-set-initial-state 'wdired-mode 'normal)
 
 (defun my-find-config-module (fname)
   (interactive
@@ -55,5 +63,22 @@
 
 (setq recentf-max-saved-items 1000)
 
-;; remember cursor position, for emacs 25.1 or later
 (save-place-mode 1)
+
+;; Dired
+
+;; human-readable file sizes
+(setq dired-listing-switches "-alh")
+;; copy to dired in other-window by default
+(setq dired-dwim-target t)
+
+(use-package dired-x
+  :ensure nil
+  :general
+  (my-files-leader
+   "j" 'dired-jump))
+
+(my-major-leader :keymaps 'dired-mode-map
+  "w" 'wdired-change-to-wdired-mode)
+
+(evil-set-initial-state 'wdired-mode 'normal)
