@@ -33,7 +33,6 @@
        ;; theming
        "my-theme"
        "my-emoji"
-       "my-osx"
        ;;"my-hidpi"
 
        ;; languages
