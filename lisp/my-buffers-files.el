@@ -82,3 +82,10 @@
   "w" 'wdired-change-to-wdired-mode)
 
 (evil-set-initial-state 'wdired-mode 'normal)
+
+;; Diff'ing
+
+(use-package ediff
+  :commands ediff
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
