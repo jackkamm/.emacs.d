@@ -27,7 +27,7 @@
 
 (setq use-package-always-ensure t) ;install missing packages
 
-; load path
+;; Set up load path
 (let ((default-directory (concat user-emacs-directory "lisp/")))
   ;; recursively prepend to load-path
   ;; NOTE add ".nosearch" file to exclude directory
@@ -39,3 +39,19 @@
 	     (normal-top-level-add-to-load-path '(".")))
 	    (normal-top-level-add-subdirs-to-load-path)))
 	 load-path)))
+
+;; For profiling startup times
+(use-package esup :commands esup)
+
+;; Set system variables
+
+;; set $PATH, e.g. when starting from OSX or systemd
+;; For systemd, it's preferred to set variables in ~/.config/environment.d/,
+;; but this doesn't work for $PATH in Ubuntu 18.04
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
+(use-package keychain-environment
+  :config
+  (keychain-refresh-environment))

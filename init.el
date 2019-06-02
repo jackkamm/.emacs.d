@@ -27,7 +27,6 @@
        ;; applications
        "my-email-chat"
        "my-shell"
-       "my-startup" ;path, keychain, profiler
 
        ;; theming
        "my-theme"
