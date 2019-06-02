@@ -13,20 +13,18 @@
        ;;"my-helm"
        "my-ivy"
 
-	;;; editing
        "my-buffers-files" ;includes dired, diff'ing
        "my-windows-frames"
        "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
        "my-motions-jumping" ;avy, easymotion
        "my-search-replace" ;iedit/mc,swoop
        "my-history-vc-undo" ;git, undo
-       "my-tramp"
        "my-ide" ;lsp, projectile, xref, wgrep, company, flycheck
+       "my-tramp"
+       "my-shell"
        "my-snippets"
 
-       ;; applications
        "my-email-chat"
-       "my-shell"
 
        ;; theming
        "my-theme"
