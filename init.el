@@ -17,15 +17,13 @@
        ;;"my-evil-collection"
        "my-buffers-files" ;includes dired, diff'ing
        "my-windows-frames"
-       "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
-       "my-jump" ;avy, easymotion, xref
        "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
-       "my-syntax-checking" ;flycheck
+       "my-motions-jumping" ;avy, easymotion
+       "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
+       "my-ide" ;completion, syntax-checking, LSP, xref
        "my-git"
        "my-snippets"
-       "my-company"
        "my-undo"
-       "my-lsp"
 
        ;; applications
        "my-email"

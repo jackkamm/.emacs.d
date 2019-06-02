@@ -1,8 +1,3 @@
-(general-define-key
- :states '(normal motion visual)
- ;; inverse of "gd" evil-goto-definition
- "gD" 'xref-find-references)
-
 (setq my-jump-map (make-sparse-keymap))
 (general-create-definer my-jump-leader :prefix-map 'my-jump-map)
 (my-leader "j" '(:keymap my-jump-map :which-key "Jump"))
