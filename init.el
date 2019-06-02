@@ -18,9 +18,9 @@
        "my-windows-frames"
        "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
        "my-motions-jumping" ;avy, easymotion
-       "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
+       "my-search-replace" ;iedit/mc,swoop
        "my-history-vc-undo" ;git, undo
-       "my-ide" ;completion, syntax-checking, LSP, xref
+       "my-ide" ;lsp, projectile, xref, wgrep, company, flycheck
        "my-snippets"
 
        ;; applications

@@ -1,4 +1,4 @@
-;; LSP
+;;; LSP
 
 (use-package lsp-mode :commands lsp)
 
@@ -7,14 +7,36 @@
 
 (with-eval-after-load "my-python" (add-hook 'python-mode-hook #'lsp))
 
-;; xref
+;;; Find in project, refactoring
 
+;; projectile
+(with-eval-after-load "my-search-replace"
+  (use-package projectile
+    :general (my-search-replace-leader
+               "p" 'projectile-grep)
+    :custom
+    (projectile-use-git-grep t))
+
+  (with-eval-after-load "my-helm"
+    (use-package helm-projectile
+      :general (my-search-replace-leader
+                 "P" 'helm-projectile-ag)))
+
+  (with-eval-after-load "my-ivy"
+    (my-search-replace-leader
+      "P" 'counsel-projectile-grep)))
+
+;; xref
 (general-define-key
  :states '(normal motion visual)
  ;; inverse of "gd" evil-goto-definition
  "gD" 'xref-find-references)
 
-;; Completion
+;; wgrep
+(use-package wgrep
+  :commands wgrep-change-to-wgrep-mode)
+
+;;; Completion
 
 (use-package company
   :defer 2
@@ -36,7 +58,7 @@
   ;; TODO autoload?
   (company-prescient-mode))
 
-;; Syntax checking
+;;; Syntax checking
 
 (use-package flycheck
   :config
