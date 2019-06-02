@@ -66,7 +66,16 @@
                      "\%latex" "%latex --shell-escape" x))
                   org-latex-pdf-process)))
 
-  ;;; bind major keys
+  ;; ediff
+  ;; https://emacs.stackexchange.com/questions/21335/prevent-folding-org-files-opened-by-ediff
+  (defun my-org-ediff-hook ()
+    (when (eql major-mode 'org-mode)
+      (org-show-all)
+      (when org-inline-image-overlays
+        (org-toggle-inline-images))))
+  (add-hook 'ediff-prepare-buffer-hook 'my-org-ediff-hook)
+
+  ;; bind major keys
   (my-major-leader
     :keymaps 'org-mode-map
     "r" 'org-redisplay-inline-images
