@@ -14,16 +14,14 @@
        "my-ivy"
 
 	;;; editing
-       ;;"my-evil-collection"
        "my-buffers-files" ;includes dired, diff'ing
        "my-windows-frames"
        "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
        "my-motions-jumping" ;avy, easymotion
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
+       "my-history-vc-undo" ;git, undo
        "my-ide" ;completion, syntax-checking, LSP, xref
-       "my-git"
        "my-snippets"
-       "my-undo"
 
        ;; applications
        "my-email"
