@@ -20,16 +20,15 @@
        "my-motions-jumping" ;avy, easymotion
        "my-search-replace" ;iedit/mc,swoop
        "my-history-vc-undo" ;git, undo
+       "my-tramp"
        "my-ide" ;lsp, projectile, xref, wgrep, company, flycheck
        "my-snippets"
 
        ;; applications
        "my-email"
        "my-irc"
-       "my-tramp"
        "my-shell"
        "my-startup" ;path, keychain, profiler
-       "my-docker"
 
        ;; theming
        "my-theme"
