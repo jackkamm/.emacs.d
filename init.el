@@ -19,14 +19,12 @@
        "my-windows-frames"
        "my-search-replace" ;iedit/mc,swoop/projectile,narrowing,wgrep
        "my-jump" ;avy, easymotion, xref
+       "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
        "my-syntax-checking" ;flycheck
        "my-git"
        "my-snippets"
        "my-company"
        "my-undo"
-       "my-parens"
-       "my-region"
-       "my-lines" ;linenum, visual-line-mode
        "my-lsp"
 
        ;; applications
