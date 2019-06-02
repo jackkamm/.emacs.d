@@ -24,12 +24,9 @@
        "my-shell"
        "my-snippets"
 
-       "my-email-chat"
-
-       ;; theming
        "my-theme"
-       "my-emoji"
-       ;;"my-hidpi"
+
+       "my-email-chat"
 
        ;; languages
        "my-python"

@@ -55,3 +55,14 @@
 (setq browse-url-new-window-flag t)
 ;; need to set this explicitly, xdg-open doesn't know about new-window-flag
 (setq browse-url-browser-function 'browse-url-firefox)
+
+;; Emoji
+
+(use-package emojify
+  :commands (emojify-mode
+	     global-emojify-mode)
+  :init
+    (dolist (h (list 'notmuch-show-hook
+		     'notmuch-search-hook
+		     'notmuch-tree-mode-hook))
+      (add-hook h 'emojify-mode)))
