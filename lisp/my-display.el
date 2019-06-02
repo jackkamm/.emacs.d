@@ -25,12 +25,18 @@
  ((kbd "<left>") . evil-window-left))
 
 (winner-mode)
+;; Use hydra so winner-undo works with my general-simulate-key leader
+(defhydra my-winner-hydra ()
+  "winner"
+  ("u" winner-undo)
+  ("U" winner-redo))
+
 (bind-keys
  :map evil-window-map
  ("m" . delete-other-windows)
  ("d" . delete-window)
- ("u" . winner-undo)
- ("U" . winner-redo))
+ ("u" . my-winner-hydra/winner-undo)
+ ("U" . my-winner-hydra/winner-redo))
 
 (use-package ace-window
   :bind
