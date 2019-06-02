@@ -25,8 +25,7 @@
        "my-snippets"
 
        ;; applications
-       "my-email"
-       "my-irc"
+       "my-email-chat"
        "my-shell"
        "my-startup" ;path, keychain, profiler
 
