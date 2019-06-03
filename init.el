@@ -129,9 +129,9 @@
        "my-windows-frames"
        "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
        "my-motions-jumping" ;avy, easymotion
-       "my-search-replace" ;iedit/mc,swoop
+       "my-search-replace" ;grep, swiper/swoop, iedit/mc
        "my-history-vc-undo" ;git, undo
-       "my-ide" ;lsp, projectile, xref, wgrep, company, flycheck
+       "my-ide" ;lsp, projectile, xref, company, flycheck
        "my-tramp"
        "my-shell"
        "my-snippets"
