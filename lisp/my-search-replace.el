@@ -5,6 +5,10 @@
 (my-search-replace-leader "l" 'lgrep)
 (my-search-replace-leader "r" 'rgrep)
 
+;; wgrep
+(use-package wgrep
+  :commands wgrep-change-to-wgrep-mode)
+
 ;; helm
 (with-eval-after-load "my-helm"
   (use-package helm-ag

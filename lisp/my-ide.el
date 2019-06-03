@@ -7,7 +7,7 @@
 
 (with-eval-after-load "my-python" (add-hook 'python-mode-hook #'lsp))
 
-;;; Find in project, refactoring
+;;; Find in project
 
 ;; projectile
 (with-eval-after-load "my-search-replace"
@@ -31,10 +31,6 @@
  :states '(normal motion visual)
  ;; inverse of "gd" evil-goto-definition
  "gD" 'xref-find-references)
-
-;; wgrep
-(use-package wgrep
-  :commands wgrep-change-to-wgrep-mode)
 
 ;;; Completion
 
