@@ -113,6 +113,9 @@
 ;; hydra
 (use-package hydra)
 
+
+;;; Load additional configurations
+
 (mapc 'load
       (list
        ;; load first to ensure org-plus-contrib
@@ -153,7 +156,7 @@
        "my-lang-misc"
        ))
 
-;; Extra gitignore'd configuration
+;; Extra configuration that's not in git
 (let ((config-el "~/.emacs.d/config.el"))
   (when (file-exists-p config-el)
     (load config-el)))
