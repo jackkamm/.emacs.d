@@ -43,12 +43,16 @@
   (my-leader
     "sc" 'evil-search-highlight-persist-remove-all))
 
+;; Themes
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/eziam-theme-emacs/")
 (unless (package-installed-p 'moe-theme) (package-install 'moe-theme))
 
 (my-theme-leader
   "T" 'load-theme
   "D" 'disable-theme)
+
+(load-theme 'moe-dark t)
 
 ;; Open in browser
 

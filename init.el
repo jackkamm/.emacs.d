@@ -153,8 +153,6 @@
        "my-lang-misc"
        ))
 
-(load-theme 'moe-dark t)
-
 ;; Extra gitignore'd configuration
 (let ((config-el "~/.emacs.d/config.el"))
   (when (file-exists-p config-el)
