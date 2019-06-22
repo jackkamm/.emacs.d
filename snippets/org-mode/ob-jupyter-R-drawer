@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: ob-jupyter-R-drawer
+# key: ob-jupyter-R-drawer
+# contributor: Jack Kamm
+# --
+:PROPERTIES:
+:header-args:jupyter-R: :session $1
+:header-args:jupyter-R: :display text/org image/svg+xml image/jpeg image/png text/markdown text/html text/latex text/plain
+:END:

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ob-jupyter-R-header
+# key: ob-jupyter-R-header
+# contributor: Jack Kamm
+# --
+#+PROPERTY: header-args:jupyter-R :session $1 :pandoc t :async yes :display text/org image/svg+xml image/jpeg image/png text/markdown text/html text/latex text/plain

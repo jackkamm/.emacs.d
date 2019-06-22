@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: jupyter-set-plot-size
+# key: jupyter-set-plot-size
+# --
+options(repr.plot.width=$1, repr.plot.height=$2)

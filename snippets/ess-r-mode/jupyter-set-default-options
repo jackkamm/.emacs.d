@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: jupyter-set-default-options
+# key: jupyter-set-default-options
+# --
+options(repr.plot.res=96,
+        jupyter.plot_mimetypes=c("image/svg+xml", "image/png"),
+        repr.plot.width=5, repr.plot.height=5)
