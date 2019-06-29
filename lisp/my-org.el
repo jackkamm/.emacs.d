@@ -11,6 +11,9 @@
     "ol" 'org-store-link
     "oc" 'org-capture
     "oa" 'org-agenda)
+  :bind
+  (:map org-mode-map
+        ("C-c $" . org-archive-subtree-default))
   :custom
   (org-return-follows-link t)
   (org-tags-column 0)
@@ -26,6 +29,8 @@
   (org-refile-use-outline-path 'file)
   (org-outline-path-complete-in-steps nil)
   ;;(org-goto-interface 'outline-path-completion)
+
+  (org-archive-default-command 'org-archive-to-archive-sibling)
 
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
