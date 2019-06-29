@@ -49,17 +49,17 @@
             (lambda () (setq-local display-line-numbers-type 'visual)))
 
   ;; Agenda, refile, and capture
-
-  (setq org-agenda-files '("~/org" "~/org/old" "~/org/sorted"))
+  (add-to-list 'org-agenda-files "~/org")
+  (add-to-list 'org-agenda-files "~/org/old" t)
 
   (defun my-org-refile-targets ()
-    (directory-files "~/org/sorted" t org-agenda-file-regexp))
+    (directory-files "~/org" t org-agenda-file-regexp))
   (setq org-refile-targets '((my-org-refile-targets :maxlevel . 1)))
 
   (setq org-capture-templates
-        '(("l" "link" entry (file "notes.org")
+        '(("l" "link" entry (file "inbox.org")
            "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
-          ("n" "note" entry (file "notes.org")
+          ("n" "note" entry (file "inbox.org")
            "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
 
   ;; allow \includesvg in latex export
