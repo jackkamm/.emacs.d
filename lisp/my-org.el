@@ -93,3 +93,8 @@
   (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
 
 (use-package orgit :after (org magit))
+
+;; TODO autoload
+(use-package zotxt
+  :config
+  (add-hook 'org-mode-hook 'org-zotxt-mode))
