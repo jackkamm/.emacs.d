@@ -50,6 +50,8 @@
 (with-eval-after-load 'org
   ;;; org-babel
   (setq org-confirm-babel-evaluate nil)
+  ;; NOTE see also https://github.com/Somelauw/evil-org-mode/issues/59
+  (define-key org-src-mode-map [remap evil-write] 'org-edit-src-save)
 
   (require 'jupyter)
   (org-babel-do-load-languages
