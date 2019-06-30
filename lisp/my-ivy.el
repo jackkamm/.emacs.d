@@ -11,7 +11,12 @@
 
 (use-package counsel
   :init
-  (counsel-mode))
+  (counsel-mode)
+  :config
+  ;; override shadowing of yank-pop, since counsel-yank-pop doesn't
+  ;; work in minibuffer
+  (define-key counsel-mode-map [remap yank-pop] nil)
+  (my-leader "y" 'counsel-yank-pop))
 
 (use-package counsel-projectile
   :commands (counsel-projectile counsel-projectile-grep))
