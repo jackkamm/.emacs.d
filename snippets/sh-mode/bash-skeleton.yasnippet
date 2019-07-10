@@ -9,12 +9,14 @@ set -euxo pipefail
         echo "script usage: $(basename \$0) -a -b B" >&2
     }
 
-    while getopts 'hab:' opt; do
+    while getopts ':hab:' opt; do
         case "$opt" in
             a) A=1 ;;
             b) B="$OPTARG" ;;
             h) usage
                exit 0;;
+            \? ) usage
+                 exit 1;;
         esac
     done
     shift "$((OPTIND-1))"
