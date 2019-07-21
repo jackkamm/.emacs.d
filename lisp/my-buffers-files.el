@@ -9,6 +9,8 @@
  "D" 'kill-buffer
  "x" 'kill-buffer-and-window
  "r" 'revert-buffer
+ "#" 'server-edit
+ "c" 'clone-indirect-buffer
  "m" 'buffer-menu
  "M" 'buffer-menu-other-window)
 
