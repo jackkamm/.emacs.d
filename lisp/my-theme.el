@@ -45,7 +45,6 @@
 
 ;; Themes
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/eziam-theme-emacs/")
 (unless (package-installed-p 'moe-theme) (package-install 'moe-theme))
 
 (my-theme-leader
