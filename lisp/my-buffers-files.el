@@ -47,10 +47,7 @@
   (interactive
    (list (read-file-name
     "Find my config module: "
-    (concat user-emacs-directory "lisp/")
-    nil
-    'confirm
-    (thing-at-point 'symbol t))))
+    (concat user-emacs-directory "lisp/"))))
   (switch-to-buffer
    (find-file-noselect fname)))
 (my-files-leader "m" 'my-find-config-module)
