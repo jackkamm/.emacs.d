@@ -3,4 +3,4 @@
 # key: ob-jupyter-R-header
 # contributor: Jack Kamm
 # --
-#+PROPERTY: header-args:jupyter-R :session $1 :pandoc t :async yes :display text/org image/svg+xml image/jpeg image/png text/markdown text/html text/latex text/plain
+#+PROPERTY: header-args:jupyter-R :session $1 :pandoc t :async yes :display text/org image/svg+xml image/svg image/jpeg image/png text/markdown text/html text/latex text/plain
