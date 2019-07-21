@@ -61,8 +61,7 @@
   (emamux:get-buffers-regexp
    "^\\(buffer[0-9]+\\): +\\([0-9]+\\) +\\(bytes\\): +[\"]\\(.*\\)[\"]")
   :general
-  (my-major-leader
-    :keymaps 'sh-mode-map
+  (my-leader
     "x" '(:keymap emamux:keymap :which-key "tmux"))
   :config
 
