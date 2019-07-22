@@ -44,6 +44,8 @@
   ;; Truncate long lines so tables aren't misaligned
   (add-hook 'org-mode-hook
             (lambda () (toggle-truncate-lines 1)))
+  (add-hook 'org-agenda-mode-hook
+            (lambda () (toggle-truncate-lines -1)))
   ;; Use relative visual line numbers to account for folding
   (add-hook 'org-mode-hook
             (lambda () (setq-local display-line-numbers-type 'visual)))

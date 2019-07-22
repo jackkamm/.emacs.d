@@ -41,6 +41,9 @@
   (with-eval-after-load 'org
     (require 'org-notmuch))
 
+  (add-hook 'notmuch-show-mode-hook
+            (lambda () (toggle-truncate-lines -1)))
+
   (add-to-list 'notmuch-tagging-keys '("x" ("+killed" "-unread") "Kill thread"))
 
   ;; bind notmuch-help to leader
