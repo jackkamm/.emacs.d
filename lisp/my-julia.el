@@ -12,3 +12,15 @@
                                   company-backends))))
   ;; TODO need to add to inferrior-ess-julia-mode-hook?
   (setq company-minimum-prefix-length 2))
+
+;;;; alternative config using julia-repl instead of ess
+;;;; It uses term instead of shell for the repl, which disables
+;;;; lots of keybindings.
+;;;; I think I prefer to use emamux rather than relying on term.el
+;;
+;;(use-package julia-mode
+;;  :mode (("\\.jl\\'" . julia-mode)))
+;;
+;;(use-package julia-repl
+;;  :commands julia-repl-mode)
+;;(add-hook 'julia-mode-hook 'julia-repl-mode)
