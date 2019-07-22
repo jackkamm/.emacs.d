@@ -28,11 +28,7 @@
     "O" 'ein:worksheet-insert-cell-above
     "j" 'ein:worksheet-goto-next-input
     "k" 'ein:worksheet-goto-prev-input
-    "<return>" 'ein:worksheet-execute-cell-and-goto-next)
-
-  ;; ob-ein should be loaded by org-mode
-  (with-eval-after-load 'ob-ein
-    (ein:org-register-lang-mode "ein-R" 'R)))
+    "<return>" 'ein:worksheet-execute-cell-and-goto-next))
 
 (use-package jupyter
   :load-path "~/src/emacs-jupyter"
@@ -63,14 +59,13 @@
      ;;(emamux . t)
      (emacs-lisp . t)
      (shell . t)
-     ;;(ein . t)
      (jupyter . t))))
 
 (use-package ob-async
   :after org
   :init
   (setq ob-async-no-async-languages-alist
-        '("ipython" "ein" "ein-R" "jupyter-python" "jupyter-R")))
+        '("jupyter-python" "jupyter-R")))
 
 (use-package polymode
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
