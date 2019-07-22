@@ -58,10 +58,12 @@
    'org-babel-load-languages
    '((R . t)
      (python . t)
-     (emamux . t)
+     (sql . t)
+     (sqlite . t)
+     ;;(emamux . t)
      (emacs-lisp . t)
      (shell . t)
-     (ein . t)
+     ;;(ein . t)
      (jupyter . t))))
 
 (use-package ob-async
