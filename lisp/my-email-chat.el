@@ -38,7 +38,8 @@
   ;; load config for browse-url-mail, used by x-scheme-handler/mailto
   (with-eval-after-load 'browse-url (require 'notmuch))
   :config
-  (require 'org-notmuch)
+  (with-eval-after-load 'org
+    (require 'org-notmuch))
 
   (add-to-list 'notmuch-tagging-keys '("x" ("+killed" "-unread") "Kill thread"))
 
