@@ -31,15 +31,19 @@
     "<return>" 'ein:worksheet-execute-cell-and-goto-next))
 
 (use-package jupyter
-  :load-path "~/src/emacs-jupyter"
   :commands (jupyter-run-repl jupyter-connect-repl)
   :init
+  (add-hook 'jupyter-repl-mode-hook
+            (lambda () (display-line-numbers-mode -1)))
   ;; TODO jupyter.el violates keybinding conventions; submit PR
   (with-eval-after-load 'jupyter-org-extensions
     (bind-key (kbd "C-c h") nil jupyter-org-interaction-mode-map)
     (my-major-leader
       :keymaps 'org-mode-map
-      "h" 'jupyter-org-hydra/body)))
+      "h" 'jupyter-org-hydra/body))
+  :config
+  (setq org-babel-default-header-args:jupyter-python '((:async . "yes")
+                                                       (:kernel . "python3"))))
 
 (use-package ob-emamux :ensure nil)
 
