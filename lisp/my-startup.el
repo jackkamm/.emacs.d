@@ -10,4 +10,5 @@
   (keychain-refresh-environment))
 
 ;; For profiling startup times
-(use-package esup :commands esup)
+;; NOTE broken: https://github.com/jschaf/esup/issues/53
+;;(use-package esup :commands esup)
