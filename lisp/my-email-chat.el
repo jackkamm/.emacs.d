@@ -77,7 +77,7 @@
   ;; this correctly, no longer does (as confirmed by the the Update in
   ;; https://cpbotha.net/2016/09/27/thunderbird-support-of-rfc-3676-formatflowed-is-half-broken/)
   ;;
-  ;; The best solution seems to be manual formatting depending on the
+  ;; My current solution is to do manual formatting based on the
   ;; expected recipients. In particular, I disable auto-fill by
   ;; default, and manually format with set-fill (M-q) as desired.
   ;;
