@@ -77,10 +77,9 @@
   ;; this correctly, no longer does (as confirmed by the the Update in
   ;; https://cpbotha.net/2016/09/27/thunderbird-support-of-rfc-3676-formatflowed-is-half-broken/)
   ;;
-  ;; The current best solution seems to enable or disable fill,
-  ;; depending on whether the receiver is Unix-y or on mobile. In
-  ;; particular, I disable auto-fill by default, and manually format
-  ;; with set-fill (M-q) as desired.
+  ;; The best solution seems to be manual formatting depending on the
+  ;; expected recipients. In particular, I disable auto-fill by
+  ;; default, and manually format with set-fill (M-q) as desired.
   ;;
   ;; The soft newlines and "format=flowed" can be enabled by calling
   ;; `use-hard-newlines'. However, it hardly seems worth it since
