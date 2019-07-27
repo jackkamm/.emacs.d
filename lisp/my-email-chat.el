@@ -44,7 +44,8 @@
   (add-hook 'notmuch-show-mode-hook
             (lambda () (toggle-truncate-lines -1)))
 
-  (add-to-list 'notmuch-tagging-keys '("x" ("+killed" "-unread") "Kill thread"))
+  (add-to-list 'notmuch-tagging-keys
+               '("x" ("+killed" "-unread") "Kill thread"))
 
   ;; bind notmuch-help to leader
   (my-major-leader
@@ -65,6 +66,26 @@
 
   (setq notmuch-search-oldest-first nil)
 
-  (add-hook
-   'notmuch-message-mode-hook
-   'turn-off-auto-fill))
+  ;; Line-wrapping, column width, and format=flowed
+  ;;
+  ;; Unix email etiquette requires sent text to be no longer than 80
+  ;; characters, inserting newlines as necessary, but this looks
+  ;; terrible on mobile devices.
+  ;;
+  ;; "format=flowed" is supposed to fix this, but many readers no
+  ;; longer support this. It appears that Gmail, which once displayed
+  ;; this correctly, no longer does (as confirmed by the the Update in
+  ;; https://cpbotha.net/2016/09/27/thunderbird-support-of-rfc-3676-formatflowed-is-half-broken/)
+  ;;
+  ;; The current best solution seems to enable or disable fill,
+  ;; depending on whether the receiver is Unix-y or on mobile. In
+  ;; particular, I disable auto-fill by default, and manually format
+  ;; with set-fill (M-q) as desired.
+  ;;
+  ;; The soft newlines and "format=flowed" can be enabled by calling
+  ;; `use-hard-newlines'. However, it hardly seems worth it since
+  ;; Gmail seems to ignore "format=flowed" now.
+
+  (add-hook 'message-mode-hook 'turn-off-auto-fill)
+  ;;(add-hook 'message-mode-hook 'use-hard-newlines)
+  )
