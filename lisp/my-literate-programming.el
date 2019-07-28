@@ -71,6 +71,10 @@
   (setq ob-async-no-async-languages-alist
         '("jupyter-python" "jupyter-R")))
 
+(use-package ob-session-async-R
+  :ensure nil
+  :after org)
+
 (use-package polymode
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
 	 ("\\.Rmd" . poly-markdown+r-mode))

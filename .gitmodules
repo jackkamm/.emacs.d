@@ -10,3 +10,6 @@
 [submodule "lisp/ipython-shell-send-el"]
 	path = lisp/ipython-shell-send-el
 	url = git@github.com:jackkamm/ipython-shell-send-el.git
+[submodule "lisp/ob-session-async"]
+	path = lisp/ob-session-async
+	url = ./lisp/ob-session-async
