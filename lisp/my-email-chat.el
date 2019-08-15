@@ -8,10 +8,9 @@
   (defun my-znc-freenode (tunnelp)
     (interactive
      (list (y-or-n-p "Open tunnel?")))
-    (if tunnelp
-	(progn
-	  (async-shell-command "ssh -f znc -L 55555:localhost:55555 sleep 60")
-	  (sleep-for 2)))
+    (when tunnelp
+      (start-process "*znc-port-forward*" "*znc-port-forward*"
+                     "ssh" "-NL" "55555:localhost:55555" "znc"))
     (erc
      ;; forward znc to local port 55555
      :server "localhost" :port "55555"
@@ -23,7 +22,20 @@
      ;; store password in authinfo
      :password nil))
   :config
-  (add-to-list 'erc-modules 'notifications))
+  (add-to-list 'erc-modules 'notifications)
+
+  ;; DETACH instead of PART when killing channel buffer
+  ;; see also znc-detach-channel from
+  ;; https://github.com/sshirokov/ZNC.el/blob/master/znc.el
+  (defun my-erc-kill-channel ()
+    (when (erc-server-process-alive)
+      (let ((tgt (erc-default-target)))
+        (if tgt
+            (erc-server-send (format "DETACH %s" tgt)
+                             nil tgt)))))
+
+  (advice-add 'erc-kill-channel
+              :override 'my-erc-kill-channel))
 
 ;; Mail
 
