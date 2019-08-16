@@ -2,13 +2,17 @@
 
 (use-package erc
   :commands erc
-  :custom
-  ;; do "ssh -NL 9000:localhost:9000 irc" to open the port
-  ((erc-server "localhost")
-   (erc-port "9000")
-   (erc-nick "snackattack"))
   :config
   (add-to-list 'erc-modules 'notifications))
+
+(defun my-irc (tunnelp)
+  (interactive
+   (list (y-or-n-p "Open tunnel?")))
+  (when tunnelp
+    (start-process "*ssh weechat*" "*ssh weechat*"
+                   "ssh" "-N" "-L" "9000:localhost:9000" "weechat"))
+  (erc :server "localhost" :port "9000" :nick "snackattack"))
+(my-leader "ai" 'my-irc)
 
 ;; Mail
 
