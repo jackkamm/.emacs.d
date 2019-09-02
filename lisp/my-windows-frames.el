@@ -14,8 +14,14 @@
  "p" 'my-pop-window
  "d" 'delete-frame)
 
+(hercules-def
+ :transient t
+ :toggle-funs #'my-window-hydra
+ :keymap 'evil-window-map)
+
 (my-leader
-  "w" '(evil-window-map :which-key "Window"))
+  "w" '(evil-window-map :which-key "Window")
+  "W" #'my-window-hydra)
 
 (bind-keys
  :map evil-window-map
@@ -41,7 +47,7 @@
 (use-package ace-window
   :bind
   (:map evil-window-map
-   ("w" . ace-select-window)
+   ("SPC" . ace-select-window)
    ("D" . ace-delete-window)
    ("M" . ace-swap-window))
   :config

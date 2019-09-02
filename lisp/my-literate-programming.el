@@ -63,7 +63,16 @@
      ;;(emamux . t)
      (emacs-lisp . t)
      (shell . t)
-     (jupyter . t))))
+     (jupyter . t)))
+
+  (hercules-def
+   :toggle-funs #'org-babel-mode
+   :keymap 'org-babel-map
+   :transient t)
+
+  (my-major-leader
+    :keymaps 'org-mode-map
+    "b" #'org-babel-mode))
 
 (use-package ob-async
   :after org
