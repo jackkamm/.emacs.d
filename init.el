@@ -107,7 +107,7 @@
 
   (general-create-definer my-major-leader
     :states '(normal motion visual emacs insert)
-    :prefix "SPC m"
+    :prefix "_"
     :global-prefix "C-c m"))
 
 ;; hydra

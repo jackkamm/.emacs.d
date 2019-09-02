@@ -72,7 +72,7 @@
 
   (my-major-leader
     :keymaps 'org-mode-map
-    "b" #'org-babel-mode))
+    "_" #'org-babel-mode))
 
 (use-package ob-async
   :after org
