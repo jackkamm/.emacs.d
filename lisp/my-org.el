@@ -52,7 +52,6 @@
 
   ;; Agenda, refile, and capture
   (add-to-list 'org-agenda-files "~/org")
-  (add-to-list 'org-agenda-files "~/org/old" t)
 
   (defun my-org-refile-targets ()
     (directory-files "~/org" t org-agenda-file-regexp))
