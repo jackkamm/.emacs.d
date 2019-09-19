@@ -83,15 +83,16 @@
 (use-package gnus
   :defer t
   :commands gnus
+  :general
+  (my-leader "ag" 'gnus)
+  :init
+  ;; Configurations taken from spacemacs
+  (setq
+   ;;gnus-summary-line-format "%U%R%z %(%&user-date;  %-15,15f  %B (%c) %s%)\n"
+   ;;gnus-user-date-format-alist '((t . "%Y-%m-%d %H:%M"))
+   ;;gnus-group-line-format "%M%S%p%P%5y:%B %G\n";;"%B%(%g%)"
+   gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references
+   gnus-thread-sort-functions '(gnus-thread-sort-by-most-recent-date))
   :config
   ;; No primary server
-  (setq gnus-select-method '(nnnil ""))
-
-  ;; Configurations to try from spacemacs:
-  ;;(setq-default
-  ;; gnus-summary-line-format "%U%R%z %(%&user-date;  %-15,15f  %B (%c) %s%)\n"
-  ;; gnus-user-date-format-alist '((t . "%Y-%m-%d %H:%M"))
-  ;; gnus-group-line-format "%M%S%p%P%5y:%B %G\n";;"%B%(%g%)"
-  ;; gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references
-  ;; gnus-thread-sort-functions '(gnus-thread-sort-by-most-recent-date))
-  )
+  (setq gnus-select-method '(nnnil "")))
