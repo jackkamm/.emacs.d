@@ -19,6 +19,14 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 (setq message-make-forward-subject-function 'message-forward-subject-fwd)
 
+;; Send mail from the address specified in the From: header
+;; https://notmuchmail.org/emacstips/#index11h2
+;; NOTE: additional config needed to initially populate From:
+;; notmuch does it automatically but gnus does not
+(setq mail-specify-envelope-from t
+      message-sendmail-envelope-from 'header
+      mail-envelope-from 'header)
+
 (use-package notmuch
   :general
   (my-leader
@@ -46,12 +54,6 @@
     "f" 'notmuch-show-forward-message
     "r" 'notmuch-show-reply-sender
     "R" 'notmuch-show-reply)
-
-  ;; send from multiple accounts with msmtp
-  ;; https://notmuchmail.org/emacstips/#index11h2
-  (setq mail-specify-envelope-from t
-        message-sendmail-envelope-from 'header
-        mail-envelope-from 'header)
 
   (setq notmuch-search-oldest-first nil)
 
