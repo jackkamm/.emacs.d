@@ -106,3 +106,7 @@
   (setq org-ref-bibliography-notes "~/Documents/bibliography/notes.org"
         org-ref-default-bibliography '("~/Documents/bibliography/zotero.bib")
         org-ref-pdf-directory "~/Documents/bibliography/bibtex-pdfs/"))
+
+
+;; TODO autoload
+(use-package ox-reveal :after org)
