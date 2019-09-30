@@ -7,7 +7,11 @@
 
 ;; wgrep
 (use-package wgrep
-  :commands wgrep-change-to-wgrep-mode)
+  :commands wgrep-change-to-wgrep-mode
+  :config
+  (advice-add 'wgrep-change-to-wgrep-mode :after #'evil-normal-state)
+  (advice-add 'wgrep-finish-edit :after #'evil-motion-state)
+  (advice-add 'wgrep-abort-changes :after #'evil-motion-state))
 
 ;; helm
 (with-eval-after-load "my-helm"
