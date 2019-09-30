@@ -58,6 +58,7 @@
    'org-babel-load-languages
    '((R . t)
      (python . t)
+     (julia . t)
      (sql . t)
      (sqlite . t)
      ;;(emamux . t)
