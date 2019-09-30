@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: attr-latex-width
+# key: attr-latex-width
+# --
+#+ATTR_LATEX: :width $1\linewidth
