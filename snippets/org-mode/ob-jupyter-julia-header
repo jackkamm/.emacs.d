@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ob-jupyter-julia-header
+# key: ob-jupyter-julia-header
+# contributor: Jack Kamm
+# --
+#+PROPERTY: header-args:jupyter-julia :session :async yes :kernel julia-1.0
