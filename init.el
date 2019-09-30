@@ -4,7 +4,6 @@
 
 ;; Set custom file
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file t)
 
 ;; Initialize packages
 (require 'package)
@@ -155,3 +154,5 @@
        ;;"my-rtags"
        "my-lang-misc"
        ))
+
+(load custom-file t)
