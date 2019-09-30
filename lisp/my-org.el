@@ -9,6 +9,7 @@
   (my-leader
     "o" '(:ignore t :which-key "Org")
     "ol" 'org-store-link
+    "ob" 'org-revert-all-org-buffers
     "oc" 'org-capture
     "oa" 'org-agenda)
   :custom
