@@ -48,9 +48,8 @@
   ;; Agenda, refile, and capture
   (add-to-list 'org-agenda-files "~/org")
 
-  (defun my-org-refile-targets ()
-    (directory-files "~/org" t org-agenda-file-regexp))
-  (setq org-refile-targets '((my-org-refile-targets :maxlevel . 1)))
+  (setq org-refile-targets '((nil :maxlevel . 9)
+                             (org-agenda-files :maxlevel . 9)))
 
   (setq org-capture-templates
         '(("l" "link" entry (file "inbox.org")
