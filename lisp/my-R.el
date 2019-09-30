@@ -15,9 +15,6 @@
         ess-eval-visibly 'nowait
         ess-use-flymake nil ;ess-flymake not working (7-2018)
         ess-smart-S-assign-key nil
-        ;; FIXME workaround to accommodate ob-R :session
-        ;; TODO PR (org-babel-R-initiate-session, ess-gen-proc-buffer-name-function)
-        ess-gen-proc-buffer-name-function 'ess-gen-proc-buffer-name:simple
         ess-style 'RStudio)
   :config
   ;; HACK Setting ess-style globally doesn't work in org src buffers
