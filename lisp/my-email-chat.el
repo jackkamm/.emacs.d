@@ -33,8 +33,7 @@
 
 (use-package notmuch
   :general
-  (my-leader
-    "an" 'notmuch)
+  (my-leader "an" 'notmuch)
   :init
   ;; load config for browse-url-mail, used by x-scheme-handler/mailto
   (with-eval-after-load 'browse-url (require 'notmuch))
