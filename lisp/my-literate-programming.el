@@ -54,6 +54,7 @@
   (define-key org-src-mode-map [remap evil-write] 'org-edit-src-save)
 
   (require 'jupyter)
+  (require 'ess) ; needed for inferior-julia-program-name
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((R . t)
@@ -79,7 +80,13 @@
   :after org
   :init
   (setq ob-async-no-async-languages-alist
-        '("jupyter-python" "jupyter-R")))
+        '("jupyter-python" "jupyter-R" "jupyter-julia"))
+  :config
+  ;; https://github.com/astahlman/ob-async/issues/37
+  ;; workaround for ob-julia, which breaks ob-async (even on non-julia langs)
+  (add-hook 'ob-async-pre-execute-src-block-hook
+            '(lambda ()
+               (setq inferior-julia-program-name "/usr/local/bin/julia"))))
 
 (use-package ob-session-async-R
   :ensure nil
