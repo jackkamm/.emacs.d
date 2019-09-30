@@ -48,6 +48,8 @@
   ;; Agenda, refile, and capture
   (add-to-list 'org-agenda-files "~/org")
 
+  (setq org-clock-idle-time 10)
+
   (setq org-refile-targets '((nil :maxlevel . 9)
                              (org-agenda-files :maxlevel . 9)))
 
