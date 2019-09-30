@@ -59,14 +59,9 @@
           ("n" "note" entry (file "inbox.org")
            "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
 
-  ;; allow \includesvg in latex export
-  ;; https://emacs-orgmode.gnu.narkive.com/TnHAVxbF/o-how-to-handle-svg-files-when-exporting-orgmode-to-html-and-pdf
+  ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
-    (setq org-latex-pdf-process
-          (mapcar (lambda (x)
-                    (replace-regexp-in-string
-                     "\%latex" "%latex --shell-escape" x))
-                  org-latex-pdf-process)))
+    (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
   ;; ediff
   ;; https://emacs.stackexchange.com/questions/21335/prevent-folding-org-files-opened-by-ediff
