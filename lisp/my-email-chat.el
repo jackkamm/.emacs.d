@@ -15,6 +15,9 @@
   (erc :server "localhost" :port "9000" :nick "snackattack"))
 (my-leader "ai" 'my-irc)
 
+;; pastebin for IRC
+(use-package ix :commands ix)
+
 ;; Mail
 
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
