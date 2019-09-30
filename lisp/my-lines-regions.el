@@ -36,7 +36,11 @@
   '(operators
     c-w
     slurp/barf-lispy
-    additional-movement)))
+    additional-movement))
+ ;; get rid of keys I don't like in additional-motion
+ (evil-define-key 'motion lispyville-mode-map
+   "H" nil
+   "L" nil))
 
 (use-package rainbow-delimiters
   :commands rainbow-delimiters-mode
