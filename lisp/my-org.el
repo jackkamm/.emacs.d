@@ -60,7 +60,7 @@
           ("n" "note" entry (file "inbox.org")
            "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
 
-  (setq org-archive-location "agenda.org_archive::* %s")
+  (setq org-archive-location "archive.org_archive::* %s")
 
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
