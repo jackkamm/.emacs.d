@@ -24,10 +24,9 @@
 ;; pos-tip
 (use-package pos-tip)
 
-;; whitespace
+;;;; whitespace
 (setq whitespace-style '(face trailing))
-(setq whitespace-global-modes '(not erc-mode))
-(global-whitespace-mode 1)
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 (setq-default indent-tabs-mode nil)
 
