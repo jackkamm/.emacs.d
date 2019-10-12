@@ -46,7 +46,7 @@
   (add-hook 'org-mode-hook
             (lambda () (setq-local display-line-numbers-type 'visual)))
 
-  ;; Agenda, refile, and capture
+  ;; Agenda, refile, capture, archive
   (add-to-list 'org-agenda-files "~/org")
 
   (setq org-clock-idle-time 10)
@@ -59,6 +59,8 @@
            "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
           ("n" "note" entry (file "inbox.org")
            "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
+
+  (setq org-archive-location "agenda.org_archive::* %s")
 
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
