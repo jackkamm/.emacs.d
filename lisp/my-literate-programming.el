@@ -54,6 +54,7 @@
   (define-key org-src-mode-map [remap evil-write] 'org-edit-src-save)
 
   (require 'jupyter)
+  ;; FIXME below breaks if ess not yet installed
   (require 'ess) ; needed for inferior-julia-program-name
   (org-babel-do-load-languages
    'org-babel-load-languages
