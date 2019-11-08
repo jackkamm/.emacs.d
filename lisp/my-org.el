@@ -60,8 +60,6 @@
           ("n" "note" entry (file "inbox.org")
            "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
 
-  (setq org-archive-location "archive.org_archive::* %s")
-
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
     (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
@@ -82,7 +80,6 @@
     "t" 'org-toggle-inline-images
     "e" 'org-export-dispatch
     "a" 'org-archive-to-archive-sibling
-    "A" 'org-archive-subtree
     ;; C-c C-, can't be typed in a terminal
     "," 'org-insert-structure-template))
 
