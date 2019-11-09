@@ -55,10 +55,8 @@
                              (org-agenda-files :maxlevel . 9)))
 
   (setq org-capture-templates
-        '(("l" "link" entry (file "inbox.org")
-           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")
-          ("n" "note" entry (file "inbox.org")
-           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
+        '(("c" "capture" entry (file "inbox.org")
+           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
 
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
