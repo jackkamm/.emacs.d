@@ -102,6 +102,7 @@
     "k" 'which-key-show-top-level
     "qq" 'save-buffers-kill-emacs
     "h" '(:keymap help-map :which-key "Help")
+    "H" 'info-apropos
     "c" (general-simulate-key "C-c C-c")
     "u" 'universal-argument)
 
