@@ -76,8 +76,7 @@
   (defun my-emamux-yank ()
     (interactive)
     (with-temp-buffer
-      (insert
-       (emamux:show-buffer (cdr (car (emamux:get-buffers)))))
+      (emamux:yank-from-list-buffers)
       (kill-region (point-min) (point-max))))
 
   (bind-keys
