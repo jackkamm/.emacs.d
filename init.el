@@ -125,8 +125,8 @@
        "my-org"
 
        ;; completion system, only enable 1
-       ;;"my-helm"
-       "my-ivy"
+       "my-helm"
+       ;;"my-ivy"
 
        "my-buffers-files" ;includes dired, diff'ing
        "my-windows-frames"
