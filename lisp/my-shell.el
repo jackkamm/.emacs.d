@@ -69,7 +69,20 @@
     (interactive)
     (emamux:send-region (point-min) (point-max)))
 
+  (defun my-emamux-send-line ()
+    (interactive)
+    (emamux:send-region (line-beginning-position) (line-end-position)))
+
+  (defun my-emamux-yank ()
+    (interactive)
+    (with-temp-buffer
+      (insert
+       (emamux:show-buffer (cdr (car (emamux:get-buffers)))))
+      (kill-region (point-min) (point-max))))
+
   (bind-keys
    :map emamux:keymap
    ("r" . emamux:send-region)
-   ("b" . my-emamux-send-buffer)))
+   ("l" . my-emamux-send-line)
+   ("b" . my-emamux-send-buffer)
+   ("y" . my-emamux-yank)))
