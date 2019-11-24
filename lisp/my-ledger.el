@@ -1,2 +1,3 @@
 ;; TODO: autoload
-(use-package ledger-mode)
+(use-package ledger-mode
+  :mode (("\\.ledger\\'" . ledger-mode)))
