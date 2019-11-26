@@ -87,6 +87,16 @@
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
 
+(use-package org-gcal
+  :commands (org-gcal-fetch
+             org-gcal-sync)
+  :load-path "~/.emacs.d/lisp/org-gcal.el"
+  :general
+  (my-leader
+    "og" '(:ignore t :which-key "org-gcal")
+    "ogf" 'org-gcal-fetch
+    "ogs" 'org-capture-sync))
+
 (use-package orgit :after (org magit))
 
 ;; TODO autoload
