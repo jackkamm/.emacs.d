@@ -60,7 +60,8 @@
 
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
-    (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
+    (setq org-latex-pdf-process
+          (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
   ;; ediff
   ;; https://emacs.stackexchange.com/questions/21335/prevent-folding-org-files-opened-by-ediff
