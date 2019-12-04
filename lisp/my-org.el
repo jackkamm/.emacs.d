@@ -119,3 +119,6 @@
 
 ;; TODO autoload
 (use-package ox-reveal :after org)
+
+(use-package org-present
+  :commands org-present)
