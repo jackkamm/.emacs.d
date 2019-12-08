@@ -8,7 +8,8 @@
   (helm-mode 1)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (bind-keys :map help-map
-	     ("a" . helm-apropos))
+	     ("a" . helm-apropos)
+             ("i" . helm-info))
   (bind-keys :map helm-map
   	     ("C-<backspace>" . helm-delete-minibuffer-contents)
   	     ("<tab>" . helm-execute-persistent-action)
