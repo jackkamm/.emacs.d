@@ -94,9 +94,7 @@
   :load-path "~/.emacs.d/lisp/org-gcal.el"
   :general
   (my-leader
-    "og" '(:ignore t :which-key "org-gcal")
-    "ogf" 'org-gcal-fetch
-    "ogs" 'org-capture-sync))
+    "og" 'org-gcal-fetch))
 
 (use-package orgit :after (org magit))
 
