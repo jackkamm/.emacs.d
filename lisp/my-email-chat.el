@@ -60,6 +60,8 @@
 
   (setq notmuch-search-oldest-first nil)
 
+  (add-hook 'message-mode-hook 'flyspell-mode)
+
   ;; Line-wrapping, column width, and format=flowed
   ;;
   ;; Unix email etiquette requires sent text to be no longer than 80
@@ -80,7 +82,6 @@
   ;; Gmail seems to ignore "format=flowed" now.
 
   (add-hook 'message-mode-hook 'turn-off-auto-fill)
-  (add-hook 'message-mode-hook 'flyspell-mode)
   ;;(add-hook 'message-mode-hook 'use-hard-newlines)
   )
 
