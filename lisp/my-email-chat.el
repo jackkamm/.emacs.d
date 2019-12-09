@@ -80,6 +80,7 @@
   ;; Gmail seems to ignore "format=flowed" now.
 
   (add-hook 'message-mode-hook 'turn-off-auto-fill)
+  (add-hook 'message-mode-hook 'flyspell-mode)
   ;;(add-hook 'message-mode-hook 'use-hard-newlines)
   )
 
