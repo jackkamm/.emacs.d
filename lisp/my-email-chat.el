@@ -71,7 +71,7 @@
           (:name "new-news" :key "n"
            :query "tag:unread NOT tag:inbox NOT subject:/^Re\\:/")
           (:name "old-news" :key "o"
-           :query "tag:unread NOT tag:inbox subject:/^Re\\:/")))
+           :query "tag:unread (NOT tag:inbox) subject:/^Re\\:/")))
 
   (add-hook 'message-mode-hook 'flyspell-mode)
 
