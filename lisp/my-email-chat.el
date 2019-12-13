@@ -74,6 +74,8 @@
           (:name "old-news" :key "o"
            :query "tag:unread (NOT tag:inbox) subject:/^Re\\:/")))
 
+  (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
+
   (add-hook 'message-mode-hook 'flyspell-mode)
   ;; see discussion of line wrapping and format=flowed here:
   ;; https://github.com/legoscia/messages-are-flowing/issues/9#issuecomment-565504136
