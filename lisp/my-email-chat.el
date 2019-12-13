@@ -58,7 +58,10 @@
     "r" 'notmuch-show-reply-sender
     "R" 'notmuch-show-reply)
 
-  (setq notmuch-search-oldest-first nil)
+  (setq notmuch-search-oldest-first nil
+        notmuch-mua-compose-in 'new-window
+        ;; ensures +sent (needed for some messages to self?)
+        notmuch-fcc-dirs "sent +sent")
 
   (setq notmuch-saved-searches
         '((:name "inbox" :query "tag:inbox date:90d.." :key "i")
