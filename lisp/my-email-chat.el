@@ -68,10 +68,10 @@
           (:name "sent" :query "tag:sent date:90d.." :key "t")
           (:name "unread" :key "u"
            :query "tag:unread AND (tag:inbox OR tag:to-me OR thread:{tag:flagged})")
-          (:name "not-inbox" :key "N"
-           :query "tag:unread NOT tag:inbox")
-          (:name "new-not-inbox" :key "n"
-           :query "tag:unread NOT tag:inbox NOT subject:/^Re\\:/")))
+          (:name "new-news" :key "n"
+           :query "tag:unread NOT tag:inbox NOT subject:/^Re\\:/")
+          (:name "old-news" :key "o"
+           :query "tag:unread NOT tag:inbox subject:/^Re\\:/")))
 
   (add-hook 'message-mode-hook 'flyspell-mode)
 
