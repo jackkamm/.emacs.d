@@ -1,9 +1,6 @@
 [submodule "snippets/latex-mode"]
 	path = snippets/latex-mode
 	url = https://github.com/jackkamm/yasnippets-latex
-[submodule "lisp/ob-emamux"]
-	path = lisp/ob-emamux
-	url = git@github.com:jackkamm/ob-emamux.git
 [submodule "lisp/undo-propose-el"]
 	path = lisp/undo-propose-el
 	url = git@github.com:jackkamm/undo-propose-el.git

@@ -45,8 +45,6 @@
   (setq org-babel-default-header-args:jupyter-python '((:async . "yes")
                                                        (:kernel . "python3"))))
 
-(use-package ob-emamux :ensure nil)
-
 (with-eval-after-load 'org
   ;;; org-babel
   (setq org-confirm-babel-evaluate nil)
