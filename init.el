@@ -77,9 +77,9 @@
 
 ;; which-key
 (use-package which-key
-  :custom
-  (which-key-sort-order 'which-key-key-order-alpha)
-  (which-key-enable-extended-define-key t)
+  :init
+  (setq which-key-sort-order 'which-key-key-order-alpha
+        which-key-enable-extended-define-key t)
   :config
   (which-key-mode))
 
