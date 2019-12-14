@@ -41,19 +41,16 @@
   :config
   (setq notmuch-search-oldest-first nil
         notmuch-wash-wrap-lines-length 80
-        notmuch-mua-compose-in 'new-window
-        ;; ensures +sent (needed for some messages to self?)
-        notmuch-fcc-dirs "sent +sent")
+        notmuch-mua-compose-in 'new-window)
 
-  (setq notmuch-saved-searches
-        '((:name "inbox" :query "tag:inbox date:90d.." :key "i")
-          (:name "sent" :query "tag:sent date:90d.." :key "t")
-          (:name "unread" :key "u"
-           :query "tag:unread AND (tag:inbox OR tag:to-me OR thread:{tag:flagged})")
-          (:name "new-news" :key "n"
-           :query "tag:unread NOT tag:inbox NOT subject:/^Re\\:/")
-          (:name "old-news" :key "o"
-           :query "tag:unread (NOT tag:inbox) subject:/^Re\\:/")))
+  (let ((important-mails "(tag:inbox OR tag:to-me OR thread:{tag:flagged})"))
+    (setq notmuch-saved-searches
+          `((:name "inbox" :query "tag:inbox date:90d.." :key "i")
+            (:name "sent" :query "tag:sent date:90d.." :key "t")
+            (:name "unread" :key "u"
+                   :query ,(concat "tag:unread AND " important-mails))
+            (:name "other" :key "o"
+                   :query ,(concat "tag:unread NOT " important-mails)))))
 
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check))
 
