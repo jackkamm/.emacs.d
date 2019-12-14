@@ -10,7 +10,8 @@
    (list (y-or-n-p "Open tunnel?")))
   (when tunnelp
     (start-process "*autossh weechat*" "*autossh weechat*"
-                   "autossh" "-M" "0" "-o" "ServerAliveInterval 45" "-o" "ServerAliveCountMax 2"  "-L" "9000:localhost:9000" "weechat")
+                   "autossh" "-M" "0" "-o" "ServerAliveInterval 45" "-o"
+                   "ServerAliveCountMax 2"  "-L" "9000:localhost:9000" "weechat")
     (sleep-for 2))
   (erc :server "localhost" :port "9000" :nick "snackattack"))
 (my-leader "ai" 'my-irc)
