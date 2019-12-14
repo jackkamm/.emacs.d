@@ -20,16 +20,17 @@
 
 ;; Mail
 
-(setq message-send-mail-function 'message-send-mail-with-sendmail)
-(setq message-make-forward-subject-function 'message-forward-subject-fwd)
-
-;; Send mail from the address specified in the From: header
-;; https://notmuchmail.org/emacstips/#index11h2
-;; NOTE: additional config needed to initially populate From:
-;; notmuch does it automatically but gnus does not
-(setq mail-specify-envelope-from t
+(setq message-send-mail-function 'message-send-mail-with-sendmail
+      message-make-forward-subject-function 'message-forward-subject-fwd
+      ;; autopopulate From: in notmuch messages
+      ;; https://notmuchmail.org/emacstips/#index11h2
+      mail-specify-envelope-from t
       message-sendmail-envelope-from 'header
       mail-envelope-from 'header)
+
+(add-hook 'message-mode-hook 'flyspell-mode)
+(add-hook 'message-mode-hook 'turn-off-auto-fill)
+(add-hook 'message-mode-hook 'visual-line-mode)
 
 (use-package notmuch
   :general
@@ -38,26 +39,6 @@
   ;; load config for browse-url-mail, used by x-scheme-handler/mailto
   (with-eval-after-load 'browse-url (require 'notmuch))
   :config
-  (with-eval-after-load 'org
-    (require 'org-notmuch))
-
-  (add-hook 'notmuch-show-mode-hook
-            (lambda () (toggle-truncate-lines -1)))
-
-  (add-to-list 'notmuch-tagging-keys
-               '("x" ("+killed" "-unread") "Kill thread"))
-
-  ;; bind notmuch-help to leader
-  (my-major-leader
-    :keymaps 'notmuch-common-keymap
-    "h" 'notmuch-help)
-
-  (my-major-leader
-    :keymaps 'notmuch-show-mode-map
-    "f" 'notmuch-show-forward-message
-    "r" 'notmuch-show-reply-sender
-    "R" 'notmuch-show-reply)
-
   (setq notmuch-search-oldest-first nil
         notmuch-wash-wrap-lines-length 80
         notmuch-mua-compose-in 'new-window
@@ -74,13 +55,11 @@
           (:name "old-news" :key "o"
            :query "tag:unread (NOT tag:inbox) subject:/^Re\\:/")))
 
-  (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
+  (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check))
 
-  (add-hook 'message-mode-hook 'flyspell-mode)
-  ;; see discussion of line wrapping and format=flowed here:
-  ;; https://github.com/legoscia/messages-are-flowing/issues/9#issuecomment-565504136
-  (add-hook 'message-mode-hook 'turn-off-auto-fill)
-  (add-hook 'message-mode-hook 'visual-line-mode))
+(use-package org-notmuch
+  :ensure org-plus-contrib
+  :after (org notmuch))
 
 (use-package gnus
   :defer t
