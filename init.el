@@ -113,9 +113,6 @@
 ;; hydra
 (use-package hydra)
 
-(use-package hercules)
-
-
 ;;; Load additional configurations
 
 (mapc 'load
