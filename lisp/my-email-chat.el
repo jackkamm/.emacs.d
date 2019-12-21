@@ -44,15 +44,7 @@
         notmuch-wash-wrap-lines-length 80
         notmuch-mua-compose-in 'new-window)
 
-  (let ((important-mails "(tag:inbox OR tag:to-me OR thread:{tag:flagged})"))
-    (setq notmuch-saved-searches
-          `((:name "inbox" :query "tag:inbox date:90d.." :key "i")
-            (:name "sent" :query "tag:sent date:90d.." :key "t")
-            (:name "unread" :key "u"
-                   :query ,(concat "tag:unread AND " important-mails))
-            (:name "other" :key "o"
-                   :query ,(concat "tag:unread NOT " important-mails)))))
-
+  (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check))
 
 (use-package org-notmuch
