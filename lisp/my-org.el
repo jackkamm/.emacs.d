@@ -120,3 +120,9 @@
 
 (use-package org-present
   :commands org-present)
+
+(with-eval-after-load "my-helm"
+  (use-package helm-org-rifle
+    :general
+    (my-leader
+      "os" 'helm-org-rifle)))
