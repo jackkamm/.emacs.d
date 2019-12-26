@@ -51,13 +51,14 @@
 (use-package evil-mc
   :general (my-search-replace-leader
 	     "m" 'my-toggle-evil-mc-mode)
-  :custom (evil-mc-custom-known-commands
-           '((backward-kill-word
-              . ((:default . evil-mc-execute-default-call-with-count)))
-             (delete-char
-              . ((:default . evil-mc-execute-default-call-with-count)))
-             (kill-word
-              . ((:default . evil-mc-execute-default-call-with-count)))))
+  :init
+  (setq evil-mc-custom-known-commands
+        '((backward-kill-word
+           . ((:default . evil-mc-execute-default-call-with-count)))
+          (delete-char
+           . ((:default . evil-mc-execute-default-call-with-count)))
+          (kill-word
+           . ((:default . evil-mc-execute-default-call-with-count)))))
   :config
   (defun my-toggle-evil-mc-mode () (interactive)
          (if evil-mc-mode

@@ -42,16 +42,17 @@
 
 ;; evil
 (use-package evil
-  :custom
-  (evil-overriding-maps nil)
-  (evil-intercept-maps nil)
-  (evil-want-keybinding nil)
-  (evil-want-C-u-scroll t)
-  (evil-want-C-i-jump nil) ;allow org-mode TAB in terminal
-  (evil-symbol-word-search t)
-  (evil-respect-visual-line-mode t)
-  ;; make emacs- and insert-states identical
-  (evil-disable-insert-state-bindings t)
+  :init
+  (setq
+   evil-overriding-maps nil
+   evil-intercept-maps nil
+   evil-want-keybinding nil
+   evil-want-C-u-scroll t
+   evil-want-C-i-jump nil            ;allow org-mode TAB in terminal
+   evil-symbol-word-search t
+   evil-respect-visual-line-mode t
+   ;; make emacs- and insert-states identical
+   evil-disable-insert-state-bindings t)
   :config
   ;; get rid of motion state everywhere
   (defalias 'evil-motion-state 'evil-insert-state)

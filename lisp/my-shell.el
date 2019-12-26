@@ -55,16 +55,16 @@
 ;; tmux
 
 (use-package emamux
-  :custom
-  ;; for tmux version >= 2 (breaks emamux:yank on tmux < 2)
-  (emamux:show-buffers-with-index nil)
-  (emamux:get-buffers-regexp
+  :init
+  (setq
+   ;; for tmux version >= 2 (breaks emamux:yank on tmux < 2)
+   emamux:show-buffers-with-index nil
+   emamux:get-buffers-regexp
    "^\\(buffer[0-9]+\\): +\\([0-9]+\\) +\\(bytes\\): +[\"]\\(.*\\)[\"]")
   :general
   (my-leader
     "x" '(:keymap emamux:keymap :which-key "tmux"))
   :config
-
   (defun my-emamux-send-buffer ()
     (interactive)
     (emamux:send-region (point-min) (point-max)))

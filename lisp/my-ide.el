@@ -4,8 +4,8 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :custom
-  (lsp-ui-doc-enable nil))
+  :init
+  (setq lsp-ui-doc-enable nil))
 (use-package company-lsp :commands company-lsp)
 
 (with-eval-after-load "my-python" (add-hook 'python-mode-hook #'lsp))
@@ -17,8 +17,8 @@
   (use-package projectile
     :general (my-search-replace-leader
                "p" 'projectile-grep)
-    :custom
-    (projectile-use-git-grep t))
+    :init
+    (setq projectile-use-git-grep t))
 
   (with-eval-after-load "my-helm"
     (use-package helm-projectile
@@ -39,9 +39,8 @@
 
 (use-package company
   :defer 2
-  :custom
-  (global-company-mode t)
   :config
+  (global-company-mode 1)
   (my-leader "C" 'company-complete)
 
   (with-eval-after-load "my-ivy"
