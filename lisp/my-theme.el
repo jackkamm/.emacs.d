@@ -17,9 +17,9 @@
   :general
   (my-leader "tM" 'minimap-mode))
 
-;; disable blinking cursor:
-(blink-cursor-mode -1) ;gui
-(setq visible-cursor nil) ;terminal
+;; enable blinking cursor
+(blink-cursor-mode 1) ;gui
+(setq visible-cursor t) ;terminal
 
 ;; pos-tip
 (use-package pos-tip)
