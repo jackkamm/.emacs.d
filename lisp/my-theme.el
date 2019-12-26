@@ -44,8 +44,6 @@
 
 ;; Themes
 
-(unless (package-installed-p 'moe-theme) (package-install 'moe-theme))
-
 (defun my-load-theme-only (this-theme)
   "Like `load-theme', but also disables previously loaded themes."
   (interactive
@@ -60,8 +58,6 @@
 (my-theme-leader
   "t" 'my-load-theme-only
   "T" 'customize-themes)
-
-(load-theme 'moe-dark t)
 
 ;; Emoji
 
