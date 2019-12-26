@@ -135,7 +135,7 @@
        "my-shell"
        "my-snippets"
 
-       "my-theme"
+       "my-appearance"
 
        "my-email-chat"
 
