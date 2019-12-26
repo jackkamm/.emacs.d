@@ -46,9 +46,20 @@
 
 (unless (package-installed-p 'moe-theme) (package-install 'moe-theme))
 
+(defun my-load-theme-only (this-theme)
+  "Like `load-theme', but also disables previously loaded themes."
+  (interactive
+   (list
+    (intern (completing-read "Load custom theme: "
+			     (mapcar 'symbol-name
+				     (custom-available-themes))))))
+  (dolist (theme custom-enabled-themes)
+    (disable-theme theme))
+  (load-theme this-theme))
+
 (my-theme-leader
-  "T" 'load-theme
-  "D" 'disable-theme)
+  "t" 'my-load-theme-only
+  "T" 'customize-themes)
 
 (load-theme 'moe-dark t)
 
