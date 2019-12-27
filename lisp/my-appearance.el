@@ -59,6 +59,16 @@
   "t" 'my-load-theme-only
   "T" 'customize-themes)
 
+;; install some nice themes
+(dolist (theme '(moe-theme
+                 zenburn-theme
+                 eziam-theme))
+  (unless (package-installed-p theme)
+    (package-install theme)))
+
+;; load default theme
+(load-theme 'zenburn t)
+
 ;; Emoji
 
 (use-package emojify
