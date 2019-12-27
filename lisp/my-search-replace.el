@@ -2,8 +2,10 @@
 (general-create-definer my-search-replace-leader :prefix-map 'my-search-map)
 (my-leader "s" '(:keymap my-search-map :which-key "Search/replace"))
 
-(my-search-replace-leader "l" 'lgrep)
-(my-search-replace-leader "r" 'rgrep)
+(my-search-replace-leader
+  "l" 'lgrep
+  "r" 'rgrep
+  "c" 'evil-ex-nohighlight)
 
 ;; wgrep
 (use-package wgrep
