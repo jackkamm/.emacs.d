@@ -10,14 +10,6 @@
   :config
   (exec-path-from-shell-initialize))
 
-(use-package keychain-environment
-  :config
-  (keychain-refresh-environment))
-
-;; For profiling startup times
-;; NOTE broken: https://github.com/jschaf/esup/issues/53
-;;(use-package esup :commands esup)
-
 ;;; emacs-lisp-mode
 (my-major-leader
   :keymaps 'emacs-lisp-mode-map
