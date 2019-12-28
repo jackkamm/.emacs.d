@@ -33,12 +33,6 @@
   "d!" 'shell-command
   "d&" 'async-shell-command)
 
-;; TODO is this still needed?
-;; workaround for https://lists.gnu.org/archive/html/bug-gnu-emacs/2019-03/msg00326.html
-(defun my-read-shell-command-advice (&rest args)
-  (setq-default comint-input-autoexpand nil))
-(advice-add 'read-shell-command :after 'my-read-shell-command-advice)
-
 ;; send lines from .sh files to *shell* buffer
 
 (require 'essh)
