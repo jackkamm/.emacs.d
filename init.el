@@ -37,6 +37,15 @@
 	    (normal-top-level-add-subdirs-to-load-path)))
 	 load-path)))
 
+;; for benchmarking startup times
+;; needs to be as early as possible in config, but after use-package
+;; see also: `emacs-init-time'
+(use-package benchmark-init
+  :disabled
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 ;; Initialize the core packages required by the rest of my config:
 ;; evil, general, which-key, hydra
 

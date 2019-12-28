@@ -22,6 +22,6 @@
   :commands (counsel-projectile counsel-projectile-grep))
 
 (use-package ivy-prescient
+  :after ivy
   :config
-  ;; TODO autoload?
   (ivy-prescient-mode))

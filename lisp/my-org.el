@@ -100,12 +100,9 @@
 
 (use-package orgit :after (org magit))
 
-;; TODO autoload
 (use-package zotxt
-  :config
-  (add-hook 'org-mode-hook 'org-zotxt-mode))
+  :hook (org-mode . org-zotxt-mode))
 
-;; TODO more clever autoload
 (use-package org-ref
   :after org
   :config
@@ -117,7 +114,6 @@
         org-ref-pdf-directory "~/Documents/bibliography/bibtex-pdfs/"))
 
 
-;; TODO autoload
 (use-package ox-reveal :after org)
 
 (use-package org-present

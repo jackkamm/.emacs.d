@@ -52,25 +52,26 @@
       (my-leader "C" 'helm-company))))
 
 (use-package company-prescient
+  :after company
   :config
-  ;; TODO autoload?
   (company-prescient-mode))
 
 ;;; Syntax checking
 
 (use-package flycheck
+  :defer 4
+  :init
+  (setq flycheck-global-modes (list 'not
+                                    ;; false positives
+                                    'emacs-lisp-mode
+                                    ;; hanging, false positives
+                                    'ess-mode)
+        ;; improve performance
+        flycheck-check-syntax-automatically '(save idle-change mode-enabled)
+        flycheck-idle-change-delay 4)
   :config
   (global-flycheck-mode)
-  (setq flycheck-global-modes
-  	(list 'not
-  	      'emacs-lisp-mode ;false positives
-  	      'ess-mode ;hanging, false positives
-	      ))
-  ;; improve performance
-  (setq flycheck-check-syntax-automatically
-  	'(save idle-change mode-enabled))
-  (setq flycheck-idle-change-delay 4)
-  ;; keybinds
+  ;; which-key
   (define-key global-map (kbd "C-c !") '("flycheck"))
   ;; nicer popup window
   (with-eval-after-load 'popwin
@@ -83,13 +84,11 @@
         popwin:special-display-config)))
 
 (use-package flycheck-pos-tip
-  :defer t
-  :init
-  (with-eval-after-load 'flycheck
-    (flycheck-pos-tip-mode)))
-
-;; TODO lazy-load this
-(use-package flycheck-package
   :after flycheck
+  :config
+  (flycheck-pos-tip-mode))
+
+(use-package flycheck-package
+  :after (flycheck elisp-mode)
   :config
   (flycheck-package-setup))

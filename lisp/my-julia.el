@@ -4,6 +4,7 @@
 
 ;; TODO put this somewhere else...
 (use-package company-math
+  :after company
   :config
   (add-hook 'ess-julia-mode-hook
             (lambda ()
