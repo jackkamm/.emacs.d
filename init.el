@@ -127,41 +127,51 @@
 ;;; Load additional configurations
 
 (mapc 'load
-      (list
-       ;; load first to ensure org-plus-contrib
-       "my-org"
+      (if (eq window-system 'w32)
+	  (list
+	   "my-helm"
+	   "my-buffers-files"
+	   "my-windows-frames"
+	   "my-lines-regions"
+	   "my-motions-jumping"
+	   "my-search-replace"
+	   "my-appearance"
+           "my-history-vc-undo")
+	(list
+	 ;; load first to ensure org-plus-contrib
+	 "my-org"
 
-       ;; completion system, only enable 1
-       "my-helm"
-       ;;"my-ivy"
+	 ;; completion system, only enable 1
+	 "my-helm"
+	 ;;"my-ivy"
 
-       "my-buffers-files" ;includes dired, diff'ing
-       "my-windows-frames"
-       "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
-       "my-motions-jumping" ;avy, easymotion
-       "my-search-replace" ;grep, swiper/swoop, iedit/mc
-       "my-history-vc-undo" ;git, undo
-       "my-ide" ;lsp, projectile, xref, company, flycheck
-       "my-tramp"
-       "my-shell"
-       "my-snippets"
+	 "my-buffers-files" ;includes dired, diff'ing
+	 "my-windows-frames"
+	 "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
+	 "my-motions-jumping" ;avy, easymotion
+	 "my-search-replace" ;grep, swiper/swoop, iedit/mc
+	 "my-history-vc-undo" ;git, undo
+	 "my-ide" ;lsp, projectile, xref, company, flycheck
+	 "my-tramp"
+	 "my-shell"
+	 "my-snippets"
 
-       "my-appearance"
+	 "my-appearance"
 
-       "my-email-chat"
+	 "my-email-chat"
 
-       ;; languages
-       "my-python"
-       ;;"my-clojure"
-       "my-literate-programming"
-       "my-R"
-       "my-julia"
-       "my-tex"
-       ;; c-c++: only enable 1 of cquery, rtags
-       ;;"my-cquery"
-       ;;"my-rtags"
+	 ;; languages
+	 "my-python"
+	 ;;"my-clojure"
+	 "my-literate-programming"
+	 "my-R"
+	 "my-julia"
+	 "my-tex"
+	 ;; c-c++: only enable 1 of cquery, rtags
+	 ;;"my-cquery"
+	 ;;"my-rtags"
 
-       ;; other miscellaneous settings
-       "my-settings"))
+	 ;; other miscellaneous settings
+	 "my-settings")))
 
 (load custom-file t)
