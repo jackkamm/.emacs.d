@@ -14,14 +14,8 @@
  "p" 'my-pop-window
  "d" 'delete-frame)
 
-(hercules-def
- :transient t
- :toggle-funs #'my-window-hydra
- :keymap 'evil-window-map)
-
 (my-leader
-  "w" '(evil-window-map :which-key "Window")
-  "W" #'my-window-hydra)
+  "w" '(evil-window-map :which-key "Window"))
 
 (bind-keys
  :map evil-window-map
