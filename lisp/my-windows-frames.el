@@ -66,4 +66,6 @@
 
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     my-display-buffer))
-      display-buffer-alist `(,(cons "\\*helm" display-buffer-fallback-action)))
+      display-buffer-alist `(,(cons "\\*helm" display-buffer-fallback-action)
+                             ("\\*help\\[R" (display-buffer-reuse-mode-window
+                                             my-display-buffer))))

@@ -10,7 +10,7 @@
   :commands R
   :init
   ;; many variables need to be set in :init to have effect
-  (setq inferior-ess-same-window nil
+  (setq ess-help-pop-to-buffer nil
         ess-indent-with-fancy-comments nil
         ess-eval-visibly 'nowait
         ess-use-flymake nil ;ess-flymake not working (7-2018)
@@ -26,12 +26,6 @@
   (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
   ;; Control which frame to display *R*
   ;; https://ess.r-project.org/Manual/ess.html#Controlling-buffer-display
-  (setq display-buffer-alist
-        (append
-         '(("*R"
-            (display-buffer-reuse-window)
-            (reusable-frames . 0)))
-         display-buffer-alist))
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
