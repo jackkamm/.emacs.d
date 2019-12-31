@@ -36,6 +36,7 @@
     (my-search-replace-leader
       "s" 'swiper
       "f" 'counsel-locate
+      "g" 'counsel-ag
       "i" 'swiper-from-isearch)))
 
 ;; visualstar

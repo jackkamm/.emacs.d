@@ -72,10 +72,10 @@
 
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     my-display-buffer))
-      display-buffer-alist '(("\\*helm"
-                              ;; see also: `helm-split-window-default-fn'
-                              (display-buffer-pop-up-window))
-                             ("\\*help\\[R" (display-buffer-reuse-mode-window
+      display-buffer-alist '(("\\*help\\[R" (display-buffer-reuse-mode-window
                                              my-display-buffer))
+                             ;;("\\*helm"
+                             ;; ;; see also: `helm-split-window-default-fn'
+                             ;; (display-buffer-pop-up-window))
                              ("magit-diff:" (my-display-buffer)
                               (inhibit-same-window . t))))
