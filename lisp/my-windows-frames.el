@@ -54,3 +54,16 @@
      :height 2.0))
 
 (setq help-window-select t)
+
+;; display-buffer customizations
+
+(defun my-display-buffer (buffer alist)
+  (require 'ace-window)
+  (require 'seq)
+  (unless (<= (length (aw-window-list)) 1)
+    (window--display-buffer
+     buffer (aw-select "my-display-buffer") 'reuse)))
+
+(setq display-buffer-base-action '((display-buffer-reuse-window
+                                    my-display-buffer))
+      display-buffer-alist `(,(cons "\\*helm" display-buffer-fallback-action)))
