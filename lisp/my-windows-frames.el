@@ -60,9 +60,6 @@
 (defun my-display-buffer (buffer alist)
   (require 'ace-window)
   (let ((aw-ignore-current (cdr (assq 'inhibit-same-window alist)))
-        ;; NOTE: aw-scope visible,global behave equivalently on my
-        ;; system. Not sure if the fault is with ace-window or i3.
-        ;; Consider switching back to always using aw-scope 'frame.
         (aw-scope (pcase (cdr (assq 'reusable-frames alist))
                     ((pred not) 'frame)
                     ('visible 'visible)
@@ -75,7 +72,9 @@
 
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     my-display-buffer))
-      display-buffer-alist `(,(cons "\\*helm" display-buffer-fallback-action)
+      display-buffer-alist '(("\\*helm"
+                              ;; see also: `helm-split-window-default-fn'
+                              (display-buffer-pop-up-window))
                              ("\\*help\\[R" (display-buffer-reuse-mode-window
                                              my-display-buffer))
                              ("magit-diff:" (my-display-buffer)
