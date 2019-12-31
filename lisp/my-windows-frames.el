@@ -59,8 +59,8 @@
 
 (defun my-display-buffer (buffer alist)
   (require 'ace-window)
-  (require 'seq)
-  (let ((aw-ignore-current (cdr (assq 'inhibit-same-window alist))))
+  (let ((aw-ignore-current (cdr (assq 'inhibit-same-window alist)))
+        (aw-scope 'frame))
     (unless (<= (length (aw-window-list)) 1)
       (window--display-buffer
        buffer (aw-select "my-display-buffer") 'reuse))))
