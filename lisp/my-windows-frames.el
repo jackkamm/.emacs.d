@@ -60,12 +60,15 @@
 (defun my-display-buffer (buffer alist)
   (require 'ace-window)
   (require 'seq)
-  (unless (<= (length (aw-window-list)) 1)
-    (window--display-buffer
-     buffer (aw-select "my-display-buffer") 'reuse)))
+  (let ((aw-ignore-current (cdr (assq 'inhibit-same-window alist))))
+    (unless (<= (length (aw-window-list)) 1)
+      (window--display-buffer
+       buffer (aw-select "my-display-buffer") 'reuse))))
 
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     my-display-buffer))
       display-buffer-alist `(,(cons "\\*helm" display-buffer-fallback-action)
                              ("\\*help\\[R" (display-buffer-reuse-mode-window
-                                             my-display-buffer))))
+                                             my-display-buffer))
+                             ("magit-diff:" (my-display-buffer)
+                              (inhibit-same-window . t))))
