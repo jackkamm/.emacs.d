@@ -60,8 +60,16 @@
 (defun my-display-buffer (buffer alist)
   (require 'ace-window)
   (let ((aw-ignore-current (cdr (assq 'inhibit-same-window alist)))
-        (aw-scope 'frame))
-    (unless (<= (length (aw-window-list)) 1)
+        ;; NOTE: aw-scope visible,global behave equivalently on my
+        ;; system. Not sure if the fault is with ace-window or i3.
+        ;; Consider switching back to always using aw-scope 'frame.
+        (aw-scope (pcase (cdr (assq 'reusable-frames alist))
+                    ((pred not) 'frame)
+                    ('visible 'visible)
+                    ((or 0 (pred (eql t))) 'global)
+                    (_ nil))))
+    (unless (or (<= (length (aw-window-list)) 1)
+                (not aw-scope))
       (window--display-buffer
        buffer (aw-select "my-display-buffer") 'reuse))))
 
