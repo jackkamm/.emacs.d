@@ -73,7 +73,9 @@
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     my-display-buffer))
       display-buffer-alist '(("\\*help\\[R" (display-buffer-reuse-mode-window
-                                             my-display-buffer))
+                                             my-display-buffer)
+                              (reusable-frames . nil))
+                             ("\\*R" nil (reusable-frames . nil))
                              ;;("\\*helm"
                              ;; ;; see also: `helm-split-window-default-fn'
                              ;; (display-buffer-pop-up-window))
