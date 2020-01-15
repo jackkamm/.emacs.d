@@ -47,6 +47,7 @@
    ("SPC" . ace-select-window)
    ("D" . ace-delete-window)
    ("M" . ace-swap-window))
+  :commands ace-display-buffer
   :config
   (set-face-attribute
      'aw-leading-char-face nil
@@ -57,25 +58,12 @@
 
 ;; display-buffer customizations
 
-(defun my-display-buffer (buffer alist)
-  (require 'ace-window)
-  (let ((aw-ignore-current (cdr (assq 'inhibit-same-window alist)))
-        (aw-scope (pcase (cdr (assq 'reusable-frames alist))
-                    ((pred not) 'frame)
-                    ('visible 'visible)
-                    ((or 0 (pred (eql t))) 'global)
-                    (_ nil))))
-    (unless (or (<= (length (aw-window-list)) 1)
-                (not aw-scope))
-      (window--display-buffer
-       buffer (aw-select "my-display-buffer") 'reuse))))
-
 (setq display-buffer-base-action '((display-buffer-reuse-window
-                                    my-display-buffer))
+                                    ace-display-buffer))
       display-buffer-alist '(("\\*help\\[R" (display-buffer-reuse-mode-window
-                                             my-display-buffer))
-                             ;;("\\*helm"
-                             ;; ;; see also: `helm-split-window-default-fn'
-                             ;; (display-buffer-pop-up-window))
-                             ("magit-diff:" (my-display-buffer)
+                                             ace-display-buffer))
+                             ("\\*helm"
+                              ;; see also: `helm-split-window-default-fn'
+                              (display-buffer-pop-up-window))
+                             ("magit-diff:" (ace-display-buffer)
                               (inhibit-same-window . t))))
