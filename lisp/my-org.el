@@ -17,7 +17,7 @@
    org-return-follows-link t
    org-tags-column 0
    org-agenda-tags-column 0
-   org-src-window-setup 'current-window
+   org-src-window-setup 'reorganize-frame
 
    ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
    org-catch-invisible-edits 'show-and-error
