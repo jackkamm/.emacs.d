@@ -67,5 +67,5 @@
                              ("\\*helm"
                               ;; see also: `helm-split-window-default-fn'
                               (display-buffer-pop-up-window))
-                             ("magit-diff:" (ace-display-buffer)
+                             ("magit-diff:" nil
                               (inhibit-same-window . t))))
