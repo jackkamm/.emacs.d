@@ -71,7 +71,7 @@
     (setq action-map (nreverse action-map))
     (notmuch-jump action-map "Filter: ")))
   (bind-keys :map notmuch-search-mode-map
-             ("J" . my-notmuch-search-filter-jump)))
+             ("L" . my-notmuch-search-filter-jump)))
 
 (use-package org-notmuch
   :ensure org-plus-contrib
