@@ -42,7 +42,8 @@
   :config
   (setq notmuch-search-oldest-first nil
         notmuch-wash-wrap-lines-length 80
-        notmuch-mua-compose-in 'new-window)
+        notmuch-mua-compose-in 'new-window
+        notmuch-always-prompt-for-sender t)
 
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
