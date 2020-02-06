@@ -45,7 +45,23 @@
         notmuch-mua-compose-in 'new-window)
 
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
-  (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check))
+  (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
+
+  ;; TODO: submit this functionality to notmuch?
+  (defun my-notmuch-search-filter-jump ()
+    (interactive)
+    (let ((notmuch-saved-searches
+           (mapcar (lambda (saved-search)
+                     (plist-put (copy-seq saved-search) :query
+                                (concat (notmuch-group-disjunctive-query-string
+                                         (plist-get saved-search :query))
+                                        " and "
+                                        (notmuch-group-disjunctive-query-string
+                                         (notmuch-search-get-query)))))
+                   notmuch-saved-searches)))
+      (notmuch-jump-search)))
+  (bind-keys :map notmuch-search-mode-map
+             ("J" . my-notmuch-search-filter-jump)))
 
 (use-package org-notmuch
   :ensure org-plus-contrib
