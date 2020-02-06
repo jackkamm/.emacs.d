@@ -49,8 +49,8 @@
 
   ;; originally based on `notmuch-jump-search'
   ;; TODO: submit this functionality to notmuch?
-  (defun my-notmuch-search-filter-jump ()
-    (interactive)
+  (defun my-notmuch-search-filter-jump (negate)
+    (interactive "P")
     (let (action-map)
     (dolist (saved-search notmuch-saved-searches)
       (let* ((saved-search (notmuch-hello-saved-search-to-plist saved-search))
@@ -58,9 +58,16 @@
 	(when key
 	  (let ((name (plist-get saved-search :name))
 		(query (plist-get saved-search :query)))
-	    (push (list key name
-                        `(lambda () (notmuch-search-filter ',query)))
-		  action-map)))))
+	    (push
+             (list key name
+                   `(lambda ()
+                      (notmuch-search-filter
+                       ',(if negate
+                             (concat "not "
+                                     (notmuch-group-disjunctive-query-string
+                                      query))
+                           query))))
+             action-map)))))
     (setq action-map (nreverse action-map))
     (notmuch-jump action-map "Filter: ")))
   (bind-keys :map notmuch-search-mode-map
