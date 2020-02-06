@@ -36,6 +36,7 @@
   '(operators
     c-w
     slurp/barf-lispy
+    additional
     additional-movement))
  ;; get rid of keys I don't like in additional-motion
  (evil-define-key 'motion lispyville-mode-map
