@@ -47,19 +47,22 @@
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
 
+  ;; originally based on `notmuch-jump-search'
   ;; TODO: submit this functionality to notmuch?
   (defun my-notmuch-search-filter-jump ()
     (interactive)
-    (let ((notmuch-saved-searches
-           (mapcar (lambda (saved-search)
-                     (plist-put (copy-seq saved-search) :query
-                                (concat (notmuch-group-disjunctive-query-string
-                                         (plist-get saved-search :query))
-                                        " and "
-                                        (notmuch-group-disjunctive-query-string
-                                         (notmuch-search-get-query)))))
-                   notmuch-saved-searches)))
-      (notmuch-jump-search)))
+    (let (action-map)
+    (dolist (saved-search notmuch-saved-searches)
+      (let* ((saved-search (notmuch-hello-saved-search-to-plist saved-search))
+	     (key (plist-get saved-search :key)))
+	(when key
+	  (let ((name (plist-get saved-search :name))
+		(query (plist-get saved-search :query)))
+	    (push (list key name
+                        `(lambda () (notmuch-search-filter ',query)))
+		  action-map)))))
+    (setq action-map (nreverse action-map))
+    (notmuch-jump action-map "Filter: ")))
   (bind-keys :map notmuch-search-mode-map
              ("J" . my-notmuch-search-filter-jump)))
 
