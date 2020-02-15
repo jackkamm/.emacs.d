@@ -19,6 +19,7 @@
    org-agenda-tags-column 0
    org-src-window-setup 'plain
    org-table-header-line-p t
+   org-display-remote-inline-images 'cache
 
    ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
    org-catch-invisible-edits 'show-and-error
