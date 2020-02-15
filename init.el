@@ -9,9 +9,11 @@
 
 ;; Initialize packages
 (require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+(customize-set-variable 'package-enable-at-startup nil)
+(customize-set-variable 'package-archives
+                        '(("org" . "http://orgmode.org/elpa/")
+                          ("melpa" . "https://melpa.org/packages/")
+                          ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 
@@ -24,8 +26,8 @@
   (require 'use-package))
 (require 'bind-key)
 
-(setq use-package-always-ensure t
-      use-package-verbose t)
+(customize-set-variable 'use-package-always-ensure t)
+(customize-set-variable 'use-package-verbose t)
 
 ;; Set up load path
 (let ((default-directory (concat user-emacs-directory "lisp/")))
@@ -49,18 +51,17 @@
 
 ;; evil
 (use-package evil
-  :init
-  (setq
-   evil-search-module 'evil-search
-   evil-overriding-maps nil
-   evil-intercept-maps nil
-   evil-want-keybinding nil
-   evil-want-C-u-scroll t
-   evil-want-C-i-jump nil            ;allow org-mode TAB in terminal
-   evil-symbol-word-search t
-   evil-respect-visual-line-mode t
-   ;; make emacs- and insert-states identical
-   evil-disable-insert-state-bindings t)
+  :custom
+  (evil-search-module 'evil-search)
+  (evil-overriding-maps nil)
+  (evil-intercept-maps nil)
+  (evil-want-keybinding nil)
+  (evil-want-C-u-scroll t)
+  (evil-want-C-i-jump nil)            ;allow org-mode TAB in terminal
+  (evil-symbol-word-search t)
+  (evil-respect-visual-line-mode t)
+  ;; make emacs- and insert-states identical
+  (evil-disable-insert-state-bindings t)
   :config
   ;; get rid of motion state everywhere
   (defalias 'evil-motion-state 'evil-insert-state)
@@ -86,9 +87,9 @@
 
 ;; which-key
 (use-package which-key
-  :init
-  (setq which-key-sort-order 'which-key-key-order-alpha
-        which-key-enable-extended-define-key t)
+  :custom
+  (which-key-sort-order 'which-key-key-order-alpha)
+  (which-key-enable-extended-define-key t)
   :config
   (which-key-mode))
 
