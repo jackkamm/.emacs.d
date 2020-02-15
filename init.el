@@ -2,8 +2,10 @@
 (require 'server)
 (unless (server-running-p) (server-start))
 
-;; Set custom file
-(setq custom-file (concat user-emacs-directory "custom.el"))
+;; Set custom-file as early as possible, to prevent any possibility of
+;; Custom writing to init.el. However, don't load it yet -- make sure
+;; `load-path' has been properly set before doing any configurations
+(customize-set-variable 'custom-file (concat user-emacs-directory "custom.el"))
 
 ;; Initialize packages
 (require 'package)
@@ -37,6 +39,10 @@
 	     (normal-top-level-add-to-load-path '(".")))
 	    (normal-top-level-add-subdirs-to-load-path)))
 	 load-path)))
+
+;; Load custom-file now, before any other configurations, to try and
+;; prevent it from clobbering other settings
+(load custom-file t)
 
 ;; Initialize the core packages required by the rest of my config:
 ;; evil, general, which-key, hydra
@@ -167,4 +173,4 @@
 	 ;; other miscellaneous settings
 	 "my-settings")))
 
-(load custom-file t)
+(load (concat user-emacs-directory "post-init.el") t)
