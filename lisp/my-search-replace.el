@@ -35,6 +35,7 @@
     :general
     (my-search-replace-leader
       "s" 'swiper
+      "S" 'swiper-all
       "f" 'counsel-locate
       "g" 'counsel-ag
       "i" 'swiper-from-isearch)))
