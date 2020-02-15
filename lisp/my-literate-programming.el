@@ -61,6 +61,7 @@
      (julia . t)
      (sql . t)
      (sqlite . t)
+     (ruby . t)
      ;;(emamux . t)
      (emacs-lisp . t)
      (shell . t)
