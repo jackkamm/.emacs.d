@@ -65,18 +65,7 @@
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
     (setq org-latex-pdf-process
-          (list "latexmk -shell-escape -bibtex -f -pdf %f"))
-
-    ;; FIXME temporary workaround:
-    ;; https://github.com/josephwright/beamer/issues/572
-    ;; https://bitbucket.org/martin_scharrer/filehook/issues/1/latex-will-change-definition-of
-    ;; https://orgmode.org/worg/exporters/beamer/ox-beamer.html
-    (add-to-list 'org-latex-classes
-             '("beamer"
-               "\\documentclass\[serif\]\{beamer\}"
-               ("\\section\{%s\}" . "\\section*\{%s\}")
-               ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
-               ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}"))))
+          (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
   ;; ediff
   ;; https://emacs.stackexchange.com/questions/21335/prevent-folding-org-files-opened-by-ediff
