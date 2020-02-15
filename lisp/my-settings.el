@@ -52,3 +52,6 @@
 
 (use-package ledger-mode
   :mode (("\\.ledger\\'" . ledger-mode)))
+
+(use-package pkgbuild-mode
+  :mode (("PKGBUILD\\'" . pkgbuild-mode)))
