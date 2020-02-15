@@ -13,6 +13,3 @@
 [submodule "lisp/org-gcal.el"]
 	path = lisp/org-gcal.el
 	url = git@github.com:jackkamm/org-gcal.el
-[submodule "lisp/ace-window"]
-	path = lisp/ace-window
-	url = git@github.com:jackkamm/ace-window.git
