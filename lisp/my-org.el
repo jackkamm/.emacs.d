@@ -1,7 +1,3 @@
-;; org-plus-contrib
-(add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/"))
-
 (use-package org
   :ensure org-plus-contrib
   :mode ("\\.org\\'" . org-mode)
