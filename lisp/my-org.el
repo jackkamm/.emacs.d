@@ -10,6 +10,7 @@
     "oa" 'org-agenda)
   :init
   (setq
+   org-fontify-done-headline nil
    org-return-follows-link t
    org-tags-column 0
    org-agenda-tags-column 0
