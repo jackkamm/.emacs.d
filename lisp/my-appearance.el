@@ -20,6 +20,9 @@
 ;;;; make the cursor more visible
 ;;(global-hl-line-mode 1)
 
+;; workaround: in server mode, cursor doesn't blink by default
+(blink-cursor-mode 1)
+
 ;; pos-tip
 (use-package pos-tip)
 
