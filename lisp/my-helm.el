@@ -1,7 +1,6 @@
 (use-package helm
-  :init
-  (setq helm-ff-lynx-style-map nil
-        helm-split-window-default-side 'other)
+  :custom
+  (helm-split-window-default-side 'other)
   :config
   (require 'helm-config)
   (helm-mode 1)
