@@ -29,8 +29,8 @@
   "winner"
   ("u" winner-undo)
   ("U" winner-redo)
-  ("w" evil-window-next)
-  ("W" evil-window-prev))
+  ("o" evil-window-next)
+  ("O" evil-window-prev))
 
 (bind-keys
  :map evil-window-map
@@ -38,13 +38,13 @@
  ("d" . delete-window)
  ("u" . my-winner-hydra/winner-undo)
  ("U" . my-winner-hydra/winner-redo)
- ("w" . my-winner-hydra/evil-window-next)
- ("W" . my-winner-hydra/evil-window-prev))
+ ("o" . my-winner-hydra/evil-window-next)
+ ("O" . my-winner-hydra/evil-window-prev))
 
 (use-package ace-window
   :bind
   (:map evil-window-map
-   ("SPC" . ace-select-window)
+   ("w" . ace-select-window)
    ("D" . ace-delete-window)
    ("M" . ace-swap-window))
   :commands ace-display-buffer
