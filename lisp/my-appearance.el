@@ -61,8 +61,8 @@
   (unless (package-installed-p theme)
     (package-install theme)))
 
-;; load default theme
-(load-theme 'moe-dark t)
+;;;; load default theme
+;;(load-theme 'moe-dark t)
 
 ;; Emoji
 
