@@ -122,4 +122,8 @@
   (use-package helm-org-rifle
     :general
     (my-leader
-      "os" 'helm-org-rifle)))
+      "os" 'helm-org-rifle)
+    :config
+    ;; Needed to avoid the error (void-function org-get-outline-path)
+    ;; TODO file an issue with helm-org-rifle
+    (require 'org-refile)))
