@@ -64,8 +64,8 @@
                                              ace-display-buffer)
                               (reusable-frames . nil))
                              ("\\*R" nil (reusable-frames . nil))
-                             ("\\*helm"
-                              ;; see also: `helm-split-window-default-fn'
-                              (display-buffer-pop-up-window))
+                             ;;("\\*helm"
+                             ;; ;; see also: `helm-split-window-default-fn'
+                             ;; (display-buffer-pop-up-window))
                              ("magit-diff:" nil
                               (inhibit-same-window . t))))

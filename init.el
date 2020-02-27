@@ -128,8 +128,8 @@
 (mapc 'load
       (if (eq window-system 'w32)
 	  (list
-	   ;;"my-helm"
-           "my-ivy"
+	   "my-helm"
+           ;;"my-ivy"
 	   "my-buffers-files"
 	   "my-windows-frames"
 	   "my-lines-regions"
@@ -142,8 +142,8 @@
 	 "my-org"
 
 	 ;; completion system, only enable 1
-	 ;;"my-helm"
-	 "my-ivy"
+	 "my-helm"
+	 ;;"my-ivy"
 
 	 "my-buffers-files" ;includes dired, diff'ing
 	 "my-windows-frames"

@@ -23,7 +23,8 @@
 	       helm-ag-buffers
 	       helm-do-ag-buffers)
     :general (my-search-replace-leader
-	       "g" 'helm-do-ag))
+	       "g" 'helm-do-grep-ag
+               "S" 'helm-do-ag-buffers))
 
   (use-package helm-swoop
     :general (my-search-replace-leader
