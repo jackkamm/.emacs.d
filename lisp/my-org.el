@@ -8,26 +8,24 @@
     "ob" 'org-revert-all-org-buffers
     "oc" 'org-capture
     "oa" 'org-agenda)
-  :init
-  (setq
-   org-fontify-done-headline nil
-   org-return-follows-link t
-   org-tags-column 0
-   org-agenda-tags-column 0
-   org-src-window-setup 'plain
-   ;;org-table-header-line-p t
-   org-display-remote-inline-images 'cache
+  :custom
+  (org-fontify-done-headline nil)
+  (org-return-follows-link t)
+  (org-tags-column 0)
+  (org-agenda-tags-column 0)
+  (org-src-window-setup 'plain)
+  ;;(org-table-header-line-p t)
+  (org-display-remote-inline-images 'cache)
 
-   ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
-   org-catch-invisible-edits 'show-and-error
-   org-cycle-separator-lines 0
+  ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
+  (org-catch-invisible-edits 'show-and-error)
+  (org-cycle-separator-lines 0)
 
-   org-deadline-warning-days 30
-   org-agenda-start-on-weekday nil
+  (org-deadline-warning-days 30)
+  (org-agenda-start-on-weekday nil)
 
-   org-refile-use-outline-path 'file
-   org-outline-path-complete-in-steps nil)
-  ;;:custom
+  (org-refile-use-outline-path 'file)
+  (org-outline-path-complete-in-steps nil)
   ;;(org-goto-interface 'outline-path-completion)
 
   ;; NOTE org-reverse-note-order is bugged: if file starts with
