@@ -60,12 +60,10 @@
 
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     ace-display-buffer))
-      display-buffer-alist '(("\\*help\\[R" (display-buffer-reuse-mode-window
+      display-buffer-alist `(("\\*help\\[R" (display-buffer-reuse-mode-window
                                              ace-display-buffer)
                               (reusable-frames . nil))
                              ("\\*R" nil (reusable-frames . nil))
-                             ;;("\\*helm"
-                             ;; ;; see also: `helm-split-window-default-fn'
-                             ;; (display-buffer-pop-up-window))
+                             ,(cons "\\*helm" display-buffer-fallback-action)
                              ("magit-diff:" nil
                               (inhibit-same-window . t))))
