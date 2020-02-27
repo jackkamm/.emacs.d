@@ -17,8 +17,8 @@
   :general
   (my-leader "tM" 'minimap-mode))
 
-;; make the cursor more visible
-(global-hl-line-mode 1)
+;;;; make the cursor more visible
+;;(global-hl-line-mode 1)
 
 ;; pos-tip
 (use-package pos-tip)
