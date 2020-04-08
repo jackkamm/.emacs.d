@@ -15,7 +15,8 @@
         ess-eval-visibly 'nowait
         ess-use-flymake nil ;ess-flymake not working (7-2018)
         ess-smart-S-assign-key nil
-        ess-style 'RStudio)
+        ess-style 'RStudio
+        ess-eval-visibly-p nil)
   :config
   ;; HACK Setting ess-style globally doesn't work in org src buffers
   ;; TODO File an issue with ESS
