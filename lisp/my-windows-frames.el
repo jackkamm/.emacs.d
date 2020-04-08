@@ -58,12 +58,26 @@
 
 ;; display-buffer customizations
 
+(defun my-ace-display-buffer-2 (buffer alist)
+  (let ((aw-dispatch-always t))
+    (ace-display-buffer buffer alist)))
+
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     ace-display-buffer))
       display-buffer-alist `(("\\*help\\[R" (display-buffer-reuse-mode-window
                                              ace-display-buffer)
                               (reusable-frames . nil))
                              ("\\*R" nil (reusable-frames . nil))
-                             ,(cons "\\*helm" display-buffer-fallback-action)
+                             ("\\*Org Src" (display-buffer-reuse-window
+                                            my-ace-display-buffer-2)
+                              (inhibit-same-window . nil))
+                             ;; TODO this doesn't work because
+                             ;; org-mode sets display-buffer-alist nil
+                             ;; before popping up this buffer
+                             ("\\*Org Select" (display-buffer-pop-up-window))
+                             ;;,(cons "\\*helm" display-buffer-fallback-action)
+                             ("\\*helm"
+                              ;; see also: `helm-split-window-default-fn'
+                              (display-buffer-pop-up-window))
                              ("magit-diff:" nil
                               (inhibit-same-window . t))))
