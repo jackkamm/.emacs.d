@@ -33,6 +33,11 @@
   ;; TODO minimal reproducible example + bug report
   ;; (org-reverse-note-order t)
   :config
+  ;; use <s-TAB to create source blocks
+  ;; TODO: add to org-modules instead of requiring?
+  ;; TODO: remove after fixing C-c C-, display-buffer issues
+  (require 'org-tempo)
+
   ;; Indentation
   (setq org-adapt-indentation nil)
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
