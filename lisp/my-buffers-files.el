@@ -12,7 +12,8 @@
  "#" 'server-edit
  "c" 'clone-indirect-buffer
  "m" 'buffer-menu
- "M" 'buffer-menu-other-window)
+ "M" 'buffer-menu-other-window
+ "o" 'switch-to-buffer-other-window)
 
 (with-eval-after-load "my-helm"
   (my-buffers-leader
@@ -30,7 +31,8 @@
 
 (my-files-leader
  "s" 'save-some-buffers
- "c" 'write-file)
+ "c" 'write-file
+ "o" 'find-file-other-window)
 
 (with-eval-after-load "my-helm"
   (my-files-leader
