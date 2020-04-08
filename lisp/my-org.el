@@ -28,6 +28,9 @@
   (org-outline-path-complete-in-steps nil)
   ;;(org-goto-interface 'outline-path-completion)
 
+  ;; to resize inline images
+  (org-image-actual-width nil)
+
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
