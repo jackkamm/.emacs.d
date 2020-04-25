@@ -43,8 +43,9 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc"))
 
-(use-package groovy-mode
-  :mode (("\\.nf\\'" . groovy-mode)))
+(use-package nextflow-mode
+  :ensure nil
+  :mode (("\\.nf\\'" . nextflow-mode)))
 
 (use-package yaml-mode
   :mode (("\\.yml\\'" . yaml-mode)

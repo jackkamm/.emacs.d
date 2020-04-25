@@ -16,3 +16,6 @@
 [submodule "lisp/org-mode"]
 	path = lisp/org-mode
 	url = git@code.orgmode.org:jackkamm/org-mode.git
+[submodule "lisp/nextflow-mode"]
+	path = lisp/nextflow-mode
+	url = git@github.com:jackkamm/nextflow-mode.git
