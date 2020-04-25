@@ -1,5 +1,5 @@
 (use-package org
-  :ensure org-plus-contrib
+  :ensure nil
   :mode ("\\.org\\'" . org-mode)
   :general
   (my-leader
@@ -36,13 +36,8 @@
   ;; TODO minimal reproducible example + bug report
   ;; (org-reverse-note-order t)
   :config
-  ;; use <s-TAB to create source blocks
-  ;; TODO: add to org-modules instead of requiring?
-  ;; TODO: remove after fixing C-c C-, display-buffer issues
-  (require 'org-tempo)
-
   ;; Indentation
-  (setq org-adapt-indentation nil)
+  (customize-set-variable 'org-adapt-indentation nil)
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
 
   ;; Truncate long lines so tables aren't misaligned
@@ -57,18 +52,20 @@
   ;; Agenda, refile, capture, archive
   (add-to-list 'org-agenda-files "~/org")
 
-  (setq org-clock-idle-time 10)
+  (customize-set-variable 'org-clock-idle-time 10)
 
-  (setq org-refile-targets '((nil :maxlevel . 9)
-                             (org-agenda-files :maxlevel . 9)))
+  (customize-set-variable
+   'org-refile-targets
+   '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
 
-  (setq org-capture-templates
-        '(("c" "capture" entry (file "inbox.org")
-           "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
+  (customize-set-variable
+   'org-capture-templates
+   '(("c" "capture" entry (file "inbox.org")
+      "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
 
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
-    (setq org-latex-pdf-process
+    (customize-set-variable 'org-latex-pdf-process
           (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
   ;; ediff
@@ -89,6 +86,23 @@
     "a" 'org-archive-to-archive-sibling
     ;; C-c C-, can't be typed in a terminal
     "," 'org-insert-structure-template))
+
+;;; Load modules distributed with org-mode, that need to be loaded
+;;; separately. Could alternatively use `require' or `org-modules',
+;;; but "we should get rid of org-modules altogether now that Emacs
+;;; has a packaging system"
+;;; (https://lists.gnu.org/archive/html/emacs-orgmode/2020-02/msg00714.html)
+
+(use-package ol-notmuch
+  :ensure nil
+  :after org)
+
+;; TODO: remove after fixing C-c C-, display-buffer issues
+(use-package org-tempo
+  :ensure nil
+  :after org)
+
+;;; Load packages related to org-mode
 
 (use-package evil-org
   :after org
@@ -118,7 +132,6 @@
   (setq org-ref-bibliography-notes "~/Documents/bibliography/notes.org"
         org-ref-default-bibliography '("~/Documents/bibliography/zotero.bib")
         org-ref-pdf-directory "~/Documents/bibliography/bibtex-pdfs/"))
-
 
 (use-package ox-reveal :after org)
 

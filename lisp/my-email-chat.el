@@ -74,10 +74,6 @@
   (bind-keys :map notmuch-search-mode-map
              ("L" . my-notmuch-search-filter-jump)))
 
-(use-package org-notmuch
-  :ensure org-plus-contrib
-  :after (org notmuch))
-
 (use-package gnus
   :defer t
   :commands gnus
