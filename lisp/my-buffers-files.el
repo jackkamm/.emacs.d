@@ -23,6 +23,8 @@
   (my-buffers-leader
     "b" 'ivy-switch-buffer))
 
+(customize-set-variable 'Buffer-menu-name-width 60)
+
 ;; Files
 
 (setq my-files-map (make-sparse-keymap))
