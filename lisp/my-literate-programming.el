@@ -83,6 +83,10 @@
   :ensure nil
   :after org)
 
+(use-package ob-session-async-python
+  :ensure nil
+  :after org)
+
 (use-package polymode
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
 	 ("\\.Rmd" . poly-markdown+r-mode))
