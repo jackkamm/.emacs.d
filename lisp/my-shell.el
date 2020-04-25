@@ -78,4 +78,15 @@
    ("r" . emamux:send-region)
    ("l" . my-emamux-send-line)
    ("b" . my-emamux-send-buffer)
-   ("y" . my-emamux-yank)))
+   ("y" . my-emamux-yank))
+
+  (with-eval-after-load 'polymode
+    (defun my-emamux-send-chunk ()
+      (interactive)
+      (deactivate-mark)
+      (polymode-mark-or-extend-chunk)
+      (emamux:send-region (region-beginning) (region-end))
+      (deactivate-mark))
+    (bind-keys
+     :map emamux:keymap
+     ("c" . my-emamux-send-chunk))))
