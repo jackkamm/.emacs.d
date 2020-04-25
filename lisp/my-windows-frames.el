@@ -65,7 +65,7 @@
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     ace-display-buffer))
       display-buffer-alist `(("\\*help\\[R" (display-buffer-reuse-mode-window
-                                             ace-display-buffer)
+                                             my-ace-display-buffer-2)
                               (reusable-frames . nil))
                              ("\\*R" nil (reusable-frames . nil))
                              ("\\*Org Src" (display-buffer-reuse-window
