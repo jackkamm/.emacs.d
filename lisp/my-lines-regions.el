@@ -47,17 +47,7 @@
   :commands rainbow-delimiters-mode
   :init
   (with-eval-after-load "my-appearance"
-    (my-theme-leader "r" 'rainbow-delimiters-mode))
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  (cl-loop for i from 1 to 9
-           for col = (x-get-resource (concat "color" (number-to-string i))
-                                     "Emacs")
-           until (not col)
-           do
-           (custom-set-faces
-            `(,(intern (format "rainbow-delimiters-depth-%d-face" i))
-              ((t (:foreground ,col :bold t)))))))
+    (my-theme-leader "r" 'rainbow-delimiters-mode)))
 
 ;; Regions
 
