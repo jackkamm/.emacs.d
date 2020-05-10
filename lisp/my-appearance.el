@@ -57,12 +57,14 @@
 
 ;; install some nice themes
 (dolist (theme '(moe-theme
-                 eziam-theme))
+                 eziam-theme
+                 zenburn-theme))
   (unless (package-installed-p theme)
     (package-install theme)))
 
 ;;;; load default theme
 ;;(load-theme 'moe-dark t)
+;;(load-theme 'zenburn t)
 
 ;; Emoji
 
