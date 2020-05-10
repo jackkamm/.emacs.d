@@ -31,6 +31,8 @@
   ;; to resize inline images
   (org-image-actual-width nil)
 
+  (org-priority-lowest ?D)
+
   (org-log-done 'time)
   (org-log-done-with-time nil)
   (org-agenda-start-with-log-mode t)
