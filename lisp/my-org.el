@@ -31,6 +31,10 @@
   ;; to resize inline images
   (org-image-actual-width nil)
 
+  (org-log-done 'time)
+  (org-log-done-with-time nil)
+  (org-agenda-start-with-log-mode t)
+
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
