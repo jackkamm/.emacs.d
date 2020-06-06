@@ -86,6 +86,10 @@
         (org-toggle-inline-images))))
   (add-hook 'ediff-prepare-buffer-hook 'my-org-ediff-hook)
 
+  (defhydra my-org-cycle-hydra ()
+    "org-cycle"
+    ("<tab>" org-force-cycle-archived))
+
   ;; bind major keys
   (my-major-leader
     :keymaps 'org-mode-map
@@ -93,6 +97,7 @@
     "t" 'org-toggle-inline-images
     "e" 'org-export-dispatch
     "a" 'org-archive-to-archive-sibling
+    (kbd "<tab>") 'my-org-cycle-hydra/org-force-cycle-archived
     ;; C-c C-, can't be typed in a terminal
     "," 'org-insert-structure-template))
 
