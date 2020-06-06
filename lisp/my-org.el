@@ -37,6 +37,8 @@
   (org-log-done 'time)
   (org-log-done-with-time nil)
   (org-agenda-start-with-log-mode t)
+  (org-agenda-skip-scheduled-if-done t)
+  (org-agenda-skip-deadline-if-done t)
 
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
