@@ -38,9 +38,8 @@
         (setq list (cdr list)))
       (if (eq list my-undo-register)
           (when (> nnil 0)
-            ;; prevent continuing undo
-            (setq last-command this-command)
-            (undo nnil)
+            (let ((last-command nil)) ;prevent continuing undo
+              (undo nnil))
             (setq my-undo-register orig-list))
         (message "Failed to find saved location in undo-history.")))
     (message "No saved undo-history (did you forget to call `my-undo-save'?)")))
