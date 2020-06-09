@@ -6,6 +6,9 @@
   (global-undo-tree-mode -1)
   (evil-define-key 'normal 'global "u" 'undo-only))
 
+;; access undo-only from visual/insert state
+(define-key global-map (kbd "C-x u") 'undo-only)
+
 ;;(use-package undo-propose
 ;;  :ensure nil
 ;;  :general
