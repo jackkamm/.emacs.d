@@ -21,14 +21,28 @@
 
 (defvar-local my-undo-checkpoint nil)
 
+(defun my-undo-checkpoint-buffer (body pos)
+  (let ((buf (get-buffer-create (concat  "*Undo Checkpoint: "
+                                         (buffer-name) "*"))))
+    (with-current-buffer buf
+      (setq buffer-read-only nil)
+      (erase-buffer)
+      (insert body)
+      (goto-char pos)
+      (setq buffer-read-only t))
+    (display-buffer buf)))
+
 (defun my-undo-save ()
   (interactive)
-  (setq my-undo-checkpoint buffer-undo-list))
+  (setq my-undo-checkpoint buffer-undo-list)
+  (my-undo-checkpoint-buffer (buffer-string) (point)))
 
 (defun my-undo-jump ()
   (interactive)
   (if my-undo-checkpoint
     (let* ((nnil 0)
+           (orig-body (buffer-string))
+           (orig-pos (point))
            (orig-list buffer-undo-list)
            (list orig-list))
       (while (not (or (eq list nil)
@@ -40,12 +54,10 @@
           (when (> nnil 0)
             (let (last-command) ;prevent continuing undo
               (undo nnil))
-            (setq my-undo-checkpoint orig-list))
+            (setq my-undo-checkpoint orig-list)
+            (my-undo-checkpoint-buffer orig-body orig-pos))
         (message "Failed to find saved location in undo-history.")))
     (message "No saved undo-history (did you forget to call `my-undo-save'?)")))
-
-;; TODO: Functionality that pops up the buffer corresponding to
-;; my-undo-checkpoint in a side-by-side window for easy reference
 
 (my-leader
   "U" '(:ignore t :which-key "Undo")
