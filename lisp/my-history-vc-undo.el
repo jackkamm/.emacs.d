@@ -55,12 +55,17 @@
         (setq list (cdr list)))
       (if (eq list my-undo-checkpoint)
           (when (> nnil 0)
-            (let (last-command) ;prevent continuing undo
-              (undo nnil))
+            (let (last-command) ;don't continue previous undo
+              (dotimes (_ nnil)
+                (undo)
+                ;; allow redo'ing individual steps later
+                (undo-boundary)
+                ;; continue the undo in subsequent iterations
+                (setq last-command 'undo)))
             (setq my-undo-checkpoint orig-list)
             (my-undo-checkpoint-buffer orig-body orig-pos))
-        (message "Failed to find saved location in undo-history.")))
-    (message "No saved undo-history (did you forget to call `my-undo-save'?)")))
+        (message "Checkpoint not in undo history (consider increasing `undo-limit').")))
+    (message "No undo checkpoint (did you forget to call `my-undo-save'?)")))
 
 (my-leader
   "U" '(:ignore t :which-key "Undo")
