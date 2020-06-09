@@ -19,33 +19,33 @@
 ;; with `undo-only'), and also swapping places in the undo-history is
 ;; a nice feature of `my-undo-jump'
 
-(defvar-local my-undo-register nil)
+(defvar-local my-undo-checkpoint nil)
 
 (defun my-undo-save ()
   (interactive)
-  (setq my-undo-register buffer-undo-list))
+  (setq my-undo-checkpoint buffer-undo-list))
 
 (defun my-undo-jump ()
   (interactive)
-  (if my-undo-register
+  (if my-undo-checkpoint
     (let* ((nnil 0)
            (orig-list buffer-undo-list)
            (list orig-list))
       (while (not (or (eq list nil)
-                      (eq list my-undo-register)))
+                      (eq list my-undo-checkpoint)))
         (when (eq (car list) nil)
           (setq nnil (+ nnil 1)))
         (setq list (cdr list)))
-      (if (eq list my-undo-register)
+      (if (eq list my-undo-checkpoint)
           (when (> nnil 0)
             (let (last-command) ;prevent continuing undo
               (undo nnil))
-            (setq my-undo-register orig-list))
+            (setq my-undo-checkpoint orig-list))
         (message "Failed to find saved location in undo-history.")))
     (message "No saved undo-history (did you forget to call `my-undo-save'?)")))
 
 ;; TODO: Functionality that pops up the buffer corresponding to
-;; my-undo-register in a side-by-side window for easy reference
+;; my-undo-checkpoint in a side-by-side window for easy reference
 
 (my-leader
   "U" '(:ignore t :which-key "Undo")
