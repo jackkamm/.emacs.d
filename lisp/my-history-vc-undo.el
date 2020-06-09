@@ -21,16 +21,19 @@
 
 (defvar-local my-undo-checkpoint nil)
 
+(setq my-undo-checkpoint-show nil)
+
 (defun my-undo-checkpoint-buffer (body pos)
   (let ((buf (get-buffer-create (concat  "*Undo Checkpoint: "
                                          (buffer-name) "*"))))
-    (with-current-buffer buf
-      (setq buffer-read-only nil)
-      (erase-buffer)
-      (insert body)
-      (goto-char pos)
-      (setq buffer-read-only t))
-    (display-buffer buf)))
+    (when my-undo-checkpoint-show
+      (with-current-buffer buf
+        (setq buffer-read-only nil)
+        (erase-buffer)
+        (insert body)
+        (goto-char pos)
+        (setq buffer-read-only t))
+      (display-buffer buf))))
 
 (defun my-undo-save ()
   (interactive)
