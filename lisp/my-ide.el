@@ -1,14 +1,10 @@
 ;;; LSP
 
-(use-package lsp-mode :commands lsp)
+(use-package eglot
+  :commands (eglot
+             eglot-ensure))
 
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :init
-  (setq lsp-ui-doc-enable nil))
-(use-package company-lsp :commands company-lsp)
-
-(with-eval-after-load "my-python" (add-hook 'python-mode-hook #'lsp))
+(with-eval-after-load "my-python" (add-hook 'python-mode-hook 'eglot-ensure))
 
 ;;; Find in project
 
