@@ -13,21 +13,10 @@
 ;;; Find in project
 
 ;; projectile
-(with-eval-after-load "my-search-replace"
-  (use-package projectile
-    :general (my-search-replace-leader
-               "p" 'projectile-grep)
-    :init
-    (setq projectile-use-git-grep t))
-
-  (with-eval-after-load "my-helm"
-    (use-package helm-projectile
-      :general (my-search-replace-leader
-                 "P" 'helm-projectile-ag)))
-
-  (with-eval-after-load "my-ivy"
-    (my-search-replace-leader
-      "P" 'counsel-projectile-grep)))
+(use-package projectile
+  :commands projectile-grep
+  :custom
+  (projectile-use-git-grep t))
 
 ;; xref
 (general-define-key

@@ -39,7 +39,8 @@
 (with-eval-after-load "my-helm"
   (my-files-leader
     "f" 'helm-find-files
-    "r" 'helm-recentf))
+    "r" 'helm-recentf
+    "p" 'helm-projectile-find-file-dwim))
 
 (with-eval-after-load "my-ivy"
   (setq counsel-find-file-at-point t)

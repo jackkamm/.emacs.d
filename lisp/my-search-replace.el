@@ -15,20 +15,18 @@
   (advice-add 'wgrep-finish-edit :after #'evil-motion-state)
   (advice-add 'wgrep-abort-changes :after #'evil-motion-state))
 
+;; projectile
+(with-eval-after-load 'projectile
+  (my-search-replace-leader
+    "p" 'projectile-grep))
+
 ;; helm
 (with-eval-after-load "my-helm"
-  (use-package helm-ag
-    :commands (helm-ag
-	       helm-do-ag
-	       helm-ag-buffers
-	       helm-do-ag-buffers)
-    :general (my-search-replace-leader
-	       "g" 'helm-do-grep-ag
-               "S" 'helm-do-ag-buffers))
-
-  (use-package helm-swoop
-    :general (my-search-replace-leader
-	       "s" 'helm-swoop)))
+  (my-search-replace-leader
+    "g" 'helm-do-grep-ag
+    "S" 'helm-do-ag-buffers
+    "s" 'helm-swoop
+    "P" 'helm-projectile-ag))
 
 ;; ivy
 (with-eval-after-load "my-ivy"
@@ -39,6 +37,7 @@
       "S" 'swiper-all
       "f" 'counsel-locate
       "g" 'counsel-ag
+      "P" 'counsel-projectile-grep
       "i" 'swiper-from-isearch)))
 
 ;; visualstar
