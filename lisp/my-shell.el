@@ -59,13 +59,24 @@
   (my-leader
     "x" '(:keymap emamux:keymap :which-key "tmux"))
   :config
+  (defun my-emamux-send-region (start end)
+    (interactive "r")
+    (let ((buf-str (buffer-substring start end))
+          (mode major-mode))
+      (with-temp-buffer
+        (funcall mode)
+        (insert buf-str)
+        (goto-char (point-min))
+        (comment-kill (count-lines (point-min) (point-max)))
+        (emamux:send-region (point-min) (point-max)))))
+
   (defun my-emamux-send-buffer ()
     (interactive)
-    (emamux:send-region (point-min) (point-max)))
+    (my-emamux-send-region (point-min) (point-max)))
 
   (defun my-emamux-send-line ()
     (interactive)
-    (emamux:send-region (line-beginning-position) (line-end-position)))
+    (my-emamux-send-region (line-beginning-position) (line-end-position)))
 
   (defun my-emamux-yank ()
     (interactive)
@@ -75,7 +86,7 @@
 
   (bind-keys
    :map emamux:keymap
-   ("r" . emamux:send-region)
+   ("r" . my-emamux-send-region)
    ("l" . my-emamux-send-line)
    ("b" . my-emamux-send-buffer)
    ("y" . my-emamux-yank))
