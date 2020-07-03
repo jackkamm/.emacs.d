@@ -11,8 +11,8 @@
  "r" 'revert-buffer
  "#" 'server-edit
  "c" 'clone-indirect-buffer
- "m" 'buffer-menu
- "M" 'buffer-menu-other-window
+ "i" 'ibuffer
+ "I" 'ibuffer-other-window
  "o" 'switch-to-buffer-other-window)
 
 (with-eval-after-load "my-helm"
