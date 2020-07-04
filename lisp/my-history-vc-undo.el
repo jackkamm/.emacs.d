@@ -56,3 +56,10 @@
   :general
   (my-leader
     "gt" 'git-timemachine))
+
+;; Backup files
+
+(let ((backup-dir (concat user-emacs-directory "backups/")))
+  (if (not (file-exists-p backup-dir))
+      (make-directory backup-dir t))
+  (customize-set-variable 'backup-directory-alist `(("." . ,backup-dir))))
