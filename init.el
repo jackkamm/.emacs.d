@@ -112,13 +112,14 @@
     "k" 'which-key-show-top-level
     "qq" 'save-buffers-kill-emacs
     "h" '(:keymap help-map :which-key "Help")
-    "c" (general-simulate-key "C-c C-c")
-    "u" 'universal-argument)
+    "c" (general-simulate-key "C-c C-c"))
 
   (general-create-definer my-major-leader
-    :states '(normal motion visual emacs insert)
-    :prefix "_"
-    :global-prefix "C-c m"))
+    :prefix "C-c m")
+
+  (general-define-key
+   :states '(normal motion visual)
+   "_" 'universal-argument))
 
 ;; hydra
 (use-package hydra)
