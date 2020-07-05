@@ -20,25 +20,21 @@
   (my-search-replace-leader
     "p" 'projectile-grep))
 
-;; helm
-(with-eval-after-load "my-helm"
-  (my-search-replace-leader
-    "g" 'helm-do-grep-ag
-    "S" 'helm-do-ag-buffers
-    "s" 'helm-swoop
-    "P" 'helm-projectile-ag))
-
-;; ivy
-(with-eval-after-load "my-ivy"
-  (use-package swiper
-    :general
-    (my-search-replace-leader
-      "s" 'swiper
-      "S" 'swiper-all
-      "f" 'counsel-locate
-      "g" 'counsel-ag
-      "P" 'counsel-projectile-grep
-      "i" 'swiper-from-isearch)))
+(pcase my-completing-read-style
+  (`helm
+   (my-search-replace-leader
+     "g" 'helm-do-grep-ag
+     "S" 'helm-do-ag-buffers
+     "s" 'helm-swoop
+     "P" 'helm-projectile-ag))
+  (`ivy
+   (my-search-replace-leader
+     "s" 'swiper
+     "S" 'swiper-all
+     "f" 'counsel-locate
+     "g" 'counsel-ag
+     "P" 'counsel-projectile-grep
+     "i" 'swiper-from-isearch)))
 
 ;; visualstar
 (use-package evil-visualstar

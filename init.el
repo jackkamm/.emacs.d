@@ -124,13 +124,15 @@
 ;; hydra
 (use-package hydra)
 
+(setq my-completing-read-style 'helm)
+;;(setq my-completing-read-style 'ivy)
+
 ;;; Load additional configurations
 
 (mapc 'load
       (if (eq window-system 'w32)
 	  (list
-	   "my-helm"
-           ;;"my-ivy"
+           "my-completing-read"
 	   "my-buffers-files"
 	   "my-windows-frames"
 	   "my-lines-regions"
@@ -142,9 +144,8 @@
 	 ;; load first to ensure org-plus-contrib
 	 "my-org"
 
-	 ;; completion system, only enable 1
-	 "my-helm"
-	 ;;"my-ivy"
+         ;; completion system (helm, ivy, ido)
+         "my-completing-read"
 
 	 "my-buffers-files" ;includes dired, diff'ing
 	 "my-windows-frames"

@@ -15,13 +15,11 @@
  "I" 'ibuffer-other-window
  "o" 'switch-to-buffer-other-window)
 
-(with-eval-after-load "my-helm"
-  (my-buffers-leader
-   "b" 'helm-mini))
-
-(with-eval-after-load "my-ivy"
-  (my-buffers-leader
-    "b" 'ivy-switch-buffer))
+(pcase my-completing-read-style
+  (`helm
+   (my-buffers-leader "b" 'helm-mini))
+  (`ivy
+  (my-buffers-leader "b" 'ivy-switch-buffer)))
 
 (customize-set-variable 'Buffer-menu-name-width 60)
 
@@ -32,21 +30,25 @@
 (my-leader "f" '(:keymap my-files-map :which-key "File"))
 
 (my-files-leader
- "s" 'save-some-buffers
- "c" 'write-file
- "o" 'find-file-other-window)
+  "s" 'save-some-buffers
+  "c" 'write-file
+  "o" 'find-file-other-window)
 
-(with-eval-after-load "my-helm"
-  (my-files-leader
-    "f" 'helm-find-files
-    "r" 'helm-recentf
-    "p" 'helm-projectile-find-file-dwim))
-
-(with-eval-after-load "my-ivy"
-  (setq counsel-find-file-at-point t)
-  (my-files-leader
-    "f" 'counsel-find-file
-    "r" 'counsel-recentf))
+(pcase my-completing-read-style
+  (`helm
+   (my-files-leader
+     "f" 'helm-find-files
+     "r" 'helm-recentf
+     "p" 'helm-projectile-find-file-dwim))
+  (`ivy
+   (setq counsel-find-file-at-point t)
+   (my-files-leader
+     "f" 'counsel-find-file
+     "r" 'counsel-recentf))
+  (_
+   (my-files-leader
+     "f" 'find-file
+     "r" 'recentf-open-files)))
 
 (defun my-find-config-module (fname)
   (interactive

@@ -28,13 +28,13 @@
   (global-company-mode 1)
   (my-leader "C" 'company-complete)
 
-  (with-eval-after-load "my-ivy"
-    (my-leader "C" 'counsel-company))
-
-  (with-eval-after-load "my-helm"
-    (use-package helm-company
+  (pcase my-completing-read-style
+    (`ivy
+     (my-leader "C" 'counsel-company))
+    (`helm
+     (use-package helm-company
       :config
-      (my-leader "C" 'helm-company))))
+      (my-leader "C" 'helm-company)))))
 
 (use-package company-prescient
   :after company
