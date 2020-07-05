@@ -19,7 +19,9 @@
   (`helm
    (my-buffers-leader "b" 'helm-mini))
   (`ivy
-  (my-buffers-leader "b" 'ivy-switch-buffer)))
+   (my-buffers-leader "b" 'ivy-switch-buffer))
+  (_
+   (my-buffers-leader "b" 'switch-to-buffer)))
 
 (customize-set-variable 'Buffer-menu-name-width 60)
 
@@ -67,6 +69,7 @@
 	default-directory))))
 (my-files-leader "y" 'my-copy-filename)
 
+(recentf-mode 1)
 (setq recentf-max-saved-items 1000)
 
 (save-place-mode 1)

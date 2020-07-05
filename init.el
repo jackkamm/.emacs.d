@@ -124,7 +124,8 @@
 ;; hydra
 (use-package hydra)
 
-(setq my-completing-read-style 'helm)
+(setq my-completing-read-style 'builtin)
+;;(setq my-completing-read-style 'helm)
 ;;(setq my-completing-read-style 'ivy)
 
 ;;; Load additional configurations

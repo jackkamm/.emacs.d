@@ -20,9 +20,6 @@
                  ("<left>" . backward-char)
                  ("<right>" . forward-char)))))
 
-(use-package helm-swoop
-  :commands helm-swoop)
-
 (use-package helm-ag
   :commands (helm-ag
              helm-do-ag
@@ -86,4 +83,12 @@
    (my-leader
      "R" 'ivy-resume
      "Y" 'counsel-yank-pop)
-   (ivy-prescient-mode)))
+   (ivy-prescient-mode))
+  (`ido
+   (ido-mode 1)
+   (ido-everywhere 1)
+   (use-package ido-completing-read+
+     :config
+     (ido-ubiquitous-mode 1)))
+  (`builtin
+   (icomplete-mode 1)))

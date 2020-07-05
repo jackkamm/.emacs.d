@@ -4,37 +4,49 @@
 
 (my-search-replace-leader
   "l" 'lgrep
-  "r" 'rgrep
   "c" 'evil-ex-nohighlight)
 
 ;; wgrep
 (use-package wgrep
   :commands wgrep-change-to-wgrep-mode
+  :init
+  (with-eval-after-load 'helm-occur
+    (my-major-leader
+      :mode 'helm-occur-mode
+      "w" 'wgrep-change-to-wgrep-mode))
   :config
   (advice-add 'wgrep-change-to-wgrep-mode :after #'evil-normal-state)
-  (advice-add 'wgrep-finish-edit :after #'evil-motion-state)
-  (advice-add 'wgrep-abort-changes :after #'evil-motion-state))
+  (advice-add 'wgrep-finish-edit :after #'evil-normal-state)
+  (advice-add 'wgrep-abort-changes :after #'evil-normal-state))
 
 ;; projectile
-(with-eval-after-load 'projectile
-  (my-search-replace-leader
-    "p" 'projectile-grep))
 
 (pcase my-completing-read-style
   (`helm
    (my-search-replace-leader
      "g" 'helm-do-grep-ag
-     "S" 'helm-do-ag-buffers
-     "s" 'helm-swoop
-     "P" 'helm-projectile-ag))
+     "b" 'helm-do-ag-buffers
+     "s" 'helm-occur
+     "p" 'helm-projectile-ag))
   (`ivy
    (my-search-replace-leader
      "s" 'swiper
-     "S" 'swiper-all
+     "b" 'swiper-all
      "f" 'counsel-locate
      "g" 'counsel-ag
-     "P" 'counsel-projectile-grep
-     "i" 'swiper-from-isearch)))
+     "p" 'counsel-projectile-grep
+     "i" 'swiper-from-isearch))
+  (_
+   ;; NOTE: some addition useful bindings in isearch:
+   ;; - M-s o: occur
+   ;; - M-s e: edit search string
+   ;; - M-%: query-replace
+   (my-search-replace-leader
+     "s" 'isearch-forward-regexp
+     "r" 'isearch-backward-regexp
+     "g" 'rgrep
+     "p" 'projectile-grep
+     "b" 'multi-occur-in-matching-buffers)))
 
 ;; visualstar
 (use-package evil-visualstar
