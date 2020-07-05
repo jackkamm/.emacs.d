@@ -44,6 +44,7 @@
    (my-search-replace-leader
      "s" 'isearch-forward-regexp
      "r" 'isearch-backward-regexp
+     "S" 'occur
      "g" 'rgrep
      "p" 'projectile-grep
      "b" 'multi-occur-in-matching-buffers)))
