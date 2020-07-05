@@ -1,3 +1,7 @@
+;; NOTE syntax checking (flymake): should be auto-enabled when lintr
+;; installed from CRAN. If it doesn't work, try creating ~/.R (cf
+;; https://github.com/emacs-ess/ESS/issues/883)
+
 (use-package ess-r-mode
   :ensure ess
   :mode (("/R/.*\\.q\\'"       . R-mode)
@@ -13,7 +17,6 @@
   (setq ess-help-pop-to-buffer nil
         ess-indent-with-fancy-comments nil
         ess-eval-visibly 'nowait
-        ess-use-flymake nil ;ess-flymake not working (7-2018)
         ess-smart-S-assign-key nil
         ess-style 'RStudio
         ess-eval-visibly-p nil)

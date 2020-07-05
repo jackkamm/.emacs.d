@@ -43,21 +43,27 @@
 
 ;;; Syntax checking
 
+;; flymake, built-in syntax checker. Auto-started by eglot, ess, etc
+(with-eval-after-load 'flymake
+  (my-leader
+    :keymaps 'flymake-mode-map
+    "y" '(:ignore t :which-key "Syntax")
+    "yn" 'flymake-goto-next-error
+    "yp" 'flymake-goto-prev-error
+    "ys" 'flymake-start
+    "yd" 'flymake-show-diagnostics-buffer
+    "yl" 'flymake-switch-to-log-buffer))
+
+;; flycheck, 3rd-party syntax checker that was preferred until
+;; recently. Some situations may require flycheck instead of the
+;; built-in flymake, e.g. when using flycheck-package for MELPA
 (use-package flycheck
-  :defer 4
-  :init
-  (setq flycheck-global-modes (list 'not
-                                    ;; false positives
-                                    'emacs-lisp-mode
-                                    ;; hanging, false positives
-                                    'ess-mode)
-        ;; improve performance
-        flycheck-check-syntax-automatically '(save idle-change mode-enabled)
-        flycheck-idle-change-delay 4)
+  :commands flycheck-mode
+  :custom
+  ;; customizations to improve performance
+  (flycheck-check-syntax-automatically '(save idle-change mode-enabled))
+  (flycheck-idle-change-delay 4)
   :config
-  (global-flycheck-mode)
-  ;; which-key
-  (define-key global-map (kbd "C-c !") '("flycheck"))
   ;; nicer popup window
   (with-eval-after-load 'popwin
     (push '("^\\*Flycheck.+\\*$"
@@ -73,6 +79,7 @@
   :config
   (flycheck-pos-tip-mode))
 
+;; recommender linter for MELPA. Call `flycheck-mode' to start
 (use-package flycheck-package
   :after (flycheck elisp-mode)
   :config

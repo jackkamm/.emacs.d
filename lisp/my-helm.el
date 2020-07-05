@@ -7,7 +7,7 @@
   (helm-mode 1)
   (my-leader
     "R" 'helm-resume
-    "y" 'helm-show-kill-ring)
+    "Y" 'helm-show-kill-ring)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (bind-keys :map help-map
 	     ("a" . helm-apropos)
