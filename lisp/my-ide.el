@@ -45,14 +45,16 @@
 
 ;; flymake, built-in syntax checker. Auto-started by eglot, ess, etc
 (with-eval-after-load 'flymake
+  (defhydra my-flymake-hydra ()
+    "flymake"
+    ("n" flymake-goto-next-error "next")
+    ("p" flymake-goto-prev-error "prev")
+    ("s" flymake-start "start")
+    ("l" flymake-show-diagnostics-buffer "list")
+    ("L" flymake-switch-to-log-buffer "Log" :color blue))
   (my-leader
     :keymaps 'flymake-mode-map
-    "y" '(:ignore t :which-key "Syntax")
-    "yn" 'flymake-goto-next-error
-    "yp" 'flymake-goto-prev-error
-    "ys" 'flymake-start
-    "yd" 'flymake-show-diagnostics-buffer
-    "yl" 'flymake-switch-to-log-buffer))
+    "y" 'my-flymake-hydra/body))
 
 ;; flycheck, 3rd-party syntax checker that was preferred until
 ;; recently. Some situations may require flycheck instead of the
