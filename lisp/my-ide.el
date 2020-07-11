@@ -31,7 +31,7 @@
   (pcase my-completing-read-style
     (`ivy
      (my-leader "C" 'counsel-company))
-    (`helm
+    ((or `helm `hybrid)
      (use-package helm-company
       :config
       (my-leader "C" 'helm-company)))))

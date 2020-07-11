@@ -44,10 +44,18 @@
    (my-search-replace-leader
      "s" 'isearch-forward-regexp
      "r" 'isearch-backward-regexp
-     "S" 'occur
+     "o" 'occur
      "g" 'rgrep
      "p" 'projectile-grep
      "b" 'multi-occur-in-matching-buffers)))
+
+;; additional keybindings for hybrid style completion
+(when (equal my-completing-read-style 'hybrid)
+  (my-search-replace-leader
+    "O" 'helm-occur
+    "G" 'helm-do-grep-ag
+    "B" 'helm-do-ag-buffers
+    "P" 'helm-projectile-ag))
 
 ;; visualstar
 (use-package evil-visualstar

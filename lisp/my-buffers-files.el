@@ -50,7 +50,8 @@
   (_
    (my-files-leader
      "f" 'find-file
-     "r" 'recentf-open-files)))
+     "r" 'recentf-open-files
+     "p" 'projectile-find-file)))
 
 (defun my-find-config-module (fname)
   (interactive

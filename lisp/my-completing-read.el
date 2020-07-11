@@ -84,11 +84,36 @@
      "R" 'ivy-resume
      "Y" 'counsel-yank-pop)
    (ivy-prescient-mode))
-  (`ido
-   (ido-mode 1)
-   (ido-everywhere 1)
-   (use-package ido-completing-read+
-     :config
-     (ido-ubiquitous-mode 1)))
-  (`builtin
-   (icomplete-mode 1)))
+  ((or `hybrid `builtin)
+   ;; TODO: if emacs27 fido-mode
+   (if (not (version< emacs-version "27"))
+       (fido-mode 1)
+     (icomplete-mode 1)
+     (ido-mode 1)
+     (ido-everywhere 1)
+
+     (customize-set-variable 'ido-enable-flex-matching t)
+
+     ;;;; NOTE this causes a strange bug in `org-insert-link', that
+     ;;;; inserts the link in a seemingly random location in the
+     ;;;; buffer. The bug appears to happen when `read-string' is called
+     ;;;; to get the link Description, and may be an internal C bug
+     ;;(customize-set-variable 'icomplete-show-matches-on-no-input t)
+
+     (customize-set-variable 'completion-ignore-case t)
+     (customize-set-variable 'read-file-name-completion-ignore-case t)
+     (customize-set-variable 'read-buffer-completion-ignore-case t)
+
+     ;; force partial-completion/substring styles always
+     (setq completion-category-defaults nil)
+
+     (customize-set-variable 'completion-styles '(partial-completion substring))
+     ;; Make consistent keybindings between ido/icomplete
+     (bind-keys
+      :map icomplete-minibuffer-map
+      ((kbd "RET") . icomplete-force-complete-and-exit)
+      ((kbd "M-j") . exit-minibuffer))
+     (bind-keys
+      :map ido-common-completion-map
+      ((kbd "M-j") . ido-fallback-command)))))
+

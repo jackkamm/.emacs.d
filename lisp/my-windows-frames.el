@@ -75,9 +75,8 @@
                              ;; org-mode sets display-buffer-alist nil
                              ;; before popping up this buffer
                              ("\\*Org Select" (display-buffer-pop-up-window))
-                             ;;,(cons "\\*helm" display-buffer-fallback-action)
-                             ("\\*helm"
-                              ;; see also: `helm-split-window-default-fn'
-                              (display-buffer-pop-up-window))
+                             ;; see also: `helm-split-window-default-fn'
+                             ,(cons "\\*helm" display-buffer-fallback-action)
+                             ;;("\\*helm" (display-buffer-pop-up-window))
                              ("magit-diff:" nil
                               (inhibit-same-window . t))))
