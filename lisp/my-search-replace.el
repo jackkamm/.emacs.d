@@ -6,6 +6,10 @@
   "l" 'lgrep
   "c" 'evil-ex-nohighlight)
 
+;; occur
+(evil-define-key 'normal occur-mode-map
+  "o" 'occur-mode-display-occurrence)
+
 ;; wgrep
 (use-package wgrep
   :commands wgrep-change-to-wgrep-mode
