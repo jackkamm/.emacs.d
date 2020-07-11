@@ -85,5 +85,13 @@
      "Y" 'counsel-yank-pop)
    (ivy-prescient-mode))
   ((or `hybrid `builtin)
-   (fido-mode 1)))
+   (fido-mode 1)
+   ;; NOTE: keep ido-mode around because fido-mode only partially
+   ;; handles tramp (it won't complete "/scp:remote", but can complete
+   ;; "/scp:remote:/path")
+   ;; TODO: file issue with fido-mode; remove ido-mode configuration
+   (ido-mode 1)
+   (ido-everywhere 1)
+   (customize-set-variable 'ido-enable-flex-matching t)
+   (customize-set-variable 'ido-show-dot-for-dired t)))
 
