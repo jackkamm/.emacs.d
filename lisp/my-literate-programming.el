@@ -51,6 +51,16 @@
   ;; NOTE see also https://github.com/Somelauw/evil-org-mode/issues/59
   (define-key org-src-mode-map [remap evil-write] 'org-edit-src-save)
 
+  ;; set default-directory to :dir, for path completion in src buffers
+  ;; TODO: submit to org-mode?
+  (defun my-org-edit-src-wrapper (&rest args)
+    (when org-src--babel-info
+      (let ((dir (cdr (assq :dir (nth 2 org-src--babel-info)))))
+        (when dir
+          (setq default-directory (file-name-as-directory
+                                   (expand-file-name dir)))))))
+  (advice-add 'org-edit-src-code :after 'my-org-edit-src-wrapper)
+
   (require 'jupyter)
   ;; FIXME below breaks if ess not yet installed
   (require 'ess) ; needed for inferior-julia-program-name
