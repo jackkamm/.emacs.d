@@ -52,7 +52,6 @@
 ;; evil
 (use-package evil
   :custom
-  (evil-search-module 'evil-search)
   (evil-overriding-maps nil)
   (evil-intercept-maps nil)
   (evil-want-keybinding nil)

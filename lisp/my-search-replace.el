@@ -41,14 +41,7 @@
      "p" 'counsel-projectile-grep
      "i" 'swiper-from-isearch))
   (_
-   ;; NOTE: some addition useful bindings in isearch:
-   ;; - M-s o: occur
-   ;; - M-s e: edit search string
-   ;; - M-%: query-replace
    (my-search-replace-leader
-     "s" 'isearch-forward-regexp
-     "r" 'isearch-backward-regexp
-     "o" 'occur
      "g" 'rgrep
      "p" 'projectile-grep
      "b" 'multi-occur-in-matching-buffers)))
