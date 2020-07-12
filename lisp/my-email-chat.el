@@ -27,7 +27,8 @@
       ;; https://notmuchmail.org/emacstips/#index11h2
       mail-specify-envelope-from t
       message-sendmail-envelope-from 'header
-      mail-envelope-from 'header)
+      mail-envelope-from 'header
+      message-directory "~/mail")
 
 (add-hook 'message-mode-hook 'flyspell-mode)
 (add-hook 'message-mode-hook 'turn-off-auto-fill)
