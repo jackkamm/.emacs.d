@@ -8,11 +8,11 @@
 
 ;;; Find in project
 
-;; projectile
-(use-package projectile
-  :commands projectile-grep
-  :custom
-  (projectile-use-git-grep t))
+;;;; projectile
+;;(use-package projectile
+;;  :commands projectile-grep
+;;  :custom
+;;  (projectile-use-git-grep t))
 
 ;; xref
 (general-define-key

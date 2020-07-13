@@ -43,7 +43,7 @@
   (_
    (my-search-replace-leader
      "g" 'rgrep
-     "p" 'projectile-grep
+     "p" 'project-find-regexp
      "b" 'multi-occur-in-matching-buffers)))
 
 ;; additional keybindings for hybrid style completion
