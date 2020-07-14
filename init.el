@@ -111,6 +111,9 @@
     "k" 'which-key-show-top-level
     "qq" 'save-buffers-kill-emacs
     "h" '(:keymap help-map :which-key "Help")
+    "R" '(:keymap ctl-x-r-map :which-key "Registers/Rectangles")
+    ;; simulate key instead of using keymap, for sake of kmacro-bind-to-key
+    "K" (general-simulate-key "C-x C-k" :which-key "Keyboard macros")
     "c" (general-simulate-key "C-c C-c"))
 
   (general-create-definer my-major-leader
