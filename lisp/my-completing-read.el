@@ -85,5 +85,15 @@
      "Y" 'counsel-yank-pop)
    (ivy-prescient-mode))
   ((or `hybrid `builtin)
-   (fido-mode 1)))
-
+   (icomplete-mode 1)
+   (bind-keys
+    :map icomplete-minibuffer-map
+    ((kbd "RET") . icomplete-fido-ret)
+    ((kbd "M-j") . icomplete-fido-exit))
+   (setq icomplete-tidy-shadowed-file-names t)
+   (customize-set-variable 'icomplete-hide-common-prefix nil)
+   (customize-set-variable 'completion-styles '(basic partial-completion substring))
+   (setq completion-category-defaults nil)
+   (setq completion-ignore-case t)
+   (customize-set-variable 'read-buffer-completion-ignore-case t)
+   (customize-set-variable 'read-file-name-completion-ignore-case t)))
