@@ -7,6 +7,7 @@
 ;; `load-path' has been properly set before doing any configurations
 (customize-set-variable 'custom-file (concat user-emacs-directory "custom.el"))
 
+;; TODO: move to early-init.el?
 ;; Initialize packages
 (require 'package)
 (customize-set-variable 'package-enable-at-startup nil)
