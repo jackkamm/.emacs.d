@@ -43,6 +43,9 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc"))
 
+;; dependancy of nextflow-mode
+(use-package groovy-mode :defer t)
+
 (use-package nextflow-mode
   :ensure nil
   :mode (("\\.nf\\'" . nextflow-mode)))
