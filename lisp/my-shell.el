@@ -57,7 +57,7 @@
    "^\\(buffer[0-9]+\\): +\\([0-9]+\\) +\\(bytes\\): +[\"]\\(.*\\)[\"]")
   :general
   (my-leader
-    "x" '(:keymap emamux:keymap :which-key "tmux"))
+    "dx" '(:keymap emamux:keymap :which-key "tmux"))
   :config
   (defun my-emamux-send-region (start end)
     (interactive "r")
