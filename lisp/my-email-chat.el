@@ -49,6 +49,15 @@
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
 
+  ;; workaround: `notmuch-read-query' ignores `completion-category-defaults'
+  ;; TODO: submit fix to notmuch? cf "Programmed Completion" Info,
+  ;; keywords "metadata","category". Challenge:
+  ;; `completion-table-dynamic' doesn't permit setting metadata.
+  (defun my-notmuch-read-query-advice (oldfun prompt)
+    (let ((completion-styles '(substring)))
+      (funcall oldfun prompt)))
+  (advice-add 'notmuch-read-query :around 'my-notmuch-read-query-advice)
+
   ;; originally based on `notmuch-jump-search'
   ;; TODO: submit this functionality to notmuch?
   (defun my-notmuch-search-filter-jump (negate)
