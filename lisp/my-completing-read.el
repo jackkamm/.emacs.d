@@ -92,7 +92,11 @@
     ((kbd "M-j") . icomplete-fido-exit))
    (setq icomplete-tidy-shadowed-file-names t)
    (customize-set-variable 'icomplete-hide-common-prefix nil)
-   (customize-set-variable 'completion-styles '(basic partial-completion substring))
+   ;; substring: good balance between sensitivity and specificity
+   ;; flex: convenient, but too broad when trying to match buffers named like *R*
+   ;; basic: fallback when substring and flex fail, e.g. for tramp prefixes
+   (customize-set-variable 'completion-styles '(substring flex basic))
+   (customize-set-variable 'completion-flex-nospace nil)
    (setq completion-category-defaults nil)
    (setq completion-ignore-case t)
    (customize-set-variable 'read-buffer-completion-ignore-case t)
