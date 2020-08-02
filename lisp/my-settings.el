@@ -3,12 +3,10 @@
 
 ;;; startup settings
 
-;; set $PATH, e.g. when starting from OSX or systemd
-;; For systemd, it's preferred to set variables in ~/.config/environment.d/,
-;; but this doesn't work for $PATH in Ubuntu 18.04
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
+;;;; set $PATH on OSX
+;;(use-package exec-path-from-shell
+;;  :config
+;;  (exec-path-from-shell-initialize))
 
 ;;; emacs-lisp-mode
 (my-major-leader
