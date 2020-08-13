@@ -91,7 +91,6 @@
     ((kbd "RET") . icomplete-fido-ret)
     ((kbd "M-j") . icomplete-fido-exit))
    (setq icomplete-tidy-shadowed-file-names t)
-   (customize-set-variable 'icomplete-hide-common-prefix nil)
    ;; substring: good balance between sensitivity and specificity
    ;; flex: convenient, but too broad when trying to match buffers named like *R*
    ;; basic: fallback when substring and flex fail, e.g. for tramp prefixes
