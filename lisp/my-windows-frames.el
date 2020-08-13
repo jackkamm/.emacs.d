@@ -80,3 +80,13 @@
                              ;;("\\*helm" (display-buffer-pop-up-window))
                              ("magit-diff:" nil
                               (inhibit-same-window . t))))
+
+;; keybindings in terminal frames
+
+;; use git submodule instead?
+(add-to-list 'package-archives
+             '("cselpa" . "https://elpa.thecybershadow.net/packages/"))
+
+(use-package term-keys
+  :config
+  (term-keys-mode t))
