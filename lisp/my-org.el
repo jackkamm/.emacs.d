@@ -25,7 +25,6 @@
   (org-agenda-start-on-weekday nil)
 
   (org-refile-use-outline-path 'file)
-  (org-outline-path-complete-in-steps nil)
   ;;(org-goto-interface 'outline-path-completion)
 
   ;; to resize inline images
@@ -66,6 +65,12 @@
   (customize-set-variable
    'org-refile-targets
    '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
+
+  (customize-set-variable 'org-outline-path-complete-in-steps
+                          (if (memq my-completing-read-style
+                                    '(builtin hybrid))
+                              t
+                            nil))
 
   (customize-set-variable
    'org-capture-templates
