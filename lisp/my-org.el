@@ -39,6 +39,14 @@
   (org-agenda-skip-scheduled-if-done t)
   (org-agenda-skip-deadline-if-done t)
 
+  ;; remove scheduled/deadline items from Todo view, since they will
+  ;; appear in Agenda view. Especially useful for repeating items.
+  (org-agenda-todo-ignore-scheduled t)
+  (org-agenda-todo-ignore-deadlines 'all)
+
+  ;; make the todo list shorter by skipping sublevels
+  (org-agenda-todo-list-sublevels nil)
+
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
