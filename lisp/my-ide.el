@@ -8,6 +8,8 @@
 
 ;;; Find in project
 
+(customize-set-variable 'project-vc-merge-submodules nil)
+
 ;;;; projectile
 ;;(use-package projectile
 ;;  :commands projectile-grep
