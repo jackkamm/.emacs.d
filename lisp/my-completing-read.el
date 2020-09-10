@@ -65,6 +65,32 @@
   :after ivy
   :commands ivy-prescient-mode)
 
+;; icomplete
+
+(use-package icomplete
+  :custom
+  (icomplete-tidy-shadowed-file-names t)
+  ;;(icomplete-show-matches-on-no-input t)
+  :bind (:map icomplete-minibuffer-map
+              ("RET" . icomplete-fido-ret)
+              ("M-j" . icomplete-fido-exit)
+              ;; default C-, and C-. bindings may not work in terminal
+              ("<down>" . icomplete-forward-completions)
+              ("C-n" . icomplete-forward-completions)
+              ("<up>" . icomplete-backward-completions)
+              ("C-p" . icomplete-backward-completions)))
+
+;; provides helm-style completion for icomplete. Though helm provides
+;; an implementation for `completion-styles-alist', it is incomplete,
+;; in particular `helm-completion-try-completion' is not properly
+;; implemented. `orderless' provides a full working implementation.
+(use-package orderless)
+
+(use-package icomplete-vertical
+  :bind (:map icomplete-minibuffer-map
+              ("C-v" . icomplete-vertical-toggle))
+  :demand t)
+
 ;; activate preferred completion system
 
 (pcase my-completing-read-style
@@ -86,16 +112,7 @@
    (ivy-prescient-mode))
   ((or `hybrid `builtin)
    (icomplete-mode 1)
-   (bind-keys
-    :map icomplete-minibuffer-map
-    ((kbd "RET") . icomplete-fido-ret)
-    ((kbd "M-j") . icomplete-fido-exit))
-   (setq icomplete-tidy-shadowed-file-names t)
-   ;; substring: good balance between sensitivity and specificity
-   ;; flex: convenient, but too broad when trying to match buffers named like *R*
-   ;; basic: fallback when substring and flex fail, e.g. for tramp prefixes
-   (customize-set-variable 'completion-styles '(substring flex basic))
-   (customize-set-variable 'completion-flex-nospace nil)
+   (customize-set-variable 'completion-styles '(orderless))
    (setq completion-category-defaults nil)
    (setq completion-ignore-case t)
    (customize-set-variable 'read-buffer-completion-ignore-case t)
