@@ -9,23 +9,13 @@
 (my-major-leader
   :keymaps 'python-mode-map
   "'" 'run-python
-  "\"" 'my-run-jupyter-existing)
+  "\"" 'my-run-jupyter-existing
+  "b" 'python-shell-send-buffer
+  "f" 'python-shell-send-defun
+  "r" 'python-shell-send-region)
 
 (with-eval-after-load "my-lsp"
   (add-hook 'python-mode-hook #'lsp))
-
-(use-package ipython-shell-send
-  :ensure nil
-  :commands (ipython-shell-send-region
-	     ipython-shell-send-buffer
-	     ipython-shell-send-defun
-	     ipython-shell-send-file)
-  :general
-  (my-major-leader
-    :keymaps 'python-mode-map
-    "b" 'ipython-shell-send-buffer
-    "f" 'ipython-shell-send-defun
-    "r" 'ipython-shell-send-region))
 
 (use-package pyvenv
   :commands (pyvenv-activate
