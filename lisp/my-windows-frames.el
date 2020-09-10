@@ -67,7 +67,7 @@
       display-buffer-alist `(("\\*help\\[R" (display-buffer-reuse-mode-window
                                              my-ace-display-buffer-2)
                               (reusable-frames . nil))
-                             ("\\*R" nil (reusable-frames . nil))
+                             ("\\*R" nil (reusable-frames . 'visible))
                              ("\\*Org Src" (display-buffer-reuse-window
                                             my-ace-display-buffer-2)
                               (inhibit-same-window . nil))
