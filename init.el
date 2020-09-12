@@ -82,6 +82,11 @@
   (evil-global-set-key 'motion (kbd "RET") nil)
   ;; https://vim.fandom.com/wiki/Unused_keys
   (evil-global-set-key 'motion "+" 'repeat)
+  ;; commands excluding the trailing newline of visual line selection
+  (customize-set-variable 'evil-visual-newline-commands
+                          (append evil-visual-newline-commands
+                                  '(magit-stage
+                                    magit-unstage)))
   ;; Start evil
   (evil-mode))
 
