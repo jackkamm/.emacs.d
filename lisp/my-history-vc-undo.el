@@ -18,7 +18,7 @@
 
 ;; TODO: submit to simple.el
 (defun undo-continue (&optional arg)
-  (interactive)
+  (interactive "*p")
   (let ((last-command 'undo))
     (undo arg)))
 
