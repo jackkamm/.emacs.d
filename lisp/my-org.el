@@ -124,6 +124,12 @@
   :ensure nil
   :after org)
 
+(use-package org-id
+  :ensure nil
+  :after org
+  :custom
+  (org-id-link-to-org-use-id t))
+
 ;;; Load packages related to org-mode
 
 (use-package evil-org
