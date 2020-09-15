@@ -16,6 +16,12 @@
 ;;  :general
 ;;  (my-leader "U" 'undo-propose))
 
+;; TODO: submit to simple.el
+(defun undo-continue (&optional arg)
+  (interactive)
+  (let ((last-command 'undo))
+    (undo arg)))
+
 ;; Git
 
 (my-leader "g" '(:ignore t :which-key "Git"))
