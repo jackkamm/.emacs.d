@@ -10,12 +10,6 @@
 ;; access undo-only from visual/insert state
 (define-key global-map (kbd "C-x u") 'undo-only)
 
-;; NOTE: use `revert-buffer' instead of `undo-propose' for checkpointing
-;;(use-package undo-propose
-;;  :ensure nil
-;;  :general
-;;  (my-leader "U" 'undo-propose))
-
 ;; TODO: submit to simple.el
 (defun undo-continue (&optional arg)
   (interactive "*p")
