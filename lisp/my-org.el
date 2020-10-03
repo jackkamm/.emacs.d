@@ -29,7 +29,7 @@
   ;;(org-goto-interface 'outline-path-completion)
 
   ;; to resize inline images
-  (org-image-actual-width nil)
+  (org-image-actual-width '(750))
 
   (org-priority-lowest ?E)
   (org-priority-default ?C)
