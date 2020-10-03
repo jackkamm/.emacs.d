@@ -82,7 +82,9 @@
     (setq action-map (nreverse action-map))
     (notmuch-jump action-map "Filter: ")))
   (bind-keys :map notmuch-search-mode-map
-             ("L" . my-notmuch-search-filter-jump)))
+             ("L" . my-notmuch-search-filter-jump)
+             ("a" . nil))
+  (bind-keys :map notmuch-tree-mode-map ("a" . nil)))
 
 (use-package gnus
   :defer t
