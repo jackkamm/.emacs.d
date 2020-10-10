@@ -6,6 +6,8 @@
   :general (my-leader "&" '(:ignore t :which-key "yasnippet"))
   :config
   (yas-reload-all)
-  (define-key global-map (kbd "C-c &") '("yasnippet")))
+  (define-key global-map (kbd "C-c &") '("yasnippet"))
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil))
 
 (use-package yasnippet-snippets :defer t)
