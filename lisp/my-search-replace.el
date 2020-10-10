@@ -69,8 +69,6 @@
 (use-package multiple-cursors :defer t)
 
 (use-package evil-mc
-  :general (my-search-replace-leader
-	     "m" 'my-toggle-evil-mc-mode)
   :config
   ;; add commands for hybrid-style editing
   ;; https://github.com/gabesoft/evil-mc/issues/24
@@ -82,13 +80,8 @@
             if (not (assoc cmd evil-mc-known-commands))
             collect `(,cmd . ((:default
                                . evil-mc-execute-default-call-with-count)))))
-  (defun my-toggle-evil-mc-mode () (interactive)
-         (if evil-mc-mode
-             (progn
-               (evil-mc-undo-all-cursors)
-               (turn-off-evil-mc-mode)
-               (message "Disabled evil-mc-mode"))
-           (turn-on-evil-mc-mode)
-           (message "Enabled evil-mc-mode")))
+
   (define-key evil-mc-key-map (kbd "M-C-<mouse-1>")
-    'evil-mc-toggle-cursor-on-click))
+    'evil-mc-toggle-cursor-on-click)
+
+  (global-evil-mc-mode 1))
