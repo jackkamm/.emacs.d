@@ -66,18 +66,22 @@
     "e" 'evil-iedit-state/iedit-mode))
 
 ;; multiple-cursors
+(use-package multiple-cursors :defer t)
+
 (use-package evil-mc
   :general (my-search-replace-leader
 	     "m" 'my-toggle-evil-mc-mode)
-  :init
-  (setq evil-mc-custom-known-commands
-        '((backward-kill-word
-           . ((:default . evil-mc-execute-default-call-with-count)))
-          (delete-char
-           . ((:default . evil-mc-execute-default-call-with-count)))
-          (kill-word
-           . ((:default . evil-mc-execute-default-call-with-count)))))
   :config
+  ;; add commands for hybrid-style editing
+  ;; https://github.com/gabesoft/evil-mc/issues/24
+  (require 'cl-lib)
+  (require 'multiple-cursors)
+  (customize-set-variable
+   'evil-mc-custom-known-commands
+   (cl-loop for cmd in mc--default-cmds-to-run-for-all
+            if (not (assoc cmd evil-mc-known-commands))
+            collect `(,cmd . ((:default
+                               . evil-mc-execute-default-call-with-count)))))
   (defun my-toggle-evil-mc-mode () (interactive)
          (if evil-mc-mode
              (progn
