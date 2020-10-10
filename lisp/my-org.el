@@ -80,6 +80,11 @@
    '(("c" "capture" entry (file "inbox.org")
       "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
 
+  ;; org-goto works best in emacs/insert state. No hook available, so
+  ;; use an advice.
+  ;; TODO? Propose a patch to add a hook for org-goto
+  (advice-add 'org-goto-location :before #'evil-execute-in-emacs-state)
+
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
     (customize-set-variable 'org-latex-pdf-process
