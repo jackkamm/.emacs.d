@@ -46,8 +46,8 @@
 (use-package rainbow-delimiters
   :commands rainbow-delimiters-mode
   :init
-  (with-eval-after-load "my-appearance"
-    (my-theme-leader "r" 'rainbow-delimiters-mode)))
+  (with-eval-after-load "my-themes-toggles"
+    (my-toggle-leader "r" 'rainbow-delimiters-mode)))
 
 ;; Regions
 

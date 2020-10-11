@@ -1,11 +1,13 @@
 (setq my-theme-map (make-sparse-keymap))
-(general-create-definer my-theme-leader :prefix-map 'my-theme-map)
-(my-leader "t" '(:keymap my-theme-map :which-key "Theme"))
+(general-create-definer my-toggle-leader :prefix-map 'my-theme-map)
+(my-leader "t" '(:keymap my-theme-map :which-key "Themes/Toggles"))
 
-(my-theme-leader
+(my-toggle-leader
   "v" 'visual-line-mode
   "l" 'toggle-truncate-lines
-  "m" 'menu-bar-mode)
+  "m" 'menu-bar-mode
+  "w" 'subword-mode
+  "W" 'superword-mode)
 
 ;; disable toolbar/scrollbar
 (when (fboundp 'scroll-bar-mode)
@@ -51,7 +53,7 @@
     (disable-theme theme))
   (load-theme this-theme))
 
-(my-theme-leader
+(my-toggle-leader
   "t" 'my-load-theme-only
   "T" 'customize-themes)
 

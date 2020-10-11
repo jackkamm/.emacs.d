@@ -150,7 +150,7 @@
 	   "my-lines-regions"
 	   "my-motions-jumping"
 	   "my-search-replace"
-	   "my-appearance"
+	   "my-themes-toggles"
            "my-history-vc-undo")
 	(list
 	 ;; load first to ensure org-plus-contrib
@@ -170,7 +170,7 @@
 	 "my-shell"
 	 "my-snippets"
 
-	 "my-appearance"
+	 "my-themes-toggles"
 
 	 "my-email-chat"
 
