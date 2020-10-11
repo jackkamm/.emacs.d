@@ -62,41 +62,50 @@
     "e" 'evil-iedit-state/iedit-mode))
 
 ;; multiple-cursors
-(use-package multiple-cursors :defer t)
-
-(use-package evil-mc
-  :init
-  ;; get rid of default keybindings
-  (setq evil-mc-key-map (make-sparse-keymap))
+(use-package multiple-cursors
+  ;; use :bind keyword b/c :general doesn't like fake commands
+  :bind
+  (:map evil-motion-state-map ("Q" . #'my-mc-mode))
+  (:map my-search-map ("Q" . #'my-mc-mode))
   :config
-  ;; add commands for hybrid-style editing
-  ;; https://github.com/gabesoft/evil-mc/issues/24
-  (require 'cl-lib)
-  (require 'multiple-cursors)
-  (customize-set-variable
-   'evil-mc-custom-known-commands
-   (cl-loop for cmd in mc--default-cmds-to-run-for-all
-            if (not (assoc cmd evil-mc-known-commands))
-            collect `(,cmd . ((:default
-                               . evil-mc-execute-default-call-with-count)))))
-
-  ;; bind to Q because it's unused, and b/c of the analogy to macros
-  (evil-define-key 'normal 'global "Q" #'my-evil-mc-mode)
-  (my-search-replace-leader "Q" #'my-evil-mc-mode)
-
-  (bind-keys  :map evil-mc-cursors-map
-              ((kbd "<mouse-1>") . evil-mc-toggle-cursor-on-click)
-              ((kbd "<down-mouse-1>") . ignore)
-              ((kbd "M-n") . evil-mc-make-and-goto-next-cursor)
-              ((kbd "M-p") . evil-mc-make-and-goto-prev-cursor)
-              ((kbd "C-n") . evil-mc-make-and-goto-next-match)
-              ((kbd "C-t") . evil-mc-skip-and-goto-next-match)
-              ((kbd "C-p") . evil-mc-make-and-goto-prev-match))
-
+  ;; switch to emacs-state when activating multiple-cursors
+  (add-hook 'multiple-cursors-mode-hook
+            (lambda ()
+              (if multiple-cursors-mode
+                  (if (not (evil-visual-state-p))
+                      (evil-emacs-state)
+                    ;; based on evil-execute-in-emacs-state
+                    (let ((mrk (mark))
+                          (pnt (point)))
+                      (evil-emacs-state)
+                      (set-mark mrk)
+                      (goto-char pnt)) )
+                (evil-exit-emacs-state))))
+  ;; based on https://github.com/abo-abo/hydra/wiki/multiple-cursors,
+  ;; but using hercules so we don't have to tell multiple-cursors.el
+  ;; about each of the individual hydra commands.
+  (setq my-mc-map (make-sparse-keymap))
+  (bind-keys
+   :map my-mc-map
+   ("C-<backspace>" . helm-delete-minibuffer-contents)
+   ("l" . mc/edit-lines)
+   ("a" . mc/mark-all-like-this)
+   ("n" . mc/mark-next-like-this)
+   ("N" . mc/skip-to-next-like-this)
+   ("M-n" . mc/unmark-next-like-this)
+   ("p" . mc/mark-previous-like-this)
+   ("P" . mc/skip-to-previous-like-this)
+   ("M-p" . mc/unmark-previous-like-this)
+   ("|" . mc/vertical-align)
+   ("s" . mc/mark-all-in-region-regexp)
+   ("0" . mc/insert-numbers)
+   ("A" . mc/insert-letters)
+   ("Q" . my-mc-mode)
+   ("<mouse-1>" . mc/add-cursor-on-click)
+   ("<down-mouse-1>" . ignore)
+   ("<drag-mouse-1>" . ignore))
   (hercules-def
-   :hide-funs #'evil-mc-undo-all-cursors
-   :show-funs #'my-evil-mc-mode
-   :keymap 'evil-mc-cursors-map
-   :transient t)
+   :toggle-funs #'my-mc-mode
+   :keymap 'my-mc-map
+   :transient t))
 
-  (global-evil-mc-mode 1))
