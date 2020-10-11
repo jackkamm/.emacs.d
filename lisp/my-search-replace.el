@@ -65,6 +65,7 @@
 (use-package multiple-cursors
   ;; use :bind keyword b/c :general doesn't like fake commands
   :bind
+  ;; use Q due to being unbound & the analogy w/ macros
   (:map evil-motion-state-map ("Q" . #'my-mc-mode))
   (:map my-search-map ("Q" . #'my-mc-mode))
   :config
@@ -80,7 +81,7 @@
                       (evil-emacs-state)
                       (set-mark mrk)
                       (goto-char pnt)) )
-                (evil-exit-emacs-state))))
+                (evil-normal-state))))
   ;; based on https://github.com/abo-abo/hydra/wiki/multiple-cursors,
   ;; but using hercules so we don't have to tell multiple-cursors.el
   ;; about each of the individual hydra commands.
