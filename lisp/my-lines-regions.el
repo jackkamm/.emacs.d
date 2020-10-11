@@ -53,7 +53,7 @@
 
 (setq my-region-map (make-sparse-keymap))
 (general-create-definer my-region-leader :prefix-map 'my-region-map)
-(my-leader "r" '(:keymap my-region-map :which-key "Region"))
+(my-leader "v" '(:keymap my-region-map :which-key "Region"))
 
 (put 'narrow-to-region 'disabled nil)
 (setq narrow-to-defun-include-comments t)

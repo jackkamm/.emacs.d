@@ -80,8 +80,9 @@
             collect `(,cmd . ((:default
                                . evil-mc-execute-default-call-with-count)))))
 
-  (my-search-replace-leader
-    "m" #'my-evil-mc-mode)
+  ;; bind to Q because it's unused, and b/c of the analogy to macros
+  (evil-define-key 'normal 'global "Q" #'my-evil-mc-mode)
+  (my-search-replace-leader "Q" #'my-evil-mc-mode)
 
   (bind-keys  :map evil-mc-cursors-map
               ((kbd "<mouse-1>") . evil-mc-toggle-cursor-on-click)
