@@ -62,15 +62,16 @@
   (evil-respect-visual-line-mode t)
   ;; make emacs- and insert-states identical
   (evil-disable-insert-state-bindings t)
-  (evil-default-state 'insert)
   :config
-  (evil-set-initial-state 'prog-mode 'normal)
-  (evil-set-initial-state 'text-mode 'normal)
   ;; get rid of motion state everywhere
   (defalias 'evil-motion-state 'evil-insert-state)
   ;; get rid of emacs state nearly everywhere
   (mapc (lambda (mode) (evil-set-initial-state mode 'insert))
         evil-emacs-state-modes)
+  ;; set special states to insert mode
+  (evil-set-initial-state 'special-mode 'insert)
+  (evil-set-initial-state 'image-mode 'insert)
+  (evil-set-initial-state 'dired-mode 'insert)
   ;;(setq evil-motion-state-tag (propertize
   ;;                            "  MOTION  " 'face
   ;;                            '((:background "purple" :foreground "black"))))
