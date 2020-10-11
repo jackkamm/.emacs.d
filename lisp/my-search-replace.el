@@ -65,6 +65,9 @@
 (use-package multiple-cursors :defer t)
 
 (use-package evil-mc
+  :init
+  ;; get rid of default keybindings
+  (setq evil-mc-key-map (make-sparse-keymap))
   :config
   ;; add commands for hybrid-style editing
   ;; https://github.com/gabesoft/evil-mc/issues/24
@@ -77,7 +80,22 @@
             collect `(,cmd . ((:default
                                . evil-mc-execute-default-call-with-count)))))
 
-  (define-key evil-mc-key-map (kbd "M-C-<mouse-1>")
-    'evil-mc-toggle-cursor-on-click)
+  (my-search-replace-leader
+    "m" #'my-evil-mc-mode)
+
+  (bind-keys  :map evil-mc-cursors-map
+              ((kbd "<mouse-1>") . evil-mc-toggle-cursor-on-click)
+              ((kbd "<down-mouse-1>") . ignore)
+              ((kbd "M-n") . evil-mc-make-and-goto-next-cursor)
+              ((kbd "M-p") . evil-mc-make-and-goto-prev-cursor)
+              ((kbd "C-n") . evil-mc-make-and-goto-next-match)
+              ((kbd "C-t") . evil-mc-skip-and-goto-next-match)
+              ((kbd "C-p") . evil-mc-make-and-goto-prev-match))
+
+  (hercules-def
+   :hide-funs #'evil-mc-undo-all-cursors
+   :show-funs #'my-evil-mc-mode
+   :keymap 'evil-mc-cursors-map
+   :transient t)
 
   (global-evil-mc-mode 1))
