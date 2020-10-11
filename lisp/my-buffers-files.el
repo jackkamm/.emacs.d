@@ -91,8 +91,6 @@
 (my-major-leader :keymaps 'dired-mode-map
   "w" 'wdired-change-to-wdired-mode)
 
-(evil-set-initial-state 'wdired-mode 'normal)
-
 ;; Diff'ing
 
 (use-package ediff

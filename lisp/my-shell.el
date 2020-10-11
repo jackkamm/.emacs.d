@@ -2,9 +2,7 @@
 
 (with-eval-after-load 'term
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
-  (evil-set-initial-state 'term-mode 'emacs)
-  (advice-add 'term-line-mode :after #'evil-normal-state)
-  (advice-add 'term-char-mode :after #'evil-emacs-state))
+  (evil-set-initial-state 'term-mode 'emacs))
 
 ;; Running in screen improves term-mode performance
 ;; https://www.reddit.com/r/emacs/comments/88yzp4/better_way_to_run_terminals_in_emacs/
