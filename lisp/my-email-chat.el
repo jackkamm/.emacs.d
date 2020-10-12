@@ -83,8 +83,11 @@
     (notmuch-jump action-map "Filter: ")))
   (bind-keys :map notmuch-search-mode-map
              ("L" . my-notmuch-search-filter-jump)
-             ("a" . nil))
-  (bind-keys :map notmuch-tree-mode-map ("a" . nil)))
+             ("a" . nil)
+             ("x" . nil))
+  (bind-keys :map notmuch-tree-mode-map
+             ("a" . nil)
+             ("x" . nil)))
 
 (use-package gnus
   :defer t
