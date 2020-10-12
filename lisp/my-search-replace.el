@@ -56,10 +56,10 @@
   (global-evil-visualstar-mode))
 
 ;; iedit
-(use-package evil-iedit-state
+(use-package iedit
   :general
   (my-search-replace-leader
-    "e" 'evil-iedit-state/iedit-mode))
+    "e" 'iedit-mode))
 
 ;; multiple-cursors
 (use-package multiple-cursors
