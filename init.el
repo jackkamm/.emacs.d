@@ -132,7 +132,6 @@
 
 ;; hydra
 (use-package hydra)
-(use-package hercules)
 
 (setq my-completing-read-style 'hybrid)
 ;;(setq my-completing-read-style 'builtin)
