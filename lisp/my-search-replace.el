@@ -65,9 +65,7 @@
 (use-package multiple-cursors
   ;; use :bind keyword b/c :general doesn't like fake commands
   :bind
-  ;; use Q due to being unbound & the analogy w/ macros
-  (:map evil-motion-state-map ("Q" . #'my-mc-mode))
-  (:map my-search-map ("Q" . #'my-mc-mode))
+  (:map my-search-map ("m" . #'my-mc-toggle))
   :config
   ;; switch to emacs-state when activating multiple-cursors
   (add-hook 'multiple-cursors-mode-hook
@@ -88,7 +86,6 @@
   (setq my-mc-map (make-sparse-keymap))
   (bind-keys
    :map my-mc-map
-   ("C-<backspace>" . helm-delete-minibuffer-contents)
    ("l" . mc/edit-lines)
    ("a" . mc/mark-all-dwim)
    ("n" . mc/mark-next-like-this-symbol)
@@ -101,12 +98,16 @@
    ("s" . mc/mark-all-in-region-regexp)
    ("0" . mc/insert-numbers)
    ("A" . mc/insert-letters)
-   ("Q" . my-mc-mode)
+   ("q" . my-mc-toggle)
    ("<mouse-1>" . mc/add-cursor-on-click)
    ("<down-mouse-1>" . ignore)
    ("<drag-mouse-1>" . ignore))
   (hercules-def
-   :toggle-funs #'my-mc-mode
+   :toggle-funs #'my-mc-toggle
+   :hide-funs '(mc/edit-lines
+                mc/mark-all-in-region-regexp
+                mc/insert-numbers
+                mc/insert-letters)
    :keymap 'my-mc-map
    :transient t))
 
