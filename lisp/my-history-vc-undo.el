@@ -58,6 +58,9 @@
   (my-leader
     "gt" 'git-timemachine))
 
+(use-package magit-annex
+  :after magit)
+
 ;; Backup files
 
 (let ((backup-dir (concat user-emacs-directory "backups/")))
