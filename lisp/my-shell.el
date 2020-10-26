@@ -78,8 +78,9 @@
 
   (defun my-emamux-yank ()
     (interactive)
+    (emamux:check-tmux-running)
     (with-temp-buffer
-      (emamux:yank-from-list-buffers)
+      (emamux:tmux-run-command t "show-buffer")
       (kill-region (point-min) (point-max))))
 
   (bind-keys
