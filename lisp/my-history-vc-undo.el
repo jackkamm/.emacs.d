@@ -51,7 +51,16 @@
 (use-package magit
   :general
   (my-leader
-    "gs" 'magit-status))
+    "gs" 'magit-status)
+  :config
+  (defun my-magit-ls-lh (file)
+    "Open FILE with `dired-do-async-shell-command'.
+Interactively, open the file at point."
+    (interactive (list (or (magit-file-at-point)
+                           (completing-read "Act on file: "
+                                            (magit-list-files)))))
+    (shell-command (format "ls -lh '%s'" file)))
+  (define-key magit-status-mode-map "." 'my-magit-ls-lh))
 
 (use-package git-timemachine
   :general
@@ -60,6 +69,9 @@
 
 (use-package magit-annex
   :after magit)
+
+
+
 
 ;; Backup files
 
