@@ -112,7 +112,18 @@
     "a" 'org-archive-to-archive-sibling
     (kbd "<tab>") 'my-org-cycle-hydra/org-force-cycle-archived
     ;; C-c C-, can't be typed in a terminal
-    "," 'org-insert-structure-template))
+    "," 'org-insert-structure-template)
+
+  ;; self-contained html export
+  ;; https://www.reddit.com/r/orgmode/comments/7dyywu/creating_a_selfcontained_html/
+  (defun org-html--format-image (source attributes info)
+    (format "<img src=\"data:image/%s;base64,%s\"%s />"
+            (or (file-name-extension source) "")
+            (base64-encode-string
+             (with-temp-buffer
+	       (insert-file-contents-literally source)
+	       (buffer-string)))
+            (file-name-nondirectory source))))
 
 ;;; Load modules distributed with org-mode, that need to be loaded
 ;;; separately. Could alternatively use `require' or `org-modules',
