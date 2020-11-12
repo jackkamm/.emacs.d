@@ -31,8 +31,9 @@
   ;; to resize inline images
   (org-image-actual-width '(750))
 
-  (org-priority-lowest ?E)
-  (org-priority-default ?C)
+  (org-priority-highest ?A)
+  (org-priority-lowest ?Z)
+  (org-priority-default ?M)
 
   (org-link-file-path-type
    (lambda (path)
