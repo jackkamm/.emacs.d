@@ -124,6 +124,7 @@
 
   ;; self-contained html export
   ;; https://www.reddit.com/r/orgmode/comments/7dyywu/creating_a_selfcontained_html/
+  ;; TODO: submit to org-mode
   (defun org-html--format-image (source attributes info)
     (format "<img src=\"data:image/%s;base64,%s\"%s />"
             (or (file-name-extension source) "")
