@@ -34,6 +34,14 @@
   (org-priority-lowest ?E)
   (org-priority-default ?C)
 
+  (org-link-file-path-type
+   (lambda (path)
+     (let* ((proj (project-current))
+            (root (if proj (project-root proj) default-directory)))
+       (if (string-prefix-p (expand-file-name root) path)
+           (file-relative-name path)
+         (abbreviate-file-name path)))))
+
   (org-log-done 'time)
   (org-log-done-with-time nil)
   (org-agenda-start-with-log-mode t)
