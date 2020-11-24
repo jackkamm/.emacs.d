@@ -167,7 +167,9 @@
 (use-package org-gcal
   :commands (org-gcal-fetch
              org-gcal-sync)
-  :load-path "~/.emacs.d/lisp/org-gcal.el"
+  :custom
+  (org-gcal-update-cancelled-events-with-todo nil)
+  (org-gcal-remove-cancelled-events t)
   :general
   (my-leader
     "og" 'org-gcal-fetch))
