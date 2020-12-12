@@ -164,16 +164,6 @@
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
 
-(use-package org-gcal
-  :commands (org-gcal-fetch
-             org-gcal-sync)
-  :custom
-  (org-gcal-update-cancelled-events-with-todo nil)
-  (org-gcal-remove-cancelled-events t)
-  :general
-  (my-leader
-    "og" 'org-gcal-fetch))
-
 (use-package orgit :after (org magit))
 
 (use-package zotxt
