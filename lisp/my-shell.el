@@ -100,13 +100,3 @@
     (bind-keys
      :map emamux:keymap
      ("c" . my-emamux-send-chunk))))
-
-;; keybindings in terminal frames
-
-;; use git submodule instead?
-(add-to-list 'package-archives
-             '("cselpa" . "https://elpa.thecybershadow.net/packages/"))
-
-(use-package term-keys
-  :config
-  (term-keys-mode t))
