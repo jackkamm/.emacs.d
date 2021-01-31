@@ -57,6 +57,9 @@
   ;; make the todo list shorter by skipping sublevels
   (org-agenda-todo-list-sublevels nil)
 
+  ;; C-TAB doesn't work in terminal, and org-force-cycle-archived
+  ;; doesn't play nice with general-simulate-key
+  (org-cycle-open-archived-trees t)
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
@@ -108,10 +111,6 @@
         (org-toggle-inline-images))))
   (add-hook 'ediff-prepare-buffer-hook 'my-org-ediff-hook)
 
-  (defhydra my-org-cycle-hydra ()
-    "org-cycle"
-    ("<tab>" org-force-cycle-archived))
-
   ;; bind major keys
   (my-major-leader
     :keymaps 'org-mode-map
@@ -119,8 +118,7 @@
     "t" 'org-toggle-inline-images
     "e" 'org-export-dispatch
     "a" 'org-archive-to-archive-sibling
-    (kbd "<tab>") 'my-org-cycle-hydra/org-force-cycle-archived
-    ;; C-c C-, can't be typed in a terminal
+    ;; C-c C-, can't be typed in terminal
     "," 'org-insert-structure-template)
 
   ;; self-contained html export
