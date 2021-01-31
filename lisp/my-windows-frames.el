@@ -83,4 +83,6 @@
                              ("magit-diff:" nil
                               (inhibit-same-window . t))))
 
+;; tabs
 
+(customize-set-variable 'tab-bar-new-tab-choice "*scratch*")
