@@ -1,5 +1,4 @@
 (use-package tex
-  :defer t
   :ensure auctex
   :general
   (my-major-leader

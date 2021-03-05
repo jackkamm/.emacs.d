@@ -52,6 +52,7 @@
 
 ;; visualstar
 (use-package evil-visualstar
+  :demand t
   :config
   (global-evil-visualstar-mode))
 

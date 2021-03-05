@@ -4,7 +4,6 @@
   :custom
   (helm-split-window-default-side 'other)
   (helm-buffer-skip-remote-checking t)
-  :commands helm-mode
   :config
   (require 'helm-config)
   (bind-keys :map helm-map
@@ -21,18 +20,11 @@
                  ("<right>" . forward-char)))))
 
 (use-package helm-ag
-  :commands (helm-ag
-             helm-do-ag
-             helm-ag-buffers
-             helm-do-ag-buffers
-             helm-do-grep-ag)
   :config
   (bind-keys :map helm-ag-mode-map
              ((kbd "<tab>") . helm-ag-mode-jump-other-window)))
 
-(use-package helm-projectile
-  :commands (helm-projectile-ag
-             helm-projectile-find-file-dwim))
+(use-package helm-projectile)
 
 ;; ivy
 
@@ -41,29 +33,23 @@
   (setq ivy-use-selectable-prompt t)
   (setq ivy-re-builders-alist
 	'((t . ivy--regex-ignore-order)))
-  (setq ivy-use-virtual-buffers t)
-  :commands ivy-mode)
+  (setq ivy-use-virtual-buffers t))
 
-(use-package swiper
-  :commands (swiper
-             swiper-all
-             swiper-from-isearch))
+(use-package swiper)
 
-(use-package ivy-hydra :after ivy)
+(use-package ivy-hydra :after ivy :demand t)
 
 (use-package counsel
-  :commands counsel-mode
   :config
   ;; override shadowing of yank-pop, since counsel-yank-pop doesn't
   ;; work in minibuffer
   (define-key counsel-mode-map [remap yank-pop] nil))
 
-(use-package counsel-projectile
-  :commands (counsel-projectile counsel-projectile-grep))
+(use-package counsel-projectile)
 
 (use-package ivy-prescient
   :after ivy
-  :commands ivy-prescient-mode)
+  :demand t)
 
 ;; icomplete
 

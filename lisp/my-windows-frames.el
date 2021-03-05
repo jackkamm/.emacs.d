@@ -47,7 +47,6 @@
    ("w" . ace-select-window)
    ("D" . ace-delete-window)
    ("M" . ace-swap-window))
-  :commands ace-display-buffer
   :config
   (set-face-attribute
      'aw-leading-char-face nil

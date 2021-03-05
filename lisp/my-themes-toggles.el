@@ -26,7 +26,7 @@
 (blink-cursor-mode 1)
 
 ;; pos-tip
-(use-package pos-tip)
+(use-package pos-tip :demand t)
 
 ;;;; whitespace
 (setq whitespace-style '(face trailing))
@@ -71,8 +71,6 @@
 ;; Emoji
 
 (use-package emojify
-  :commands (emojify-mode
-	     global-emojify-mode)
   :init
     (dolist (h (list 'notmuch-show-hook
 		     'notmuch-search-hook

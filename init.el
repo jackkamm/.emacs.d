@@ -54,9 +54,11 @@
 (require 'bind-key)
 (customize-set-variable 'use-package-always-ensure t)
 (customize-set-variable 'use-package-verbose t)
+(customize-set-variable 'use-package-always-defer t)
 
 ;; evil
 (use-package evil
+  :demand t
   :custom
   (evil-overriding-maps nil)
   (evil-intercept-maps nil)
@@ -97,6 +99,7 @@
 
 ;; which-key
 (use-package which-key
+  :demand t
   :custom
   (which-key-sort-order 'which-key-key-order-alpha)
   (which-key-enable-extended-define-key t)
@@ -107,6 +110,7 @@
 
 ;; general
 (use-package general
+  :demand t
   :config
   (general-override-mode)
 
@@ -137,8 +141,8 @@
    "_" 'universal-argument))
 
 ;; hydra
-(use-package hydra)
-(use-package hercules)
+(use-package hydra :demand t)
+(use-package hercules :demand t)
 
 (setq my-completing-read-style 'hybrid)
 ;;(setq my-completing-read-style 'builtin)

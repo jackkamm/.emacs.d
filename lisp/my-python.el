@@ -17,16 +17,11 @@
 (with-eval-after-load "my-lsp"
   (add-hook 'python-mode-hook #'lsp))
 
-(use-package pyvenv
-  :commands (pyvenv-activate
-	     pyvenv-workon))
+(use-package pyvenv)
 
-(use-package cython-mode
-  :mode (("\\.pyx\\'" . cython-mode)
-	 ("\\.pxd\\'" . cython-mode)))
+(use-package cython-mode)
 
 (use-package yapfify
-  :commands (yapfify-buffer)
   :init
   (my-major-leader
     :keymaps 'python-mode-map

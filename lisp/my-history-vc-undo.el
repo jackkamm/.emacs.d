@@ -62,7 +62,7 @@ Interactively, open the file at point."
     "gt" 'git-timemachine))
 
 (use-package magit-annex
-  :after magit)
+  :after magit :demand t)
 
 
 

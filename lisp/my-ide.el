@@ -1,8 +1,6 @@
 ;;; LSP
 
-(use-package eglot
-  :commands (eglot
-             eglot-ensure))
+(use-package eglot)
 
 (with-eval-after-load "my-python" (add-hook 'python-mode-hook 'eglot-ensure))
 
@@ -12,7 +10,6 @@
 
 ;;;; projectile
 ;;(use-package projectile
-;;  :commands projectile-grep
 ;;  :custom
 ;;  (projectile-use-git-grep t))
 
@@ -25,21 +22,23 @@
 ;;; Completion
 
 (use-package company
-  :defer 2
+  :demand t
   :config
-  (global-company-mode 1)
-  (my-leader "C" 'company-complete)
+  (global-company-mode 1))
 
-  (pcase my-completing-read-style
-    (`ivy
-     (my-leader "C" 'counsel-company))
-    ((or `helm `hybrid)
-     (use-package helm-company
-      :config
-      (my-leader "C" 'helm-company)))))
+(use-package helm-company)
+
+(pcase my-completing-read-style
+  (`ivy
+   (my-leader "C" 'counsel-company))
+  ((or `helm `hybrid)
+   (my-leader "C" 'helm-company))
+  (_
+   (my-leader "C" 'company-complete)))
 
 (use-package company-prescient
   :after company
+  :demand t
   :config
   (company-prescient-mode))
 
@@ -62,7 +61,6 @@
 ;; recently. Some situations may require flycheck instead of the
 ;; built-in flymake, e.g. when using flycheck-package for MELPA
 (use-package flycheck
-  :commands flycheck-mode
   :custom
   ;; customizations to improve performance
   (flycheck-check-syntax-automatically '(save idle-change mode-enabled))
@@ -80,11 +78,13 @@
 
 (use-package flycheck-pos-tip
   :after flycheck
+  :demand t
   :config
   (flycheck-pos-tip-mode))
 
 ;; recommender linter for MELPA. Call `flycheck-mode' to start
 (use-package flycheck-package
   :after (flycheck elisp-mode)
+  :demand t
   :config
   (flycheck-package-setup))

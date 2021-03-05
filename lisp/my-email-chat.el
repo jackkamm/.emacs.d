@@ -1,7 +1,6 @@
 ;; Chat
 
 (use-package erc
-  :commands erc
   :config
   (add-to-list 'erc-modules 'notifications))
 
@@ -17,7 +16,7 @@
 (my-leader "ai" 'my-irc)
 
 ;; pastebin for IRC
-(use-package ix :commands ix)
+(use-package ix)
 
 ;; Mail
 
@@ -98,8 +97,6 @@
              ("x" . nil)))
 
 (use-package gnus
-  :defer t
-  :commands gnus
   :general
   (my-leader "ag" 'gnus)
   :init

@@ -8,15 +8,18 @@
 ;; Parens
 
 (use-package evil-surround
+  :demand t
   :config
   (global-evil-surround-mode 1))
 
 (use-package smartparens
+  :demand t
   :config
   (require 'smartparens-config)
   (smartparens-global-mode))
 
 (use-package evil-matchit
+  :demand t
   :config
   (global-evil-matchit-mode 1)
   (setq evilmi-always-simple-jump t)
@@ -27,24 +30,22 @@
                (evilmi-html-get-tag evilmi-html-jump))))
 
 (use-package lispyville
- :commands lispyville-mode
- :init
- (add-hook 'emacs-lisp-mode-hook 'lispyville-mode)
- (add-hook 'clojure-mode-hook 'lispyville-mode)
- :config
- (lispyville-set-key-theme
-  '(operators
-    c-w
-    slurp/barf-lispy
-    additional
-    additional-movement))
- ;; get rid of keys I don't like in additional-motion
- (evil-define-key 'motion lispyville-mode-map
-   "H" nil
-   "L" nil))
+  :hook
+  ((emacs-lisp-mode . lispyville-mode)
+   (clojure-mode . lispyville-mode))
+  :config
+  (lispyville-set-key-theme
+   '(operators
+     c-w
+     slurp/barf-lispy
+     additional
+     additional-movement))
+  ;; get rid of keys I don't like in additional-motion
+  (evil-define-key 'motion lispyville-mode-map
+    "H" nil
+    "L" nil))
 
 (use-package rainbow-delimiters
-  :commands rainbow-delimiters-mode
   :init
   (with-eval-after-load "my-themes-toggles"
     (my-toggle-leader "r" 'rainbow-delimiters-mode)))

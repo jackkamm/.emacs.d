@@ -1,6 +1,5 @@
 (use-package org
   :ensure nil
-  :mode ("\\.org\\'" . org-mode)
   :general
   (my-leader
     "o" '(:ignore t :which-key "Org")
@@ -66,11 +65,12 @@
   ;; turn on org-indent-mode
   (org-startup-indented t)
 
+  (org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
   ;; (org-reverse-note-order t)
-
   :init
   ;; TODO implement this functionality via a prefix argument instead?
   (defun my-org-store-link-no-id ()
@@ -125,7 +125,7 @@ SCHEDULED: %t
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
     (customize-set-variable 'org-latex-pdf-process
-          (list "latexmk -shell-escape -bibtex -f -pdf %f")))
+                            (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
   ;; ediff
   ;; https://emacs.stackexchange.com/questions/21335/prevent-folding-org-files-opened-by-ediff
@@ -156,38 +156,30 @@ SCHEDULED: %t
              (with-temp-buffer
 	       (insert-file-contents-literally source)
 	       (buffer-string)))
-            (file-name-nondirectory source))))
+            (file-name-nondirectory source)))
 
-;;; Load modules distributed with org-mode, that need to be loaded
-;;; separately. Could alternatively use `require' or `org-modules',
-;;; but "we should get rid of org-modules altogether now that Emacs
-;;; has a packaging system"
-;;; (https://lists.gnu.org/archive/html/emacs-orgmode/2020-02/msg00714.html)
+  ;; Load modules distributed with org-mode, that need to be loaded
+  ;; separately. Could alternatively use `require' or `org-modules',
+  ;; but "we should get rid of org-modules altogether now that Emacs
+  ;; has a packaging system"
+  ;; (https://lists.gnu.org/archive/html/emacs-orgmode/2020-02/msg00714.html)
 
-(use-package ol-notmuch
-  :ensure nil
-  :after org)
-
-;; TODO: remove after fixing C-c C-, display-buffer issues
-(use-package org-tempo
-  :ensure nil
-  :after org)
-
-(use-package org-id
-  :ensure nil
-  :after org
-  :custom
-  (org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id))
+  (require 'ol-notmuch)
+  (require 'org-id)
+  ;; TODO: remove after fixing C-c C-, display-buffer issues
+  (require 'org-tempo))
 
 ;;; Load packages related to org-mode
 
-(use-package orgit :after (org magit))
+(use-package orgit
+  :after (org magit) :demand t)
 
 (use-package zotxt
   :hook (org-mode . org-zotxt-mode))
 
 (use-package org-ref
   :after org
+  :demand t
   :config
   (setq reftex-default-bibliography '("~/Documents/bibliography/zotero.bib"))
 
@@ -196,10 +188,10 @@ SCHEDULED: %t
         org-ref-default-bibliography '("~/Documents/bibliography/zotero.bib")
         org-ref-pdf-directory "~/Documents/bibliography/bibtex-pdfs/"))
 
-(use-package ox-reveal :after org)
+(use-package ox-reveal
+  :after org :demand t)
 
-(use-package org-present
-  :commands org-present)
+(use-package org-present)
 
 (use-package helm-org-rifle
   :general

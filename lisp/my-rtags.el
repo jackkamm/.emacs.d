@@ -11,7 +11,6 @@
 ;; (compile_commands.json from cmake, bear, or python-scan-build)
 
 (use-package rtags
-  :commands rtags-start-process-unless-running
   :init
   (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
   :config
@@ -36,9 +35,10 @@
     (setq-local flycheck-check-syntax-automatically nil))
   (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup))
 
-(use-package flycheck-rtags :defer t)
+(use-package flycheck-rtags)
 
 (use-package helm-rtags
   :after helm
+  :demand t
   :config
   (setq rtags-display-result-backend 'helm))

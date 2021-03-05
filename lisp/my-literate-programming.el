@@ -1,6 +1,4 @@
 (use-package ein
-  :commands (ein:notebooklist-login
-	     ein:notebooklist-open)
   :config
   (require 'ein-notebook)
   (require 'ein-subpackages)
@@ -31,7 +29,6 @@
     "<return>" 'ein:worksheet-execute-cell-and-goto-next))
 
 (use-package jupyter
-  :commands (jupyter-run-repl jupyter-connect-repl)
   :init
   (add-hook 'jupyter-repl-mode-hook
             (lambda () (display-line-numbers-mode -1)))
@@ -80,6 +77,7 @@
 ;; `ob-session-async' is loaded
 (use-package ob-async
   :after org
+  :demand t
   :init
   (setq ob-async-no-async-languages-alist
         '("jupyter-python" "jupyter-R" "jupyter-julia"))
@@ -90,22 +88,18 @@
             '(lambda ()
                (setq inferior-julia-program-name "/usr/local/bin/julia"))))
 
-;; Contains advice to ignore `ob-async' in session blocks
-(use-package ob-session-async
-  :ensure nil
-  :after org)
-
-(use-package ob-session-async-R
-  :ensure nil
-  :after org)
+(with-eval-after-load 'org
+  ;; Contains advice to ignore `ob-async' in session blocks
+  (require 'ob-session-async)
+  (require 'ob-session-async-R))
 
 (use-package polymode
   :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
 	 ("\\.Rmd" . poly-markdown+r-mode))
   :config
-  (use-package poly-R)
-  (use-package poly-noweb)
-  (use-package poly-markdown)
+  (require 'poly-R)
+  (require 'poly-noweb)
+  (require 'poly-markdown)
   (setq polymode-weave-output-file-format "%s")
   (setq polymode-exporter-output-file-format "%s")
   (setq polymode-display-process-buffers nil)

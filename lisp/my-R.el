@@ -4,14 +4,6 @@
 
 (use-package ess-r-mode
   :ensure ess
-  :mode (("/R/.*\\.q\\'"       . R-mode)
-	 ("\\.[rR]\\'"         . R-mode)
-	 ("\\.[rR]profile\\'"  . R-mode)
-	 ("NAMESPACE\\'"       . R-mode)
-	 ("CITATION\\'"        . R-mode)
-	 ("\\.[Rr]out"         . R-transcript-mode)
-	 ("\\.Rd\\'"           . Rd-mode))
-  :commands R
   :init
   ;; many variables need to be set in :init to have effect
   (setq ess-help-pop-to-buffer nil

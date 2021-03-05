@@ -34,6 +34,7 @@
 
 ;;;; set $PATH on OSX
 (use-package exec-path-from-shell
+  :demand t
   :config
   (exec-path-from-shell-initialize))
 
@@ -46,43 +47,26 @@
   "l" 'eval-last-sexp)
 
 ;;; miscellaneous major-modes
-(use-package dockerfile-mode
-  :mode (("Dockerfile\\'" . dockerfile-mode)))
+(use-package dockerfile-mode)
 
-(use-package csv-mode
-  :mode (("\\.csv\\'" . csv-mode)))
+(use-package csv-mode)
 
-(use-package go-mode
-  :mode (("\\.go\\'" . go-mode)
-	 ("\\.rf\\'" . go-mode)))
+(use-package go-mode)
 
-(use-package snakemake-mode
-  :mode (("Snakefile\\'" . snakemake-mode)
-	 ("\\.\\(?:sm\\)?rules\\'" . snakemake-mode)
-	 ("\\.smk\\'" . snakemake-mode)
-	 ("\\.snakefile\\'" . snakemake-mode)))
+(use-package snakemake-mode)
 
 (use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc"))
 
 ;; dependancy of nextflow-mode
-(use-package groovy-mode :defer t)
+(use-package groovy-mode)
 
 (use-package nextflow-mode
   :ensure nil
   :mode (("\\.nf\\'" . nextflow-mode)))
 
-(use-package yaml-mode
-  :mode (("\\.yml\\'" . yaml-mode)
-	 ("\\.yaml\\'" . yaml-mode)))
+(use-package yaml-mode)
 
-(use-package ledger-mode
-  :mode (("\\.ledger\\'" . ledger-mode)))
+(use-package ledger-mode)
 
-(use-package pkgbuild-mode
-  :mode (("PKGBUILD\\'" . pkgbuild-mode)))
+(use-package pkgbuild-mode)

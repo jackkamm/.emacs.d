@@ -9,4 +9,4 @@
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
 ;; Docker
-(use-package docker-tramp)
+(use-package docker-tramp :demand t)

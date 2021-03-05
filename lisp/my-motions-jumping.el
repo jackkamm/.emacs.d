@@ -15,6 +15,7 @@
     "l"  'avy-goto-line))
 
 (use-package evil-easymotion
+  :demand t
   :config
   (evilem-default-keybindings "C-c e"))
 (my-leader "e" '(:ignore t :which-key "easymotion"))
