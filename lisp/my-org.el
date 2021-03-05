@@ -5,6 +5,7 @@
   (my-leader
     "o" '(:ignore t :which-key "Org")
     "ol" 'org-store-link
+    "oL" 'my-org-store-link-no-id
     "ob" 'org-revert-all-org-buffers
     "oc" 'org-capture
     "oa" 'org-agenda)
@@ -64,6 +65,14 @@
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
   ;; (org-reverse-note-order t)
+
+  :init
+  ;; TODO implement this functionality via a prefix argument instead?
+  (defun my-org-store-link-no-id ()
+    (interactive)
+    (let (org-id-link-to-org-use-id)
+      (call-interactively 'org-store-link)))
+
   :config
   ;; Indentation
   (customize-set-variable 'org-adapt-indentation nil)
