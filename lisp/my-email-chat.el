@@ -34,6 +34,13 @@
 (add-hook 'message-mode-hook 'turn-off-auto-fill)
 (add-hook 'message-mode-hook 'visual-line-mode)
 
+;; https://emacs.stackexchange.com/questions/41175/how-to-warn-before-sending-email-if-subject-is-empty
+(defun my-confirm-empty-subject ()
+  "Allow user to quit when current message subject is empty."
+  (or (message-field-value "Subject")
+      (yes-or-no-p "Really send without Subject? ")
+      (keyboard-quit)))
+
 (use-package notmuch
   :general
   (my-leader "an" 'notmuch)
@@ -48,6 +55,7 @@
 
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
+  (add-hook 'notmuch-mua-send-hook 'my-confirm-empty-subject)
 
   ;; workaround: `notmuch-read-query' ignores `completion-category-defaults'
   ;; TODO: submit fix to notmuch? cf "Programmed Completion" Info,
