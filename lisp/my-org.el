@@ -61,6 +61,10 @@
   ;; C-TAB doesn't work in terminal, and org-force-cycle-archived
   ;; doesn't play nice with general-simulate-key
   (org-cycle-open-archived-trees t)
+
+  ;; turn on org-indent-mode
+  (org-startup-indented t)
+
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
@@ -74,9 +78,10 @@
       (call-interactively 'org-store-link)))
 
   :config
-  ;; Indentation
+  ;; Disable auto-indentation
   (customize-set-variable 'org-adapt-indentation nil)
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
+  (add-hook 'org-mode-hook (lambda () (electric-indent-local-mode -1)))
 
   ;; Truncate long lines so tables aren't misaligned
   (add-hook 'org-mode-hook
