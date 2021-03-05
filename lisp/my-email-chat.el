@@ -43,15 +43,15 @@
 (use-package notmuch
   :general
   (my-leader "an" 'notmuch)
+  :custom
+  (notmuch-search-oldest-first nil)
+  (notmuch-wash-wrap-lines-length 80)
+  (notmuch-mua-compose-in 'new-window)
+  (notmuch-always-prompt-for-sender t)
   :init
   ;; load config for browse-url-mail, used by x-scheme-handler/mailto
   (with-eval-after-load 'browse-url (require 'notmuch))
   :config
-  (setq notmuch-search-oldest-first nil
-        notmuch-wash-wrap-lines-length 80
-        notmuch-mua-compose-in 'new-window
-        notmuch-always-prompt-for-sender t)
-
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
   (add-hook 'notmuch-mua-send-hook 'my-confirm-empty-subject)
