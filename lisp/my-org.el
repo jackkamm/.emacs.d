@@ -9,7 +9,7 @@
     "ob" 'org-revert-all-org-buffers
     "oc" 'org-capture
     "oa" 'org-agenda
-    "os" 'my-org-set-created)
+    "oC" 'my-org-set-created)
   :custom
   (org-fontify-done-headline nil)
   (org-return-follows-link t)
