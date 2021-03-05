@@ -4,9 +4,9 @@
 ;;; startup settings
 
 ;;;; set $PATH on OSX
-;;(use-package exec-path-from-shell
-;;  :config
-;;  (exec-path-from-shell-initialize))
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
 
 ;;; emacs-lisp-mode
 (my-major-leader
