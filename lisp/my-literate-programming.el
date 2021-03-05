@@ -77,6 +77,8 @@
      (shell . t)
      (jupyter . t))))
 
+;; NOTE this will interfere with async sessions unless
+;; `ob-session-async' is loaded
 (use-package ob-async
   :after org
   :init
@@ -88,6 +90,11 @@
   (add-hook 'ob-async-pre-execute-src-block-hook
             '(lambda ()
                (setq inferior-julia-program-name "/usr/local/bin/julia"))))
+
+;; Contains advice to ignore `ob-async' in session blocks
+(use-package ob-session-async
+  :ensure nil
+  :after org)
 
 (use-package ob-session-async-R
   :ensure nil
