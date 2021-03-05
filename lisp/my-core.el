@@ -21,4 +21,4 @@
        ;;"my-rtags"
 
        ;; other miscellaneous settings
-       "my-settings"))
+       "my-extra"))
