@@ -62,6 +62,7 @@
   (evil-respect-visual-line-mode t)
   ;; make emacs- and insert-states identical
   (evil-disable-insert-state-bindings t)
+  (evil-undo-system 'undo-redo)
   :config
   ;; get rid of motion state everywhere
   (defalias 'evil-motion-state 'evil-insert-state)
