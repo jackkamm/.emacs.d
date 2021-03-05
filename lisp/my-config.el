@@ -1,3 +1,7 @@
+;;; Additional configurations not in init.el, that I want to include
+;;; on most installs, but not on minimal installs such as on Windows
+;;; or Android termux
+
 (mapc 'load
       (list
        "my-org"

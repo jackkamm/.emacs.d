@@ -161,9 +161,11 @@
 
        "my-themes-toggles"))
 
-;;; Load additional configurations
+;; Load additional configurations in ~/.my-emacs.el. Typically, this
+;; should file should include a line like
+;;
+;; (load "my-config")
+;;
+;; unless desiring a minimal install
 
-;; Typically, post-init.el should load my-config.el, unless on Windows
-;; or desiring a minimal install
-
-(load (concat user-emacs-directory "post-init.el") t)
+(load "~/.my-emacs.el" t)
