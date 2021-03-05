@@ -159,7 +159,8 @@
        "my-search-replace" ;grep, swiper/swoop, iedit/mc
        "my-history-vc-undo" ;git, undo
 
-       "my-themes-toggles"))
+       "my-themes-toggles"
+       ))
 
 ;; Load additional configurations in ~/.my-emacs.el. Typically, this
 ;; should file should include a line like
