@@ -24,7 +24,7 @@
   (package-install 'use-package))
 
 ;; Ensure org-plus-contrib is installed to preempt the bundled
-;; org-mode. Don't load it yet, in case we prefer to use a more
+;; org-mode. Don't load it yet, in case we prefer to include a more
 ;; updated version on the load-path
 (unless (package-installed-p 'org-plus-contrib)
   (package-refresh-contents)
