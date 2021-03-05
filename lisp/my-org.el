@@ -8,7 +8,8 @@
     "oL" 'my-org-store-link-no-id
     "ob" 'org-revert-all-org-buffers
     "oc" 'org-capture
-    "oa" 'org-agenda)
+    "oa" 'org-agenda
+    "os" 'my-org-set-created)
   :custom
   (org-fontify-done-headline nil)
   (org-return-follows-link t)
@@ -77,6 +78,9 @@
     (let (org-id-link-to-org-use-id)
       (call-interactively 'org-store-link)))
 
+  (defun my-org-set-created ()
+    (interactive)
+    (org-set-property "CREATED" (format-time-string "[%Y-%m-%d]")))
   :config
   ;; Disable auto-indentation
   (customize-set-variable 'org-adapt-indentation nil)
@@ -104,7 +108,14 @@
   (customize-set-variable
    'org-capture-templates
    '(("c" "capture" entry (file "inbox.org")
-      "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
+      "* %?%:subject
+SCHEDULED: %t
+:PROPERTIES:
+:CREATED: %u
+:END:
+
+%a"
+      :empty-lines 1)))
 
   ;; org-goto works best in emacs/insert state. No hook available, so
   ;; use an advice.
