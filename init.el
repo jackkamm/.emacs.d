@@ -5,20 +5,19 @@
 ;; Set custom-file as early as possible, to prevent any possibility of
 ;; Custom writing to init.el. However, don't load it yet -- make sure
 ;; `load-path' has been properly set before doing any configurations
-(customize-set-variable 'custom-file (concat user-emacs-directory "custom.el"))
+(setq custom-file (concat user-emacs-directory "custom.el"))
 
-;; TODO: move to early-init.el?
-;; Initialize packages
+;; Initialize package
+;; cf https://github.com/jwiegley/use-package/issues/313#issue-128754131
+
 (require 'package)
-(customize-set-variable 'package-enable-at-startup nil)
 (customize-set-variable 'package-archives
                         '(("org" . "http://orgmode.org/elpa/")
                           ("melpa" . "https://melpa.org/packages/")
                           ("gnu" . "https://elpa.gnu.org/packages/")))
-
 (package-initialize)
 
-;; Bootstrap and configure use-package
+;; Ensure use-package is installed
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -43,19 +42,18 @@
 	    (normal-top-level-add-subdirs-to-load-path)))
 	 load-path)))
 
-(eval-when-compile
-  (require 'use-package))
-(require 'bind-key)
-
-(customize-set-variable 'use-package-always-ensure t)
-(customize-set-variable 'use-package-verbose t)
-
 ;; Load custom-file now, before any other configurations, to try and
 ;; prevent it from clobbering other settings
 (load custom-file t)
 
-;; Initialize the core packages required by the rest of my config:
-;; evil, general, which-key, hydra
+;; Initialize and configure core packages:
+;; use-package, evil, general, which-key, hydra
+
+;; use-package
+(require 'use-package)
+(require 'bind-key)
+(customize-set-variable 'use-package-always-ensure t)
+(customize-set-variable 'use-package-verbose t)
 
 ;; evil
 (use-package evil
