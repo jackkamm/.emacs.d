@@ -181,12 +181,6 @@ SCHEDULED: %t
 
 ;;; Load packages related to org-mode
 
-(use-package evil-org
-  :after org
-  :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook 'evil-org-set-key-theme))
-
 (use-package orgit :after (org magit))
 
 (use-package zotxt
