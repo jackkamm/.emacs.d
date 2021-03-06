@@ -177,19 +177,23 @@ SCHEDULED: %t
 (use-package zotxt
   :hook (org-mode . org-zotxt-mode))
 
-(use-package org-ref
-  :after org
-  :demand t
-  :config
-  (setq reftex-default-bibliography '("~/Documents/bibliography/zotero.bib"))
+;;;; Not actively used, slow load time, unclear how to autoload.
+;;;; helm-bibtex is an alternative, possibly more lightweight. Look
+;;;; into it when needing this functionality again.
+;;(use-package org-ref
+;;  :after org
+;;  :demand t
+;;  :config
+;;  (setq reftex-default-bibliography '("~/Documents/bibliography/zotero.bib"))
+;;
+;;  ;; see org-ref for use of these variables
+;;  (setq org-ref-bibliography-notes "~/Documents/bibliography/notes.org"
+;;        org-ref-default-bibliography '("~/Documents/bibliography/zotero.bib")
+;;        org-ref-pdf-directory "~/Documents/bibliography/bibtex-pdfs/"))
 
-  ;; see org-ref for use of these variables
-  (setq org-ref-bibliography-notes "~/Documents/bibliography/notes.org"
-        org-ref-default-bibliography '("~/Documents/bibliography/zotero.bib")
-        org-ref-pdf-directory "~/Documents/bibliography/bibtex-pdfs/"))
-
-(use-package ox-reveal
-  :after org :demand t)
+;;;; Not actively used, slow loading, unclear how to autoload
+;;(use-package ox-reveal
+;;  :after org :demand t)
 
 (use-package org-present)
 

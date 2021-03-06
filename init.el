@@ -21,11 +21,16 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(customize-set-variable 'use-package-always-ensure t)
+(customize-set-variable 'use-package-always-defer t)
+
+;; Profiling variables
+;; See also: M-x emacs-init-time
+(customize-set-variable 'use-package-verbose t)
+;;(customize-set-variable 'use-package-minimum-reported-time .01)
+
 (require 'use-package)
 (require 'bind-key)
-(customize-set-variable 'use-package-always-ensure t)
-(customize-set-variable 'use-package-verbose t)
-(customize-set-variable 'use-package-always-defer t)
 
 ;; Load additional configurations in config.el. If it doesn't exist,
 ;; create it from a template
