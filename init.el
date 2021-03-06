@@ -23,17 +23,7 @@
   (package-install 'use-package))
 
 ;; Set up load path
-(let ((default-directory (concat user-emacs-directory "lisp/")))
-  ;; recursively prepend to load-path
-  ;; NOTE add ".nosearch" file to exclude directory
-  (setq load-path
-	(append
-	 (let ((load-path (copy-sequence load-path))) ;shadow
-	   (append
-	    (copy-sequence
-	     (normal-top-level-add-to-load-path '(".")))
-	    (normal-top-level-add-subdirs-to-load-path)))
-	 load-path)))
+(push (concat user-emacs-directory "lisp") load-path)
 
 ;; Load custom-file now, before any other configurations, to try and
 ;; prevent it from clobbering other settings

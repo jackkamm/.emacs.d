@@ -63,6 +63,7 @@
 
 (use-package nextflow-mode
   :ensure nil
+  :load-path (lambda () (concat user-emacs-directory "lisp/nextflow-mode"))
   :mode (("\\.nf\\'" . nextflow-mode)))
 
 (use-package yaml-mode)

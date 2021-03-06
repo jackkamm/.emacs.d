@@ -88,9 +88,15 @@
             '(lambda ()
                (setq inferior-julia-program-name "/usr/local/bin/julia"))))
 
-(with-eval-after-load 'org
-  ;; Contains advice to ignore `ob-async' in session blocks
-  (require 'ob-session-async)
+;; Contains async session implementations, as well as advice to ignore
+;; `ob-async' in session blocks
+(use-package ob-session-async
+  :ensure nil
+  :load-path (lambda () (concat user-emacs-directory
+                                "lisp/ob-session-async/lisp"))
+  :after org
+  :demand t
+  :config
   (require 'ob-session-async-R))
 
 (use-package polymode

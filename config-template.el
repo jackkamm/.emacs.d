@@ -3,7 +3,7 @@
 ;;(use-package org
 ;;  ;;;; local dev version
 ;;  ;;:load-path ("~/Documents/org-mode/lisp"
-;;  ;;            "~/Documents/org-mode/contrib/lisp/")
+;;  ;;            "~/Documents/org-mode/contrib/lisp")
 ;;  ;; melpa version
 ;;  :ensure org-plus-contrib)
 
