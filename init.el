@@ -2,34 +2,25 @@
 (require 'server)
 (unless (server-running-p) (server-start))
 
-;; Set custom-file as early as possible, to prevent any possibility of
-;; Custom writing to init.el. However, don't load it yet -- make sure
-;; `load-path' has been properly set before doing any configurations
+;; Add lisp files to load path
+(push (concat user-emacs-directory "lisp") load-path)
+
+;; Set and load custom-file as early as possible, to prevent Custom
+;; writing to init.el, and to avoid overriding other settings
 (setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file t)
 
-;; Initialize package
-;; cf https://github.com/jwiegley/use-package/issues/313#issue-128754131
+;; Initialize package and use-package
 
-(require 'package)
 (customize-set-variable 'package-archives
                         '(("org" . "http://orgmode.org/elpa/")
                           ("melpa" . "https://melpa.org/packages/")
                           ("gnu" . "https://elpa.gnu.org/packages/")))
-(package-initialize)
 
-;; Ensure use-package is installed
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Set up load path
-(push (concat user-emacs-directory "lisp") load-path)
-
-;; Load custom-file now, before any other configurations, to try and
-;; prevent it from clobbering other settings
-(load custom-file t)
-
-;; use-package
 (require 'use-package)
 (require 'bind-key)
 (customize-set-variable 'use-package-always-ensure t)

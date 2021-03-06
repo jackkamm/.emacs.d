@@ -54,6 +54,7 @@
 ;; icomplete
 
 (use-package icomplete
+  :ensure nil
   :custom
   (icomplete-tidy-shadowed-file-names t)
   ;;(icomplete-show-matches-on-no-input t)

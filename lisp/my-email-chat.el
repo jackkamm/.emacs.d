@@ -1,6 +1,7 @@
 ;; Chat
 
 (use-package erc
+  :ensure nil
   :config
   (add-to-list 'erc-modules 'notifications))
 
@@ -97,6 +98,7 @@
              ("x" . nil)))
 
 (use-package gnus
+  :ensure nil
   :general
   (my-leader "ag" 'gnus)
   :init
