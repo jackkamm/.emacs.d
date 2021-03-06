@@ -8,5 +8,4 @@
 ;;  :ensure org-plus-contrib)
 
 (load "my-base")
-
 ;;(load "my-config")
