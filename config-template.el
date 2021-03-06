@@ -3,8 +3,8 @@
 ;;(use-package org
 ;;  ;;;; Uncomment the below to load immediately, as an extra precaution
 ;;  ;;;; against version conflicts. For example, when a new package is
-;;  ;;;; installed, it might pull org as a dependency and shadow it if
-;;  ;;;; it hasn't yet been loaded
+;;  ;;;; installed, it might install a different version of org as a
+;;  ;;;; dependency and prepend it to load-path
 ;;  ;;:demand t
 ;;
 ;;  ;;;; use local dev version
