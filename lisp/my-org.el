@@ -42,9 +42,6 @@
 
   (org-log-done 'time)
   (org-log-done-with-time nil)
-  (org-agenda-start-with-log-mode t)
-  (org-agenda-skip-scheduled-if-done t)
-  (org-agenda-skip-deadline-if-done t)
 
   ;; remove scheduled/deadline items from Todo view, since they will
   ;; appear in Agenda view. Especially useful for repeating items.
@@ -63,18 +60,17 @@
 
   (org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
-  (org-agenda-cmp-user-defined
-   (lambda (a b)
-     "Custom implementation of sorting by priority. Workaround
-     due to problems in the default implementation. See also:
+  (org-todo-keywords '((sequence "PEND" "TODO" "DONE")))
+  (org-todo-keyword-faces '(("PEND" . (:weight bold :slant italic))))
 
-     https://orgmode.org/list/CAOkDyE9ZjdN4Me4Pi3poC3C4q8c=ivdWz2uqiWHrYfe8jmF3ZQ@mail.gmail.com/T/#m2385e4682c8d060d056c728f803f5b080e75b6c1
-"
-     (let ((pa (org-get-priority a))
-           (pb (org-get-priority b)))
-       (cond ((< pa pb) -1)
-             ((> pa pb) 1)
-             (t nil)))))
+  (org-agenda-custom-commands
+   '(("n" "Agenda and active TODOs"
+      ((agenda "")
+       (todo "TODO")))))
+
+  ;; By default, org-agenda-block-separator is window-width but
+  ;; doesn't account for line numbers, so manually set it
+  (org-agenda-block-separator (make-string 60 ?=))
 
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
@@ -91,11 +87,6 @@
     (interactive)
     (org-set-property "CREATED" (format-time-string "[%Y-%m-%d]")))
   :config
-  (with-eval-after-load 'org-agenda
-    (add-to-list 'org-agenda-sorting-strategy
-                 '(agenda habit-down time-up user-defined-down
-                          deadline-down scheduled-down category-keep)))
-
   ;; Disable auto-indentation
   (customize-set-variable 'org-adapt-indentation nil)
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
