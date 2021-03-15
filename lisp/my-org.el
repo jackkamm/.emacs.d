@@ -32,16 +32,7 @@
   ;; to resize inline images
   (org-image-actual-width '(750))
 
-  (org-link-file-path-type
-   (lambda (path)
-     (let* ((proj (project-current))
-            (root (if proj (project-root proj) default-directory)))
-       (if (string-prefix-p (expand-file-name root) path)
-           (file-relative-name path)
-         (abbreviate-file-name path)))))
-
   (org-log-done 'time)
-  (org-log-done-with-time nil)
 
   ;; remove scheduled/deadline items from Todo view, since they will
   ;; appear in Agenda view. Especially useful for repeating items.
@@ -100,9 +91,6 @@
   ;; Use relative visual line numbers to account for folding
   (add-hook 'org-mode-hook
             (lambda () (setq-local display-line-numbers-type 'visual)))
-
-  ;; Agenda, refile, capture, archive
-  (add-to-list 'org-agenda-files "~/org")
 
   (customize-set-variable 'org-clock-idle-time 10)
 

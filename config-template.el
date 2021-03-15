@@ -1,19 +1,24 @@
-;;;; Install desired org-mode version before initializing other
-;;;; packages, to avoid accidentally using the wrong version
-;;(use-package org
-;;  ;;;; Uncomment the below to load immediately, as an extra precaution
-;;  ;;;; against version conflicts. For example, when a new package is
-;;  ;;;; installed, it might install a different version of org as a
-;;  ;;;; dependency and prepend it to load-path
-;;  ;;:demand t
-;;
-;;  ;;;; use local dev version
-;;  ;;:ensure nil
-;;  ;;:load-path ("~/Documents/org-mode/lisp"
-;;  ;;            "~/Documents/org-mode/contrib/lisp")
-;;
-;;  ;; use melpa version
-;;  :ensure org-plus-contrib)
+;; Install desired org-mode version before initializing other
+;; packages, to avoid accidentally using the wrong version
+(use-package org
+  ;; Load org immediately, as an extra precaution against version
+  ;; conflicts, e.g. if a new package installs a different version of
+  ;; org before it's loaded. Comment/remove to improve startup time
+  :demand t
+
+  ;; use emacs built-in version
+  :ensure nil
+
+  ;;;; use melpa version
+  ;;:ensure org-plus-contrib
+
+  ;;;; use local dev version
+  ;;:ensure nil
+  ;;:load-path ("~/Documents/org-mode/lisp"
+  ;;            "~/Documents/org-mode/contrib/lisp")
+
+  :custom
+  (org-agenda-files '("~/org")))
 
 (load "my-base")
 ;;(load "my-config")
