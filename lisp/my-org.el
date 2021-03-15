@@ -37,7 +37,7 @@
   ;; remove scheduled/deadline items from Todo view, since they will
   ;; appear in Agenda view. Especially useful for repeating items.
   (org-agenda-todo-ignore-scheduled t)
-  (org-agenda-todo-ignore-deadlines 'all)
+  (org-agenda-todo-ignore-deadlines 'far)
 
   ;; make the todo list shorter by skipping sublevels
   (org-agenda-todo-list-sublevels nil)
