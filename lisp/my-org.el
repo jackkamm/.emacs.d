@@ -12,8 +12,6 @@
   :custom
   (org-fontify-done-headline nil)
   (org-return-follows-link t)
-  (org-tags-column 0)
-  (org-agenda-tags-column 0)
   (org-src-window-setup 'plain)
   ;;(org-table-header-line-p t)
   (org-display-remote-inline-images 'cache)
@@ -59,10 +57,6 @@
       ((agenda "")
        (todo "TODO")))))
 
-  ;; By default, org-agenda-block-separator is window-width but
-  ;; doesn't account for line numbers, so manually set it
-  (org-agenda-block-separator (make-string 60 ?=))
-
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
@@ -86,11 +80,14 @@
   ;; Truncate long lines so tables aren't misaligned
   (add-hook 'org-mode-hook
             (lambda () (toggle-truncate-lines 1)))
-  (add-hook 'org-agenda-mode-hook
-            (lambda () (toggle-truncate-lines -1)))
+
   ;; Use relative visual line numbers to account for folding
   (add-hook 'org-mode-hook
             (lambda () (setq-local display-line-numbers-type 'visual)))
+
+  ;; Line numbers in agenda may cause slight visual misalignments
+  (add-hook 'org-agenda-mode-hook
+               (lambda () (display-line-numbers-mode -1)))
 
   (customize-set-variable 'org-clock-idle-time 10)
 
