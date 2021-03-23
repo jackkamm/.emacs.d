@@ -31,6 +31,7 @@
   (org-image-actual-width '(750))
 
   (org-log-done 'time)
+  (org-agenda-start-with-log-mode t)
 
   ;; remove scheduled/deadline items from Todo view, since they will
   ;; appear in Agenda view. Especially useful for repeating items.
@@ -51,6 +52,7 @@
 
   (org-todo-keywords '((sequence "PEND" "TODO" "DONE")))
   (org-todo-keyword-faces '(("PEND" . (:weight bold :slant italic))))
+  (org-todo-repeat-to-state "TODO")
 
   (org-agenda-custom-commands
    '(("n" "Agenda and active TODOs"
