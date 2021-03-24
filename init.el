@@ -12,6 +12,8 @@
 
 ;; Initialize package and use-package
 
+(require 'package)
+
 (customize-set-variable 'package-archives
                         '(("org" . "http://orgmode.org/elpa/")
                           ("melpa" . "https://melpa.org/packages/")
