@@ -99,25 +99,5 @@
   :config
   (require 'ob-session-async-R))
 
-(use-package polymode
-  :mode (("\\.[rR]nw\\'" . poly-noweb+r-mode)
-	 ("\\.Rmd" . poly-markdown+r-mode))
-  :config
-  (require 'poly-R)
-  (require 'poly-noweb)
-  (require 'poly-markdown)
-  (setq polymode-weave-output-file-format "%s")
-  (setq polymode-exporter-output-file-format "%s")
-  (setq polymode-display-process-buffers nil)
-  (setq polymode-display-output-file nil)
-  ;; AUCTeX integration
-  (with-eval-after-load 'tex
-    (add-to-list 'TeX-command-list
-  		 '("polymode-export" "(polymode-export)"
-  		   TeX-run-function nil (latex-mode) :help) t)
-    (mapc (lambda (suffix)
-	    (add-to-list 'TeX-file-extensions suffix))
-	  '("nw" "Snw" "Rnw"))
-    (add-hook 'poly-noweb+r-mode-hook
-	      (lambda ()
-		(setq TeX-command-default "polymode-export")))))
+(use-package poly-markdown
+  :mode ("\\.Rmd" . poly-markdown-mode))
