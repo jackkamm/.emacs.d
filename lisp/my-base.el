@@ -73,6 +73,7 @@
     "x" '(:keymap ctl-x-map :which-key "C-x")
     ;; simulate key instead of using keymap, for sake of kmacro-bind-to-key
     "k" (general-simulate-key "C-x C-k" :which-key "Keyboard macros")
+    "p" 'fill-paragraph
     "c" (general-simulate-key "C-c C-c"))
 
   (general-create-definer my-major-leader
