@@ -103,17 +103,7 @@
        "my-motions-jumping" ;avy, easymotion
        "my-search-replace" ;grep, swiper/swoop, iedit/mc
        "my-history-vc-undo" ;git, undo
+       "my-send-insert" ;insert and send special text
 
        "my-themes-toggles"
        ))
-
-(defun my-comint-send-invisible-advice (&rest r)
-  "Advice to fix security bug in `comint-send-invisible', as of emacs27.
-
-In particular, the help for `comint-send-invisible' says:
-Security bug: your string can still be temporarily recovered with
-C-h l; ‘clear-this-command-keys’ can fix that."
-  (clear-this-command-keys))
-
-(advice-add #'comint-send-invisible
-            :after #'my-comint-send-invisible-advice)
