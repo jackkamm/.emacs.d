@@ -99,5 +99,5 @@
   :config
   (require 'ob-session-async-R))
 
-(use-package poly-markdown
-  :mode ("\\.Rmd" . poly-markdown-mode))
+(use-package poly-R
+  :mode ("\\.Rmd" . poly-markdown+R-mode))
