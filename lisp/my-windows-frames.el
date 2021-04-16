@@ -12,7 +12,8 @@
 (my-frames-leader
  "n" 'make-frame
  "p" 'my-pop-window
- "d" 'delete-frame)
+ "d" 'delete-frame
+ "o" 'other-frame)
 
 (my-leader
   "w" '(evil-window-map :which-key "Window"))
