@@ -1,3 +1,12 @@
+;; Reverse yanking
+;; https://www.emacswiki.org/emacs/KillingAndYanking
+
+(defun yank-pop-forwards (arg)
+  (interactive "p")
+  (yank-pop (- arg)))
+
+(global-set-key "\M-Y" 'yank-pop-forwards) ; M-Y (Meta-Shift-Y)
+
 ;; Inserting and sending special text
 
 (setq my-insert-map (make-sparse-keymap))
