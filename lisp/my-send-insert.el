@@ -1,3 +1,9 @@
+;; Inserting and sending special text
+
+(setq my-insert-map (make-sparse-keymap))
+(general-create-definer my-insert-leader :prefix-map 'my-insert-map)
+(my-leader "i" '(:keymap my-insert-map :which-key "Insert"))
+
 ;; Reverse yanking
 ;; https://www.emacswiki.org/emacs/KillingAndYanking
 
@@ -7,11 +13,18 @@
 
 (global-set-key "\M-Y" 'yank-pop-forwards) ; M-Y (Meta-Shift-Y)
 
-;; Inserting and sending special text
+;; from `konix/kill-ring-insert' in
+;; https://www.emacswiki.org/emacs/BrowseKillRing
 
-(setq my-insert-map (make-sparse-keymap))
-(general-create-definer my-insert-leader :prefix-map 'my-insert-map)
-(my-leader "i" '(:keymap my-insert-map :which-key "Insert"))
+(defun my-kill-ring-insert ()
+  (interactive)
+  (let ((to_insert (completing-read "Yank : " kill-ring)))
+    (when (and to_insert (region-active-p))
+      ;; the currently highlighted section is to be replaced by the yank
+      (delete-region (region-beginning) (region-end)))
+    (insert to_insert)))
+
+(my-insert-leader "y" 'my-kill-ring-insert)
 
 ;; Insert passwords to comint
 
