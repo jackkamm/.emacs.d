@@ -46,7 +46,7 @@
   (org-cycle-open-archived-trees t)
 
   ;; turn on org-indent-mode
-  (org-startup-indented t)
+  ;;(org-startup-indented t)
 
   (org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
