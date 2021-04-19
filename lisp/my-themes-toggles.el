@@ -7,7 +7,8 @@
   "l" 'toggle-truncate-lines
   "m" 'menu-bar-mode
   "w" 'subword-mode
-  "W" 'superword-mode)
+  "W" 'superword-mode
+  "p" 'auto-fill-mode)
 
 ;; disable toolbar/scrollbar
 (when (fboundp 'scroll-bar-mode)
