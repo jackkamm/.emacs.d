@@ -31,7 +31,9 @@
 
 ;;;; whitespace
 (setq whitespace-style '(face trailing))
-(add-hook 'prog-mode-hook 'whitespace-mode)
+;; doesn't place nice with poly-R-mode
+;; TODO disable it only in poly-R-mode?
+;;(add-hook 'prog-mode-hook 'whitespace-mode)
 
 (setq-default indent-tabs-mode nil)
 
