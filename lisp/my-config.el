@@ -32,12 +32,6 @@
 
 ;;; startup settings
 
-;;;; set $PATH on OSX
-(use-package exec-path-from-shell
-  :demand t
-  :config
-  (exec-path-from-shell-initialize))
-
 ;;; emacs-lisp-mode
 (my-major-leader
   :keymaps 'emacs-lisp-mode-map
