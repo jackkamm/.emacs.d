@@ -50,8 +50,11 @@
 
   (org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
-  (org-todo-keywords '((sequence "PEND" "TODO" "DONE")))
-  (org-todo-keyword-faces '(("PEND" . (:weight bold :slant italic))))
+  (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|" "DONE" "WONT")))
+  ;; Colors inspired from `hl-todo-keyword-faces'
+  (org-todo-keyword-faces '(("IDEA" . (:weight bold :foreground "#7cb8bb"))
+                            ("PEND" . (:weight bold :foreground "#d0bf8f"))
+                            ("WONT" . (:weight bold :foreground "#8c5353"))))
   (org-todo-repeat-to-state "TODO")
 
   (org-agenda-custom-commands
@@ -97,17 +100,17 @@
    'org-refile-targets
    '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
 
+  ;; Following `org-sort-entries', the creation time is assumed to be
+  ;; the first inactive timestamp at the beginning of a line
   (customize-set-variable
    'org-capture-templates
-   '(("c" "capture" entry (file "inbox.org")
-      "* %?%:subject
-SCHEDULED: %t
-:PROPERTIES:
-:CREATED: %u
-:END:
-
-%a"
-      :empty-lines 1)))
+   '(("d" "day" entry (file+olp+datetree "diary.org")
+      "* %?\n%u" :empty-lines 1 :jump-to-captured t)
+     ("l" "link" entry (file "inbox.org")
+      "* %?%:subject\n%u\n\n%a" :empty-lines 1)
+     ("m" "month" entry (file+olp+datetree "diary.org")
+      "* %?\n%u" :empty-lines 1 :jump-to-captured t :tree-type month)
+     ("n" "note" entry (file "inbox.org") "* %?\n%u" :empty-lines 1)))
 
   ;; org-goto works best in emacs/insert state. No hook available, so
   ;; use an advice.
