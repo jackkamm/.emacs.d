@@ -1,32 +1,31 @@
 (use-package ein
+  :custom
+  (ein:output-area-inlined-images t)
   :config
-  (require 'ein-notebook)
-  (require 'ein-subpackages)
-
   (with-eval-after-load 'hydra
     (defhydra my-ein-hydra ()
       "ein"
-      ("j" ein:worksheet-goto-next-input)
-      ("k" ein:worksheet-goto-prev-input)
-      ("<return>" ein:worksheet-execute-cell-and-goto-next)
+      ("j" ein:worksheet-goto-next-input-km)
+      ("k" ein:worksheet-goto-prev-input-km)
+      ("<return>" ein:worksheet-execute-cell-and-goto-next-km)
       ("b" evil-scroll-line-to-bottom)
       ("t" evil-scroll-line-to-top)
       ("z" evil-scroll-line-to-center)
-      ("O" ein:worksheet-insert-cell-above)
-      ("o" ein:worksheet-insert-cell-below)
+      ("O" ein:worksheet-insert-cell-above-km)
+      ("o" ein:worksheet-insert-cell-below-km)
       ("q" nil "quit"))
     (my-major-leader
       :keymaps 'ein:notebook-mode-map
       "h" 'my-ein-hydra/body))
   (my-major-leader
     :keymaps 'ein:notebook-mode-map
-    "s" 'ein:notebook-save-notebook-command
-    "d" 'ein:worksheet-delete-cell
-    "o" 'ein:worksheet-insert-cell-below
-    "O" 'ein:worksheet-insert-cell-above
-    "j" 'ein:worksheet-goto-next-input
-    "k" 'ein:worksheet-goto-prev-input
-    "<return>" 'ein:worksheet-execute-cell-and-goto-next))
+    "s" 'ein:notebook-save-notebook-command-km
+    "d" 'ein:worksheet-kill-cell-km
+    "o" 'ein:worksheet-insert-cell-below-km
+    "O" 'ein:worksheet-insert-cell-above-km
+    "j" 'ein:worksheet-goto-next-input-km
+    "k" 'ein:worksheet-goto-prev-input-km
+    "<return>" 'ein:worksheet-execute-cell-and-goto-next-km))
 
 (use-package jupyter
   :init
