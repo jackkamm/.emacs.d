@@ -100,17 +100,44 @@
    'org-refile-targets
    '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
 
+  (defun my-org-capture-iso-week-fun ()
+    (require 'org-datetree)
+    (require 'cal-iso)
+    (let* ((d (calendar-gregorian-from-absolute (org-today)))
+           (year (calendar-extract-year d))
+	   (month (calendar-extract-month d))
+	   (day (calendar-extract-day d))
+	   (time (encode-time 0 0 0 day month year))
+	   (iso-date (calendar-iso-from-absolute
+		      (calendar-absolute-from-gregorian d)))
+	   (weekyear (nth 2 iso-date))
+           (weekday (nth 1 iso-date))
+	   (week (nth 0 iso-date))
+           ;; NOTE: not an ISO standard
+           (weekmonth (calendar-extract-month
+                       ;; anchor on Thurs, to be consistent with weekyear
+                       (calendar-gregorian-from-absolute
+                        (calendar-iso-to-absolute `(,week 4 ,weekyear))))))
+      (org-datetree--find-create
+       "^\\*+[ \t]+\\([12][0-9]\\{3\\}\\)\\(\\s-*?\
+\\([ \t]:[[:alnum:]:_@#%%]+:\\)?\\s-*$\\)"
+       weekyear)
+      (org-datetree--find-create
+       "^\\*+[ \t]+%d-\\([01][0-9]\\) \\w+$"
+       weekyear weekmonth)
+      (org-datetree--find-create
+       "^\\*+[ \t]+%d-W\\([0-5][0-9]\\)$"
+       weekyear weekmonth week
+       (format "%d-W%02d" weekyear week))))
+  
   ;; Following `org-sort-entries', the creation time is assumed to be
   ;; the first inactive timestamp at the beginning of a line
   (customize-set-variable
    'org-capture-templates
-   '(("d" "day" entry (file+olp+datetree "diary.org")
-      "* %?\n%u" :empty-lines 1 :jump-to-captured t)
-     ("l" "link" entry (file "inbox.org")
-      "* %?%:subject\n%u\n\n%a" :empty-lines 1)
-     ("m" "month" entry (file+olp+datetree "diary.org")
-      "* %?\n%u" :empty-lines 1 :jump-to-captured t :tree-type month)
-     ("n" "note" entry (file "inbox.org") "* %?\n%u" :empty-lines 1)))
+   '(("n" "note" entry (file+function "diary.org" my-org-capture-iso-week-fun)
+      "* %?\n%u" :empty-lines 1 :jump-to-captured t :tree-type week)
+     ("l" "link" entry (file+function "diary.org" my-org-capture-iso-week-fun)
+      "* %?%:subject\n%u\n\n%a" :empty-lines 1 :tree-type week)))
 
   ;; org-goto works best in emacs/insert state. No hook available, so
   ;; use an advice.
