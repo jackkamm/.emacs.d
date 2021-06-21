@@ -1,3 +1,5 @@
+(customize-set-variable 'completion-cycle-threshold t)
+
 ;; helm
 
 (use-package helm
