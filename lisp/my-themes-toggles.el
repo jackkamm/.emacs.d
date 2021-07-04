@@ -63,8 +63,7 @@
 ;; install some nice themes
 (dolist (theme '(moe-theme
                  eziam-theme
-                 zenburn-theme
-                 leuven-theme))
+                 zenburn-theme))
   (unless (package-installed-p theme)
     (package-install theme)))
 
