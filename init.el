@@ -42,3 +42,7 @@
   (unless (file-exists-p config-el)
     (copy-file template config-el))
   (load config-el))
+
+;; Additional customizations automatically added by Emacs
+
+(put 'upcase-region 'disabled nil)
