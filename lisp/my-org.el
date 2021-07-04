@@ -187,7 +187,9 @@
   ;; has a packaging system"
   ;; (https://lists.gnu.org/archive/html/emacs-orgmode/2020-02/msg00714.html)
 
-  (require 'ol-notmuch)
+  ;; FIXME: No longer works since org-contrib was moved in Org 9.5
+  ;;(require 'ol-notmuch)
+
   (require 'org-id)
   ;; TODO: remove after fixing C-c C-, display-buffer issues
   (require 'org-tempo))
