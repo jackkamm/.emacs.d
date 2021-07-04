@@ -54,7 +54,8 @@
   ;; Colors inspired from `hl-todo-keyword-faces'
   (org-todo-keyword-faces '(("IDEA" . (:weight bold :foreground "#7cb8bb"))
                             ("PEND" . (:weight bold :foreground "#d0bf8f"))
-                            ("WONT" . (:weight bold :foreground "#8c5353"))))
+                            ("WONT" . (:weight bold :foreground "#8c5353"))
+                            ("STALE" . (:weight bold :foreground "#dca3a3"))))
   (org-todo-repeat-to-state "TODO")
 
   (org-agenda-custom-commands
