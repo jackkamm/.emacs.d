@@ -1,5 +1,3 @@
-(customize-set-variable 'completion-cycle-threshold t)
-
 ;; helm
 
 (use-package helm
@@ -106,3 +104,14 @@
    (setq completion-ignore-case t)
    (customize-set-variable 'read-buffer-completion-ignore-case t)
    (customize-set-variable 'read-file-name-completion-ignore-case t)))
+
+;; The following option makes in-buffer completion a bit nicer,
+;; avoiding the annoying pop-up buffer when there are 2 or more
+;; completions. However, it messes up minibuffer completion when using
+;; icomplete with the orderless completion style, which stops working
+;; because SPC autocompletes.
+;;
+;; TODO: Find a way to re-enable this without messing up minibuffer
+;; completion, or find a better solution.
+;;
+;;(customize-set-variable 'completion-cycle-threshold t)
