@@ -58,13 +58,11 @@
   (advice-add 'org-edit-src-code :after 'my-org-edit-src-wrapper)
 
   (require 'jupyter)
-  ;; FIXME below breaks if ess not yet installed
-  (require 'ess) ; needed for inferior-julia-program-name
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((R . t)
      (python . t)
-     (julia . t)
      (sql . t)
      (sqlite . t)
      (ruby . t)
