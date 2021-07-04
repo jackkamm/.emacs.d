@@ -61,6 +61,8 @@
   :bind (:map icomplete-minibuffer-map
               ("RET" . icomplete-fido-ret)
               ("M-j" . icomplete-fido-exit)
+              ;; Replacement for M-TAB which might be intercepted by the OS
+              ("TAB" . icomplete-force-complete)
               ;; default C-, and C-. bindings may not work in terminal
               ("<down>" . icomplete-forward-completions)
               ("C-n" . icomplete-forward-completions)
