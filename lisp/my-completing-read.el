@@ -116,4 +116,8 @@
 ;; TODO: Find a way to re-enable this without messing up minibuffer
 ;; completion, or find a better solution.
 ;;
+;; Perhaps this is relevant?
+;; "Trying to understand 'icomplete-in-buffer'"
+;; https://lists.gnu.org/archive/html/emacs-devel/2021-07/msg00004.html
+;;
 ;;(customize-set-variable 'completion-cycle-threshold t)
