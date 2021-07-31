@@ -169,23 +169,15 @@
     ;; C-c C-, can't be typed in terminal
     "," 'org-insert-structure-template)
 
-  ;; self-contained html export
-  ;; https://www.reddit.com/r/orgmode/comments/7dyywu/creating_a_selfcontained_html/
-  ;; TODO: submit to org-mode
-  (defun org-html--format-image (source attributes info)
-    (format "<img src=\"data:image/%s;base64,%s\"%s />"
-            (or (file-name-extension source) "")
-            (base64-encode-string
-             (with-temp-buffer
-	       (insert-file-contents-literally source)
-	       (buffer-string)))
-            (file-name-nondirectory source)))
-
   ;; Load modules distributed with org-mode, that need to be loaded
   ;; separately. Could alternatively use `require' or `org-modules',
   ;; but "we should get rid of org-modules altogether now that Emacs
   ;; has a packaging system"
   ;; (https://lists.gnu.org/archive/html/emacs-orgmode/2020-02/msg00714.html)
+
+  ;; Markdown export. Useful for Github (its default org exporter is
+  ;; limited), or as input to pandoc --self-contained --to html.
+  (require 'ox-md)
 
   ;; FIXME: No longer works since org-contrib was moved in Org 9.5
   ;;(require 'ol-notmuch)
