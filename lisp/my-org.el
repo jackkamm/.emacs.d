@@ -50,7 +50,7 @@
 
   (org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
-  (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|" "DONE" "WONT" "STALE")))
+  (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|" "DONE" "WONT" "STALE" "DUPLICATE")))
   ;; Colors inspired from `hl-todo-keyword-faces'
   (org-todo-keyword-faces '(("IDEA" . (:weight bold :foreground "#7cb8bb"))
                             ("PEND" . (:weight bold :foreground "#d0bf8f"))
