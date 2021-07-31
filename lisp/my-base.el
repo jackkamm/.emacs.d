@@ -107,3 +107,20 @@
 
        "my-themes-toggles"
        ))
+
+;; security. Clear the keylog after entering passwords
+
+;; TODO: Submit this as a security bug to Emacs? They already know
+;; about cominit-send-invisible, but the help for read-passwd doesn't
+;; mention this issue, and it is affected as well
+
+(defun my-clear-keylog (&rest r)
+  "Advice to fix security bug in `comint-send-invisible', as of emacs27.
+
+In particular, the help for `comint-send-invisible' says:
+Security bug: your string can still be temporarily recovered with
+C-h l; ‘clear-this-command-keys’ can fix that."
+  (clear-this-command-keys))
+
+(advice-add #'comint-send-invisible :after #'my-clear-keylog)
+(advice-add #'read-passwd :after #'my-clear-keylog)

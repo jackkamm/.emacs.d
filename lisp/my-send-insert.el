@@ -28,18 +28,7 @@
 
 ;; Insert passwords to comint
 
-(defun my-comint-send-invisible-advice (&rest r)
-  "Advice to fix security bug in `comint-send-invisible', as of emacs27.
-
-In particular, the help for `comint-send-invisible' says:
-Security bug: your string can still be temporarily recovered with
-C-h l; ‘clear-this-command-keys’ can fix that."
-  (clear-this-command-keys))
-
 (my-insert-leader "v" 'comint-send-invisible)
-
-(advice-add #'comint-send-invisible
-            :after #'my-comint-send-invisible-advice)
 
 ;; unicode
 
