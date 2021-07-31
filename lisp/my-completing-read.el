@@ -55,12 +55,9 @@
 
 (use-package icomplete
   :ensure nil
-  :custom
-  (icomplete-tidy-shadowed-file-names t)
-  ;;(icomplete-show-matches-on-no-input t)
   :bind (:map icomplete-minibuffer-map
-              ("RET" . icomplete-fido-ret)
-              ("M-j" . icomplete-fido-exit)
+              ("RET" . icomplete-force-complete-and-exit)
+              ("M-j" . exit-minibuffer)
               ;; Replacement for M-TAB which might be intercepted by the OS
               ("TAB" . icomplete-force-complete)
               ;; default C-, and C-. bindings may not work in terminal
