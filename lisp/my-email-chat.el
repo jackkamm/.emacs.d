@@ -56,6 +56,7 @@
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
   (add-hook 'notmuch-mua-send-hook 'my-confirm-empty-subject)
+  (add-hook 'notmuch-hello-mode-hook (lambda () (display-line-numbers-mode -1)))
 
   ;; workaround: `notmuch-read-query' ignores `completion-category-defaults'
   ;; TODO: submit fix to notmuch? cf "Programmed Completion" Info,
