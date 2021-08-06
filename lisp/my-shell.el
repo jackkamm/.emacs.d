@@ -17,6 +17,20 @@
       (insert-file-contents (concat tramp-prefix "/tmp/screen-exchange"))
       (kill-ring-save (point-min) (point-max)))))
 
+;; Slurm likes to add 2 carriage returns to output, which breaks
+;; ansi-term directory tracking. (term.el will remove one of the
+;; carriage returns, but not the second one). The following advice
+;; removes these troublesome carriage returns. See also:
+;;
+;; https://slurm.schedmd.com/faq.html#unbuffered_cr
+;;
+;; TODO: File bug report to emacs for this
+
+(defun my-term-messages-advice (orig-fun message)
+  (funcall orig-fun (replace-regexp-in-string "\r+\n$" "\n" message)))
+
+(advice-add 'term-handle-ansi-terminal-messages :around 'my-term-messages-advice)
+
 ;; execute shell commands
 
 (defun my-external-command (cmd)
