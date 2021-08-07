@@ -31,6 +31,24 @@
 
 (advice-add 'term-handle-ansi-terminal-messages :around 'my-term-messages-advice)
 
+(define-minor-mode my-ignore-term-command-hook-mode
+  "Minor mode to ignore term-command-hook.
+
+As described in term.el, there are two mechanisms for directory
+tracking, `term-command-hook' which works well by default, and
+`term-handle-ansi-terminal-messages', which allows for greater
+customization and features like remote directory tracking. These
+2 mechanisms may sometimes conflict; this minor mode disables
+`term-command-hook' to prevent it from overriding
+`term-handle-ansi-terminal-messages'."
+  :global t
+  (if my-ignore-term-command-hook-mode
+      (advice-add #'term-command-hook :override
+                  #'my-ignore-term-command-hook-advice)
+    (advice-remove #'term-command-hook #'my-ignore-term-command-hook-advice)))
+
+(defun my-ignore-term-command-hook-advice (string))
+
 ;; execute shell commands
 
 (defun my-external-command (cmd)
