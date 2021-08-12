@@ -6,6 +6,7 @@
   "v" 'visual-line-mode
   "l" 'toggle-truncate-lines
   "m" 'menu-bar-mode
+  "n" 'display-line-numbers-mode
   "w" 'subword-mode
   "W" 'superword-mode
   "p" 'auto-fill-mode)
