@@ -3,4 +3,4 @@
 # key: ob-R-header
 # contributor: Jack Kamm
 # --
-#+PROPERTY: header-args:R :session :colnames yes :results output :tangle yes
+#+PROPERTY: header-args:R :session :results output :tangle yes :comments org
