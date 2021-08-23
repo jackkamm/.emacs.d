@@ -20,6 +20,11 @@
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
 
+  (defun my-run-R (r-cmd)
+    "Run R, using R-CMD as the R executable."
+    (interactive (list (read-string "R executable: " "R")))
+    (let ((inferior-ess-r-program r-cmd)) (R)))
+
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
