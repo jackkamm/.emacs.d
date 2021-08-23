@@ -16,10 +16,10 @@
   ;; TODO File an issue with ESS
   ;; See also: https://github.com/emacs-ess/ESS/issues/661
   (add-hook 'ess-mode-hook (lambda () (ess-set-style 'RStudio 'quiet)))
+
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
-  ;; Control which frame to display *R*
-  ;; https://ess.r-project.org/Manual/ess.html#Controlling-buffer-display
+
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps

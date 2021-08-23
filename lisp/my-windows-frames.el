@@ -70,6 +70,10 @@
                               ;; the *R* frame, then to pop up in an
                               ;; existing window in another frame
                               (reusable-frames . nil))
+                             ;;;; Control which frame to display *R*
+                             ;;;; https://ess.r-project.org/Manual/ess.html#Controlling-buffer-display
+                             ;;("*R" (display-buffer-reuse-window)
+                             ;; (reusable-frames . 0))
                              ("\\*Org Src" (display-buffer-reuse-window
                                             my-ace-display-buffer-2)
                               (inhibit-same-window . nil))
