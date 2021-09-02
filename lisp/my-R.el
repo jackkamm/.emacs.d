@@ -6,8 +6,7 @@
   :ensure ess
   :init
   ;; many variables need to be set in :init to have effect
-  (setq ess-help-pop-to-buffer nil
-        ess-indent-with-fancy-comments nil
+  (setq ess-indent-with-fancy-comments nil
         ess-eval-visibly 'nowait
         ess-smart-S-assign-key nil
         ess-style 'RStudio)

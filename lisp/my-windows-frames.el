@@ -65,11 +65,7 @@
 (setq display-buffer-base-action '((display-buffer-reuse-window
                                     ace-display-buffer))
       display-buffer-alist `(("\\*help\\[R" (display-buffer-reuse-mode-window
-                                             my-ace-display-buffer-2)
-                              ;; prefer to have help buffer split up
-                              ;; the *R* frame, then to pop up in an
-                              ;; existing window in another frame
-                              (reusable-frames . nil))
+                                             my-ace-display-buffer-2))
                              ;;;; Control which frame to display *R*
                              ;;;; https://ess.r-project.org/Manual/ess.html#Controlling-buffer-display
                              ;;("*R" (display-buffer-reuse-window)
