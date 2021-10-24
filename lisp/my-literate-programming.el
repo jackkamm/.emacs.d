@@ -77,24 +77,15 @@
   :demand t
   :init
   (setq ob-async-no-async-languages-alist
-        '("jupyter-python" "jupyter-R" "jupyter-julia"))
+        '("jupyter-python" "jupyter-R" "jupyter-julia"
+          ;; FIXME: PR to ob-async so this isn't needed
+          "R" "python"))
   :config
   ;; https://github.com/astahlman/ob-async/issues/37
   ;; workaround for ob-julia, which breaks ob-async (even on non-julia langs)
   (add-hook 'ob-async-pre-execute-src-block-hook
             '(lambda ()
                (setq inferior-julia-program-name "/usr/local/bin/julia"))))
-
-;; Contains async session implementations, as well as advice to ignore
-;; `ob-async' in session blocks
-(use-package ob-session-async
-  :ensure nil
-  :load-path (lambda () (concat user-emacs-directory
-                                "lisp/ob-session-async/lisp"))
-  :after org
-  :demand t
-  :config
-  (require 'ob-session-async-R))
 
 (use-package poly-R
   :mode ("\\.Rmd" . poly-markdown+R-mode))
