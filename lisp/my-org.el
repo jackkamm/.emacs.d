@@ -48,8 +48,9 @@
   ;; turn on org-indent-mode
   ;;(org-startup-indented t)
 
+  (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|"
+                                 "DONE" "WONT" "STALE" "DUPLICATE")))
 
-  (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|" "DONE" "WONT" "STALE" "DUPLICATE")))
   ;; Colors inspired from `hl-todo-keyword-faces'
   (org-todo-keyword-faces '(("IDEA" . (:weight bold :foreground "#7cb8bb"))
                             ("PEND" . (:weight bold :foreground "#d0bf8f"))
@@ -135,7 +136,7 @@
        "^\\*+[ \t]+%d-W\\([0-5][0-9]\\)$"
        weekyear weekmonth week
        (format "%d-W%02d" weekyear week))))
-  
+
   ;; Following `org-sort-entries', the creation time is assumed to be
   ;; the first inactive timestamp at the beginning of a line
   (customize-set-variable
@@ -188,6 +189,7 @@
   ;;(require 'ol-notmuch)
 
   (require 'org-id)
+
   ;; TODO: remove after fixing C-c C-, display-buffer issues
   (require 'org-tempo))
 
