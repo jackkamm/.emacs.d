@@ -2,6 +2,11 @@
 (general-create-definer my-search-replace-leader :prefix-map 'my-search-map)
 (my-leader "s" '(:keymap my-search-map :which-key "Search/replace"))
 
+(defun my-replace-case-sensitive ()
+  (interactive)
+  (let ((case-fold-search))
+    (call-interactively 'query-replace)))
+
 (my-search-replace-leader
   "l" 'lgrep
   "c" 'evil-ex-nohighlight)
