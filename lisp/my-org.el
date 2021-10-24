@@ -48,7 +48,6 @@
   ;; turn on org-indent-mode
   ;;(org-startup-indented t)
 
-  (org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
   (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|" "DONE" "WONT" "STALE" "DUPLICATE")))
   ;; Colors inspired from `hl-todo-keyword-faces'
@@ -77,6 +76,12 @@
   (defun my-org-set-created ()
     (interactive)
     (org-set-property "CREATED" (format-time-string "[%Y-%m-%d]")))
+
+  ;; Setting this with :custom no longer worked after org commit
+  ;; 578d99b2aad1c5ec9bfbcb2da064cba367b48c30
+  (customize-set-variable 'org-id-link-to-org-use-id
+                          'create-if-interactive-and-no-custom-id)
+
   :config
   ;; Disable auto-indentation
   (customize-set-variable 'org-adapt-indentation nil)
