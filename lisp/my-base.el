@@ -65,15 +65,15 @@
 
   (my-leader
     "a" '(:ignore t :which-key "Applications")
-    "q" '(:ignore t :which-key "Quit")
+    ;; because M-q might be overridden on macOS
+    "q" (general-simulate-key "M-q")
     "m" '(:ignore t :which-key "Major")
-    "qq" 'save-buffers-kill-emacs
+    ;;"Q" 'save-buffers-kill-emacs
     "h" '(:keymap help-map :which-key "Help")
     "r" '(:keymap ctl-x-r-map :which-key "Registers/Rectangles")
     "x" '(:keymap ctl-x-map :which-key "C-x")
     ;; simulate key instead of using keymap, for sake of kmacro-bind-to-key
     "k" (general-simulate-key "C-x C-k" :which-key "Keyboard macros")
-    "p" 'fill-paragraph
     "c" (general-simulate-key "C-c C-c"))
 
   (general-create-definer my-major-leader
