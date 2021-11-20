@@ -87,7 +87,8 @@
 (use-package hydra :demand t)
 (use-package hercules :demand t)
 
-(setq my-completing-read-style 'hybrid)
+(setq my-completing-read-style 'selectrum)
+;;(setq my-completing-read-style 'hybrid)
 ;;(setq my-completing-read-style 'builtin)
 ;;(setq my-completing-read-style 'helm)
 ;;(setq my-completing-read-style 'ivy)

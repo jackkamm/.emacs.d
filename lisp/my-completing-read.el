@@ -77,6 +77,8 @@
               ("C-v" . icomplete-vertical-toggle))
   :demand t)
 
+(use-package selectrum)
+
 ;; activate preferred completion system
 
 (pcase my-completing-read-style
@@ -96,6 +98,9 @@
      "R" 'ivy-resume
      "Y" 'counsel-yank-pop)
    (ivy-prescient-mode))
+  (`selectrum
+   (selectrum-mode +1)
+   (customize-set-variable 'completion-styles '(orderless)))
   ((or `hybrid `builtin)
    (icomplete-mode 1)
    (customize-set-variable 'completion-styles '(orderless))
