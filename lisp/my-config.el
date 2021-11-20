@@ -6,7 +6,8 @@
       (list
        "my-org"
 
-       "my-ide" ;lsp, projectile, xref, company, flycheck
+       "my-ide" ;lsp, projectile, xref, flycheck
+       "my-company"
        "my-tramp"
        "my-shell"
        "my-snippets"
