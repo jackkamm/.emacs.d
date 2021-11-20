@@ -28,7 +28,8 @@
   ;;(org-goto-interface 'outline-path-completion)
 
   ;; to resize inline images
-  (org-image-actual-width '(500))
+  ;;(org-image-actual-width '(500))
+  (org-image-actual-width nil)
 
   (org-log-done 'time)
   (org-agenda-start-with-log-mode t)
