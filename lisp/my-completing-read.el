@@ -77,7 +77,10 @@
               ("C-v" . icomplete-vertical-toggle))
   :demand t)
 
-(use-package selectrum)
+(use-package selectrum
+  :custom
+  ;; for better behavior when moving/renaming files with dired-dwim-target
+  (selectrum-files-select-input-dirs t))
 
 ;; activate preferred completion system
 
