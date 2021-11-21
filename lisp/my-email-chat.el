@@ -42,6 +42,11 @@
       (keyboard-quit)))
 
 (use-package notmuch
+  ;; https://notmuchmail.org/notmuch-emacs/ recommends against
+  ;; installing notmuch.el from ELPA. However, it's sometimes
+  ;; necessary, e.g. when using notmuch remotely.
+  ;; TODO: make a defvar to control this.
+  ;;:ensure nil
   :general
   (my-leader "an" 'notmuch)
   :custom
