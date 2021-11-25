@@ -70,16 +70,13 @@
      (shell . t)
      (jupyter . t))))
 
-;; NOTE this will interfere with async sessions unless
-;; `ob-session-async' is loaded
 (use-package ob-async
   :after org
+  :load-path (lambda () (concat user-emacs-directory "lisp/ob-async"))
+  :ensure nil
   :demand t
   :init
-  (setq ob-async-no-async-languages-alist
-        '("jupyter-python" "jupyter-R" "jupyter-julia"
-          ;; FIXME: PR to ob-async so this isn't needed
-          "R" "python"))
+  (setq ob-async-ignore-sessions t)
   :config
   ;; https://github.com/astahlman/ob-async/issues/37
   ;; workaround for ob-julia, which breaks ob-async (even on non-julia langs)

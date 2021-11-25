@@ -7,3 +7,6 @@
 [submodule "lisp/nextflow-mode"]
 	path = lisp/nextflow-mode
 	url = git@github.com:jackkamm/nextflow-mode.git
+[submodule "lisp/ob-async"]
+	path = lisp/ob-async
+	url = git@github.com:jackkamm/ob-async.git
