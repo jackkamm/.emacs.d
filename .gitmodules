@@ -1,9 +1,6 @@
 [submodule "snippets/latex-mode"]
 	path = snippets/latex-mode
 	url = https://github.com/jackkamm/yasnippets-latex
-[submodule "lisp/ob-session-async"]
-	path = lisp/ob-session-async
-	url = git@github.com:jackkamm/ob-session-async.git
 [submodule "lisp/nextflow-mode"]
 	path = lisp/nextflow-mode
 	url = git@github.com:jackkamm/nextflow-mode.git
