@@ -14,8 +14,8 @@
 
   ;;;; use local dev version
   ;;:ensure nil
-  ;;:load-path ("~/Documents/org-mode/lisp"
-  ;;            "~/Documents/org-mode/contrib/lisp")
+  ;;:load-path ("~/dev/org-mode/lisp"
+  ;;            "~/dev/org-mode/contrib/lisp")
 
   :custom
   (org-agenda-files '("~/org")))
