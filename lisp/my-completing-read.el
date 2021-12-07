@@ -80,7 +80,8 @@
 (use-package selectrum
   :custom
   ;; for better behavior when moving/renaming files with dired-dwim-target
-  (selectrum-files-select-input-dirs t))
+  (selectrum-files-select-input-dirs t)
+  (selectrum-display-style '(horizontal)))
 
 ;; activate preferred completion system
 
