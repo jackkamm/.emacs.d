@@ -49,6 +49,24 @@ customization and features like remote directory tracking. These
 
 (defun my-ignore-term-command-hook-advice (string))
 
+;; vterm
+
+(use-package vterm
+  :commands 'vterm
+  :general
+  (my-major-leader
+    :keymaps 'vterm-mode-map
+    "[" 'vterm-copy-mode)
+  :config
+  (evil-set-initial-state 'vterm-mode 'emacs)
+  (add-hook 'vterm-mode-hook
+            (lambda () (display-line-numbers-mode -1)))
+  (add-hook 'vterm-copy-mode-hook
+            (lambda ()
+              (if vterm-copy-mode
+                  (evil-normal-state)
+                (evil-emacs-state)))))
+
 ;; execute shell commands
 
 (defun my-external-command (cmd)
