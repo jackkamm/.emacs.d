@@ -138,15 +138,6 @@
        weekyear weekmonth week
        (format "%d-W%02d" weekyear week))))
 
-  ;; Following `org-sort-entries', the creation time is assumed to be
-  ;; the first inactive timestamp at the beginning of a line
-  (customize-set-variable
-   'org-capture-templates
-   '(("n" "note" entry (file+function "diary.org" my-org-capture-iso-week-fun)
-      "* %?\n%u" :empty-lines 1 :jump-to-captured t :tree-type week)
-     ("l" "link" entry (file+function "diary.org" my-org-capture-iso-week-fun)
-      "* %?%:subject\n%u\n\n%a" :empty-lines 1 :tree-type week)))
-
   ;; org-goto works best in emacs/insert state. No hook available, so
   ;; use an advice.
   ;; TODO? Propose a patch to add a hook for org-goto
