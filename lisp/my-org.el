@@ -186,9 +186,6 @@
   ;; limited), or as input to pandoc --self-contained --to html.
   (require 'ox-md)
 
-  ;; FIXME: No longer works since org-contrib was moved in Org 9.5
-  ;;(require 'ol-notmuch)
-
   (require 'org-id)
 
   ;; TODO: remove after fixing C-c C-, display-buffer issues

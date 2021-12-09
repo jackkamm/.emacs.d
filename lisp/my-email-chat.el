@@ -103,6 +103,8 @@
              ("a" . nil)
              ("x" . nil)))
 
+(use-package ol-notmuch :after (org notmuch))
+
 (use-package gnus
   :ensure nil
   :general
