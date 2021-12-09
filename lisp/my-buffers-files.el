@@ -25,6 +25,8 @@
 
 (customize-set-variable 'Buffer-menu-name-width 60)
 
+(global-auto-revert-mode 1)
+
 ;; Files
 
 (setq my-files-map (make-sparse-keymap))
