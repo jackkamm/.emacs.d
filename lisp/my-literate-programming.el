@@ -84,5 +84,11 @@
             '(lambda ()
                (setq inferior-julia-program-name "/usr/local/bin/julia"))))
 
+(use-package ob-reticulate
+  :after org
+  :demand t
+  :config
+  (ob-reticulate-mode 1))
+
 (use-package poly-R
   :mode ("\\.Rmd" . poly-markdown+R-mode))
