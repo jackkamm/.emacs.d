@@ -50,7 +50,7 @@
   ;;(org-startup-indented t)
 
   (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|"
-                                 "DONE" "WONT" "STALE" "DUPLICATE")))
+                                 "DONE" "WONT" "STALE" "DUPLICATE" "CANCELLED")))
 
   ;; Colors inspired from `hl-todo-keyword-faces'
   (org-todo-keyword-faces '(("IDEA" . (:weight bold :foreground "#7cb8bb"))
