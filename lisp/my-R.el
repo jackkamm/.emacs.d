@@ -27,6 +27,7 @@
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
+    "c" 'ess-force-buffer-current
     "h" 'ess-doc-map
     "r" 'ess-extra-map
     "w" 'ess-r-package-dev-map
