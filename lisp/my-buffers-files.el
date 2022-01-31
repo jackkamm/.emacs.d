@@ -13,6 +13,7 @@
  "c" 'clone-indirect-buffer
  "i" 'ibuffer
  "I" 'ibuffer-other-window
+ "F" 'switch-to-buffer-other-frame
  "o" 'switch-to-buffer-other-window)
 
 (pcase my-completing-read-style
