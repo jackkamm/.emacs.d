@@ -65,7 +65,30 @@ customization and features like remote directory tracking. These
             (lambda ()
               (if vterm-copy-mode
                   (evil-normal-state)
-                (evil-emacs-state)))))
+                (evil-emacs-state))))
+
+  ;; See also:
+  ;; https://www.reddit.com/r/emacs/comments/op4fcm/comment/h63i4f3
+  (defun my-vterm-eval-region (start end)
+    "Insert text of current line in vterm and execute."
+    (interactive "r")
+    (let ((command (buffer-substring start end)))
+      ;; TODO strip comments, like in `my-emamux-send-region'
+      (if (get-buffer vterm-buffer-name)
+          (with-current-buffer vterm-buffer-name
+            (vterm--goto-line -1)
+            (vterm-send-string command)
+            (vterm-send-return))
+        (message "%s doesn't exist!" vterm-buffer-name))))
+
+  (defun my-vterm-eval-line ()
+    (interactive)
+    (my-vterm-eval-region (line-beginning-position) (line-end-position)))
+
+  (my-leader
+    "dv" '(:ignore t :which-key "Vterm")
+    "dvl" 'my-vterm-eval-line
+    "dvr" 'my-vterm-eval-region))
 
 ;; execute shell commands
 
