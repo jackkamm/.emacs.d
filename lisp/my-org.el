@@ -218,3 +218,11 @@
   ;; Needed to avoid the error (void-function org-get-outline-path)
   ;; TODO file an issue with helm-org-rifle
   (require 'org-refile))
+
+(use-package ox-html-selfcontained
+  :after org
+  :load-path (lambda () (concat user-emacs-directory "lisp/ox-html-selfcontained"))
+  :ensure nil
+  :demand t
+  :config
+  (ox-html-selfcontained-mode 1))

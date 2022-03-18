@@ -7,3 +7,6 @@
 [submodule "lisp/ob-async"]
 	path = lisp/ob-async
 	url = git@github.com:jackkamm/ob-async.git
+[submodule "lisp/ox-html-selfcontained"]
+	path = lisp/ox-html-selfcontained
+	url = git@gitlab.com:jackkamm/ox-html-selfcontained.git
