@@ -9,8 +9,8 @@
   ;; use emacs built-in version
   :ensure nil
 
-  ;;;; use melpa version
-  ;;:ensure org-plus-contrib
+  ;;;; use elpa version
+  ;;:ensure t
 
   ;;;; use local dev version
   ;;:ensure nil
