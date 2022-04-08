@@ -15,9 +15,9 @@
 (require 'package)
 
 (customize-set-variable 'package-archives
-                        '(("org" . "https://orgmode.org/elpa/")
-                          ("melpa" . "https://melpa.org/packages/")
-                          ("gnu" . "https://elpa.gnu.org/packages/")))
+                        '(("melpa" . "https://melpa.org/packages/")
+                          ("gnu" . "https://elpa.gnu.org/packages/")
+                          ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
