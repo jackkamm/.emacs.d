@@ -49,11 +49,12 @@
   ;; turn on org-indent-mode
   ;;(org-startup-indented t)
 
-  (org-todo-keywords '((sequence "IDEA" "PEND" "TODO" "|"
+  (org-todo-keywords '((sequence "IDEA" "PEND" "READ" "TODO" "|"
                                  "DONE" "WONT" "STALE" "DUPLICATE" "CANCELLED")))
 
   ;; Colors inspired from `hl-todo-keyword-faces'
-  (org-todo-keyword-faces '(("IDEA" . (:weight bold :foreground "#7cb8bb"))
+  (org-todo-keyword-faces '(("READ" . (:weight bold :foreground "#d0bf8f"))
+                            ("IDEA" . (:weight bold :foreground "#7cb8bb"))
                             ("PEND" . (:weight bold :foreground "#d0bf8f"))
                             ("WONT" . (:weight bold :foreground "#8c5353"))
                             ("STALE" . (:weight bold :foreground "#dca3a3"))))
