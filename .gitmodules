@@ -3,10 +3,10 @@
 	url = https://github.com/jackkamm/yasnippets-latex
 [submodule "lisp/nextflow-mode"]
 	path = lisp/nextflow-mode
-	url = git@github.com:jackkamm/nextflow-mode.git
+	url = https://github.com/jackkamm/nextflow-mode
 [submodule "lisp/ob-async"]
 	path = lisp/ob-async
-	url = git@github.com:jackkamm/ob-async.git
+	url = https://github.com/jackkamm/ob-async
 [submodule "lisp/ox-html-selfcontained"]
 	path = lisp/ox-html-selfcontained
-	url = git@gitlab.com:jackkamm/ox-html-selfcontained.git
+	url = https://gitlab.com/jackkamm/ox-html-selfcontained
