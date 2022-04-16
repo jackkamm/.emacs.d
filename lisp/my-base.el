@@ -9,10 +9,11 @@
   (evil-want-C-i-jump nil)            ;allow org-mode TAB in terminal
   (evil-symbol-word-search t)
   (evil-respect-visual-line-mode t)
-  ;; make emacs- and insert-states identical
-  (evil-disable-insert-state-bindings t)
   (evil-undo-system 'undo-redo)
   :config
+  ;; make emacs- and insert-states identical.  This variable
+  ;; apparently needs to be set after evil has been loaded
+  (customize-set-variable 'evil-disable-insert-state-bindings t)
   ;; get rid of motion state everywhere
   (defalias 'evil-motion-state 'evil-insert-state)
   ;; get rid of emacs state nearly everywhere
