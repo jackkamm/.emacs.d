@@ -85,9 +85,14 @@ customization and features like remote directory tracking. These
     (interactive)
     (my-vterm-eval-region (line-beginning-position) (line-end-position)))
 
+  (defun my-vterm-eval-buffer ()
+    (interactive)
+    (my-vterm-eval-region (point-min) (point-max)))
+
   (my-leader
     "dv" '(:ignore t :which-key "Vterm")
     "dvl" 'my-vterm-eval-line
+    "dvb" 'my-vterm-eval-buffer
     "dvr" 'my-vterm-eval-region))
 
 ;; execute shell commands
