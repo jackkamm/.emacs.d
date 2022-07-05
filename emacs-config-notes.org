@@ -116,3 +116,18 @@ https://www.reddit.com/r/emacs/comments/vied1y/gnu_hypobole_10/
 
 https://www.reddit.com/r/emacs/comments/nirwpk/comment/gz4906p/?utm_source=share&utm_medium=web2x&context=3
 
+
+* TODO Better handling of emacs-jupyter RESULTS drawers
+[2022-07-05 Tue]
+
+emacs-jupyter likes to put results in drawers which are hidden.
+
+The following snippet can fix this, at the cost of unhiding all drawers:
+
+#+begin_src emacs-lisp
+  (with-eval-after-load 'org
+    (delete 'org-cycle-hide-drawers org-cycle-hook))
+#+end_src
+
+It would be nice to find a solution that only unhides the RESULTS
+drawers, while hiding the others. Perhaps a defadvice?
