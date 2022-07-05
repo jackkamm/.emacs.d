@@ -69,6 +69,8 @@
   ;; section header, refiling to top-level is incorrectly inserted
   ;; TODO minimal reproducible example + bug report
   ;; (org-reverse-note-order t)
+
+  (org-startup-folded t)
   :init
   ;; TODO implement this functionality via a prefix argument instead?
   (defun my-org-store-link-no-id ()
