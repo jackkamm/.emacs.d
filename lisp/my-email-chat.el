@@ -118,5 +118,6 @@
    gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references
    gnus-thread-sort-functions '(gnus-thread-sort-by-most-recent-date))
   :config
+  (setq gnus-summary-next-group-on-exit nil)
   ;; No primary server
   (setq gnus-select-method '(nnnil "")))
