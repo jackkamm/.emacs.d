@@ -160,6 +160,12 @@
         (org-toggle-inline-images))))
   (add-hook 'ediff-prepare-buffer-hook 'my-org-ediff-hook)
 
+  ;; Because shift-TAB doesn't work in screen
+  (defhydra my-org-cycle-hydra ()
+    "org-cycle"
+    ;; NOTE should this be "<tab>" or "TAB"?
+    ("TAB" org-global-cycle))
+
   ;; bind major keys
   (my-major-leader
     :keymaps 'org-mode-map
@@ -167,6 +173,7 @@
     "t" 'org-toggle-inline-images
     "e" 'org-export-dispatch
     "a" 'org-archive-to-archive-sibling
+    "TAB" 'my-org-cycle-hydra/org-global-cycle
     ;; C-c C-, can't be typed in terminal
     "," 'org-insert-structure-template)
 
