@@ -1,6 +1,9 @@
-(use-package ess-julia-mode
-  :ensure ess
-  :mode (("\\.jl\\'" . ess-julia-mode)))
+;;(use-package ess-julia-mode
+;;  :ensure ess
+;;  :mode (("\\.jl\\'" . ess-julia-mode)))
+
+(use-package julia-mode
+  :mode (("\\.jl\\'" . julia-mode)))
 
 ;; TODO put this somewhere else...
 (use-package company-math
