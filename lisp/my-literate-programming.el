@@ -68,7 +68,8 @@
      (ruby . t)
      (emacs-lisp . t)
      (shell . t)
-     (jupyter . t))))
+     (jupyter . t)
+     (latex . t))))
 
 (use-package ob-async
   :after org
