@@ -131,3 +131,8 @@ The following snippet can fix this, at the cost of unhiding all drawers:
 
 It would be nice to find a solution that only unhides the RESULTS
 drawers, while hiding the others. Perhaps a defadvice?
+
+[2022-07-10 Sun]
+
+See the new option ~org-hide-drawer-startup~, and the note about it in
+ORG-NEWS
