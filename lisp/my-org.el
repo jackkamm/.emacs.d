@@ -10,9 +10,6 @@
     "oa" 'org-agenda
     "oC" 'my-org-set-created)
   :custom
-  ;; NOTE org-fold-core-style needs to be set before org is loaded
-  (org-fold-core-style 'overlays)
-
   (org-fontify-done-headline nil)
   (org-return-follows-link t)
   (org-src-window-setup 'plain)
