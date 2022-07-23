@@ -12,11 +12,12 @@
   :config
   (global-evil-surround-mode 1))
 
-(use-package smartparens
-  :demand t
-  :config
-  (require 'smartparens-config)
-  (smartparens-global-mode))
+;; Inserts matching quotes or parens, but often misbehaves
+;;(use-package smartparens
+;;  :demand t
+;;  :config
+;;  (require 'smartparens-config)
+;;  (smartparens-global-mode))
 
 (use-package evil-matchit
   :demand t
