@@ -1,8 +1,15 @@
 ;;; Completion
 
+;; TODO Switch to corfu?
+
 (use-package company
   :demand t
   :config
+  ;; https://emacs.stackexchange.com/questions/13286/how-can-i-stop-the-enter-key-from-triggering-a-completion-in-company-mode
+  (define-key company-active-map (kbd "<return>") nil)
+  (define-key company-active-map (kbd "RET") nil)
+  (define-key company-active-map (kbd "M-RET") #'company-complete-selection)
+
   (global-company-mode 1))
 
 (use-package helm-company)
