@@ -187,10 +187,7 @@
   ;; limited), or as input to pandoc --self-contained --to html.
   (require 'ox-md)
 
-  (require 'org-id)
-
-  ;; TODO: remove after fixing C-c C-, display-buffer issues
-  (require 'org-tempo))
+  (require 'org-id))
 
 ;;; Load packages related to org-mode
 
