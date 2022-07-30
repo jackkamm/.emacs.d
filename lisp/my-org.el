@@ -71,6 +71,7 @@
   ;; (org-reverse-note-order t)
 
   (org-startup-folded t)
+  (org-icalendar-include-todo t)
   :init
   ;; TODO implement this functionality via a prefix argument instead?
   (defun my-org-store-link-no-id ()
