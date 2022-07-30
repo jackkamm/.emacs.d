@@ -136,3 +136,17 @@ drawers, while hiding the others. Perhaps a defadvice?
 
 See the new option ~org-hide-drawer-startup~, and the note about it in
 ORG-NEWS
+
+* PEND Recentf tramp setting?
+[2022-07-30 Sat]
+
+I noticed the [[https://www.emacswiki.org/emacs/RecentFiles][emacswiki-recentf page]] recommends the following
+configuration for recentf to prevent hanging tramp:
+
+#+begin_src emacs-lisp
+  ;; recommended to prevent hanging tramp:
+  ;; https://www.emacswiki.org/emacs/RecentFiles
+  (setq recentf-auto-cleanup 'never)
+#+end_src
+
+But I'm not sure if that advice is outdated.
