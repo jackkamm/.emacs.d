@@ -26,21 +26,21 @@
                (evilmi-simple-get-tag evilmi-simple-jump)
                (evilmi-html-get-tag evilmi-html-jump))))
 
-(use-package lispyville
-  :hook
-  ((emacs-lisp-mode . lispyville-mode)
-   (clojure-mode . lispyville-mode))
-  :config
-  (lispyville-set-key-theme
-   '(operators
-     c-w
-     slurp/barf-lispy
-     additional
-     additional-movement))
-  ;; get rid of keys I don't like in additional-motion
-  (evil-define-key 'motion lispyville-mode-map
-    "H" nil
-    "L" nil))
+;;(use-package lispyville
+;;  :hook
+;;  ((emacs-lisp-mode . lispyville-mode)
+;;   (clojure-mode . lispyville-mode))
+;;  :config
+;;  (lispyville-set-key-theme
+;;   '(operators
+;;     c-w
+;;     slurp/barf-lispy
+;;     additional
+;;     additional-movement))
+;;  ;; get rid of keys I don't like in additional-motion
+;;  (evil-define-key 'motion lispyville-mode-map
+;;    "H" nil
+;;    "L" nil))
 
 (use-package rainbow-delimiters
   :init
