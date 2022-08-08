@@ -96,13 +96,19 @@
     (setq action-map (nreverse action-map))
     (notmuch-jump action-map "Filter: ")))
   (bind-keys :map notmuch-show-mode-map
+             ("A" . nil)
+             ("X" . nil)
              ("a" . nil)
              ("x" . nil))
   (bind-keys :map notmuch-search-mode-map
              ("L" . my-notmuch-search-filter-jump)
+             ("A" . nil)
+             ("X" . nil)
              ("a" . nil)
              ("x" . nil))
   (bind-keys :map notmuch-tree-mode-map
+             ("A" . nil)
+             ("X" . nil)
              ("a" . nil)
              ("x" . nil)))
 
