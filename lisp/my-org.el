@@ -10,6 +10,14 @@
     "oa" 'org-agenda
     "oC" 'my-org-set-created)
   :custom
+  ;; 2022-08-07: Agenda started freezing anytime I tried to load it,
+  ;; even after restarting Emacs. Disabling cache persistence solved
+  ;; it; the problem didn't come back even after re-enabling cache,
+  ;; presumably because the bad cache state was cleared. See also the
+  ;; comment in ORG-NEWS requesting help in testing this feature, and
+  ;; the variables that can be set to aid debugging.
+  ;;(org-element-cache-persistent nil)
+
   (org-fontify-done-headline nil)
   (org-return-follows-link t)
   (org-src-window-setup 'plain)
@@ -71,7 +79,7 @@
   ;; (org-reverse-note-order t)
 
   (org-startup-folded t)
-  (org-icalendar-include-todo t)
+  (org-icalendar-include-todo 'all)
   :init
   ;; TODO implement this functionality via a prefix argument instead?
   (defun my-org-store-link-no-id ()
