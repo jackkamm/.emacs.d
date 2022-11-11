@@ -24,6 +24,11 @@
     (interactive (list (read-string "R executable: " "R")))
     (let ((inferior-ess-r-program r-cmd)) (R)))
 
+  ;; temporary workaround for https://github.com/emacs-ess/ESS/issues/1193
+  (defun my-inferior-ess-init ()
+      (setq-local ansi-color-for-comint-mode 'filter))
+  (add-hook 'inferior-ess-mode-hook 'my-inferior-ess-init)
+
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
