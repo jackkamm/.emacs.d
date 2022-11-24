@@ -23,6 +23,7 @@
   (evil-set-initial-state 'special-mode 'insert)
   (evil-set-initial-state 'image-mode 'insert)
   (evil-set-initial-state 'dired-mode 'insert)
+  (add-hook 'view-mode-hook 'evil-insert-state)
   ;;(setq evil-motion-state-tag (propertize
   ;;                            "  MOTION  " 'face
   ;;                            '((:background "purple" :foreground "black"))))
