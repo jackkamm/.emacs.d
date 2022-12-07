@@ -12,7 +12,13 @@
   :config
   (global-evil-surround-mode 1))
 
-(electric-pair-mode 1)
+;;(electric-pair-mode 1)
+(add-hook 'prog-mode-hook (lambda () (electric-pair-local-mode 1)))
+
+;; electric-pair seems to have problems in inferior R, Python, but it
+;; would be nice to have
+;;(add-hook 'comint-mode-hook (lambda () (electric-pair-local-mode 1)))
+
 (show-paren-mode 1)
 
 (use-package evil-matchit
