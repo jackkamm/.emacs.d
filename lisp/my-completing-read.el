@@ -1,3 +1,7 @@
+;;; my-completing-read.el --- completing-read setup  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;; helm
 
 (use-package helm
@@ -85,6 +89,12 @@
 
 ;; activate preferred completion system
 
+(setq my-completing-read-style 'selectrum)
+;;(setq my-completing-read-style 'hybrid)
+;;(setq my-completing-read-style 'builtin)
+;;(setq my-completing-read-style 'helm)
+;;(setq my-completing-read-style 'ivy)
+
 (pcase my-completing-read-style
   (`helm
    (helm-mode 1)
@@ -127,3 +137,7 @@
 ;; https://lists.gnu.org/archive/html/emacs-devel/2021-07/msg00004.html
 ;;
 ;;(customize-set-variable 'completion-cycle-threshold t)
+
+(provide 'my-completing-read)
+;;; my-completing-read.el ends here
+

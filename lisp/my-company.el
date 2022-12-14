@@ -1,5 +1,7 @@
 ;;; Completion
 
+(require 'my-completing-read)
+
 ;; TODO Switch to corfu?
 
 (use-package company

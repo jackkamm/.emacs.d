@@ -46,6 +46,45 @@
 (require 'use-package)
 (require 'bind-key)
 
+;; Load modules for my minimal config
+
+(require 'my-evil)
+(require 'my-keymaps)
+
+;; TODO: Replace with load with require
+(mapc 'load
+      (list
+       ;; completion system (helm, ivy, ido)
+       "my-completing-read"
+
+       "my-buffers-files" ;includes dired, diff'ing
+       "my-windows-frames"
+       "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
+       "my-motions-jumping" ;avy, easymotion
+       "my-search-replace" ;grep, swiper/swoop, iedit/mc
+       "my-history-vc-undo" ;git, undo
+       "my-send-insert" ;insert and send special text
+
+       "my-themes-toggles"
+       ))
+
+;; Security: Clear the keylog after entering passwords
+;;
+;; TODO: Submit this as a security bug to Emacs? They already know
+;; about cominit-send-invisible, but the help for read-passwd doesn't
+;; mention this issue, and it is affected as well
+
+(defun my-clear-keylog (&rest r)
+  "Advice to fix security bug in `comint-send-invisible', as of emacs27.
+
+In particular, the help for `comint-send-invisible' says:
+Security bug: your string can still be temporarily recovered with
+C-h l; ‘clear-this-command-keys’ can fix that."
+  (clear-this-command-keys))
+
+(advice-add #'comint-send-invisible :after #'my-clear-keylog)
+(advice-add #'read-passwd :after #'my-clear-keylog)
+
 ;; Load additional configurations in config.el. If it doesn't exist,
 ;; create it from a template
 

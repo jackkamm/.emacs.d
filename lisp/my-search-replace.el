@@ -1,3 +1,5 @@
+(require 'my-completing-read)
+
 (setq my-search-map (make-sparse-keymap))
 (general-create-definer my-search-replace-leader :prefix-map 'my-search-map)
 (my-leader "s" '(:keymap my-search-map :which-key "Search/replace"))

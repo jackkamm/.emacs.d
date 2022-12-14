@@ -59,6 +59,13 @@
   (with-eval-after-load 'browse-url (require 'notmuch))
   :config
   (add-hook 'notmuch-show-mode-hook 'visual-line-mode)
+
+  ;; Line numbers causes misalignment of duplicate count in
+  ;; headerline, which was added in notmuch commit 5ea5a555.
+  ;; TODO: File bug report to notmuch?
+  (add-hook 'notmuch-show-mode-hook
+            (lambda () (display-line-numbers-mode -1)))
+  
   (add-hook 'notmuch-mua-send-hook 'notmuch-mua-attachment-check)
   (add-hook 'notmuch-mua-send-hook 'my-confirm-empty-subject)
   (add-hook 'notmuch-hello-mode-hook (lambda () (display-line-numbers-mode -1)))

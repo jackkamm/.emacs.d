@@ -16,6 +16,9 @@
   (scroll-bar-mode -1))
 (tool-bar-mode -1)
 
+;; enable tab-bar
+(tab-bar-mode 1)
+
 ;; minimap
 (use-package minimap
   :general
@@ -63,7 +66,7 @@
 
 ;; install some nice themes
 (dolist (theme '(moe-theme
-                 eziam-theme
+                 eziam-themes
                  zenburn-theme))
   (unless (package-installed-p theme)
     (package-install theme)))

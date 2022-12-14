@@ -1,3 +1,6 @@
+
+(require 'my-completing-read)
+
 ;; Buffers
 
 (setq my-buffers-map (make-sparse-keymap))
