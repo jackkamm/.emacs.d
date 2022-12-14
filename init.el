@@ -5,6 +5,18 @@
 ;; Add lisp files to load path
 (push (concat user-emacs-directory "lisp") load-path)
 
+(let ((default-directory (concat user-emacs-directory "site-lisp/")))
+  ;; recursively prepend to load-path
+  ;; NOTE add ".nosearch" file to exclude directory
+  (setq load-path
+	(append
+	 (let ((load-path (copy-sequence load-path))) ;shadow
+	   (append
+	    (copy-sequence
+	     (normal-top-level-add-to-load-path '(".")))
+	    (normal-top-level-add-subdirs-to-load-path)))
+	 load-path)))
+
 ;; Set and load custom-file as early as possible, to prevent Custom
 ;; writing to init.el, and to avoid overriding other settings
 (setq custom-file (concat user-emacs-directory "custom.el"))

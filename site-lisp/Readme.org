@@ -1,0 +1,3 @@
+
+This folder is for elisp files and packages to be added to the
+load-path, and to be excluded from the git history.
