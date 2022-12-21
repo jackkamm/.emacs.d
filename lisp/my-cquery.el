@@ -1,4 +1,7 @@
-(use-package lsp-mode)
+;;; my-cquery.el --- cquery config                   -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (use-package lsp-ui
   :init
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
@@ -19,3 +22,6 @@
 
 ;; TODO: improve performance, add useful keybindings
 ;; https://github.com/cquery-project/cquery/wiki/Emacs
+
+(provide 'my-cquery)
+;;; my-cquery.el ends here

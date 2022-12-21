@@ -1,3 +1,9 @@
+;;; my-themes-toggles.el --- Theming & toggles  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
+
+
 (setq my-theme-map (make-sparse-keymap))
 (general-create-definer my-toggle-leader :prefix-map 'my-theme-map)
 (my-leader "t" '(:keymap my-theme-map :which-key "Themes/Toggles"))
@@ -83,3 +89,6 @@
 		     'notmuch-search-hook
 		     'notmuch-tree-mode-hook))
       (add-hook h 'emojify-mode)))
+
+(provide 'my-themes-toggles)
+;;; my-themes-toggles.el ends here

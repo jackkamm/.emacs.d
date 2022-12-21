@@ -1,3 +1,7 @@
+;;; my-org.el --- Org config                         -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (use-package org
   :ensure nil
   :general
@@ -242,3 +246,6 @@
   :demand t
   :config
   (ox-html-selfcontained-mode 1))
+
+(provide 'my-org)
+;;; my-org.el ends here

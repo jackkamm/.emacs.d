@@ -1,3 +1,9 @@
+;;; my-lines-regions.el --- Line & region editing configs  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
+(require 'my-themes-toggles)
+
 ;; Lines
 
 (setq display-line-numbers-type 'relative)
@@ -50,8 +56,7 @@
 
 (use-package rainbow-delimiters
   :init
-  (with-eval-after-load "my-themes-toggles"
-    (my-toggle-leader "r" 'rainbow-delimiters-mode)))
+  (my-toggle-leader "r" 'rainbow-delimiters-mode))
 
 ;; Regions
 
@@ -74,3 +79,6 @@
   :config
   (setq expand-region-contract-fast-key "V"
 	expand-region-reset-fast-key "r"))
+
+(provide 'my-lines-regions)
+;;; my-lines-regions.el ends here

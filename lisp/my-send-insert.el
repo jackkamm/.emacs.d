@@ -1,3 +1,7 @@
+;;; my-send-insert.el --- Inserting text  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;; Inserting and sending special text
 
 (setq my-insert-map (make-sparse-keymap))
@@ -45,3 +49,5 @@
 (my-insert-leader "z" 'my-insert-zero-width-space)
 
 
+(provide 'my-send-insert)
+;;; my-send-insert.el ends here

@@ -1,3 +1,7 @@
+;;; my-literate-programming.el --- Literate programming config  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (use-package ein
   :custom
   (ein:output-area-inlined-images t)
@@ -93,3 +97,6 @@
 
 (use-package poly-R
   :mode ("\\.Rmd" . poly-markdown+R-mode))
+
+(provide 'my-literate-programming)
+;;; my-literate-programming.el ends here

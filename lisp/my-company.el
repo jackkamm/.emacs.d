@@ -1,5 +1,8 @@
-;;; Completion
+;;; my-company.el --- company config -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
+(require 'my-keymaps)
 (require 'my-completing-read)
 
 ;; TODO Switch to corfu?
@@ -29,3 +32,6 @@
   :demand t
   :config
   (company-prescient-mode))
+
+(provide 'my-company)
+;;; my-company.el ends here

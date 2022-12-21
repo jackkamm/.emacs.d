@@ -1,3 +1,7 @@
+;;; my-R.el --- R config  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;; NOTE syntax checking (flymake): should be auto-enabled when lintr
 ;; installed from CRAN. If it doesn't work, try creating ~/.R (cf
 ;; https://github.com/emacs-ess/ESS/issues/883)
@@ -43,3 +47,6 @@
     "f" 'ess-eval-function
     "p" 'ess-eval-paragraph
     "P" 'ess-eval-paragraph-and-step))
+
+(provide 'my-R)
+;;; my-R.el ends here

@@ -1,3 +1,7 @@
+;;; my-history-vc-undo.el ---                        -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;; Undo
 
 ;; access undo-only from visual/insert state
@@ -73,3 +77,6 @@ Interactively, open the file at point."
   (if (not (file-exists-p backup-dir))
       (make-directory backup-dir t))
   (customize-set-variable 'backup-directory-alist `(("." . ,backup-dir))))
+
+(provide 'my-history-vc-undo)
+;;; my-history-vc-undo.el ends here

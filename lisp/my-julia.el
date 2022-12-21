@@ -1,3 +1,7 @@
+;;; my-julia.el --- Julia config  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;;(use-package ess-julia-mode
 ;;  :ensure ess
 ;;  :mode (("\\.jl\\'" . ess-julia-mode)))
@@ -29,3 +33,6 @@
 ;;(use-package julia-repl
 ;;  :commands julia-repl-mode)
 ;;(add-hook 'julia-mode-hook 'julia-repl-mode)
+
+(provide 'my-julia)
+;;; my-julia.el ends here

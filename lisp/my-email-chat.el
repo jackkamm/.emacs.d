@@ -1,3 +1,7 @@
+;;; my-email-chat.el --- Email & chat config         -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;; Chat
 
 (use-package erc
@@ -137,3 +141,6 @@
   (setq gnus-summary-next-group-on-exit nil)
   ;; No primary server
   (setq gnus-select-method '(nnnil "")))
+
+(provide 'my-email-chat)
+;;; my-email-chat.el ends here

@@ -1,4 +1,8 @@
+;;; my-buffers-files.el --- Configure buffers & files behavior -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
+(require 'my-keymaps)
 (require 'my-completing-read)
 
 ;; Buffers
@@ -103,3 +107,6 @@
   :ensure nil
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+
+(provide 'my-buffers-files)
+;;; my-buffers-files.el ends here

@@ -1,3 +1,7 @@
+;;; my-windows-frames.el --- Windows and frames  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (setq my-frames-map (make-sparse-keymap))
 (general-create-definer my-frames-leader :prefix-map 'my-frames-map)
 (my-leader "F" '(:keymap my-frames-map :which-key "Frames"))
@@ -86,3 +90,6 @@
 ;; tabs
 
 (customize-set-variable 'tab-bar-new-tab-choice "*scratch*")
+
+(provide 'my-windows-frames)
+;;; my-windows-frames.el ends here

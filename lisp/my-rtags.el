@@ -1,3 +1,9 @@
+;;; my-rtags.el --- rtags config  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
+
+
 ;; build rtags manually to avoid rebuilding whenever updating AUR/ELPA/etc
 ;; build instructions:
 ;; git clone --recursive https://github.com/Andersbakken/rtags.git
@@ -42,3 +48,6 @@
   :demand t
   :config
   (setq rtags-display-result-backend 'helm))
+
+(provide 'my-rtags)
+;;; my-rtags.el ends here

@@ -1,3 +1,9 @@
+;;; my-shell.el --- Shell config  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
+
+
 ;; term-mode configuration
 
 (with-eval-after-load 'term
@@ -178,3 +184,6 @@ customization and features like remote directory tracking. These
     (bind-keys
      :map emamux:keymap
      ("c" . my-emamux-send-chunk))))
+
+(provide 'my-shell)
+;;; my-shell.el ends here

@@ -1,3 +1,7 @@
+;;; my-search-replace.el --- Search configs  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (require 'my-completing-read)
 
 (setq my-search-map (make-sparse-keymap))
@@ -119,3 +123,6 @@
    :keymap 'my-mc-map
    :transient t))
 
+
+(provide 'my-search-replace)
+;;; my-search-replace.el ends here

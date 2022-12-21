@@ -1,3 +1,7 @@
+;;; my-motions-jumping.el --- Configs for moving around  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (setq my-jump-map (make-sparse-keymap))
 (general-create-definer my-jump-leader :prefix-map 'my-jump-map)
 (my-leader "j" '(:keymap my-jump-map :which-key "Jump"))
@@ -19,3 +23,6 @@
   :config
   (evilem-default-keybindings "C-c e"))
 (my-leader "e" '(:ignore t :which-key "easymotion"))
+
+(provide 'my-motions-jumping)
+;;; my-motions-jumping.el ends here

@@ -1,8 +1,13 @@
+;;; my-ide.el --- IDE setup                          -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
+(require 'my-python)
+
 ;;; LSP
 
 (use-package eglot)
-
-(with-eval-after-load "my-python" (add-hook 'python-mode-hook 'eglot-ensure))
+(add-hook 'python-mode-hook 'eglot-ensure)
 
 ;;; Find in project
 
@@ -65,3 +70,6 @@
   :demand t
   :config
   (flycheck-package-setup))
+
+(provide 'my-ide)
+;;; my-ide.el ends here

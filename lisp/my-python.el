@@ -1,3 +1,7 @@
+;;; my-python.el --- Python config  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 (setq python-shell-interpreter "ipython")
 (setq python-shell-interpreter-args "--simple-prompt -i")
 
@@ -13,9 +17,6 @@
   "b" 'python-shell-send-buffer
   "f" 'python-shell-send-defun
   "r" 'python-shell-send-region)
-
-(with-eval-after-load "my-lsp"
-  (add-hook 'python-mode-hook #'lsp))
 
 (use-package pyvenv)
 
@@ -35,3 +36,6 @@
      (concat "dtach -A " (file-name-nondirectory socket-file)
              " ipython --simple-prompt -i")
      nil t)))
+
+(provide 'my-python)
+;;; my-python.el ends here

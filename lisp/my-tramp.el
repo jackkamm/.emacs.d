@@ -1,3 +1,7 @@
+;;; my-tramp.el --- Remote editing  -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
+
 ;; try to make tramp+git faster
 (setq vc-ignore-dir-regexp (format "\\(%s\\)\\|\\(%s\\)"
 				    vc-ignore-dir-regexp
@@ -10,3 +14,6 @@
 
 ;; Docker
 (use-package docker-tramp :demand t)
+
+(provide 'my-tramp)
+;;; my-tramp.el ends here

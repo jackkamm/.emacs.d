@@ -51,22 +51,18 @@
 (require 'my-evil)
 (require 'my-keymaps)
 
-;; TODO: Replace with load with require
-(mapc 'load
-      (list
-       ;; completion system (helm, ivy, ido)
-       "my-completing-read"
+;; completion system (helm, ivy, ido)
+(require 'my-completing-read)
 
-       "my-buffers-files" ;includes dired, diff'ing
-       "my-windows-frames"
-       "my-lines-regions" ;line numbers/wrapping, parens, narrowing, etc
-       "my-motions-jumping" ;avy, easymotion
-       "my-search-replace" ;grep, swiper/swoop, iedit/mc
-       "my-history-vc-undo" ;git, undo
-       "my-send-insert" ;insert and send special text
+(require 'my-buffers-files) ;includes dired, diff'ing
+(require 'my-windows-frames)
+(require 'my-lines-regions) ;line numbers/wrapping, parens, narrowing, etc
+(require 'my-motions-jumping) ;avy, easymotion
+(require 'my-search-replace) ;grep, swiper/swoop, iedit/mc
+(require 'my-history-vc-undo) ;git, undo
+(require 'my-send-insert) ;insert and send special text
 
-       "my-themes-toggles"
-       ))
+(require 'my-themes-toggles)
 
 ;; Security: Clear the keylog after entering passwords
 ;;

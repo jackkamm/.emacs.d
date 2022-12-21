@@ -1,30 +1,31 @@
-;;; Additional configurations not in init.el, that I want to include
-;;; on most installs, but not on minimal installs such as on Windows
-;;; or Android termux
+;;; my-config.el --- A full emacs config             -*- lexical-binding: t; -*-
+;;;
+;;; Commentary: Additional configurations not in init.el, that I want
+;;; to include on most installs, but not on minimal installs such as
+;;; on Windows or Android termux
+;;;
+;;; Code:
 
-(mapc 'load
-      (list
-       "my-org"
+(require 'my-org)
 
-       "my-ide" ;lsp, projectile, xref, flycheck
-       "my-company"
-       "my-tramp"
-       "my-shell"
-       "my-snippets"
+(require 'my-ide) ;lsp, projectile, xref, flycheck
+(require 'my-company)
+(require 'my-tramp)
+(require 'my-shell)
+(require 'my-snippets)
 
-       "my-email-chat"
+(require 'my-email-chat)
 
-       ;; languages
-       "my-python"
-       ;;"my-clojure"
-       "my-literate-programming"
-       "my-R"
-       "my-julia"
-       "my-tex"
-       ;; c-c++: only enable 1 of cquery, rtags
-       ;;"my-cquery"
-       ;;"my-rtags"
-       ))
+;; languages
+(require 'my-python)
+;;(require 'my-clojure)
+(require 'my-literate-programming)
+(require 'my-R)
+(require 'my-julia)
+(require 'my-tex)
+;; c-c++: only enable 1 of cquery, rtags
+;;(require 'my-cquery)
+;;(require 'my-rtags)
 
 ;;;; other miscellaneous settings and packages
 
@@ -66,3 +67,6 @@
 (use-package ledger-mode)
 
 (use-package pkgbuild-mode)
+
+(provide 'my-config)
+;;; my-config.el ends here
