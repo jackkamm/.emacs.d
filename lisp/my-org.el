@@ -43,16 +43,13 @@
   ;;(org-image-actual-width '(500))
   (org-image-actual-width nil)
 
+  ;; Always log the closing time, it's used by org-caldav
   (org-log-done 'time)
+  ;; Log state changes into a drawer
+  (org-log-into-drawer t)
+  ;; Set this globally, bcuz it doesn't seem to work when setting in
+  ;; org-agenda-custom-commands
   (org-agenda-start-with-log-mode t)
-
-  ;; remove scheduled/deadline items from Todo view, since they will
-  ;; appear in Agenda view. Especially useful for repeating items.
-  (org-agenda-todo-ignore-scheduled t)
-  (org-agenda-todo-ignore-deadlines 'far)
-
-  ;; make the todo list shorter by skipping sublevels
-  (org-agenda-todo-list-sublevels nil)
 
   ;; C-TAB doesn't work in terminal, and org-force-cycle-archived
   ;; doesn't play nice with general-simulate-key
@@ -61,21 +58,56 @@
   ;; turn on org-indent-mode
   ;;(org-startup-indented t)
 
-  (org-todo-keywords '((sequence "IDEA" "PEND" "READ" "TODO" "|"
-                                 "DONE" "WONT" "STALE" "DUPLICATE" "CANCELLED")))
+  (org-enforce-todo-dependencies t)
+  (org-agenda-dim-blocked-tasks nil)
+
+  (org-todo-keywords '((sequence
+                        "MOVE(m)" ;Inbox/Refile
+                        "IDEA(i)" ;Idea
+                        "PEND(n)" ;Holding state
+                        ;;"ITER(r)" ;Repeating task
+                        "TODO(t)" ;Needs action
+                        "NEXT(x)" ;On the docket
+                        "PROG(g!)" ;In progress
+                        "|"
+                        "DONE(d!)" ;Completed
+                        "DUPE(u)" ;Duplicate
+                        "FAIL(f)" ;Tried but failed
+                        "OKAY(y)" ;Delegated or otherwise resolved
+                        "PAST(a)" ;Stale/expired
+                        "SKIP(k)" ;Skipping/cancelling
+                        )))
 
   ;; Colors inspired from `hl-todo-keyword-faces'
-  (org-todo-keyword-faces '(("READ" . (:weight bold :foreground "#d0bf8f"))
+  (org-todo-keyword-faces '(("NEXT" . (:weight bold :foreground "#dca3a3"))
+                            ("PROG" . (:weight bold :foreground "#7cb8bb"))
                             ("IDEA" . (:weight bold :foreground "#7cb8bb"))
                             ("PEND" . (:weight bold :foreground "#d0bf8f"))
-                            ("WONT" . (:weight bold :foreground "#8c5353"))
-                            ("STALE" . (:weight bold :foreground "#dca3a3"))))
+                            ("FAIL" . (:weight bold :foreground "#8c5353"))
+                            ("OKAY" . (:weight bold :foreground "#7cb8bb"))
+                            ("PAST" . (:weight bold :foreground "#dca3a3"))))
+  (org-use-fast-todo-selection 'expert)
+  ;;(org-todo-repeat-to-state "ITER")
   (org-todo-repeat-to-state "TODO")
 
   (org-agenda-custom-commands
    '(("n" "Agenda and active TODOs"
-      ((agenda "")
-       (todo "TODO")))))
+      ((agenda "" ((org-agenda-log-mode-items '(clock state))))
+       (todo "MOVE")
+       (todo "NEXT")
+       (todo "PROG")
+       ;; List top-level tasks only. Use "alltodo" and a filter,
+       ;; instead of (todo "TODO") which would exclude parent tasks in
+       ;; other states (e.g. NEXT, PROG) from the sparse subtree,
+       ;; preventing us from filtering them out.
+       (alltodo "" ((org-agenda-overriding-header "Top-level TODOs")
+                    ;;(org-agenda-todo-list-sublevels nil)
+                    ;;(org-agenda-skip-function
+                    ;;'(org-agenda-skip-subtree-if
+                    ;;  'nottodo '("TODO" "NEXT" "PROG")))
+                    (org-agenda-skip-function
+                     '(my-agenda-skip-subtree-nottodo
+                       '("TODO")))))))))
 
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
@@ -201,6 +233,18 @@
   (require 'ox-md)
 
   (require 'org-id))
+
+;; TODO: Also skip todo's with repeating timestamps? Can use
+;; `org-get-repeat' to do that.
+(defun my-agenda-skip-subtree-nottodo (kw-list)
+  "Skip subtree if root keyword is not in KW-LIST.
+
+This is very similar to using `org-agenda-skip-subtree-if' with
+'nottodo, but the latter searches the entire subtree for the
+keyword, not just the root entry."
+  (let ((state (org-get-todo-state)))
+    (unless (or (not state) (member state kw-list))
+      (save-excursion (org-end-of-subtree t)))))
 
 ;;; Load packages related to org-mode
 
