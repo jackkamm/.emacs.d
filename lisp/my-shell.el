@@ -62,7 +62,8 @@ customization and features like remote directory tracking. These
   :general
   (my-major-leader
     :keymaps 'vterm-mode-map
-    "[" 'vterm-copy-mode)
+    "[" 'vterm-copy-mode
+    "q" 'vterm-send-next-key)
   :config
   (evil-set-initial-state 'vterm-mode 'emacs)
   (add-hook 'vterm-mode-hook
