@@ -65,7 +65,7 @@
                         "MOVE(m)" ;Inbox/Refile
                         "IDEA(i)" ;Idea
                         "PEND(n)" ;Holding state
-                        ;;"ITER(r)" ;Repeating task
+                        "ITER(r)" ;Repeating task
                         "TODO(t)" ;Needs action
                         "NEXT(x)" ;On the docket
                         "PROG(g!)" ;In progress
@@ -87,8 +87,7 @@
                             ("OKAY" . (:weight bold :foreground "#7cb8bb"))
                             ("PAST" . (:weight bold :foreground "#dca3a3"))))
   (org-use-fast-todo-selection 'expert)
-  ;;(org-todo-repeat-to-state "ITER")
-  (org-todo-repeat-to-state "TODO")
+  (org-todo-repeat-to-state "ITER")
 
   (org-agenda-custom-commands
    '(("n" "Agenda and active TODOs"
