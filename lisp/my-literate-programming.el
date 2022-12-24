@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'my-R)
+(require 'my-python)
+
 (use-package ein
   :custom
   (ein:output-area-inlined-images t)
