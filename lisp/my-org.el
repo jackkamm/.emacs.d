@@ -219,8 +219,16 @@
     "e" 'org-export-dispatch
     "a" 'org-archive-to-archive-sibling
     "TAB" 'my-org-cycle-hydra/org-global-cycle
-    ;; C-c C-, can't be typed in terminal
-    "," 'org-insert-structure-template)
+    ;; Alt bindings for keys that can't be typed in terminal
+    "," 'org-insert-structure-template
+    "h" 'org-metaleft
+    "j" 'org-metadown
+    "k" 'org-metaup
+    "l" 'org-metaright
+    "H" 'org-shiftmetaleft
+    "J" 'org-shiftmetadown
+    "K" 'org-shiftmetaup
+    "L" 'org-shiftmetaright)
 
   ;; Load modules distributed with org-mode, that need to be loaded
   ;; separately. Could alternatively use `require' or `org-modules',
