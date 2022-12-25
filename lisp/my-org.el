@@ -93,8 +93,8 @@
    '(("n" "Agenda and active TODOs"
       ((agenda "" ((org-agenda-log-mode-items '(clock state))))
        (todo "MOVE")
-       (todo "NEXT")
        (todo "PROG")
+       (todo "NEXT")
        ;; List top-level tasks only. Use "alltodo" and a filter,
        ;; instead of (todo "TODO") which would exclude parent tasks in
        ;; other states (e.g. NEXT, PROG) from the sparse subtree,
