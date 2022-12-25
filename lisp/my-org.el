@@ -65,12 +65,12 @@
                         "MOVE(m)" ;Inbox/Refile
                         "IDEA(i)" ;Idea
                         "PEND(n)" ;Holding state
-                        "ITER(r)" ;Repeating task
+                        "ITER(r/!)" ;Repeating task
                         "TODO(t)" ;Needs action
                         "NEXT(x)" ;On the docket
                         "PROG(g!)" ;In progress
                         "|"
-                        "DONE(d!)" ;Completed
+                        "DONE(d)" ;Completed
                         "DUPE(u)" ;Duplicate
                         "FAIL(f)" ;Tried but failed
                         "OKAY(y)" ;Delegated or otherwise resolved
@@ -91,7 +91,7 @@
 
   (org-agenda-custom-commands
    '(("n" "Agenda and active TODOs"
-      ((agenda "" ((org-agenda-log-mode-items '(clock state))))
+      ((agenda "" ((org-agenda-log-mode-items '(closed clock state))))
        (todo "MOVE")
        (todo "PROG")
        (todo "NEXT")
