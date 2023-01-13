@@ -88,11 +88,7 @@
 
   (org-agenda-custom-commands
    '(("n" "Agenda and active TODOs"
-      ((agenda "" ((org-agenda-overriding-header "Upcoming deadlines")
-                   (org-agenda-entry-types '(:deadline))
-                   (org-agenda-span 'day)
-                   (org-agenda-sorting-strategy '((agenda deadline-up priority-down)))))
-       (agenda "" ((org-deadline-warning-days 0)
+      ((agenda "" ((org-deadline-warning-days 0)
                    ;; Use org-agenda-show-log bcuz
                    ;; org-agenda-start-with-log-mode is ignored in
                    ;; Custom commands. But note it prevents toggling
@@ -102,6 +98,11 @@
                    (org-agenda-show-log t)
                    ;;(org-agenda-start-with-log-mode t)
                    (org-agenda-log-mode-items '(closed clock state))))
+       (agenda "" ((org-agenda-overriding-header "Upcoming deadlines")
+                   (org-agenda-entry-types '(:deadline))
+                   (org-agenda-span 'day)
+                   (org-agenda-sorting-strategy
+                    '((agenda deadline-up priority-down)))))
        (todo "MOVE")
        (todo "PROG")
        (todo "NEXT")
