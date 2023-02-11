@@ -95,7 +95,7 @@
                    ;; the log-mode within this view.
                    ;; TODO: Submit patch to document this behavior in
                    ;; the docstrings of these vars?
-                   (org-agenda-show-log t)
+                   ;;(org-agenda-show-log t)
                    ;;(org-agenda-start-with-log-mode t)
                    (org-agenda-log-mode-items '(closed clock state))))
        (agenda "" ((org-agenda-overriding-header "Upcoming deadlines")
