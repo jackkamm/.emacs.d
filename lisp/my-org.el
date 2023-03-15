@@ -62,7 +62,7 @@
                         "MOVE(m)" ;Inbox/Refile
                         "IDEA(i)" ;Idea
                         "PEND(n)" ;Holding state
-                        "ITER(r/!)" ;Repeating task
+                        "ITER(r)" ;Repeating task
                         "TODO(t)" ;Needs action
                         "NEXT(x)" ;On the docket
                         "PROG(g!)" ;In progress
