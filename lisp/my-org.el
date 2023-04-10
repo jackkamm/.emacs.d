@@ -117,7 +117,13 @@
                     ;;  'nottodo '("TODO" "NEXT" "PROG")))
                     (org-agenda-skip-function
                      '(my-agenda-skip-subtree-nottodo
-                       '("TODO")))))))))
+                       '("TODO")))))))
+     ("d" "All deadlines" agenda "All deadlines in the next year"
+      ((org-deadline-warning-days -360)
+       (org-agenda-span 'day)
+       (org-agenda-entry-types '(:deadline))
+       (org-agenda-sorting-strategy
+        '((agenda deadline-up priority-down)))))))
 
   ;; NOTE org-reverse-note-order is bugged: if file starts with
   ;; section header, refiling to top-level is incorrectly inserted
