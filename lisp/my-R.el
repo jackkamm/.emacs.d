@@ -18,8 +18,7 @@
   ;;(font-lock-mode -1)
   ;;(make-local-variable 'font-lock-function)
   (add-hook 'comint-preoutput-filter-functions #'xterm-color-filter -90 t)
-  (make-local-variable 'comint-output-filter-functions)
-  (remove-hook 'comint-output-filter-functions #'ansi-color-process-output t))
+  (setq-local ansi-color-for-comint-mode nil))
 
 (use-package ess-r-mode
   :ensure ess
