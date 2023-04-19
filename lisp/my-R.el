@@ -6,6 +6,21 @@
 ;; installed from CRAN. If it doesn't work, try creating ~/.R (cf
 ;; https://github.com/emacs-ess/ESS/issues/883)
 
+;; temporary workaround for https://github.com/emacs-ess/ESS/issues/1193
+;; Specifically, https://github.com/emacs-ess/ESS/issues/1193#issuecomment-1129862888
+(use-package xterm-color
+  :autoload xterm-color-filter)
+
+(defun my-iess-colors-workaround ()
+  "Workaround for https://github.com/emacs-ess/ESS/issues/1193"
+  ;; Uncomment in case of performance issues. (xterm-color
+  ;; recommends disabling font-lock in some modes)
+  ;;(font-lock-mode -1)
+  ;;(make-local-variable 'font-lock-function)
+  (add-hook 'comint-preoutput-filter-functions #'xterm-color-filter -90 t)
+  (make-local-variable 'comint-output-filter-functions)
+  (remove-hook 'comint-output-filter-functions #'ansi-color-process-output t))
+
 (use-package ess-r-mode
   :ensure ess
   :init
@@ -28,10 +43,7 @@
     (interactive (list (read-string "R executable: " "R")))
     (let ((inferior-ess-r-program r-cmd)) (R)))
 
-  ;; temporary workaround for https://github.com/emacs-ess/ESS/issues/1193
-  (defun my-inferior-ess-init ()
-      (setq-local ansi-color-for-comint-mode 'filter))
-  (add-hook 'inferior-ess-mode-hook 'my-inferior-ess-init)
+  (add-hook 'inferior-ess-mode-hook #'my-iess-colors-workaround)
 
   (my-major-leader
     :keymaps 'ess-mode-map
