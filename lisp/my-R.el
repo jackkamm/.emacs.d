@@ -32,7 +32,7 @@
   ;; HACK Setting ess-style globally doesn't work in org src buffers
   ;; TODO File an issue with ESS
   ;; See also: https://github.com/emacs-ess/ESS/issues/661
-  ;;(add-hook 'ess-mode-hook (lambda () (ess-set-style 'RStudio 'quiet)))
+  (add-hook 'ess-mode-hook (lambda () (ess-set-style 'RStudio 'quiet)))
 
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
