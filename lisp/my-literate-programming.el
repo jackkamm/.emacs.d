@@ -75,6 +75,7 @@
      (ruby . t)
      (emacs-lisp . t)
      (shell . t)
+     (screen . t)
      (jupyter . t)
      (latex . t))))
 
