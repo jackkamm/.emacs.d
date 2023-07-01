@@ -111,10 +111,11 @@
        ;; other states (e.g. NEXT, PROG) from the sparse subtree,
        ;; preventing us from filtering them out.
        (alltodo "" ((org-agenda-overriding-header "Top-level TODOs")
-                    ;;(org-agenda-todo-list-sublevels nil)
+                    (org-agenda-todo-list-sublevels nil)
                     ;;(org-agenda-skip-function
                     ;;'(org-agenda-skip-subtree-if
                     ;;  'nottodo '("TODO" "NEXT" "PROG")))
+                    ;; FIXME: Is this needed since I set org-agenda-todo-list-sublevels?
                     (org-agenda-skip-function
                      '(my-agenda-skip-subtree-nottodo
                        '("TODO")))))))
