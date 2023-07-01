@@ -44,6 +44,10 @@
 
   (add-hook 'inferior-ess-mode-hook #'my-iess-colors-workaround)
 
+  ;; company breaks in reticulate::repl_python
+  ;; it's also kinda slow/annoying in iESS anyways
+  (add-hook 'inferior-ess-mode-hook (lambda () (company-mode -1)))
+
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
