@@ -7,7 +7,9 @@
 ;; Lines
 
 (setq display-line-numbers-type 'relative)
-(global-display-line-numbers-mode 1)
+;;(global-display-line-numbers-mode 1)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'dired-mode-hook #'display-line-numbers-mode)
 
 (column-number-mode)
 
