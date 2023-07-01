@@ -90,8 +90,8 @@
   ;; https://github.com/astahlman/ob-async/issues/37
   ;; workaround for ob-julia, which breaks ob-async (even on non-julia langs)
   (add-hook 'ob-async-pre-execute-src-block-hook
-            '(lambda ()
-               (setq inferior-julia-program-name "/usr/local/bin/julia"))))
+            #'(lambda ()
+                (setq inferior-julia-program-name "/usr/local/bin/julia"))))
 
 (use-package ob-reticulate
   :after org
