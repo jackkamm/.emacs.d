@@ -11,12 +11,12 @@
 
 ;;; Find in project
 
-(customize-set-variable 'project-vc-merge-submodules nil)
+(setq project-vc-merge-submodules nil)
 
 ;;;; projectile
 ;;(use-package projectile
-;;  :custom
-;;  (projectile-use-git-grep t))
+;;  :init
+;;  (setq projectile-use-git-grep t))
 
 ;; xref
 (general-define-key
@@ -43,10 +43,11 @@
 ;; recently. Some situations may require flycheck instead of the
 ;; built-in flymake, e.g. when using flycheck-package for MELPA
 (use-package flycheck
-  :custom
+  :init
   ;; customizations to improve performance
-  (flycheck-check-syntax-automatically '(save idle-change mode-enabled))
-  (flycheck-idle-change-delay 4)
+  (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled)
+        flycheck-idle-change-delay 4)
+
   :config
   ;; nicer popup window
   (with-eval-after-load 'popwin

@@ -4,9 +4,9 @@
 
 (use-package which-key
   :demand t
-  :custom
-  (which-key-sort-order 'which-key-key-order-alpha)
-  (which-key-enable-extended-define-key t)
+  :init
+  (setq which-key-sort-order 'which-key-key-order-alpha
+        which-key-enable-extended-define-key t)
   :bind (:map help-map
               ("y" . which-key-show-top-level))
   :config

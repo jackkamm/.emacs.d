@@ -89,7 +89,7 @@
 
 ;; tabs
 
-(customize-set-variable 'tab-bar-new-tab-choice "*scratch*")
+(setq tab-bar-new-tab-choice "*scratch*")
 
 (provide 'my-windows-frames)
 ;;; my-windows-frames.el ends here

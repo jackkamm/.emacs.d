@@ -13,80 +13,82 @@
     "oc" 'org-capture
     "oa" 'org-agenda
     "oC" 'my-org-set-created)
-  :custom
+  :init
   ;; 2022-08-07: Agenda started freezing anytime I tried to load it,
   ;; even after restarting Emacs. Disabling cache persistence solved
   ;; it; the problem didn't come back even after re-enabling cache,
   ;; presumably because the bad cache state was cleared. See also the
   ;; comment in ORG-NEWS requesting help in testing this feature, and
   ;; the variables that can be set to aid debugging.
-  ;;(org-element-cache-persistent nil)
+  ;;(setq org-element-cache-persistent nil)
 
-  (org-fontify-done-headline nil)
-  (org-return-follows-link t)
-  (org-src-window-setup 'plain)
-  ;;(org-table-header-line-p t)
-  (org-display-remote-inline-images 'cache)
+  (setq org-fontify-done-headline nil)
+  (setq org-return-follows-link t)
+  (setq org-src-window-setup 'plain)
+  ;;(setq org-table-header-line-p t)
+  (setq org-display-remote-inline-images 'cache)
 
   ;; https://yiufung.net/post/org-mode-hidden-gems-pt1/
-  (org-catch-invisible-edits 'show-and-error)
-  (org-cycle-separator-lines 0)
+  (setq org-catch-invisible-edits 'show-and-error)
+  (setq org-cycle-separator-lines 0)
 
-  (org-deadline-warning-days 30)
-  (org-agenda-start-on-weekday nil)
+  (setq org-deadline-warning-days 30)
+  (setq org-agenda-start-on-weekday nil)
 
-  (org-refile-use-outline-path 'file)
-  (org-outline-path-complete-in-steps nil)
-  ;;(org-goto-interface 'outline-path-completion)
+  (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
+  ;;(setq org-goto-interface 'outline-path-completion)
 
   ;; to resize inline images
-  ;;(org-image-actual-width '(500))
-  (org-image-actual-width nil)
+  ;;(setq org-image-actual-width '(500))
+  (setq org-image-actual-width nil)
 
   ;; Always log the closing time, it's used by org-caldav
-  (org-log-done 'time)
+  (setq org-log-done 'time)
   ;; Log state changes into a drawer
-  (org-log-into-drawer t)
+  (setq org-log-into-drawer t)
 
   ;; C-TAB doesn't work in terminal, and org-force-cycle-archived
   ;; doesn't play nice with general-simulate-key
-  (org-cycle-open-archived-trees t)
+  (setq org-cycle-open-archived-trees t)
 
   ;; turn on org-indent-mode
-  ;;(org-startup-indented t)
+  ;;(setq org-startup-indented t)
 
-  (org-enforce-todo-dependencies t)
-  (org-agenda-dim-blocked-tasks nil)
+  (setq org-enforce-todo-dependencies t)
+  (setq org-agenda-dim-blocked-tasks nil)
 
-  (org-todo-keywords '((sequence
-                        "MOVE(m)" ;Inbox/Refile
-                        "IDEA(i)" ;Idea
-                        "PEND(n)" ;Holding state
-                        "ITER(r)" ;Repeating task
-                        "TODO(t)" ;Needs action
-                        "NEXT(x)" ;On the docket
-                        "PROG(g!)" ;In progress
-                        "|"
-                        "DONE(d)" ;Completed
-                        "DUPE(u)" ;Duplicate
-                        "FAIL(f)" ;Tried but failed
-                        "OKAY(y)" ;Delegated or otherwise resolved
-                        "PAST(a)" ;Stale/expired
-                        "SKIP(k)" ;Skipping/cancelling
-                        )))
+  (setq org-todo-keywords '((sequence
+                             "MOVE(m)" ;Inbox/Refile
+                             "IDEA(i)" ;Idea
+                             "PEND(n)" ;Holding state
+                             "ITER(r)" ;Repeating task
+                             "TODO(t)" ;Needs action
+                             "NEXT(x)" ;On the docket
+                             "PROG(g!)" ;In progress
+                             "|"
+                             "DONE(d)" ;Completed
+                             "DUPE(u)" ;Duplicate
+                             "FAIL(f)" ;Tried but failed
+                             "OKAY(y)" ;Delegated or otherwise resolved
+                             "PAST(a)" ;Stale/expired
+                             "SKIP(k)" ;Skipping/cancelling
+                             )))
 
   ;; Colors inspired from `hl-todo-keyword-faces'
-  (org-todo-keyword-faces '(("NEXT" . (:weight bold :foreground "#dca3a3"))
-                            ("PROG" . (:weight bold :foreground "#7cb8bb"))
-                            ("IDEA" . (:weight bold :foreground "#7cb8bb"))
-                            ("PEND" . (:weight bold :foreground "#d0bf8f"))
-                            ("FAIL" . (:weight bold :foreground "#8c5353"))
-                            ("OKAY" . (:weight bold :foreground "#7cb8bb"))
-                            ("PAST" . (:weight bold :foreground "#dca3a3"))))
-  (org-use-fast-todo-selection 'expert)
-  (org-todo-repeat-to-state "ITER")
+  (setq org-todo-keyword-faces
+        '(("NEXT" . (:weight bold :foreground "#dca3a3"))
+          ("PROG" . (:weight bold :foreground "#7cb8bb"))
+          ("IDEA" . (:weight bold :foreground "#7cb8bb"))
+          ("PEND" . (:weight bold :foreground "#d0bf8f"))
+          ("FAIL" . (:weight bold :foreground "#8c5353"))
+          ("OKAY" . (:weight bold :foreground "#7cb8bb"))
+          ("PAST" . (:weight bold :foreground "#dca3a3"))))
 
-  (org-agenda-custom-commands
+  (setq org-use-fast-todo-selection 'expert)
+  (setq org-todo-repeat-to-state "ITER")
+
+  (setq org-agenda-custom-commands
    '(("n" "Agenda and active TODOs"
       ((agenda "" ((org-deadline-warning-days 0)
                    ;; Use org-agenda-show-log bcuz
@@ -131,11 +133,11 @@
   ;; TODO minimal reproducible example + bug report
   ;; (org-reverse-note-order t)
 
-  (org-startup-folded t)
-  (org-icalendar-include-todo 'all)
+  (setq org-startup-folded t)
+  (setq org-icalendar-include-todo 'all)
 
-  (org-image-max-width 'window)
-  :init
+  (setq org-image-max-width 'window)
+
   ;; TODO implement this functionality via a prefix argument instead?
   (defun my-org-store-link-no-id ()
     (interactive)
@@ -148,12 +150,11 @@
 
   ;; Setting this with :custom no longer worked after org commit
   ;; 578d99b2aad1c5ec9bfbcb2da064cba367b48c30
-  (customize-set-variable 'org-id-link-to-org-use-id
-                          'create-if-interactive-and-no-custom-id)
+  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
   :config
   ;; Disable auto-indentation
-  (customize-set-variable 'org-adapt-indentation nil)
+  (setq org-adapt-indentation nil)
   (add-hook 'org-mode-hook (lambda () (setq evil-auto-indent nil)))
   (add-hook 'org-mode-hook (lambda () (electric-indent-local-mode -1)))
 
@@ -169,11 +170,10 @@
   (add-hook 'org-agenda-mode-hook
                (lambda () (display-line-numbers-mode -1)))
 
-  (customize-set-variable 'org-clock-idle-time 10)
+  (setq org-clock-idle-time 10)
 
-  (customize-set-variable
-   'org-refile-targets
-   '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
+  (setq org-refile-targets '((nil :maxlevel . 9)
+                             (org-agenda-files :maxlevel . 9)))
 
   (defun my-org-capture-iso-week-fun ()
     (require 'org-datetree)
@@ -212,8 +212,8 @@
 
   ;; allows bibtex and \includesvg in latex export
   (with-eval-after-load 'ox-latex
-    (customize-set-variable 'org-latex-pdf-process
-                            (list "latexmk -shell-escape -bibtex -f -pdf %f")))
+    (setq org-latex-pdf-process
+          (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
   ;; ediff
   ;; https://emacs.stackexchange.com/questions/21335/prevent-folding-org-files-opened-by-ediff

@@ -5,16 +5,19 @@
 ;; helm
 
 (use-package helm
-  :custom
-  (helm-split-window-default-side 'other)
-  (helm-buffer-skip-remote-checking t)
+  :init
+  (setq helm-split-window-default-side 'other
+        helm-buffer-skip-remote-checking t)
+
   :config
   (require 'helm-config)
+
   (bind-keys :map helm-map
              ("C-<backspace>" . helm-delete-minibuffer-contents)
              ("<tab>" . helm-execute-persistent-action)
              ("C-i" . helm-execute-persistent-action)
              ("M-o" . helm-select-action))
+
   (with-eval-after-load 'helm-files
     (dolist (m (list helm-find-files-map
                      helm-read-file-map))
@@ -82,10 +85,10 @@
   :demand t)
 
 (use-package selectrum
-  :custom
-  ;; for better behavior when moving/renaming files with dired-dwim-target
-  (selectrum-files-select-input-dirs t)
-  (selectrum-display-style '(horizontal)))
+  :init
+  (setq selectrum-display-style '(horizontal)
+        ;; for better behavior when moving files with dired-dwim-target
+        selectrum-files-select-input-dirs t))
 
 ;; activate preferred completion system
 
@@ -113,15 +116,15 @@
      "Y" 'counsel-yank-pop)
    (ivy-prescient-mode))
   (`selectrum
-   (selectrum-mode +1)
-   (customize-set-variable 'completion-styles '(orderless)))
+   (setq completion-styles '(orderless))
+   (selectrum-mode +1))
   ((or `hybrid `builtin)
-   (icomplete-mode 1)
-   (customize-set-variable 'completion-styles '(orderless))
+   (setq completion-styles '(orderless))
    (setq completion-category-defaults nil)
    (setq completion-ignore-case t)
-   (customize-set-variable 'read-buffer-completion-ignore-case t)
-   (customize-set-variable 'read-file-name-completion-ignore-case t)))
+   (setq read-buffer-completion-ignore-case t)
+   (setq read-file-name-completion-ignore-case t)
+   (icomplete-mode 1)))
 
 ;; The following option makes in-buffer completion a bit nicer,
 ;; avoiding the annoying pop-up buffer when there are 2 or more
@@ -136,7 +139,7 @@
 ;; "Trying to understand 'icomplete-in-buffer'"
 ;; https://lists.gnu.org/archive/html/emacs-devel/2021-07/msg00004.html
 ;;
-;;(customize-set-variable 'completion-cycle-threshold t)
+;;(setq completion-cycle-threshold t)
 
 (provide 'my-completing-read)
 ;;; my-completing-read.el ends here

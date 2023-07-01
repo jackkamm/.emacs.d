@@ -76,7 +76,7 @@ Interactively, open the file at point."
 (let ((backup-dir (concat user-emacs-directory "backups/")))
   (if (not (file-exists-p backup-dir))
       (make-directory backup-dir t))
-  (customize-set-variable 'backup-directory-alist `(("." . ,backup-dir))))
+  (setq backup-directory-alist `(("." . ,backup-dir))))
 
 (provide 'my-history-vc-undo)
 ;;; my-history-vc-undo.el ends here

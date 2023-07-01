@@ -6,8 +6,8 @@
 (require 'my-python)
 
 (use-package ein
-  :custom
-  (ein:output-area-inlined-images t)
+  :init
+  (setq ein:output-area-inlined-images t)
   :config
   (with-eval-after-load 'hydra
     (defhydra my-ein-hydra ()

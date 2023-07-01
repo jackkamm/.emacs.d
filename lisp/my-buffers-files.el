@@ -31,7 +31,7 @@
   (_
    (my-buffers-leader "b" 'switch-to-buffer)))
 
-(customize-set-variable 'Buffer-menu-name-width 60)
+(setq Buffer-menu-name-width 60)
 
 (global-auto-revert-mode 1)
 
