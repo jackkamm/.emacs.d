@@ -12,8 +12,9 @@
   ;; or using eshell
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
-;; Docker
-(use-package docker-tramp :demand t)
+;; Commented out on 2023-08-14 after updating to emacs29 and getting this warning:
+;; Warning (emacs): Package ‘docker-tramp’ has been obsoleted, please use integrated package ‘tramp-container’
+;;(use-package docker-tramp :demand t)
 
 (provide 'my-tramp)
 ;;; my-tramp.el ends here
