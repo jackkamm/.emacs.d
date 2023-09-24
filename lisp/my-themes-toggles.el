@@ -9,6 +9,7 @@
 (my-leader "t" '(:keymap my-theme-map :which-key "Themes/Toggles"))
 
 (my-toggle-leader
+  "c" 'toggle-case-fold-search
   "v" 'visual-line-mode
   "l" 'toggle-truncate-lines
   "m" 'menu-bar-mode
