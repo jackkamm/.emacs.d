@@ -80,6 +80,10 @@ C-h l; ‘clear-this-command-keys’ can fix that."
 (advice-add #'comint-send-invisible :after #'my-clear-keylog)
 (advice-add #'read-passwd :after #'my-clear-keylog)
 
+;; https://vxlabs.com/2021/03/21/gnupg-pinentry-via-the-emacs-minibuffer/
+;; Also need to set "allow-loopback-entry" in ~/.gnupg/gpg-agent.conf
+(setq epg-pinentry-mode 'loopback)
+
 ;; Load additional configurations in config.el. If it doesn't exist,
 ;; create it from a template
 
