@@ -54,6 +54,10 @@
   ;; NOTE see also https://github.com/Somelauw/evil-org-mode/issues/59
   (define-key org-src-mode-map [remap evil-write] 'org-edit-src-save)
 
+  ;; Idea to try to get PDF images to show; didn't work.
+  ;;(require 'image-file)
+  ;;(push "pdf" image-file-name-extensions)
+
   ;; set default-directory to :dir, for path completion in src buffers
   ;; TODO: submit to org-mode?
   (defun my-org-edit-src-wrapper (&rest args)
