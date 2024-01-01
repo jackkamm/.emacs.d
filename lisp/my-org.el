@@ -175,36 +175,6 @@
   (setq org-refile-targets '((nil :maxlevel . 9)
                              (org-agenda-files :maxlevel . 9)))
 
-  (defun my-org-capture-iso-week-fun ()
-    (require 'org-datetree)
-    (require 'cal-iso)
-    (let* ((d (calendar-gregorian-from-absolute (org-today)))
-           (year (calendar-extract-year d))
-	   (month (calendar-extract-month d))
-	   (day (calendar-extract-day d))
-	   (time (encode-time 0 0 0 day month year))
-	   (iso-date (calendar-iso-from-absolute
-		      (calendar-absolute-from-gregorian d)))
-	   (weekyear (nth 2 iso-date))
-           (weekday (nth 1 iso-date))
-	   (week (nth 0 iso-date))
-           ;; NOTE: not an ISO standard
-           (weekmonth (calendar-extract-month
-                       ;; anchor on Thurs, to be consistent with weekyear
-                       (calendar-gregorian-from-absolute
-                        (calendar-iso-to-absolute `(,week 4 ,weekyear))))))
-      (org-datetree--find-create
-       "^\\*+[ \t]+\\([12][0-9]\\{3\\}\\)\\(\\s-*?\
-\\([ \t]:[[:alnum:]:_@#%%]+:\\)?\\s-*$\\)"
-       weekyear)
-      (org-datetree--find-create
-       "^\\*+[ \t]+%d-\\([01][0-9]\\) \\w+$"
-       weekyear weekmonth)
-      (org-datetree--find-create
-       "^\\*+[ \t]+%d-W\\([0-5][0-9]\\)$"
-       weekyear weekmonth week
-       (format "%d-W%02d" weekyear week))))
-
   ;; org-goto works best in emacs/insert state. No hook available, so
   ;; use an advice.
   ;; TODO? Propose a patch to add a hook for org-goto
