@@ -9,6 +9,9 @@
 (use-package eglot)
 (add-hook 'python-mode-hook 'eglot-ensure)
 
+;;(setq eldoc-display-functions '(eldoc-display-in-echo-area eldoc-display-in-buffer))
+(setq eldoc-echo-area-prefer-doc-buffer t)
+
 ;;; Find in project
 
 (setq project-vc-merge-submodules nil)
