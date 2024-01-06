@@ -63,6 +63,10 @@
 ;; display-buffer customizations
 
 (defun my-ace-display-buffer-2 (buffer alist)
+  ;; prevents: "custom-declare-variable: Defining as dynamic an
+  ;; already lexical var: aw-dispatch-always"
+  (require 'ace-window)
+
   (let ((aw-dispatch-always t))
     (ace-display-buffer buffer alist)))
 
