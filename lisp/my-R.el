@@ -27,7 +27,8 @@
   (setq ess-indent-with-fancy-comments nil
         ess-eval-visibly 'nowait
         ess-smart-S-assign-key nil
-        ess-style 'RRR)
+        ess-style 'RRR
+        ess-startup-directory 'default-directory)
   :config
   ;; HACK Setting ess-style globally doesn't work in org src buffers
   ;; TODO File an issue with ESS
