@@ -229,7 +229,10 @@
   ;; limited), or as input to pandoc --self-contained --to html.
   (require 'ox-md)
 
-  (require 'org-id))
+  (require 'org-id)
+
+  (require 'oc-bibtex)
+  (require 'oc-natbib))
 
 ;; TODO: Also skip todo's with repeating timestamps? Can use
 ;; `org-get-repeat' to do that.
