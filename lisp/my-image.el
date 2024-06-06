@@ -2,17 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; TODO autoloads/deferral
-(use-package org-clip)
-
-(defun my-copy-image ()
-  "To be run in image-mode"
-  (interactive)
-  (shell-command-on-region
-   (point-min)
-   (point-max)
-   (ox-clip-get-command ox-clip-osx-cmd)))
-
 ;; Originally based on ox-clip-image-to-clipboard
 (defun my-copy-image (&optional scale)
   "To be run within image-mode. Works with tramp, and even for
