@@ -2,8 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq python-shell-interpreter "ipython")
-(setq python-shell-interpreter-args "--simple-prompt -i")
+;;(setq python-shell-interpreter "ipython")
+;;(setq python-shell-interpreter-args "--simple-prompt -i")
+
+;;(setq python-shell-interpreter "python3")
+;;(setq python-shell-interpreter-args "-i")
 
 (with-eval-after-load 'python
   (add-to-list
