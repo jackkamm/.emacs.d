@@ -44,7 +44,8 @@
 (my-files-leader
   "s" 'save-some-buffers
   "c" 'write-file
-  "o" 'find-file-other-window)
+  "o" 'find-file-other-window
+  "t" 'find-file-other-tab)
 
 (pcase my-completing-read-style
   (`helm
