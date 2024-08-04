@@ -48,13 +48,25 @@
 
 (setq-default indent-tabs-mode nil)
 
-;; higlighting
-(use-package hl-todo
-  :defer 5
-  :config
-  (global-hl-todo-mode 1))
+;;;; higlighting
+;;;; 2024-08-03: Commented b/c `hl-todo-keyword-faces' is rather
+;;;; manually defined and doesn't play well with all themes (e.g. xemacs)
+;;(use-package hl-todo
+;;  :defer 5
+;;  :config
+;;  (global-hl-todo-mode 1))
 
 ;; Themes
+
+;;;; install some nice themes
+;;(dolist (theme '(moe-theme
+;;                 ;;eziam-themes
+;;                 zenburn-theme))
+;;  (unless (package-installed-p theme)
+;;    (package-install theme)))
+
+;; Note that my-base-theme.el should be in `custom-theme-directory'
+(load-theme 'my-base t)
 
 (defun my-load-theme-only (this-theme)
   "Like `load-theme', but also disables previously loaded themes."
@@ -65,22 +77,12 @@
 				     (custom-available-themes))))))
   (dolist (theme custom-enabled-themes)
     (disable-theme theme))
+  (load-theme 'my-base t)
   (load-theme this-theme))
 
 (my-toggle-leader
   "t" 'my-load-theme-only
   "T" 'customize-themes)
-
-;; install some nice themes
-(dolist (theme '(moe-theme
-                 ;;eziam-themes
-                 zenburn-theme))
-  (unless (package-installed-p theme)
-    (package-install theme)))
-
-;;;; load default theme
-;;(load-theme 'moe-dark t)
-;;(load-theme 'zenburn t)
 
 ;; Emoji
 
