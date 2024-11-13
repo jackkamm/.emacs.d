@@ -90,7 +90,17 @@
 
   (setq org-agenda-custom-commands
    '(("n" "Agenda and active TODOs"
-      ((agenda "" ((org-deadline-warning-days 0)
+      ((agenda "" ((org-agenda-overriding-header "Upcoming deadlines")
+                   (org-agenda-entry-types '(:deadline))
+                   (org-agenda-span 'day)
+                   (org-agenda-sorting-strategy
+                    '((agenda deadline-up priority-down)))
+                   (org-deadline-warning-days -90)
+                   (org-agenda-deadline-faces
+                    '((1.0 . org-imminent-deadline)
+                      (0.9 . org-upcoming-deadline)
+                      (0.0 . org-upcoming-distant-deadline)))))
+       (agenda "" ((org-deadline-warning-days 0)
                    ;; Use org-agenda-show-log bcuz
                    ;; org-agenda-start-with-log-mode is ignored in
                    ;; Custom commands. But note it prevents toggling
@@ -99,15 +109,21 @@
                    ;; the docstrings of these vars?
                    ;;(org-agenda-show-log t)
                    ;;(org-agenda-start-with-log-mode t)
-                   (org-agenda-log-mode-items '(closed clock state))))
-       (agenda "" ((org-agenda-overriding-header "Upcoming deadlines")
-                   (org-agenda-entry-types '(:deadline))
-                   (org-agenda-span 'day)
                    (org-agenda-sorting-strategy
-                    '((agenda deadline-up priority-down)))))
-       (todo "MOVE")
-       (todo "PROG")
-       (todo "NEXT")
+                    '((agenda habit-down time-up priority-down scheduled-down)))
+                   (org-agenda-log-mode-items '(closed clock state))))
+       (todo "MOVE" ((org-agenda-sorting-strategy
+                      '((todo urgency-down timestamp-down)))
+                     (org-agenda-todo-ignore-scheduled 'all)
+                     (org-agenda-todo-ignore-deadlines 'all)))
+       (todo "PROG" ((org-agenda-sorting-strategy
+                      '((todo urgency-down timestamp-down)))
+                     (org-agenda-todo-ignore-scheduled 'all)
+                     (org-agenda-todo-ignore-deadlines 'all)))
+       (todo "NEXT" ((org-agenda-sorting-strategy
+                      '((todo urgency-down timestamp-down)))
+                     (org-agenda-todo-ignore-scheduled 'all)
+                     (org-agenda-todo-ignore-deadlines 'all)))
        ;; List top-level tasks only. Use "alltodo" and a filter,
        ;; instead of (todo "TODO") which would exclude parent tasks in
        ;; other states (e.g. NEXT, PROG) from the sparse subtree,
@@ -120,7 +136,11 @@
                     ;; FIXME: Is this needed since I set org-agenda-todo-list-sublevels?
                     (org-agenda-skip-function
                      '(my-agenda-skip-subtree-nottodo
-                       '("TODO")))))))
+                       '("TODO")))
+                    (org-agenda-sorting-strategy
+                     '((todo urgency-down timestamp-down)))
+                    (org-agenda-todo-ignore-scheduled 'all)
+                    (org-agenda-todo-ignore-deadlines 'all)))))
      ("d" "All deadlines" agenda "All deadlines in the next year"
       ((org-deadline-warning-days -360)
        (org-agenda-span 'day)
