@@ -6,8 +6,16 @@
 ;; installed from CRAN. If it doesn't work, try creating ~/.R (cf
 ;; https://github.com/emacs-ess/ESS/issues/883)
 
+;;
+
 ;; temporary workaround for https://github.com/emacs-ess/ESS/issues/1193
 ;; Specifically, https://github.com/emacs-ess/ESS/issues/1193#issuecomment-1129862888
+;;
+;; The original problem was fixed in Emacs29, though one commenter
+;; notes this hook may still help for problematic tidyverse colors
+;; (https://github.com/emacs-ess/ESS/issues/1193#issuecomment-2101721572). Try
+;; removing the hook after I've stopped using emacs<29.
+
 (use-package xterm-color
   :autoload xterm-color-filter)
 
@@ -19,6 +27,8 @@
   ;;(make-local-variable 'font-lock-function)
   (add-hook 'comint-preoutput-filter-functions #'xterm-color-filter -90 t)
   (setq-local ansi-color-for-comint-mode nil))
+
+;;
 
 (use-package ess-r-mode
   :ensure ess
