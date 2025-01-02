@@ -102,6 +102,13 @@ customization and features like remote directory tracking. These
     "dvb" 'my-vterm-eval-buffer
     "dvr" 'my-vterm-eval-region))
 
+;; eat
+
+(use-package eat
+  :commands 'eat
+  :config
+  (evil-set-initial-state 'eat-mode 'emacs))
+
 ;; execute shell commands
 
 (defun my-external-command (cmd)
