@@ -61,6 +61,7 @@
 ;;;; install some nice themes
 ;;(dolist (theme '(moe-theme
 ;;                 ;;eziam-themes
+;;                 color-theme-modern ;contains xemacs
 ;;                 zenburn-theme))
 ;;  (unless (package-installed-p theme)
 ;;    (package-install theme)))
