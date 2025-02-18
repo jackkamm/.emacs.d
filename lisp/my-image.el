@@ -30,5 +30,8 @@ images without a backing file (if that can happen?)"
     ;;(delete-file tmp-file)
     ))
 
+;; Try to prevent hanging on tramp images
+(setq image-auto-resize-on-window-resize nil)
+
 (provide 'my-image)
 ;;; my-image.el ends here
