@@ -37,13 +37,24 @@
   (setq ess-indent-with-fancy-comments nil
         ess-eval-visibly 'nowait
         ess-smart-S-assign-key nil
-        ess-style 'RRR
+        ess-style 'OWN
         ess-startup-directory 'default-directory)
   :config
+  (setq my-ess-style (append
+                      ;; I /think/ its an alist; can just add to front
+                      '((ess-align-arguments-in-calls . nil)
+                        ;;(ess-indent-from-lhs . (fun-decl-opening))
+                        (ess-indent-offset . 4))
+                      (cdr (assoc 'RStudio ess-style-alist))))
+  ;; can't use setq because the defcustom uses :set
+  (if (version< emacs-version "29")
+      (customize-set-variable 'ess-own-style-list my-ess-style)
+    (setopt ess-own-style-list my-ess-style))
+
   ;; HACK Setting ess-style globally doesn't work in org src buffers
-  ;; TODO File an issue with ESS
+  ;; TODO File an issue with ESS/Org
   ;; See also: https://github.com/emacs-ess/ESS/issues/661
-  (add-hook 'ess-mode-hook (lambda () (ess-set-style 'RStudio 'quiet)))
+  (add-hook 'ess-mode-hook (lambda () (ess-set-style 'OWN 'quiet)))
 
   ;; https://github.com/syl20bnr/spacemacs/pull/9364
   (define-key inferior-ess-mode-map (kbd "C-d") nil) ;TODO PR evil-collection
