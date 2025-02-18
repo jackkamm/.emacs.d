@@ -8,7 +8,7 @@
 images without a backing file (if that can happen?)"
   (interactive "P")
   (let* ((contents (buffer-substring-no-properties (point-min) (point-max)))
-         (tmp-file (make-temp-file "my-copy-image"))
+         (tmp-file (make-temp-file "my-copy-image" nil (concat "." (symbol-name image-type))))
          (coding-system-for-write 'raw-text))
     (with-temp-file tmp-file
       (insert contents))
@@ -25,8 +25,10 @@ images without a backing file (if that can happen?)"
 	       (file-name-extension tmp-file)
 	       tmp-file))))
     (message "Copied %s" tmp-file)
-    (sleep-for 100)
-    (delete-file tmp-file)))
+    ;; FIXME: Cleanup below can cause problems on linux?
+    ;;(sleep-for 100)
+    ;;(delete-file tmp-file)
+    ))
 
 (provide 'my-image)
 ;;; my-image.el ends here
