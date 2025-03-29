@@ -68,7 +68,9 @@
 
   ;; company breaks in reticulate::repl_python
   ;; it's also kinda slow/annoying in iESS anyways
-  (add-hook 'inferior-ess-mode-hook (lambda () (company-mode -1)))
+  (add-hook 'inferior-ess-mode-hook
+            (lambda () (when (featurep 'company)
+                         (company-mode -1))))
 
   (my-major-leader
     :keymaps 'ess-mode-map
