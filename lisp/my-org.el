@@ -223,8 +223,10 @@
   ;; bind major keys
   (my-major-leader
     :keymaps 'org-mode-map
-    "r" 'org-redisplay-inline-images
-    "t" 'org-toggle-inline-images
+    ;"r" 'org-redisplay-inline-images
+    ;"t" 'org-toggle-inline-images
+    "r" 'org-link-preview
+    "t" 'org-link-preview
     "e" 'org-export-dispatch
     "a" 'org-archive-to-archive-sibling
     "TAB" 'my-org-cycle-hydra/org-global-cycle
