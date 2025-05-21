@@ -225,8 +225,10 @@
     :keymaps 'org-mode-map
     ;"r" 'org-redisplay-inline-images
     ;"t" 'org-toggle-inline-images
-    "r" 'org-link-preview
-    "t" 'org-link-preview
+    ;; loads image in just the current heading
+    "p" 'org-link-preview
+    ;; loads images in whole buffer but might be slower
+    "r" 'org-link-preview-refresh
     "e" 'org-export-dispatch
     "a" 'org-archive-to-archive-sibling
     "TAB" 'my-org-cycle-hydra/org-global-cycle
