@@ -77,7 +77,8 @@
 
   ;; Colors inspired from `hl-todo-keyword-faces'
   (setq org-todo-keyword-faces
-        '(("NEXT" . (:weight bold :foreground "#dca3a3"))
+        '(("MOVE" . (:weight bold :foreground "#8c5353"))
+          ("NEXT" . (:weight bold :foreground "#dca3a3"))
           ("PROG" . (:weight bold :foreground "#7cb8bb"))
           ("IDEA" . (:weight bold :foreground "#7cb8bb"))
           ("PEND" . (:weight bold :foreground "#d0bf8f"))
@@ -112,18 +113,6 @@
                    (org-agenda-sorting-strategy
                     '((agenda habit-down time-up priority-down scheduled-down)))
                    (org-agenda-log-mode-items '(closed clock state))))
-       (todo "MOVE" ((org-agenda-sorting-strategy
-                      '((todo urgency-down timestamp-down)))
-                     (org-agenda-todo-ignore-scheduled 'all)
-                     (org-agenda-todo-ignore-deadlines 'all)))
-       (todo "PROG" ((org-agenda-sorting-strategy
-                      '((todo urgency-down timestamp-down)))
-                     (org-agenda-todo-ignore-scheduled 'all)
-                     (org-agenda-todo-ignore-deadlines 'all)))
-       (todo "NEXT" ((org-agenda-sorting-strategy
-                      '((todo urgency-down timestamp-down)))
-                     (org-agenda-todo-ignore-scheduled 'all)
-                     (org-agenda-todo-ignore-deadlines 'all)))
        ;; List top-level tasks only. Use "alltodo" and a filter,
        ;; instead of (todo "TODO") which would exclude parent tasks in
        ;; other states (e.g. NEXT, PROG) from the sparse subtree,
@@ -136,11 +125,12 @@
                     ;; FIXME: Is this needed since I set org-agenda-todo-list-sublevels?
                     (org-agenda-skip-function
                      '(my-agenda-skip-subtree-nottodo
-                       '("TODO")))
+                       '("TODO" "MOVE" "PROG" "NEXT")))
                     (org-agenda-sorting-strategy
                      '((todo urgency-down timestamp-down)))
                     (org-agenda-todo-ignore-scheduled 'all)
-                    (org-agenda-todo-ignore-deadlines 'all)))))
+                    (org-agenda-todo-ignore-deadlines 'all)))
+       (tags-todo "+HOLD")))
      ("d" "All deadlines" agenda "All deadlines in the next year"
       ((org-deadline-warning-days -360)
        (org-agenda-span 'day)
@@ -263,13 +253,15 @@
 ;; TODO: Also skip todo's with repeating timestamps? Can use
 ;; `org-get-repeat' to do that.
 (defun my-agenda-skip-subtree-nottodo (kw-list)
-  "Skip subtree if root keyword is not in KW-LIST.
+  "Skip subtree if root keyword is not in KW-LIST or if it has HOLD tag.
 
 This is very similar to using `org-agenda-skip-subtree-if' with
 'nottodo, but the latter searches the entire subtree for the
 keyword, not just the root entry."
-  (let ((state (org-get-todo-state)))
-    (unless (or (not state) (member state kw-list))
+  (let ((state (org-get-todo-state))
+        (tags (org-get-tags)))
+    (when (or (member "HOLD" tags) ;HACK make this an argument instead of hardcoding?
+              (not (and state (member state kw-list))))
       (save-excursion (org-end-of-subtree t)))))
 
 ;;; Load packages related to org-mode
