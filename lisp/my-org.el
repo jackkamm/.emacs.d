@@ -254,7 +254,9 @@
   (require 'org-id)
 
   (require 'oc-bibtex)
-  (require 'oc-natbib))
+  (require 'oc-natbib)
+
+  (setq org-persist-remote-files nil))
 
 ;; TODO: Also skip todo's with repeating timestamps? Can use
 ;; `org-get-repeat' to do that.
