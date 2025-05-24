@@ -162,6 +162,8 @@
   ;; 578d99b2aad1c5ec9bfbcb2da064cba367b48c30
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
+  (setq org-export-with-broken-links t)
+
   :config
   ;; Disable auto-indentation
   (setq org-adapt-indentation nil)
