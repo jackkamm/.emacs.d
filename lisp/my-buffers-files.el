@@ -75,10 +75,10 @@
 
 (defun my-copy-filename ()
   (interactive)
-  (message
-   (kill-new
-    (or (buffer-file-name)
-	default-directory))))
+  (let ((fname (or (buffer-file-name)
+	           default-directory)))
+    (message fname)
+    (kill-new fname)))
 (my-files-leader "y" 'my-copy-filename)
 
 (recentf-mode 1)
