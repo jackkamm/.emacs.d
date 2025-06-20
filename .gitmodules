@@ -3,7 +3,7 @@
 	url = https://github.com/jackkamm/yasnippets-latex
 [submodule "lisp/nextflow-mode"]
 	path = lisp/nextflow-mode
-	url = https://github.com/jackkamm/nextflow-mode
+	url = https://github.com/edmundmiller/nextflow-mode
 [submodule "lisp/ob-async"]
 	path = lisp/ob-async
 	url = https://github.com/jackkamm/ob-async
