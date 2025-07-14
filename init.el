@@ -94,6 +94,11 @@ C-h l; ‘clear-this-command-keys’ can fix that."
     (copy-file template config-el))
   (load config-el))
 
+;; Additional customizations
+
+;; Prevent fat-fingering C-x C-z
+(global-set-key [(control x)(control z)] nil)
+
 ;; Additional customizations automatically added by Emacs
 
 (put 'upcase-region 'disabled nil)
