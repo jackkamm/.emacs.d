@@ -26,11 +26,6 @@
                  ("<left>" . backward-char)
                  ("<right>" . forward-char)))))
 
-(use-package helm-ag
-  :config
-  (bind-keys :map helm-ag-mode-map
-             ((kbd "<tab>") . helm-ag-mode-jump-other-window)))
-
 (use-package helm-projectile)
 
 ;; ivy
