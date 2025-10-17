@@ -107,7 +107,27 @@ customization and features like remote directory tracking. These
 (use-package eat
   :commands 'eat
   :config
-  (evil-set-initial-state 'eat-mode 'emacs))
+  (evil-set-initial-state 'eat-mode 'emacs)
+  (defun my-eat-eval-region (start end)
+    (interactive "r")
+    (let ((command (buffer-substring start end)))
+      (with-current-buffer eat-buffer-name
+        (eat-term-send-string eat-terminal command)
+        (eat-self-input 1 'return))))
+
+  (defun my-eat-eval-line ()
+    (interactive)
+    (my-eat-eval-region (line-beginning-position) (line-end-position)))
+
+  (defun my-eat-eval-buffer ()
+    (interactive)
+    (my-eat-eval-region (point-min) (point-max)))
+
+  (my-leader
+    "de" '(:ignore t :which-key "Eat")
+    "del" 'my-eat-eval-line
+    "deb" 'my-eat-eval-buffer
+    "der" 'my-eat-eval-region))
 
 ;; execute shell commands
 
