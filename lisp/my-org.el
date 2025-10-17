@@ -250,6 +250,7 @@
   (require 'oc-bibtex)
   (require 'oc-natbib)
 
+  (setq org-highlight-latex-and-related '(native))
   (setq org-persist-remote-files nil))
 
 ;; TODO: Also skip todo's with repeating timestamps? Can use
