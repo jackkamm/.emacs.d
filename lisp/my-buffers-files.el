@@ -102,6 +102,9 @@
 (my-major-leader :keymaps 'dired-mode-map
   "w" 'wdired-change-to-wdired-mode)
 
+(add-hook 'dired-mode-hook
+          (lambda () (toggle-truncate-lines 1)))
+
 ;; Diff'ing
 
 (use-package ediff
