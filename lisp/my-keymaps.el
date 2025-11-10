@@ -25,11 +25,12 @@
    :states '(normal motion visual)
    "SPC" (general-simulate-key "C-c"))
 
-  ;; C-n may not be accessible in webVNC
+  ;; Alternatives for keybindings that don't work in webVNC
   (general-define-key
    :keymaps 'override
    "C-j" (general-simulate-key "C-n")
-   "C-k" (general-simulate-key "C-p"))
+   "C-k" (general-simulate-key "C-p")
+   "C-c SPC" (general-simulate-key "C-SPC"))
 
   (my-leader
     "a" '(:ignore t :which-key "Applications")
