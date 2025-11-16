@@ -30,6 +30,8 @@
    :keymaps 'override
    "C-j" (general-simulate-key "C-n")
    "C-k" (general-simulate-key "C-p")
+   "M-j" (general-simulate-key "M-n")
+   "M-k" (general-simulate-key "M-p")
    "C-c SPC" (general-simulate-key "C-SPC"))
 
   (my-leader
