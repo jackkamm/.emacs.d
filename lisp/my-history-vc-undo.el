@@ -58,7 +58,9 @@ Interactively, open the file at point."
                            (completing-read "Act on file: "
                                             (magit-list-files)))))
     (shell-command (format "ls -lh '%s'" file)))
-  (define-key magit-status-mode-map "." 'my-magit-ls-lh))
+  (define-key magit-status-mode-map "." 'my-magit-ls-lh)
+  (transient-append-suffix 'magit-merge "-s"
+    '("-a" "Allow unrelated histories" "--allow-unrelated-histories")))
 
 (use-package git-timemachine
   :general
