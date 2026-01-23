@@ -123,6 +123,21 @@ customization and features like remote directory tracking. These
     (interactive)
     (my-eat-eval-region (point-min) (point-max)))
 
+  (define-minor-mode my-eat-copy-mode
+    "Enable line mode and enter normal state in eat buffer."
+    :global nil
+    (if my-eat-copy-mode
+        (progn
+          (eat-semi-char-mode)
+          (evil-emacs-state)
+          (end-of-buffer))
+      (eat-line-mode)
+      (evil-normal-state)))
+
+  (my-major-leader
+    :keymaps 'eat-mode-map
+    "[" 'my-eat-copy-mode)
+
   (my-leader
     "de" '(:ignore t :which-key "Eat")
     "del" 'my-eat-eval-line
