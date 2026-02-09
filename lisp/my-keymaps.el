@@ -32,7 +32,8 @@
    "C-k" (general-simulate-key "C-p")
    "M-j" (general-simulate-key "M-n")
    "M-k" (general-simulate-key "M-p")
-   "C-c SPC" (general-simulate-key "C-SPC"))
+   "C-c SPC" (general-simulate-key "C-SPC")
+   "C-\\" (general-simulate-key "C-w"))
 
   (my-leader
     "a" '(:ignore t :which-key "Applications")
