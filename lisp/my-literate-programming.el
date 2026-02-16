@@ -34,19 +34,26 @@
     "k" 'ein:worksheet-goto-prev-input-km
     "<return>" 'ein:worksheet-execute-cell-and-goto-next-km))
 
-(use-package jupyter
-  :init
-  (add-hook 'jupyter-repl-mode-hook
-            (lambda () (display-line-numbers-mode -1)))
-  ;; TODO jupyter.el violates keybinding conventions; submit PR
-  (with-eval-after-load 'jupyter-org-extensions
-    (bind-key (kbd "C-c h") nil jupyter-org-interaction-mode-map)
-    (my-major-leader
-      :keymaps 'org-mode-map
-      "h" 'jupyter-org-hydra/body))
-  :config
-  (setq org-babel-default-header-args:jupyter-python '((:async . "yes")
-                                                       (:kernel . "python3"))))
+;;;; I'm not using emacs-jupyter these days, and I found it can cause
+;;;; delays when starting up Org files or sometimes other issues such
+;;;; as when using tramp or if jupyter binary is missing. If I decide
+;;;; to uncomment this again, remember to add jupyter back to
+;;;; org-babel-load-languages in my org-babel config
+;;(use-package jupyter
+;;  :init
+;;  (add-hook 'jupyter-repl-mode-hook
+;;            (lambda () (display-line-numbers-mode -1)))
+;;  ;; TODO jupyter.el violates keybinding conventions; submit PR
+;;  (with-eval-after-load 'jupyter-org-extensions
+;;    (bind-key (kbd "C-c h") nil jupyter-org-interaction-mode-map)
+;;    (my-major-leader
+;;      :keymaps 'org-mode-map
+;;      "h" 'jupyter-org-hydra/body))
+;;  :config
+;;  (setq org-babel-default-header-args:jupyter-python
+;;        '((:async . "yes") (:kernel . "python3"))))
+;;(with-eval-after-load 'org
+;;  (require 'jupyter))
 
 (with-eval-after-load 'org
   ;;; org-babel
@@ -68,8 +75,6 @@
                                    (expand-file-name dir)))))))
   (advice-add 'org-edit-src-code :after 'my-org-edit-src-wrapper)
 
-  (require 'jupyter)
-
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((R . t)
@@ -80,7 +85,7 @@
      (emacs-lisp . t)
      (shell . t)
      (screen . t)
-     (jupyter . t)
+     ;;(jupyter . t)
      (latex . t))))
 
 (use-package ob-async
