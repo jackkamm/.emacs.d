@@ -35,6 +35,8 @@
    "C-c SPC" (general-simulate-key "C-SPC")
    "C-\\" (general-simulate-key "C-w"))
 
+  (define-key isearch-mode-map (kbd "C-\\") 'isearch-yank-word-or-char)
+
   (my-leader
     "a" '(:ignore t :which-key "Applications")
     ;; because M-q might be overridden on macOS
