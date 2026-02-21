@@ -85,7 +85,14 @@
     "r" 'ess-eval-region
     "f" 'ess-eval-function
     "p" 'ess-eval-paragraph
-    "P" 'ess-eval-paragraph-and-step))
+    "P" 'ess-eval-paragraph-and-step)
+
+  ;; ess-r-package-auto-activate causes hanging with broken
+  ;; connections on tramp when visitng remote buffer. It's even
+  ;; triggered when entering the minibuffer making it difficult to fix
+  ;; by calling M-x tramp-cleanup-this-connection or C-x b
+  ;; TODO: File an issue with emacs-ess
+  (setq ess-r-package-auto-activate nil))
 
 (provide 'my-R)
 ;;; my-R.el ends here
