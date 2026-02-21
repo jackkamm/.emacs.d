@@ -59,14 +59,16 @@
   :ensure nil
   :bind (:map icomplete-minibuffer-map
               ("RET" . icomplete-force-complete-and-exit)
-              ("M-j" . exit-minibuffer)
+              ;;("M-j" . exit-minibuffer)
+              ("M-RET" . exit-minibuffer)
               ;; Replacement for M-TAB which might be intercepted by the OS
               ("TAB" . icomplete-force-complete)
               ;; default C-, and C-. bindings may not work in terminal
               ("<down>" . icomplete-forward-completions)
               ("C-n" . icomplete-forward-completions)
               ("<up>" . icomplete-backward-completions)
-              ("C-p" . icomplete-backward-completions)))
+              ("C-p" . icomplete-backward-completions)
+              ("C-c q" . icomplete-vertical-mode)))
 
 ;; provides helm-style completion for icomplete. Though helm provides
 ;; an implementation for `completion-styles-alist', it is incomplete,
@@ -74,10 +76,11 @@
 ;; implemented. `orderless' provides a full working implementation.
 (use-package orderless)
 
-(use-package icomplete-vertical
-  :bind (:map icomplete-minibuffer-map
-              ("C-v" . icomplete-vertical-toggle))
-  :demand t)
+;;;; icomplete-vertical now built into icomplete?
+;;(use-package icomplete-vertical
+;;  :bind (:map icomplete-minibuffer-map
+;;              ("C-c q" . icomplete-vertical-toggle))
+;;  :demand t)
 
 (use-package selectrum
   :init
@@ -87,6 +90,7 @@
 
 ;; activate preferred completion system
 
+;; TODO: switch to vertico
 (setq my-completing-read-style 'selectrum)
 ;;(setq my-completing-read-style 'hybrid)
 ;;(setq my-completing-read-style 'builtin)
