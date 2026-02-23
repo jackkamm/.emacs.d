@@ -21,7 +21,8 @@
  "i" 'ibuffer
  "I" 'ibuffer-other-window
  "F" 'switch-to-buffer-other-frame
- "o" 'switch-to-buffer-other-window)
+ "o" 'switch-to-buffer-other-window
+ "t" 'switch-to-buffer-other-tab)
 
 (pcase my-completing-read-style
   (`helm
