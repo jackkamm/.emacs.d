@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: slurm-bpparam
+# key: slurm-bpparam
+# --
+if ("SLURM_CPUS_ON_NODE" %in% names(Sys.getenv())) {
+  ncores <- as.integer(Sys.getenv()[["SLURM_CPUS_ON_NODE"]])
+  BPPARAM <- MulticoreParam(ncores)
+} else {
+  BPPARAM <- MulticoreParam(8)
+}
