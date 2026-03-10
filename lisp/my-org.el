@@ -96,7 +96,7 @@
                    (org-agenda-span 'day)
                    (org-agenda-sorting-strategy
                     '((agenda deadline-up priority-down)))
-                   (org-deadline-warning-days -90)
+                   (org-deadline-warning-days 90)
                    (org-agenda-deadline-faces
                     '((1.0 . org-imminent-deadline)
                       (0.9 . org-upcoming-deadline)
