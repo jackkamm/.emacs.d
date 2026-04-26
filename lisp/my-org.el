@@ -130,7 +130,8 @@
                      '((todo urgency-down timestamp-down)))
                     (org-agenda-todo-ignore-scheduled 'all)
                     (org-agenda-todo-ignore-deadlines 'all)))
-       (tags-todo "+HOLD")))
+       (tags-todo "+HOLD" ((org-agenda-sorting-strategy
+                            '((tags urgency-down timestamp-down)))))))
      ("d" "All deadlines" agenda "All deadlines in the next year"
       ((org-deadline-warning-days -360)
        (org-agenda-span 'day)
