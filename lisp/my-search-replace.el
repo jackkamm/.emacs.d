@@ -50,7 +50,8 @@
   (_
    (my-search-replace-leader
      "g" 'rgrep
-     "p" 'project-find-regexp
+     ;;"p" 'project-find-regexp
+     "p" 'projectile-grep
      "b" 'multi-occur-in-matching-buffers)))
 
 ;; additional keybindings for hybrid style completion

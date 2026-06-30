@@ -16,10 +16,10 @@
 
 (setq project-vc-merge-submodules nil)
 
-;;;; projectile
-;;(use-package projectile
-;;  :init
-;;  (setq projectile-use-git-grep t))
+;; projectile
+(use-package projectile
+  :init
+  (setq projectile-use-git-grep t))
 
 ;; xref
 (general-define-key

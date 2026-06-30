@@ -63,7 +63,7 @@
    (my-files-leader
      "f" 'find-file
      "r" 'recentf-open-files
-     "p" 'project-find-file)))
+     "p" 'projectile-find-file)))
 
 (defun my-find-config-module (fname)
   (interactive
