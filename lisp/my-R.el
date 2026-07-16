@@ -72,6 +72,10 @@
             (lambda () (when (featurep 'company)
                          (company-mode -1))))
 
+  (add-to-list 'eglot-server-programs
+               '(ess-r-mode . ("air" "language-server")))
+  (add-hook 'ess-r-mode-hook 'eglot-ensure)
+
   (my-major-leader
     :keymaps 'ess-mode-map
     ;; predefined keymaps
