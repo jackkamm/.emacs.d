@@ -136,7 +136,8 @@ customization and features like remote directory tracking. These
 
   (my-major-leader
     :keymaps 'eat-mode-map
-    "[" 'my-eat-copy-mode)
+    "[" 'my-eat-copy-mode
+    "q" 'eat-quoted-input)
 
   (my-leader
     "de" '(:ignore t :which-key "Eat")
